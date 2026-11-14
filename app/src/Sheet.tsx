@@ -47,19 +47,20 @@ export default function Sheet({ place, onClose }: { place: Place; onClose: () =>
 
         <h2 className="event-title">{show(event?.title)}</h2>
         <p className="event-date">{formatYear(event?.date?.from, event?.date?.approx)}</p>
-        <p className="summary">{show(event?.summary)}</p>
-
-        <h3 className="label">In Scripture</h3>
-        <ul className="links">
-          {(event?.scripture?.length ? event.scripture : [undefined]).map((v, i) => <li key={i}>{show(v)}</li>)}
-        </ul>
-
+        {/* Sources sit right under the date so the link shows when the card first opens (Joseph, 2026-11-13). */}
         <h3 className="label">Sources</h3>
         <ul className="links">
           {/* The event's own sources first, then the place's. */}
           {([...(event?.sources ?? []), ...(place.sources ?? [])].length ? [...(event?.sources ?? []), ...(place.sources ?? [])] : [undefined]).map((s, i) => (
             <li key={i}>{s?.url ? <a href={s.url} target="_blank" rel="noreferrer">{show(s.title)}</a> : show(s?.title)}</li>
           ))}
+        </ul>
+
+        <p className="summary">{show(event?.summary)}</p>
+
+        <h3 className="label">In Scripture</h3>
+        <ul className="links">
+          {(event?.scripture?.length ? event.scripture : [undefined]).map((v, i) => <li key={i}>{show(v)}</li>)}
         </ul>
 
         {maps && <a className="strong-link" href={maps} target="_blank" rel="noreferrer">View on Google Maps ↗</a>}
