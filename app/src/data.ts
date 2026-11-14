@@ -44,12 +44,13 @@ const placeFiles = import.meta.glob('../../packs/bible-catholic/places/*.yaml', 
 
 export const pack: Pack = parse(Object.values(packFiles)[0] ?? '') ?? {}
 
-// Only reviewed places reach the built site (vision.md "Own database, not live AI").
-// The local dev server also shows unreviewed drafts so the team can test them; their review
-// line then reads as the missing-data placeholder.
+// Drafts show too, everywhere, but each card says plainly that it is not reviewed yet
+// (Joseph, 2026-11-13, for the hackathon demo; see vision.md "Drafts on the live site").
 export const places: Place[] = Object.values(placeFiles)
   .map(text => parse(text) as Place)
-  .filter(p => p && p.id && (import.meta.env.DEV || p.review?.by))
+  .filter(p => p && p.id)
+
+export const isReviewed = (p: Place) => !!p.review?.by
 
 /** Text for a field, or the placeholder when the data has nothing. */
 export function show(value: unknown): string {

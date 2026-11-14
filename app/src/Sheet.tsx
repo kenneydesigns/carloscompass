@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import type { Place } from './data'
+import { isReviewed } from './data'
 import { formatYear, pack, show } from './data'
 
 // Pin card. On a phone it is a bottom sheet (peek ↔ full, drag the handle);
@@ -65,7 +66,9 @@ export default function Sheet({ place, onClose }: { place: Place; onClose: () =>
         <a className="quiet-link" href={pack.suggest_edit?.phone ? `tel:${pack.suggest_edit.phone}` : undefined}>
           ✎ {show(pack.suggest_edit?.label)} · {show(pack.suggest_edit?.phone)}
         </a>
-        <p className="review">✓ Reviewed by {show(place.review?.by)} · {show(place.review?.date)}</p>
+        {isReviewed(place)
+          ? <p className="review">✓ Reviewed by {show(place.review?.by)} · {show(place.review?.date)}</p>
+          : <p className="review draft">Draft · not yet reviewed by a person</p>}
       </div>
     </section>
   )

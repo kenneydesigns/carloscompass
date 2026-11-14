@@ -235,7 +235,7 @@ Joseph: the site must never show made-up example content.
 
 ### Review check and certainty on the card (decision 2026-11-13)
 - **Reviewed:** the bottom of every card has one small line, e.g. "✓ Reviewed by a person ·
-  Nov 2026", linking to that place's edit history. Unreviewed places still never reach the site
+  Nov 2026", linking to that place's edit history. Unreviewed places still never reach the site (changed 2026-11-13: see "Drafts on the live site")
   (the line says who/when, it doesn't sort reviewed from unreviewed). Data: `review` (by, date).
 - **Certainty:** the old "✓ Confirmed site · New Testament" line goes. Certainty becomes a
   short phrase under the title ("Confirmed location" / "Probable location" / "Uncertain
@@ -256,6 +256,10 @@ Joseph: the site must never show made-up example content.
   the Holy Land" close-up): Europe and the Holy Land both in view, so it is clear what the map is.
   Realm borders are faint at this zoom and full strength from zoom 5.
 - **Each collection has its own pin color** (Joseph, 2026-11-13); see brand.md.
+- **Drafts on the live site** (Joseph, 2026-11-13, when the site first went public): unreviewed
+  places show on carloscompass.com too, so the demo isn't an empty map, but every draft card says
+  "Draft · not yet reviewed by a person" where the review line goes. A place becomes reviewed when
+  a person fills its `review` (by, date). Replaces "only reviewed data reaches the site" for now.
 ### First dataset: Eucharistic miracles (decision 2026-11-13)
 Joseph: start the data with the Eucharistic miracles, not Bible places, because it is simpler.
 - Why it's simpler: one category, no journeys to draw, and most sites are churches that still
