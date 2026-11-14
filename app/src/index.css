@@ -155,7 +155,7 @@ a { color: var(--ink); }
   min-height: 48px; padding: 0 24px; border: 0; border-radius: 999px; background: var(--signature); color: #fff; font-weight: 700;
 }
 .primary:disabled { background: var(--muted); opacity: 0.6; cursor: not-allowed; }
-.explore-links { display: flex; justify-content: center; gap: 12px; padding: 4px 0 12px; color: var(--muted); }
+.explore-links { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 4px 0 12px; color: var(--muted); }
 .explore-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ink); }
 
 /* Desktop / tablet. */

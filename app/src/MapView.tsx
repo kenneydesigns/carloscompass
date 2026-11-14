@@ -122,5 +122,29 @@ export default function MapView({ places, selectedId, start, onSelect }: Props) 
     ;(m.getSource('places') as GeoJSONSource | undefined)?.setData(toGeoJSON(places, selectedId))
   }, [places, selectedId])
 
+  // Keep the selected pin in the part of the map the card (and, on a phone, the raised timeline)
+  // doesn't cover. Only moves the map when the pin would be hidden.
+  useEffect(() => {
+    const m = map.current
+    const p = places.find(x => x.id === selectedId)
+    if (!m || !p || !hasCoords(p)) return
+    const lngLat: [number, number] = [p.location!.lng!, p.location!.lat!]
+    const box = m.getContainer().getBoundingClientRect()
+    const phone = !window.matchMedia('(min-width: 768px)').matches
+    const timelineH = (document.querySelector('.timeline') as HTMLElement | null)?.offsetHeight ?? 0
+    const margin = 32
+    const padding = phone
+      ? { top: margin + 56, left: margin, right: margin, bottom: window.innerHeight * 0.42 + timelineH + 16 }
+      : { top: margin + 56, left: margin, right: 400 + margin, bottom: timelineH + 24 + margin }
+    const pt = m.project(lngLat)
+    const hidden = pt.x < padding.left || pt.x > box.width - padding.right
+      || pt.y < padding.top || pt.y > box.height - padding.bottom
+    if (hidden) {
+      const cx = (padding.left + box.width - padding.right) / 2
+      const cy = (padding.top + box.height - padding.bottom) / 2
+      m.easeTo({ center: lngLat, offset: [cx - box.width / 2, cy - box.height / 2], duration: 400 })
+    }
+  }, [places, selectedId])
+
   return <div ref={box} className="map" aria-label="Map" role="region" />
 }
