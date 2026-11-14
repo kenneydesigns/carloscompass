@@ -99,6 +99,12 @@ hamburger menu, nothing on the map itself.
   pictures live in the pack's `about.md` and `about/` folder; the engine only lays out sections).
   Nothing changes on the map screen (goal 1). Merged to main at Joseph's call (2026-11-14) before
   the center's permission came in; **ask stcarlocsc.org for permission** and swap the photos if they say no.
+- **About scroll effects modeled on wisprflow.ai** (Joseph, 2026-11-14). All tied to the scroll position,
+  no animation library: panels with rounded tops stick and the next slides up over them; the
+  opening question shrinks and dims; paragraphs and the big quote light up word by word; "one who
+  wrestles with God" runs along a moving wave (a `~ ` line in about.md); the center's photos stay
+  pinned beside the story and change as it scrolls (on phones: pinned across the top). Fade-ups
+  for the rest; reduced-motion users get a still page. Same effects, our own look (goal 6).
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

@@ -173,68 +173,105 @@ a { color: var(--ink); }
 .explore-links { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 4px 0 12px; color: var(--muted); }
 .explore-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ink); }
 
-/* About page: a full-screen scrolling story. Each section is about a screen tall; parts fade up
-   as they scroll into view. Opening screen and quote-only sections are navy (gold accents);
-   the rest is parchment with ink text. */
+/* About page: a full-screen scrolling story. Sections are panels with rounded tops that stick
+   and get covered by the next one sliding up (About.tsx sets each panel's sticky top). The opening
+   panel and quote-only panels are navy with gold accents; the rest are parchment with ink text. */
 .story {
   position: fixed; inset: 0; z-index: 50; overflow-y: auto; overscroll-behavior: contain;
-  background: var(--parchment); color: var(--ink); -webkit-overflow-scrolling: touch;
+  background: var(--ink); color: var(--ink); -webkit-overflow-scrolling: touch;
 }
 .story-close {
-  position: fixed; z-index: 2; top: calc(8px + env(safe-area-inset-top)); right: 8px;
+  position: fixed; z-index: 100; top: calc(8px + env(safe-area-inset-top)); right: 8px;
   width: 48px; height: 48px; border: 0; border-radius: 999px; font-size: 28px; line-height: 1;
   background: var(--parchment); color: var(--ink); box-shadow: var(--shadow);
 }
 .story-section {
-  position: relative; min-height: 88dvh; display: flex; flex-direction: column; justify-content: center;
-  padding: 80px var(--pad);
+  position: sticky; top: 0; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center;
+  padding: 96px var(--pad); background: var(--parchment); color: var(--ink);
+  border-radius: 32px 32px 0 0; box-shadow: 0 -12px 40px rgba(0, 39, 71, 0.25);
 }
 .story-inner { width: 100%; max-width: 640px; margin: 0 auto; }
-.story h1 { font: 700 40px/1.15 var(--serif); margin: 0; text-align: center; text-wrap: balance; }
 .story h2 { font: 700 28px/1.25 var(--serif); margin: 0 0 24px; text-wrap: balance; }
 .story p { font-size: 20px; line-height: 1.6; margin: 0 0 24px; text-wrap: pretty; }
-.story p:first-child { font: 400 28px/1.35 var(--serif); }
-.story strong { color: var(--signature); }
+.story strong { color: var(--signature); font-weight: 700; }
 .story a { color: inherit; text-underline-offset: 3px; }
 
-.story-hero { min-height: 100dvh; background: var(--ink); color: var(--parchment); }
-.story-hero h1 { font-size: 44px; }
+/* Opening panel: the question shrinks and dims as the next panel slides over it (--p 0 → 1). */
+.story-hero { background: var(--ink); color: var(--parchment); border-radius: 0; box-shadow: none; align-items: center; }
+.hero-title {
+  font: 700 44px/1.1 var(--serif); margin: 0; text-align: center; text-wrap: balance;
+  transform: scale(calc(1 - var(--p, 0) * 0.25)) translateY(calc(var(--p, 0) * -40px));
+  opacity: calc(1 - var(--p, 0) * 0.7);
+  animation: story-rise 1.2s ease both;
+}
+.hero-title em { color: var(--gold); }
+@keyframes story-rise { from { opacity: 0; transform: translateY(24px); } }
 .story-cue {
   position: absolute; left: 0; right: 0; bottom: calc(24px + env(safe-area-inset-bottom));
-  display: flex; flex-direction: column; align-items: center; gap: 0;
+  display: flex; flex-direction: column; align-items: center;
   font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+  opacity: calc(1 - var(--p, 0) * 4);
 }
 .story-cue span { font-size: 28px; line-height: 1; animation: story-bob 1.8s ease-in-out infinite; }
 @keyframes story-bob { 50% { transform: translateY(6px); } }
 
+/* Word-by-word: words start faint and light up as the paragraph scrolls up the screen. */
+.story-lead { font: 400 28px/1.4 var(--serif) !important; }
+.w { opacity: 0.18; transition: opacity 0.25s ease; }
+.w.lit { opacity: 1; }
+
+/* A phrase running along a wave, sliding as you scroll. */
+.story-curve { width: 100vw; margin: 0 0 16px calc(50% - 50vw); height: 110px; overflow: hidden; }
+.story-curve svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.story-curve text { font: italic 400 34px var(--serif); fill: var(--gold-text); }
+
 .story-quote { margin: 24px 0 0; }
-.story-quote blockquote {
-  margin: 0; font: italic 400 22px/1.5 var(--serif); position: relative; padding-top: 40px;
-}
+.story-quote blockquote { margin: 0; font: italic 400 22px/1.5 var(--serif); position: relative; padding-top: 40px; }
 .story-quote blockquote::before {
   content: '\201C'; position: absolute; top: -8px; left: -4px; font: 700 72px/1 var(--serif); color: var(--gold-text);
 }
 .story-quote figcaption::before { content: '— '; }
 .story-quote figcaption { margin-top: 16px; font-size: 16px; font-weight: 700; color: var(--earth); }
-.story-dark { background: var(--ink); color: var(--parchment); }
+.story-dark { background: var(--ink); color: var(--parchment); box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35); }
 .story-dark .story-quote blockquote { font-size: 28px; }
 .story-dark .story-quote blockquote::before { color: var(--gold); }
 .story-dark .story-quote figcaption { color: var(--gold); }
 
-.story-images { display: grid; gap: 16px; margin: 8px 0 24px; }
-.story-images figure { margin: 0; }
-.story-images img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.story-images figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); }
-.story-missing { padding: 48px 16px; text-align: center; border: 1.5px dashed var(--muted); border-radius: var(--radius); }
-.story-end { min-height: 40dvh; align-items: center; }
+/* Pictures pinned beside the text; one shows at a time and they cross-fade as the text goes by.
+   Phone: pinned across the top, text scrolls under. */
+.story-pinned, .story-end { position: relative; top: 0 !important; } /* scroll normally: they hold their own sticky pictures */
+.story-pinned { justify-content: flex-start; }
+.pin-wrap { width: 100%; max-width: 1080px; margin: 0 auto; min-height: calc(var(--n, 1) * 60dvh); } /* room for each picture */
+.pin-media {
+  position: sticky; top: 72px; z-index: 1; aspect-ratio: 3 / 2; max-height: 42dvh; width: 100%;
+  border-radius: var(--radius); overflow: hidden; background: var(--ink);
+  /* Phone: a parchment band above the picture hides the text scrolling up behind it. */
+  box-shadow: 0 -96px 0 0 var(--parchment), var(--shadow);
+}
+.pin-media figure { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.06); transition: opacity 0.7s ease, transform 1.2s ease; }
+.pin-media figure.on { opacity: 1; transform: none; }
+.pin-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pin-media figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 12px 8px; font-size: 12px; color: #fff;
+  background: linear-gradient(transparent, rgba(0, 39, 71, 0.75));
+}
+.pin-dots { position: absolute; top: 12px; right: 12px; display: flex; gap: 6px; }
+.pin-dots span { width: 8px; height: 8px; border-radius: 999px; background: rgba(250, 243, 215, 0.5); transition: width 0.3s ease, background 0.3s ease; }
+.pin-dots span.on { width: 24px; background: var(--gold); }
+.pin-text { padding-top: 32px; }
+.pin-text > * { margin-bottom: 30dvh !important; }
+.pin-text > *:last-child { margin-bottom: 8dvh !important; }
+.story-missing { height: 100%; display: grid; place-items: center; color: var(--parchment); }
+.story-end { min-height: 50dvh; align-items: center; border-radius: 32px 32px 0 0; }
 
 /* Fade up into view, one part after another. */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; transition-delay: calc(var(--i, 0) * 0.15s); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; transition-delay: calc(var(--i, 0) * 0.12s); }
 .reveal.in { opacity: 1; transform: none; }
-.story-hero .reveal { transition-duration: 1.2s; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .hero-title { opacity: 1; transform: none; transition: none; animation: none; }
+  .w { opacity: 1; }
   .story-cue span { animation: none; }
+  .pin-media figure { transition: none; transform: none; }
 }
 
 /* Desktop / tablet. */
@@ -254,12 +291,22 @@ a { color: var(--ink); }
   .scrim { align-items: center; justify-content: center; padding: 48px; }
   .explore { width: min(920px, 100%); height: auto; max-height: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
   .explore-links { display: none; } /* desktop has About · Donate in the top bar */
-  .story-section { padding: 96px 48px; }
+  .story-section { padding: 96px 48px; border-radius: 48px 48px 0 0; }
+  .story-hero { border-radius: 0; }
   .story-inner { max-width: 760px; }
-  .story h1, .story-hero h1 { font-size: 64px; }
+  .hero-title { font-size: 72px; }
   .story h2 { font-size: 36px; }
-  .story p:first-child { font-size: 32px; }
+  .story-lead { font-size: 36px !important; }
+  .story-curve { height: 170px; margin-bottom: 24px; }
+  .story-curve text { font-size: 40px; }
   .story-dark .story-quote blockquote { font-size: 36px; }
-  .story-images.n2 { grid-template-columns: 1fr 1fr; }
+  /* Pictures pinned on the right, text scrolls on the left. */
+  .pin-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
+  .pin-media { box-shadow: var(--shadow); grid-column: 2; grid-row: 1; top: calc(50dvh - min(19vw, 34dvh)); max-height: none; aspect-ratio: 4 / 5; max-height: 68dvh; }
+  .pin-text {
+    grid-column: 1; grid-row: 1; padding: 18dvh 0 22dvh; min-height: calc(var(--n, 1) * 60dvh);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pin-text > *, .pin-text > *:last-child { margin-bottom: 0 !important; }
   .story-close { top: 16px; right: 16px; }
 }

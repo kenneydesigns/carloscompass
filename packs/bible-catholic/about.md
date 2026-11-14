@@ -9,6 +9,9 @@ Format (the engine reads only this):
 - "> " a quote; a following line starting with "— " is who said it (may hold a link).
 - ![description](about/file.jpg "credit") a picture from packs/bible-catholic/about/.
   Pictures next to each other (no blank line) sit side by side.
+- "~ " a line of text that runs along a wave and moves as you scroll (use for one short phrase).
+- Paragraphs light up word by word as you scroll; in a section with no heading the first one is set large.
+- A section with pictures keeps them pinned beside the text; they change as you scroll.
 - A blank line starts a new paragraph. Comments like this one are for editors and never shown.
 
 Sources: Israel = Genesis 32:28. Thérèse quote: Catechism of the Catholic Church 2558,
@@ -29,6 +32,8 @@ For the everyday reader, that means missing a whole dimension of study: **the ti
 ---
 
 ## Israel
+
+~ one who wrestles with God
 
 *Yisra'el* · "one who wrestles with God" ([Genesis 32:28](https://www.biblegateway.com/passage/?search=Genesis+32%3A28&version=RSVCE))
 
