@@ -91,6 +91,12 @@ The map stays clean; all the "pull things up" options live on one overlay screen
 opened by the Explore button. Users tick checkmarks, then press **Show on map**:
 the overlay closes and only the matching places load. Nothing on the map changes
 while they're still choosing.
+- **Search bar at the bottom, by the timeline** (Joseph, 2026-11-13, later; replaces the next
+  item's placement and the top-bar Explore button). One parchment bar with a navy outline and a
+  crimson search icon sits at the bottom of the map; tapping it opens the Explore panel with the
+  keyboard up. What is showing appears inside the bar as removable navy tags. The timeline sits
+  just above it. The top bar is now only the logo on phones (Story · Donate on desktop); the
+  top-right spot is free for something not yet decided (the map credits ⓘ sit there for now).
 - **Search box inside the overlay** (2026-11-13): at the top of the panel, so people can type
   exactly what they want and combine it with checkmarks. This is the only search box: the
   top-bar search was removed (Joseph, 2026-11-13), so the main screen is just map + panel.
@@ -163,6 +169,11 @@ One calm world map we style ourselves, not an embedded map service.
   less detail, but true for Jesus' ministry. So the border year is not always the nearest one;
   the pack can pin a reviewed year for an era. Real Galilee/Samaria/Judea borders would have to
   be drawn from a sourced atlas as pack data (later).
+- **In the prototype (2026-11-13, `phone-layout` branch):** 100 AD borders only, soft tinted,
+  dashed, gold realm under the selected pin, realm names shown only where they fit. The
+  "approximate · c. 100 AD" note sits in the map credits (the ⓘ button) for now, to keep the
+  phone screen clear. Region names (Galilee, Samaria…) wait for a sourced atlas. Files are made
+  by `app/scripts/build_borders.py`.
 - **Borders are approximate** and say so (small note on the map). Old borders were fuzzy and
   disputed, and the data is thin before about 1000 AD (Lanciano c. 750, the Egypt entries).
 - **Border data (to confirm licenses):**
@@ -240,7 +251,7 @@ Joseph: the site must never show made-up example content.
 
 ### Review check and certainty on the card (decision 2026-11-13)
 - **Reviewed:** the bottom of every card has one small line, e.g. "✓ Reviewed by a person ·
-  Nov 2026", linking to that place's edit history. Unreviewed places still never reach the site
+  Nov 2026", linking to that place's edit history. Unreviewed places still never reach the site (changed 2026-11-13: see "Drafts on the live site")
   (the line says who/when, it doesn't sort reviewed from unreviewed). Data: `review` (by, date).
 - **Certainty:** the old "✓ Confirmed site · New Testament" line goes. Certainty becomes a
   short phrase under the title ("Confirmed location" / "Probable location" / "Uncertain
@@ -248,6 +259,23 @@ Joseph: the site must never show made-up example content.
   opens a one-sentence explanation of what that level means. No icon. The testament/category
   label is dropped from the card (the filters already show it).
 
+- **Explore shows only the main collections** (Joseph, 2026-11-13): "Eucharistic miracles" and
+  "Life of Jesus", no country or region checkboxes. The pack lists which groups Explore offers
+  (`explore_filters` in pack.yaml); country and region stay in the data.
+- **"Historical events" heading with "World history"** (Joseph, 2026-11-13): context for the
+  timeline (what else was happening then). First five draft pins: Fall of the Western Roman
+  Empire (Ravenna, 476), Great Schism (Hagia Sophia, 1054), Black Death reaches Europe (Messina,
+  1347), Columbus's landfall (San Salvador Island, 1492, probable), Luther's Ninety-five Theses
+  (Wittenberg, 1517). Emperors and more may join later. Ticking boxes under different headings
+  now shows both ("or"), since every heading is a collection of pins.
+- **First load is zoomed out over the Mediterranean** (Joseph, 2026-11-13; replaces "centered on
+  the Holy Land" close-up): Europe and the Holy Land both in view, so it is clear what the map is.
+  Realm borders are faint at this zoom and full strength from zoom 5.
+- **Each collection has its own pin color** (Joseph, 2026-11-13); see brand.md.
+- **Drafts on the live site** (Joseph, 2026-11-13, when the site first went public): unreviewed
+  places show on carloscompass.com too, so the demo isn't an empty map, but every draft card says
+  "Draft · not yet reviewed by a person" where the review line goes. A place becomes reviewed when
+  a person fills its `review` (by, date). Replaces "only reviewed data reaches the site" for now.
 ### First dataset: Eucharistic miracles (decision 2026-11-13)
 Joseph: start the data with the Eucharistic miracles, not Bible places, because it is simpler.
 - Why it's simpler: one category, no journeys to draw, and most sites are churches that still
@@ -494,5 +522,12 @@ pages, store listings and press, not the products hands-on, so "none found" is n
   151 rows, 108 place miracles in 20 countries (map pins) plus saints, Our Lady, and miraculous
   communions (people, not fixed places; decide later whether they get pins). All `unreviewed`.
   Next: add coordinates + certainty, then Church-recognition sources, starting with the featured few.
+- Done 2026-11-13 (`phone-layout` branch): all 108 place miracles turned into draft place files by
+  `app/scripts/import_miracles.py`: name, country, date, Carlo's catalogue link, and town-centre
+  coordinates from OpenStreetMap (106 found; St. Mary of Egypt and S. Peter Damian are people, so
+  no pin). Summary, location certainty and Church recognition are left empty (they show FFFF).
+  Unreviewed, so only the local dev server shows them. Lookups marked "check" in the CSV need a
+  person (e.g. Scete, Betania, the double names). The 100 AD borders hide past 300 AD (`until`
+  in pack.yaml), and Show fits the map to the middle 80% of the results.
 - Hackathon pitch deck: first draft in Canva (Mines account), "Carlo's Compass - Hackathon Pitch",
   https://www.canva.com/design/DAHa2jbuDfk/edit. Outline in [presentation.md](presentation.md).

@@ -1,0 +1,16 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-st-mary-of-egypt
+name: "St. Mary of Egypt"
+category: eucharistic-miracle
+events:
+  - title: "Eucharistic miracle of St. Mary of Egypt"
+    date: { from: 300, to: 500, approx: true }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: St. Mary of Egypt"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=egitto&wh=s_maria_egiziaca
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Egypt"]

@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-ettiswil
+name: "Ettiswil"
+category: eucharistic-miracle
+location:
+  lat: 47.1484
+  lng: 8.0151
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Ettiswil"
+    date: { from: 1447 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Ettiswil"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda_b.html?nat=svizzera&wh=ettiswil
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Switzerland"]

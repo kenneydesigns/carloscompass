@@ -55,6 +55,11 @@ So every screen looks like one system, on desktop and on a phone:
   not just the handle.
 - Pins: plain 12 px dot with no ring and a 44 px invisible tap target; the selected pin grows to
   16 px, turns crimson and gets a white ring. Uncertain location: hollow dot. No number clusters.
+- Pin color by collection (Joseph, 2026-11-13): Eucharistic miracles `earth`, Life of Jesus
+  `gold` with a 1.5 px `gold-text` ring (so it reads on parchment), World history `ink`. The same
+  color shows as a dot beside each Explore box and on its search-bar tag (no separate legend).
+  The pack sets this (`pin_colors`). Gold pins are the one exception to "gold only for the
+  selected thing"; the selected pin is still crimson.
 - Links in the panel stack one per line on a phone (no "·"-separated runs to aim at).
 - Shadows and parchment surfaces stay the same on a phone; the side panel becomes a bottom
   sheet with the same padding, type and colors.

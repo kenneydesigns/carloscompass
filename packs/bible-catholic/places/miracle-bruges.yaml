@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-bruges
+name: "Bruges"
+category: eucharistic-miracle
+location:
+  lat: 51.2086
+  lng: 3.2268
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Bruges"
+    date: { from: 1203 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Bruges"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=belgio&wh=bruges
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Belgium"]

@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-kranenburg
+name: "Kranenburg"
+category: eucharistic-miracle
+location:
+  lat: 51.7896
+  lng: 6.0074
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Kranenburg"
+    date: { from: 1280 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Kranenburg"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda_b.html?nat=germania&wh=kranenburg_bei_kleve
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Germany"]

@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: catalogue link shared with another entry; check page
+id: miracle-neuvy-saint-sepulcre
+name: "Neuvy Saint Sepulcre"
+category: eucharistic-miracle
+location:
+  lat: 46.5933
+  lng: 1.8021
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Neuvy Saint Sepulcre"
+    date: { from: 1257 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Neuvy Saint Sepulcre"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=francia&wh=la_rochelle
+tags:
+  collection: [Eucharistic miracles]
+  country: ["France"]

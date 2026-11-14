@@ -1,0 +1,24 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: hagia-sophia
+name: Hagia Sophia, Constantinople
+category: world-event
+location:
+  lat: 41.0086
+  lng: 28.9802
+  certainty: confirmed
+events:
+  - title: The Great Schism between East and West
+    date: { from: 1054 }
+    summary: >-
+      On 16 July 1054 papal legates led by Cardinal Humbert laid a bull excommunicating Patriarch
+      Michael Cerularius on the altar of Hagia Sophia, and the patriarch answered in kind. The
+      break between the Latin and Greek Churches dates from these events.
+    sources:
+      - kind: encyclopedia
+        title: East–West Schism (Wikipedia)
+        url: https://en.wikipedia.org/wiki/East%E2%80%93West_Schism
+      - kind: encyclopedia
+        title: Hagia Sophia (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Hagia_Sophia
+tags:
+  history: [World history]

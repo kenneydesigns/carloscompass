@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Tixtla de Guerrero"; check
+id: miracle-tixtla
+name: "Tixtla"
+category: eucharistic-miracle
+location:
+  lat: 17.6092
+  lng: -99.3684
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Tixtla"
+    date: { from: 2006 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Tixtla"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda_b.html?nat=messico&wh=tixtla
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Mexico"]

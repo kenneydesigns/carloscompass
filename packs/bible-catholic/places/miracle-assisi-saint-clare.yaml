@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Assisi"; check
+id: miracle-assisi-saint-clare
+name: "Assisi (Saint Clare)"
+category: eucharistic-miracle
+location:
+  lat: 43.0712
+  lng: 12.6147
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Assisi (Saint Clare)"
+    date: { from: 1240 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Assisi (Saint Clare)"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=italia&wh=santachiaradassisi
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Italy"]

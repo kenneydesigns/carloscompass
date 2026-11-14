@@ -1,0 +1,45 @@
+# Pack settings for the Catholic site. The engine reads these; nothing here is hard-coded in it.
+name: Carlo's Compass
+# Certainty labels and the one-sentence explanation shown on hover (desktop) or tap (phone).
+certainty:
+  confirmed:
+    label: Confirmed location
+    explain: Archaeology or an unbroken record ties this place to this exact spot.
+  probable:
+    label: Probable location
+    explain: Most scholars place it here, but the exact spot is not proven.
+  uncertain:
+    label: Uncertain location
+    explain: Scholars disagree about where this place was; the pin marks one proposal.
+# Demo contact for "Suggest an edit" (Joseph, 2026-11-13; see docs/vision.md).
+suggest_edit:
+  label: Suggest an edit
+  phone: 605-261-7740
+# The only checkbox groups in Explore (Joseph, 2026-11-13: just the main collections; country and
+# region stay in the data for search and later, but are not offered as checkboxes).
+explore_filters:
+  - key: collection
+    label: Collections
+  - key: history
+    label: Historical events   # context for the timeline; emperors etc. may join later
+# Pin color for each collection (an Explore box), as a brand color role. The same color shows as a
+# dot beside the box in Explore and on its tag in the search bar (Joseph, 2026-11-13).
+pin_colors:
+  Eucharistic miracles: earth
+  Life of Jesus: gold        # light gold with a darker ring (brown and gold-text looked alike)
+  World history: ink
+links:
+  story: "#story"
+  donate: "#donate"
+# Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
+# and the Holy Land (Jesus) are both in view and it is clear what you are looking at
+# (Joseph, 2026-11-13; was a close-up of the Holy Land).
+start_view: { lng: 22, lat: 40, zoom: 2.7 }
+# Realm borders on the map (vision.md "Basemap"). The pack pins the border year: 100 AD for the
+# Gospel era, because the 1 BC data is wrong around Galilee and Samaria. Files are made by
+# app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
+borders:
+  year: 100
+  # Hide them once the timeline passes this year (a 1264 miracle is not in the Roman Empire).
+  until: 300
+  note: Borders approximate · c. 100 AD · historical-basemaps

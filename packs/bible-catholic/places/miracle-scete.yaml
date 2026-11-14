@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Wadi El Natrun"; check
+id: miracle-scete
+name: "Scete"
+category: eucharistic-miracle
+location:
+  lat: 30.3782
+  lng: 30.3552
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Scete"
+    date: { from: 200, to: 500, approx: true }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Scete"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=egitto&wh=scete
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Egypt"]

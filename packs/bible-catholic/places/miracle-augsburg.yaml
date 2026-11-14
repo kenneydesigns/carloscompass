@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-augsburg
+name: "Augsburg"
+category: eucharistic-miracle
+location:
+  lat: 48.369
+  lng: 10.898
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Augsburg"
+    date: { from: 1194 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Augsburg"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda_b.html?nat=germania&wh=augsburg
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Germany"]

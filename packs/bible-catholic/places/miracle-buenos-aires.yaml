@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-buenos-aires
+name: "Buenos Aires"
+category: eucharistic-miracle
+location:
+  lat: -34.6096
+  lng: -58.3888
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Buenos Aires"
+    date: { from: 1992, to: 1996 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Buenos Aires"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda_c.html?nat=argentina&wh=buenosaires
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Argentina"]

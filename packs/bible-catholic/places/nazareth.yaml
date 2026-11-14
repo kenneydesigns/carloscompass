@@ -1,0 +1,29 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: nazareth
+name: Nazareth
+category: gospel-place
+location:
+  lat: 32.7022     # Basilica of the Annunciation
+  lng: 35.2978
+  certainty: confirmed
+events:
+  - title: The Annunciation
+    date: { from: -6, approx: true }
+    summary: >-
+      The angel Gabriel was sent to Mary, a virgin of Nazareth in Galilee, to announce that she
+      would bear a son and name him Jesus. Mary answered, "Behold, I am the handmaid of the Lord."
+      Jesus later grew up here and was known as Jesus of Nazareth.
+    scripture:
+      - Luke 1:26–38
+      - Luke 2:39–40
+      - Matthew 2:23
+tags:
+  collection: [Life of Jesus]
+  region: [Galilee]
+sources:
+  - kind: encyclopedia
+    title: Nazareth (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Nazareth
+  - kind: encyclopedia
+    title: Basilica of the Annunciation (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Basilica_of_the_Annunciation

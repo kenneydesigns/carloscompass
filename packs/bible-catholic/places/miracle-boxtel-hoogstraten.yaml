@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Boxtel"; check
+id: miracle-boxtel-hoogstraten
+name: "Boxtel-Hoogstraten"
+category: eucharistic-miracle
+location:
+  lat: 51.5891
+  lng: 5.3158
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Boxtel-Hoogstraten"
+    date: { from: 1380 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Boxtel-Hoogstraten"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=olanda&wh=boxtel-hoogstraten
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Netherlands"]
