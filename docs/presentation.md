@@ -27,6 +27,9 @@ Shape borrowed from the SlumpScan "Hackathon" deck: one idea per slide, few word
 | 9 | Thank you. Questions? + logo mark (same size/position as cover) | done |
 
 ## To do when resumed
+- **Pitch claim (2026-11-13 research):** a free phone app already maps Carlo's miracles, so don't say
+  "first map of Carlo's miracles". Say: first on the web with a timeline, sources on every card,
+  and open data. See `reports/Bible map similar products.md`.
 - **Demo story changed (2026-11-13):** miracles + a small Gospel slice (Nazareth → Capernaum), not
   Paul to Corinth. Rewrite slide 6, and check slide 1's "Every place in Scripture" tagline.
 - Finish slides 7–8 (an edit to them was interrupted; verify what's on them).

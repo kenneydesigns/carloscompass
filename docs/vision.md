@@ -18,7 +18,7 @@ communities reuse.
 - **Decision:** streamline, don't copy. KronAtlas skeleton + Summit journeys, cut the rest.
 
 ## Interface (one screen)
-- Navy top bar: logo, **Story · Donate** text links, **Explore** button. No search box in the
+- Navy top bar: logo, **About · Donate** text links, **Explore** button. No search box in the
   top bar (moved into the Explore overlay, 2026-11-13).
 - Parchment map fills the screen. Right side: one panel showing whatever was clicked.
 - v1's clickable era bar is gone (read as too simple, unclear it was clickable). It is
@@ -65,10 +65,10 @@ Proposed phone layout (to confirm in a mockup):
 - **Touch:** tap targets at least 44px; pins are easy to tap even when close together.
 - **Speed on cellular:** the "load little data" rules below matter even more on phones.
 
-## Story and Donate pages (decision 2026-11-13)
-Two quiet text links in the navy top bar, left of Explore: **Story · Donate**. No dropdown or
+## About and Donate pages (decision 2026-11-13)
+Two quiet text links in the navy top bar, left of Explore: **About · Donate**. No dropdown or
 hamburger menu, nothing on the map itself.
-- **Story:** simple parchment page about Carlo Acutis and why he inspired the site, who built
+- **About:** simple parchment page about Carlo Acutis and why he inspired the site, who built
   it (Joseph, Eric, DJ, Fall Hackathon 2026), and a short "help improve the map" section
   pointing to the edit/PR process.
 - **Donate:** one static page that never needs updating. It says what donations pay for:
@@ -79,6 +79,12 @@ hamburger menu, nothing on the map itself.
   Provider still to pick (e.g. Open Collective, which shows spending publicly and suits open
   source). Don't call donations tax-deductible unless a nonprofit is receiving them.
 - Engine vs pack: the links are engine; the story text and donation link belong to the pack.
+- **About page copy is written by a person** (Joseph, 2026-11-13). Joseph writes the "about"
+  text himself; AI only fixes grammar and spelling, never rewrites or adds content. The draft
+  lives in [packs/bible-catholic/about.md](../packs/bible-catholic/about.md). This text is
+  shown on the About page only, never on the map screen.
+- **The About page includes pictures** (Joseph, 2026-11-13). Which pictures is still open.
+  Each one needs a credit and permission or an open license before it goes on the site.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen
@@ -147,6 +153,16 @@ One calm world map we style ourselves, not an embedded map service.
   Tinted (too busy, fills fought the pins).
 - **Which border year to show (proposed):** the nearest available year, not only the one at or
   before. The 1200 vs 1279 gap is why Bolsena 1264 showed 1200 borders.
+- **Close zoom (Holy Land): borders plus region names** (Joseph, 2026-11-13, mockup v3). Borders
+  and tints stay on at every zoom. At Holy Land zoom, hand-placed 1st-century region names are
+  added (GALILEE, SAMARIA, JUDEA, DECAPOLIS, PEREA), smaller and lighter than realm names; they are
+  pack content and each needs a source (e.g. a Bible atlas).
+- **Gospel-era border year: 100 AD, not 1 BC** (Joseph, 2026-11-13). The 1 BC data is wrong at
+  this zoom (Galilee and Samaria as "Roman Empire", "Judea" as an eastern desert block). The
+  100 AD data shows the whole area as the Roman Empire with the Nabatean border to the east:
+  less detail, but true for Jesus' ministry. So the border year is not always the nearest one;
+  the pack can pin a reviewed year for an era. Real Galilee/Samaria/Judea borders would have to
+  be drawn from a sourced atlas as pack data (later).
 - **Borders are approximate** and say so (small note on the map). Old borders were fuzzy and
   disputed, and the data is thin before about 1000 AD (Lanciano c. 750, the Egypt entries).
 - **Border data (to confirm licenses):**
@@ -315,7 +331,7 @@ Canva design "Carlo's Compass - Homepage mockup" (Mines account). Snapshot:
 Same Canva design, edited in place (page 1 = home, page 2 = Explore overlay). Snapshots:
 [mockups/2026-11-13-homepage-v2.png](mockups/2026-11-13-homepage-v2.png),
 [mockups/2026-11-13-explore-overlay-v2.png](mockups/2026-11-13-explore-overlay-v2.png).
-- Home: era bar removed; **Story · Donate** text links and a crimson **Explore** button in the top bar; active filter chips
+- Home: era bar removed; **Story · Donate** text links and a crimson **Explore** button in the top bar (the Story link was renamed About after this mockup); active filter chips
   ("Gospels ×", "Jesus ×") under the bar; "← 4 places match · show list" above the card;
   "View on Google Maps ↗" on the card; side panel runs full height.
 - Overlay: navy scrim over the map, parchment panel with serif title "Explore the map" and ×;
@@ -335,6 +351,18 @@ Same Canva design, edited in place (page 1 = home, page 2 = Explore overlay). Sn
   fill gold-text; panel type bumped to 12 px labels / 14 px links on an 8 px spacing rhythm.
   Rules (incl. phone/touch sizes) in brand.md "Type scale, spacing and surfaces".
 - Basemap is still the 1748 scan as a stand-in; the "calm basemap" rule still applies.
+
+## Mockup v3 (2026-11-13)
+Same Canva design, page 1 edited in place. Snapshot:
+[mockups/2026-11-13-homepage-v3.png](mockups/2026-11-13-homepage-v3.png).
+- The 1748 scan is replaced by the real basemap in the soft tinted palette, rendered from Natural
+  Earth (10m) at the Holy Land frame, placed at 1440×900, 0/0, behind everything.
+- The frame is anchored so Capernaum and Nazareth fall exactly on the existing pins and route.
+  The two muted pins were moved to the real Jerusalem and Bethlehem positions.
+- Borders from the 100 AD data (whole area Roman, Nabatean border to the east) plus region
+  names; see Basemap, "Close zoom" and "Gospel-era border year". Render:
+  `design/map/renders/basemap-tinted-soft-holyland-ad100.png`
+  (`python3 design/map/render_styles.py holyland-28-ad100 tinted-soft`).
 
 ## Pre-build decisions (Joseph, 2026-11-13 evening)
 From the pre-build review ([pre-build-review.md](pre-build-review.md)). Where older text in this
@@ -396,16 +424,69 @@ file disagrees, this section wins.
   stays the long-term plan.
 - **Licenses: MIT for code, CC BY-SA 4.0 for pin content** (Joseph, 2026-11-13). GPL-3.0 border
   files stay in their own folder.
-- **Phone: Story · Donate go at the bottom of the Explore overlay** (Joseph, 2026-11-13). No
+- **Phone: About · Donate go at the bottom of the Explore overlay** (Joseph, 2026-11-13). No
   hamburger menu. The rest of the phone layout is being worked on in another chat.
 
+## Lessons from the similar-products research (2026-11-13)
+Full report: [reports/Bible map similar products.md](../reports/Bible%20map%20similar%20products.md)
+(notes in `research_notes/`). Joseph OK'd adding its recommendations here. The researchers read
+pages, store listings and press, not the products hands-on, so "none found" is not proof.
+
+**Where we stand**
+- No product found combines the whole vision, but nearly every piece exists somewhere.
+- A free phone app, "St Carlo: Eucharistic Miracles" (St. Carlo Acutis Shrine at Malvern, with
+  Antonia Acutis, Feb 2026, 13,000+ downloads), already maps the miracles. Per coverage it has
+  no web version, no miracle timeline, no sources or approval status per miracle, closed data.
+- **Do not claim "the first map of Carlo's miracles."** The claim we can defend: the first on the
+  web with a timeline, sources on every card, and data anyone can check and reuse.
+- "Bible data on a map" is now common (dozens of small 2025–2026 projects on OpenBible.info
+  data). Our difference is **trust made visible**: every sentence sourced, location and Church
+  recognition each stating how sure they are, a reviewer and date, open data. That costs effort
+  per pin, so prefer a small, flawless set of miracles over a large one.
+- Open ground (none found): an openly licensed Eucharistic-miracles dataset; a Catholic-canon
+  Bible map with cited pins; one engine shared across faith communities (demand unproven, say so).
+- Closest to study: History Globe (time slider, review labels), `GeiserX/biblical-atlas` (same
+  one-YAML-file-per-entity + automatic checks + MapLibre design; GPL-3.0, so learn from it, do
+  not copy code), TimeMap.org (the bottom slider people love, and the mistakes they punish).
+
+**Changes to the design**
+- **Church recognition is per miracle, not a blanket label.** No authoritative list of each
+  miracle's recognition status was found, and recognition is usually local and varies (the
+  researchers' reading, not a sourced fact). Each miracle carries a recognition level with its
+  own citation, with levels modelled on the Marian-apparitions maps (e.g. local tradition /
+  bishop-approved / Vatican-recognised / no decision found). The Explore label "Church-approved
+  sites worldwide" (Mockup v2) should be reworded, e.g. "Eucharistic miracles worldwide", with
+  recognition shown on each card.
+- **Say which border year is showing,** e.g. "borders as of 1200", next to the "borders
+  approximate" note. Border mistakes are the biggest reputation risk for a timeline map, and the
+  border dataset calls itself a work in progress.
+- **Test the scrubber on a real phone and in Firefox before the demo;** make sure the handle
+  looks and behaves like a slider. The two-zone timeline has no precedent in other products, so
+  show it to a few people before committing.
+- **Bible places later (not the demo):** about 55% of located places in the OpenBible data have
+  rival scholarly identifications, so one dot plus a certainty word can hide a real dispute;
+  consider candidate sites or zones. OpenBible has no dates and leaves out the deuterocanonical
+  books, so those places are added by hand and each date states where it comes from (stated in
+  Scripture / calculated / estimated / unknown).
+- **Editing:** outside contributions will be rare at first (similar open projects get almost
+  none); the team's own entries are the content. A non-GitHub way to suggest edits (form or
+  "edit this pin" link) is required before expecting outside edits. Watch reviewer backlog, not
+  vandalism.
+- **Record the source licence in each place file,** so reuse stays clear as data sources mix.
+- **Maintenance is the real competitor:** most similar projects die by the author stopping. Keep
+  the site static, with plain files and no server.
+
 ## Next
+- From the similar-products research: (1) email the Associazione Amici di Carlo Acutis
+  (info@miracolieucaristici.org) to tell them about the project and ask their blessing, since no
+  written reuse terms exist; (2) read the `GeiserX/biblical-atlas` repo before finalising the data
+  schema; (3) reword the "Church-approved sites worldwide" label in the mockup.
 - Basemap style picked: soft tinted (see Basemap). Next design step: drop
   `design/map/renders/basemap-tinted-soft.png` into the Canva mockup in place of the 1748 scan.
   Pin positions in the render are approximate, mockup only.
 - Joseph's review of mockup v2.
-- Story and Donate page mockups: later (Joseph, 2026-11-13).
-- Phone mockup (home + pin card bottom sheet + Explore). Open question: where Story · Donate
+- About and Donate page mockups: later (Joseph, 2026-11-13).
+- Phone mockup (home + pin card bottom sheet + Explore). Open question: where About · Donate
   go on a phone without adding a hamburger menu.
 - Open question: how search results look on the map. (Basemap is decided; see Basemap.)
 - Done 2026-11-13: Carlo's catalogue list extracted (facts only) to
