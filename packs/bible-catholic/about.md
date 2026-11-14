@@ -17,7 +17,10 @@ Format (the engine reads only this):
 
 Sources: Israel = Genesis 32:28. Thérèse quote: Catechism of the Catholic Church 2558,
 quoting her Manuscrits autobiographiques C 25r. Carlo quote: widely quoted; wording varies
-between translations (Catholic World Report, 2023-10-12, linked below).
+between translations (Catholic World Report, 2023-10-12:
+https://www.catholicworldreport.com/2023/10/12/the-eucharist-is-my-highway-to-heaven/). Thérèse:
+https://www.vatican.va/archive/ENG0015/__P8Z.HTM. Source links are kept here, not shown on the page
+(Joseph, 2026-11-14).
 Photos: St. Carlo Acutis Catholic Student Center, Rapid City (stcarlocsc.org). PERMISSION TO
 REUSE STILL TO BE ASKED (on main since 2026-11-14 at Joseph's call).
 -->
@@ -49,10 +52,10 @@ It should never replace the great depth of the faith. A loving community, prayer
 ---
 
 > When we face the sun, we get a tan. But when we place ourselves before Jesus in the Eucharist, we become saints.
-— St. Carlo Acutis ([as quoted](https://www.catholicworldreport.com/2023/10/12/the-eucharist-is-my-highway-to-heaven/))
+— St. Carlo Acutis
 
 > For me, prayer is a surge of the heart; it is a simple look turned toward heaven, it is a cry of recognition and of love, embracing both trial and joy.
-— St. Thérèse of Lisieux ([Catechism 2558](https://www.vatican.va/archive/ENG0015/__P8Z.HTM))
+— St. Thérèse of Lisieux
 
 ---
 
