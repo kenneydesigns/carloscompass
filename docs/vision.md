@@ -105,6 +105,8 @@ hamburger menu, nothing on the map itself.
   wrestles with God" runs along a moving wave (a `~ ` line in about.md); the center's photos stay
   pinned beside the story and change as it scrolls (on phones: pinned across the top). Fade-ups
   for the rest; reduced-motion users get a still page. Same effects, our own look (goal 6).
+  Compact (Joseph, same day): panels are only as tall as their words, so the top of the next
+  panel always shows before you scroll.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

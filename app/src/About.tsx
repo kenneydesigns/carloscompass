@@ -195,7 +195,7 @@ export default function About({ onClose }: { onClose: () => void }) {
       if (hero) hero.style.setProperty('--p', String(clamp(root!.scrollTop / vh)))
       for (const { el, words } of leads) {
         const r = el.getBoundingClientRect()
-        const p = still ? 1 : clamp((vh * 0.85 - r.top) / (vh * 0.5))
+        const p = still ? 1 : clamp((vh * 0.95 - r.top) / (vh * 0.4))
         const lit = Math.round(p * words.length)
         words.forEach((w, i) => w.classList.toggle('lit', i < lit))
       }
