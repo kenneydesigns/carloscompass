@@ -354,6 +354,14 @@ Joseph asked for sourced places only, no AI summaries (the gap shows FFFF on pur
 - **Pin color:** Exodus = `muted` (slate), the one brand role not yet used for pins.
 - **Left out (cannot be located):** the temptation in the wilderness, the Sermon on the Mount,
   the burning bush (dated before the exodus year), Aenon, Salim, Ephraim.
+- **Miracle pins marked "located via …; check" (19):** each checked against Wikipedia/GeoNames
+  coordinates (through search results only), and the header comment now says what was checked.
+  - Fixed 2: Tixtla (was ~5.6 km off, at the municipality centroid) and Patierno (was located via
+    Casoria; moved ~1.4 km into the San Pietro a Patierno quarter of Naples).
+  - Left for a person 3: Scete (which monastery), Betania (the shrine's position is disputed) and
+    Middleburg-Lovanio (Middelburg in Belgium or in Zeeland).
+  - The other 14 were OK as town centres; where the relic or shrine is elsewhere (Herkenrode Abbey,
+    Weiten church, Hoogstraten), the comment says so, but the pin was not moved.
 
 ## Editing model: GitHub as the wiki
 - Each pin is a small data file in the repo.

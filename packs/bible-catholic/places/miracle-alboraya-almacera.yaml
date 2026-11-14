@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Alboraya"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK. Pin is ~0.2 km from Alboraya's coordinates (39.5000,-0.3522, en.wikipedia.org/wiki/Alboraya). Almàssera not checked.
 id: miracle-alboraya-almacera
 name: "Alboraya-Almacéra"
 category: eucharistic-miracle

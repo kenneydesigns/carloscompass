@@ -1,14 +1,14 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Casoria"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): FIXED. It was located via Casoria, a neighbouring town; the relic is in San Pietro Apostolo in San Pietro a Patierno, a quarter of Naples. Moved ~1.4 km to that quarter (40.8924,14.2873, from a Wikipedia mirror of the 'Capodichino' article).
 id: miracle-patierno-naples
 name: "Patierno (Naples)"
 category: eucharistic-miracle
 location:
-  lat: 40.9046
-  lng: 14.2901
-  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+  lat: 40.8924
+  lng: 14.2873
+  note: San Pietro a Patierno quarter of Naples (Wikipedia, checked 2026-11-14); the exact church is not checked yet.
 events:
   - title: "Eucharistic miracle of Patierno (Naples)"
     date: { from: 1772 }

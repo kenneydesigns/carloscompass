@@ -1,14 +1,14 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Tixtla de Guerrero"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): FIXED. The old pin was ~5.6 km off: Who's On First gives the municipality's centroid at 17.599,-99.367. Moved to Tixtla de Guerrero town (17.5673,-99.3980, latitudelongitude.org/mx/tixtla-de-guerrero; GeoNames gives 17.581,-99.379).
 id: miracle-tixtla
 name: "Tixtla"
 category: eucharistic-miracle
 location:
-  lat: 17.6092
-  lng: -99.3684
-  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+  lat: 17.5673
+  lng: -99.398
+  note: Town centre of Tixtla de Guerrero (checked 2026-11-14); the exact site is not checked yet.
 events:
   - title: "Eucharistic miracle of Tixtla"
     date: { from: 2006 }

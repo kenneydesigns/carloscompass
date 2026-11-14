@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Cúa"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK for Cúa town (10.167,-66.883, Wikipedia: Cúa), ~0.4 km. UNSURE for the shrine: Finca Betania lies outside Cúa and sources disagree (10.1994,-66.8465 vs 10.0743,-66.9282), so the pin was left at the town. Needs a person.
 id: miracle-betania
 name: "Betania"
 category: eucharistic-miracle

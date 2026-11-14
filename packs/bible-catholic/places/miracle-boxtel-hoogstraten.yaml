@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Boxtel"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK. Pin is ~1.4 km from Boxtel (51.583,5.333, en.wikipedia.org/wiki/Boxtel). The relic's altar cloth is in St Catherine's Church, Hoogstraten, Belgium (51.401,4.762); the pin was left at Boxtel.
 id: miracle-boxtel-hoogstraten
 name: "Boxtel-Hoogstraten"
 category: eucharistic-miracle

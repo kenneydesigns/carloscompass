@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Middelburg"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): UNSURE. The pin is at Middelburg in Maldegem, Belgium (51.255,3.416, Wikipedia: Middelburg, Belgium), ~0.1 km. Sources don't settle whether the 1374 miracle was at this Middelburg or at Middelburg in Zeeland (~51.50,3.61). Left as is; needs a person.
 id: miracle-middleburg-lovanio
 name: "Middleburg-Lovanio"
 category: eucharistic-miracle

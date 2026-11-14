@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Wadi El Natrun"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): UNSURE. Scetis is the area of the Wadi El Natrun monasteries. The pin is ~6.6 km N of the Monastery of St Pishoy (30.3192,30.3601) and ~14 km from St Macarius (30.2914,30.4761), both from Wikipedia copies. No single site was clearly right, so the pin was left as is; needs a person.
 id: miracle-scete
 name: "Scete"
 category: eucharistic-miracle

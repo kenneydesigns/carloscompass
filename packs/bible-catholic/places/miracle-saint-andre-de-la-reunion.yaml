@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: no coordinates found; located via "Saint-André, La Réunion"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK. Pin is ~0.1 km from Saint-André (-20.9606,55.6506, Wikipedia).
 id: miracle-saint-andre-de-la-reunion
 name: "Saint-André de la Réunion"
 category: eucharistic-miracle

@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Assisi"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK for the town: ~0.6 km from Assisi (43.0758,12.6175, Wikipedia). The Basilica of Santa Chiara's own coordinates were not found.
 id: miracle-assisi-saint-clare
 name: "Assisi (Saint Clare)"
 category: eucharistic-miracle

@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Gruaro"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK. Pin is ~1.9 km from Gruaro (45.8347,12.8411, en.wikipedia.org/wiki/Gruaro), where the miracle took place. The relic is now in the Duomo of Valvasone; that was not used.
 id: miracle-gruaro-valvasone
 name: "Gruaro (Valvasone)"
 category: eucharistic-miracle

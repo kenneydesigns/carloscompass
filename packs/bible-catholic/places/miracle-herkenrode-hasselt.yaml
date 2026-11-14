@@ -1,7 +1,7 @@
 # Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
 # it shows only on the local dev server. Summary, certainty and Church recognition still to
 # be filled from sources (link to the catalogue, do not copy its text).
-# Staging note: located via "Hasselt"; check
+# Location check (Claude, 2026-11-14, via web-search copies of Wikipedia/GeoNames; live pages not opened): OK for Hasselt town centre (50.9300,5.3375), ~0.05 km. Herkenrode Abbey itself is in Kuringen, ~5 km NW (50.9559,5.2785, Wikipedia mirror); move the pin there if the abbey is meant.
 id: miracle-herkenrode-hasselt
 name: "Herkenrode-Hasselt"
 category: eucharistic-miracle
