@@ -97,8 +97,8 @@ hamburger menu, nothing on the map itself.
   St. Thérèse quote (CCC 2558), then how it started at the St. Carlo Acutis Center with photos from
   stcarlocsc.org. Goals: 6 (beautiful, true to Carlo), 7 (built phone-first), 5 (all words and
   pictures live in the pack's `about.md` and `about/` folder; the engine only lays out sections).
-  Nothing changes on the map screen (goal 1). **Photos need the center's permission before this
-  merges to main**; it lives on the `about-scroll` branch until then.
+  Nothing changes on the map screen (goal 1). Merged to main at Joseph's call (2026-11-14) before
+  the center's permission came in; **ask stcarlocsc.org for permission** and swap the photos if they say no.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

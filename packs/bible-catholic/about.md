@@ -15,7 +15,7 @@ Sources: Israel = Genesis 32:28. Thérèse quote: Catechism of the Catholic Chur
 quoting her Manuscrits autobiographiques C 25r. Carlo quote: widely quoted; wording varies
 between translations (Catholic World Report, 2023-10-12, linked below).
 Photos: St. Carlo Acutis Catholic Student Center, Rapid City (stcarlocsc.org). PERMISSION TO
-REUSE STILL TO BE ASKED before this goes to main.
+REUSE STILL TO BE ASKED (on main since 2026-11-14 at Joseph's call).
 -->
 
 # Is the Bible trustworthy?
