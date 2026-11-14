@@ -30,6 +30,7 @@ export interface Pack {
   suggest_edit?: { label?: string; phone?: string }
   links?: { story?: string; donate?: string }
   explore_filters?: { key: string; label?: string }[]
+  pin_colors?: Record<string, string>
   start_view?: { lng: number; lat: number; zoom: number }
   borders?: { year: number; until?: number; note?: string }
 }

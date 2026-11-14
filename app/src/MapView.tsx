@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { Place } from './data'
-import { hasCoords } from './data'
+import { hasCoords, pack } from './data'
 
 // Calm basemap we style ourselves (vision.md "Basemap"): Natural Earth land, lakes and rivers,
 // no terrain, no modern labels. Colors are mixed from the brand tokens, as in render_styles.py.
@@ -16,6 +16,10 @@ const PARCH = '#FAF3D7'
 const SEA = '#CDD2C9'    // parchment mixed 34% toward muted water
 const RIVER = '#8A9FAC'  // parchment mixed 80% toward muted water
 const EARTH = '#71421D'
+const INK = '#002747'
+// Brand color roles a pack may name for its pins (brand.md); unknown roles fall back to earth.
+const ROLES: Record<string, string> = { earth: EARTH, ink: INK, muted: '#5C6B7A', 'gold-text': '#8A6420' }
+const pinColor = (category?: string) => ROLES[pack.pin_colors?.[category ?? ''] ?? 'earth'] ?? EARTH
 const SIGNATURE = '#A80C31'
 
 const GOLD = '#DBBB7C'
@@ -111,6 +115,7 @@ function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
         id: p.id,
         selected: p.id === selectedId,
         uncertain: p.location?.certainty === 'uncertain',
+        color: pinColor(p.category),
       },
     })),
   }
@@ -164,8 +169,8 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
         filter: ['!', ['get', 'selected']],
         paint: {
           'circle-radius': 6,
-          'circle-color': ['case', ['get', 'uncertain'], 'rgba(0,0,0,0)', EARTH],
-          'circle-stroke-color': EARTH,
+          'circle-color': ['case', ['get', 'uncertain'], 'rgba(0,0,0,0)', ['get', 'color']],
+          'circle-stroke-color': ['get', 'color'],
           'circle-stroke-width': ['case', ['get', 'uncertain'], 2, 0],
         },
       })

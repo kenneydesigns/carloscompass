@@ -55,6 +55,8 @@ So every screen looks like one system, on desktop and on a phone:
   not just the handle.
 - Pins: plain 12 px dot with no ring and a 44 px invisible tap target; the selected pin grows to
   16 px, turns crimson and gets a white ring. Uncertain location: hollow dot. No number clusters.
+- Pin color by category (2026-11-13): faith pins (Gospel places, Eucharistic miracles) are
+  `earth`; world-history context pins are `ink` (navy). The pack sets this (`pin_colors`).
 - Links in the panel stack one per line on a phone (no "·"-separated runs to aim at).
 - Shadows and parchment surfaces stay the same on a phone; the side panel becomes a bottom
   sheet with the same padding, type and colors.

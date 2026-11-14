@@ -22,6 +22,10 @@ explore_filters:
     label: Collections
   - key: history
     label: Historical events   # context for the timeline; emperors etc. may join later
+# Pin color by category, as a brand color role (earth is the default for every other category).
+# World events are navy so the context pins read apart from the faith pins (Joseph, 2026-11-13).
+pin_colors:
+  world-event: ink
 links:
   story: "#story"
   donate: "#donate"
