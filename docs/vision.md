@@ -107,6 +107,9 @@ hamburger menu, nothing on the map itself.
   for the rest; reduced-motion users get a still page. Same effects, our own look (goal 6).
   Compact (Joseph, same day): panels are only as tall as their words, so the top of the next
   panel always shows before you scroll.
+- **Top bar stays on the About page** (Joseph, 2026-11-14): the navy bar shows above the story with
+  **Map** (back to the map; the logo does the same) and **Donate**, on phones too. Replaces the × button.
+  The Donate page itself is not built yet; the link goes to `#donate`.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

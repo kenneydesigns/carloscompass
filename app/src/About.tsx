@@ -232,7 +232,6 @@ export default function About({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="story" ref={scroller} role="dialog" aria-modal="true" aria-label="About">
-      <button className="story-close" onClick={onClose} aria-label="Close About">×</button>
       {content.length === 0
         ? <section className="story-section"><p>{MISSING}</p></section>
         : content.map((s, k) => <Section key={k} blocks={s} index={k} />)}

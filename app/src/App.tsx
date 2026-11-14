@@ -58,10 +58,17 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* The top bar stays on the About page too (Joseph, 2026-11-14): Map goes back, and Donate shows
+          on phones there as well, since the Explore footer that holds it on phones is not reachable. */}
       <header className="topbar">
-        <img className="logo" src="/brand/carlo-compass-lockup-horizontal-parchment.svg" alt={pack.name ?? ''} />
-        <nav className="toplinks">
-          <a href="#about">About</a>
+        <a href="#" className="logo-link" aria-label={aboutOpen ? 'Back to the map' : undefined}
+          onClick={e => { e.preventDefault(); closeAbout() }}>
+          <img className="logo" src="/brand/carlo-compass-lockup-horizontal-parchment.svg" alt={pack.name ?? ''} />
+        </a>
+        <nav className={`toplinks ${aboutOpen ? 'about-open' : ''}`}>
+          {aboutOpen
+            ? <a href="#" onClick={e => { e.preventDefault(); closeAbout() }}>Map</a>
+            : <a href="#about">About</a>}
           <a className="toplink-donate" href={pack.links?.donate}>Donate</a>
         </nav>
       </header>
