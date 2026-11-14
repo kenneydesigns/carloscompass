@@ -70,7 +70,8 @@ export default function App() {
             opens Explore; what is showing appears as removable tags inside it. */}
         {!exploreOpen && (
           <div className={`searchbar ${selected ? 'card-open' : ''}`}
-            onClick={e => e.target === e.currentTarget && setExploreOpen(true)}>
+            // Anywhere in the bar opens Explore, except a tag (tapping a tag removes it).
+            onClick={e => !(e.target as Element).closest('.chip') && setExploreOpen(true)}>
             <button className="search-open" onClick={() => setExploreOpen(true)}
               aria-label={applied && chips.length ? 'Search or explore' : undefined}>
               <svg className="search-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
@@ -88,6 +89,10 @@ export default function App() {
                   </button>
                 ))}
               </div>
+            )}
+            {/* Always-reachable way to add more, even when the tags fill the bar. */}
+            {applied && chips.length > 0 && (
+              <button className="bar-add" onClick={() => setExploreOpen(true)} aria-label="Add to the map">+</button>
             )}
           </div>
         )}

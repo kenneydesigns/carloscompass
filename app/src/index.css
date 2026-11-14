@@ -67,6 +67,10 @@ a { color: var(--ink); }
 .searchbar:not(:has(.bar-chips)) .search-open { flex: 1; }
 .search-icon { flex: none; color: var(--signature); }
 .bar-chips { flex: 1; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.bar-add {
+  flex: none; width: 44px; height: 44px; border: 1.5px solid var(--ink); border-radius: 50%;
+  background: var(--parchment); color: var(--ink); font-size: 24px; line-height: 1; display: grid; place-items: center;
+}
 .chip {
   flex: none; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 0;
   background: var(--ink); color: var(--parchment); font-weight: 600; font-size: 14px; white-space: nowrap;
