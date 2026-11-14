@@ -54,7 +54,7 @@ record it in `vision.md` and tick it off here.
   at 30%). Certainty on the pin itself and overlapping pins (Italy) are not designed.
 - [x] **11. Interface font.** *(Decided: Merriweather Sans.)* `brand.md`: Geologica or Open Sans; mockup: Merriweather Sans;
   `index.html`: Open Sans.
-- [x] **12. "Suggest an edit" for the demo, and licenses.** *(Decided: contact Joseph directly, detail to confirm; MIT + CC BY-SA 4.0.)* The repo is private, so a GitHub link
+- [x] **12. "Suggest an edit" for the demo, and licenses.** *(Decided: button shows Joseph's phone number; MIT + CC BY-SA 4.0.)* The repo is private, so a GitHub link
   404s for visitors. Options: A public repo + pre-filled GitHub issue; B Google Form; C "coming
   soon". Forces the license pick (proposed: MIT code, CC BY-SA 4.0 content, GPL border files separate).
 - [ ] **13. Phone layout in the demo.** *(Story · Donate: bottom of Explore. Rest in progress in another chat.)* No phone mockup exists; where Story · Donate go is open.

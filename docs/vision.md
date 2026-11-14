@@ -389,10 +389,11 @@ file disagrees, this section wins.
 - **Timeline scale: two zones with a break** (Joseph, 2026-11-13). When Gospel places and
   miracles are both showing, the bar splits into a Gospel zone and a miracles zone with a
   small break mark, each scaled to its own dates. With one dataset on, the bar fits that one.
-- **"Suggest an edit" for the demo: contact Joseph directly** (Joseph, 2026-11-13). The button
-  shows contact details instead of a form or GitHub link. Which contact detail to publish
-  (phone vs. an email address) is to be confirmed; it is deliberately not written in this file.
-  The reviewed pull-request model stays the long-term plan.
+- **"Suggest an edit" for the demo: contact Joseph by phone** (Joseph, 2026-11-13). The button
+  shows Joseph's phone number, 605-261-7740, instead of a form or GitHub link. Joseph chose
+  this knowing the site and (later) the repo are public; swap to an email or form any time.
+  The contact detail belongs to the pack, not the engine. The reviewed pull-request model
+  stays the long-term plan.
 - **Licenses: MIT for code, CC BY-SA 4.0 for pin content** (Joseph, 2026-11-13). GPL-3.0 border
   files stay in their own folder.
 - **Phone: Story · Donate go at the bottom of the Explore overlay** (Joseph, 2026-11-13). No
