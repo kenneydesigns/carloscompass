@@ -1,0 +1,764 @@
+[
+{
+"name": "Paleo-Siberian hunter-gatherers",
+"lng": 120.0598,
+"lat": 64.7376,
+"minzoom": 1.46
+},
+{
+"name": "Arctic marine mammal hunters",
+"lng": -123.5475,
+"lat": 65.8137,
+"minzoom": 1.7
+},
+{
+"name": "Subarctic forest hunter-gatherers",
+"lng": -112.3229,
+"lat": 56.7995,
+"minzoom": 1.59
+},
+{
+"name": "Khoisan",
+"lng": 24.4695,
+"lat": -12.4306,
+"minzoom": 0.86
+},
+{
+"name": "Samoy\u00e8des",
+"lng": 88.373,
+"lat": 71.2668,
+"minzoom": 0.9
+},
+{
+"name": "Saharan Nomadic Tribes",
+"lng": 8.1627,
+"lat": 22.2065,
+"minzoom": 2.14
+},
+{
+"name": "Finno-Ugric taiga hunter-gatherers",
+"lng": 51.8676,
+"lat": 63.2085,
+"minzoom": 2.65
+},
+{
+"name": "Australian aboriginal hunter-gatherers",
+"lng": 134.3844,
+"lat": -26.1631,
+"minzoom": 3.24
+},
+{
+"name": "G\u00f6kt\u00fcrks",
+"lng": 108.1837,
+"lat": 46.6301,
+"minzoom": 0.66
+},
+{
+"name": "Eastern North American hunter-gatherers",
+"lng": -83.5043,
+"lat": 41.2114,
+"minzoom": 3.44
+},
+{
+"name": "Tungus",
+"lng": 127.8368,
+"lat": 55.4808,
+"minzoom": 0.91
+},
+{
+"name": "Savanna hunter-gatherers",
+"lng": -53.3576,
+"lat": -20.5585,
+"minzoom": 2.81
+},
+{
+"name": "Sui Empire",
+"lng": 110.4691,
+"lat": 32.3238,
+"minzoom": 1.83
+},
+{
+"name": "Plain bison hunters",
+"lng": -102.9829,
+"lat": 43.0191,
+"minzoom": 3.23
+},
+{
+"name": "West African cereal farmers",
+"lng": 13.5838,
+"lat": 8.4344,
+"minzoom": 2.15
+},
+{
+"name": "Amazon hunter-gatherers",
+"lng": -56.3881,
+"lat": -6.5679,
+"minzoom": 2.84
+},
+{
+"name": "Saami",
+"lng": 24.4192,
+"lat": 67.0056,
+"minzoom": 0.69
+},
+{
+"name": "Sasanian Empire",
+"lng": 54.2629,
+"lat": 33.9794,
+"minzoom": 2.39
+},
+{
+"name": "Desert hunter-gatherers",
+"lng": -110.5451,
+"lat": 33.9021,
+"minzoom": 3.26
+},
+{
+"name": "Tufan Empire",
+"lng": 88.9302,
+"lat": 33.32,
+"minzoom": 2.03
+},
+{
+"name": "Western Gokturk Khaganate",
+"lng": 62.3425,
+"lat": 43.4888,
+"minzoom": 3.1
+},
+{
+"name": "Pampas cultures",
+"lng": -64.5376,
+"lat": -38.9449,
+"minzoom": 2.91
+},
+{
+"name": "Plateau fichers and hunter gatherers",
+"lng": -118.577,
+"lat": 49.0458,
+"minzoom": 4.42
+},
+{
+"name": "Proto-Slavs",
+"lng": 18.4477,
+"lat": 51.2633,
+"minzoom": 2.36
+},
+{
+"name": "Umayyad Caliphate",
+"lng": 26.9986,
+"lat": 31.0397,
+"minzoom": 2.28
+},
+{
+"name": "Frankish Kingdom",
+"lng": 5.2184,
+"lat": 47.0999,
+"minzoom": 3.42
+},
+{
+"name": "Swedes",
+"lng": 11.4743,
+"lat": 60.4106,
+"minzoom": 2.1
+},
+{
+"name": "Eastern Roman Empire",
+"lng": 34.5787,
+"lat": 39.1181,
+"minzoom": 3.49
+},
+{
+"name": "North American Pacific foraging, hunting and fishing peoples",
+"lng": -123.5111,
+"lat": 46.5091,
+"minzoom": 5.89
+},
+{
+"name": "Uyghurs",
+"lng": 87.1696,
+"lat": 38.7942,
+"minzoom": 2.41
+},
+{
+"name": "Karluks",
+"lng": 89.9826,
+"lat": 42.5628,
+"minzoom": 2.09
+},
+{
+"name": "Andean hunter-gatherers",
+"lng": -70.1019,
+"lat": -32.4004,
+"minzoom": 4.85
+},
+{
+"name": "Kryvichs",
+"lng": 33.0161,
+"lat": 58.2421,
+"minzoom": 2.86
+},
+{
+"name": "Hindu kingdoms",
+"lng": 80.3618,
+"lat": 23.0436,
+"minzoom": 3.36
+},
+{
+"name": "Kushites",
+"lng": 46.1392,
+"lat": 7.1637,
+"minzoom": 3.09
+},
+{
+"name": "Kanauj",
+"lng": 82.2507,
+"lat": 28.0809,
+"minzoom": 2.39
+},
+{
+"name": "Balts",
+"lng": 24.639,
+"lat": 56.4572,
+"minzoom": 2.45
+},
+{
+"name": "Vazimba",
+"lng": 46.7006,
+"lat": -19.5454,
+"minzoom": 3.29
+},
+{
+"name": "Chalukyas",
+"lng": 76.9567,
+"lat": 18.7363,
+"minzoom": 3.23
+},
+{
+"name": "Kingdom of Sind",
+"lng": 67.0917,
+"lat": 27.4171,
+"minzoom": 3.62
+},
+{
+"name": "Axum",
+"lng": 38.4502,
+"lat": 12.8711,
+"minzoom": 2.17
+},
+{
+"name": "Koguryo",
+"lng": 127.4373,
+"lat": 41.94,
+"minzoom": 2.58
+},
+{
+"name": "Avars",
+"lng": 18.8989,
+"lat": 46.86,
+"minzoom": 2.04
+},
+{
+"name": "Patagonian shellfish and marine mammal hunters",
+"lng": -72.3246,
+"lat": -48.3551,
+"minzoom": 6.03
+},
+{
+"name": "Bulgars",
+"lng": 36.0368,
+"lat": 47.313,
+"minzoom": 2.89
+},
+{
+"name": "Khazars",
+"lng": 44.4301,
+"lat": 46.4158,
+"minzoom": 3.16
+},
+{
+"name": "Palas",
+"lng": 87.7994,
+"lat": 23.4837,
+"minzoom": 2.71
+},
+{
+"name": "Tiahuanaco Empire",
+"lng": -69.119,
+"lat": -19.802,
+"minzoom": 5.29
+},
+{
+"name": "Maitraka Kingdom",
+"lng": 73.2126,
+"lat": 23.4606,
+"minzoom": 4.04
+},
+{
+"name": "Huari Empire",
+"lng": -74.0465,
+"lat": -13.1953,
+"minzoom": 3.8
+},
+{
+"name": "Maya states",
+"lng": -90.1735,
+"lat": 17.4379,
+"minzoom": 4.05
+},
+{
+"name": "Sasanian dependencies",
+"lng": 45.9805,
+"lat": 15.6415,
+"minzoom": 4.24
+},
+{
+"name": "Empire of Ghana",
+"lng": -7.8203,
+"lat": 15.8878,
+"minzoom": 4.51
+},
+{
+"name": "Thai Kingdoms",
+"lng": 102.8768,
+"lat": 22.8694,
+"minzoom": 4.37
+},
+{
+"name": "Danube Bulgars",
+"lng": 26.4706,
+"lat": 45.7501,
+"minzoom": 4.16
+},
+{
+"name": "Ethiopian Highland Peoples",
+"lng": 35.5564,
+"lat": 8.2348,
+"minzoom": 5.27
+},
+{
+"name": "Caribbean hunter-gatherers",
+"lng": -66.7318,
+"lat": 9.6239,
+"minzoom": 4.6
+},
+{
+"name": "Makkura",
+"lng": 32.4853,
+"lat": 18.2208,
+"minzoom": 3.65
+},
+{
+"name": "Yamato",
+"lng": 137.1756,
+"lat": 35.7321,
+"minzoom": 2.56
+},
+{
+"name": "Hejaz",
+"lng": 39.9002,
+"lat": 22.8391,
+"minzoom": 2.81
+},
+{
+"name": "Mauri",
+"lng": -3.2756,
+"lat": 33.5862,
+"minzoom": 2.99
+},
+{
+"name": "Nan-Zhao",
+"lng": 98.1576,
+"lat": 21.3862,
+"minzoom": 4.14
+},
+{
+"name": "Pallavas",
+"lng": 78.0534,
+"lat": 14.089,
+"minzoom": 3.94
+},
+{
+"name": "Warsenis",
+"lng": 1.6032,
+"lat": 34.6549,
+"minzoom": 4.0
+},
+{
+"name": "Neustria",
+"lng": 0.4839,
+"lat": 48.9786,
+"minzoom": 3.39
+},
+{
+"name": "Kingdom of Kapisa",
+"lng": 69.9675,
+"lat": 34.3064,
+"minzoom": 4.83
+},
+{
+"name": "Magyars",
+"lng": 36.7041,
+"lat": 48.793,
+"minzoom": 3.47
+},
+{
+"name": "Lombard principalities",
+"lng": 10.0466,
+"lat": 45.5126,
+"minzoom": 5.47
+},
+{
+"name": "Alwa",
+"lng": 33.0755,
+"lat": 14.4243,
+"minzoom": 3.03
+},
+{
+"name": "Polanes",
+"lng": 18.8113,
+"lat": 51.9296,
+"minzoom": 3.56
+},
+{
+"name": "Hindu states",
+"lng": 91.6504,
+"lat": 25.9497,
+"minzoom": 4.28
+},
+{
+"name": "Aures",
+"lng": 5.7345,
+"lat": 34.8963,
+"minzoom": 3.22
+},
+{
+"name": "Cantia",
+"lng": -0.6974,
+"lat": 51.9497,
+"minzoom": 3.6
+},
+{
+"name": "Shellfish gatherers",
+"lng": -46.908,
+"lat": -24.0254,
+"minzoom": 4.8
+},
+{
+"name": "Chen-La",
+"lng": 105.7647,
+"lat": 13.8895,
+"minzoom": 4.25
+},
+{
+"name": "Ainu",
+"lng": 142.5911,
+"lat": 50.1048,
+"minzoom": 3.77
+},
+{
+"name": "Nobatia",
+"lng": 32.1076,
+"lat": 21.9332,
+"minzoom": 3.94
+},
+{
+"name": "Kingdom of Kashmir",
+"lng": 74.2674,
+"lat": 33.9431,
+"minzoom": 4.85
+},
+{
+"name": "Barghawata",
+"lng": -7.4189,
+"lat": 32.1635,
+"minzoom": 4.44
+},
+{
+"name": "West Getaes",
+"lng": 11.2792,
+"lat": 59.6449,
+"minzoom": 4.68
+},
+{
+"name": "minor states under Indian influence",
+"lng": 101.8086,
+"lat": 4.5486,
+"minzoom": 6.12
+},
+{
+"name": "Bega",
+"lng": 36.3617,
+"lat": 18.4669,
+"minzoom": 3.25
+},
+{
+"name": "Severians",
+"lng": 31.4624,
+"lat": 50.3216,
+"minzoom": 4.4
+},
+{
+"name": "Saxons",
+"lng": 10.084,
+"lat": 52.4705,
+"minzoom": 3.9
+},
+{
+"name": "Kwarezm",
+"lng": 58.8064,
+"lat": 41.1544,
+"minzoom": 3.96
+},
+{
+"name": "Alans",
+"lng": 42.9146,
+"lat": 43.3433,
+"minzoom": 2.88
+},
+{
+"name": "Silla",
+"lng": 127.6305,
+"lat": 37.4143,
+"minzoom": 3.36
+},
+{
+"name": "Caucasian Albania",
+"lng": 47.3918,
+"lat": 41.1678,
+"minzoom": 4.77
+},
+{
+"name": "Sabirs",
+"lng": 41.4773,
+"lat": 44.8916,
+"minzoom": 3.2
+},
+{
+"name": "Champa",
+"lng": 108.0043,
+"lat": 13.4311,
+"minzoom": 4.4
+},
+{
+"name": "Kingdom of Zunbil",
+"lng": 66.3846,
+"lat": 32.4184,
+"minzoom": 5.32
+},
+{
+"name": "Blemmyes",
+"lng": 35.0915,
+"lat": 22.2715,
+"minzoom": 4.41
+},
+{
+"name": "Czechs",
+"lng": 14.5202,
+"lat": 49.836,
+"minzoom": 3.81
+},
+{
+"name": "Veracruz civilization",
+"lng": -96.1539,
+"lat": 18.9062,
+"minzoom": 5.22
+},
+{
+"name": "East Getaes",
+"lng": 15.5068,
+"lat": 57.512,
+"minzoom": 5.45
+},
+{
+"name": "Tasmanian hunter-gatherers",
+"lng": 146.6048,
+"lat": -42.1416,
+"minzoom": 6.17
+},
+{
+"name": "Visigothic Kingdom",
+"lng": -3.122,
+"lat": 42.8445,
+"minzoom": 4.35
+},
+{
+"name": "Frisians",
+"lng": 6.222,
+"lat": 52.3229,
+"minzoom": 4.47
+},
+{
+"name": "Moravians",
+"lng": 17.4323,
+"lat": 49.1091,
+"minzoom": 4.61
+},
+{
+"name": "Chauhans",
+"lng": 76.26,
+"lat": 27.9106,
+"minzoom": 4.03
+},
+{
+"name": "Dvaravati",
+"lng": 100.3371,
+"lat": 13.9267,
+"minzoom": 4.35
+},
+{
+"name": "Caloosahatchee culture",
+"lng": -81.159,
+"lat": 26.883,
+"minzoom": 6.35
+},
+{
+"name": "Huns",
+"lng": 46.6509,
+"lat": 43.176,
+"minzoom": 3.64
+},
+{
+"name": "Monte Alb\u00e1n",
+"lng": -97.2653,
+"lat": 17.187,
+"minzoom": 4.87
+},
+{
+"name": "Mazun",
+"lng": 58.3609,
+"lat": 22.1345,
+"minzoom": 4.34
+},
+{
+"name": "Slavs",
+"lng": 14.3603,
+"lat": 46.5225,
+"minzoom": 3.97
+},
+{
+"name": "Mataram",
+"lng": 110.0538,
+"lat": -7.7007,
+"minzoom": 3.48
+},
+{
+"name": "Georgian Kingdom",
+"lng": 42.9928,
+"lat": 42.2456,
+"minzoom": 5.62
+},
+{
+"name": "Simhala",
+"lng": 80.6761,
+"lat": 7.56,
+"minzoom": 5.01
+},
+{
+"name": "Paekche",
+"lng": 127.217,
+"lat": 35.904,
+"minzoom": 5.11
+},
+{
+"name": "Armenia",
+"lng": 45.016,
+"lat": 40.5236,
+"minzoom": 3.84
+},
+{
+"name": "Cheras",
+"lng": 76.6198,
+"lat": 11.1287,
+"minzoom": 4.38
+},
+{
+"name": "Teotihuacan",
+"lng": -99.7368,
+"lat": 19.9239,
+"minzoom": 5.45
+},
+{
+"name": "Goths",
+"lng": 34.3706,
+"lat": 45.4325,
+"minzoom": 4.16
+},
+{
+"name": "Cholas",
+"lng": 78.7273,
+"lat": 10.3694,
+"minzoom": 4.66
+},
+{
+"name": "Western Gangas",
+"lng": 75.5163,
+"lat": 13.2433,
+"minzoom": 6.17
+},
+{
+"name": "Pandyas",
+"lng": 77.5158,
+"lat": 9.1335,
+"minzoom": 5.04
+},
+{
+"name": "Bro\u00ebrec",
+"lng": -3.5355,
+"lat": 48.228,
+"minzoom": 5.02
+},
+{
+"name": "Hainan",
+"lng": 109.6229,
+"lat": 19.1201,
+"minzoom": 4.7
+},
+{
+"name": "Danes",
+"lng": 13.3932,
+"lat": 55.8568,
+"minzoom": 4.66
+},
+{
+"name": "Vasconia",
+"lng": -2.074,
+"lat": 43.3735,
+"minzoom": 4.75
+},
+{
+"name": "Dumnonia",
+"lng": -4.1415,
+"lat": 50.6661,
+"minzoom": 4.83
+},
+{
+"name": "Moche",
+"lng": -79.7045,
+"lat": -6.4765,
+"minzoom": 4.97
+},
+{
+"name": "Guta",
+"lng": 18.508,
+"lat": 57.4945,
+"minzoom": 5.44
+},
+{
+"name": "Lake Vygozero",
+"lng": 34.7404,
+"lat": 63.5445,
+"minzoom": 6.77
+},
+{
+"name": "Lake Segozerskoye",
+"lng": 33.6551,
+"lat": 63.3222,
+"minzoom": 7.72
+},
+{
+"name": "           ",
+"lng": 44.059,
+"lat": 1.085,
+"minzoom": 7.58
+}
+]

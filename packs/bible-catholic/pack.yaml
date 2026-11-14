@@ -35,11 +35,21 @@ links:
 # and the Holy Land (Jesus) are both in view and it is clear what you are looking at
 # (Joseph, 2026-11-13; was a close-up of the Holy Land).
 start_view: { lng: 22, lat: 40, zoom: 2.7 }
-# Realm borders on the map (vision.md "Basemap"). The pack pins the border year: 100 AD for the
-# Gospel era, because the 1 BC data is wrong around Galilee and Samaria. Files are made by
-# app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
+# Realm borders on the map (vision.md "Basemap"). The map shows the border year whose range holds
+# the timeline year (from <= year < until) and hides borders outside every range. `start` is the one
+# shown before there is a timeline year (on first load). Ranges meet halfway
+# between years, except 100 AD, which the pack pins for the whole Gospel era because the 1 BC data is
+# wrong around Galilee and Samaria. Picked by Joseph 2026-11-14 (docs/mockups/2026-11-14-border-years.png).
+# Files are made by app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
 borders:
-  year: 100
-  # Hide them once the timeline passes this year (a 1264 miracle is not in the Roman Empire).
-  until: 300
-  note: Borders approximate · c. 100 AD
+  - { year: -1500, from: -2500, until: -700, note: Borders approximate · c. 1500 BC }   # Exodus
+  - { year: 100,   from: -700,  until: 250,  note: Borders approximate · c. 100 AD, start: true }  # Life of Jesus; shown before the timeline moves
+  - { year: 400,   from: 250,   until: 550,  note: Borders approximate · c. 400 AD }
+  - { year: 700,   from: 550,   until: 850,  note: Borders approximate · c. 700 AD }
+  - { year: 1000,  from: 850,   until: 1100, note: Borders approximate · c. 1000 AD }
+  - { year: 1200,  from: 1100,  until: 1250, note: Borders approximate · c. 1200 AD }
+  - { year: 1300,  from: 1250,  until: 1350, note: Borders approximate · c. 1300 AD }
+  - { year: 1400,  from: 1350,  until: 1500, note: Borders approximate · c. 1400 AD }
+  - { year: 1600,  from: 1500,  until: 1750, note: Borders approximate · c. 1600 AD }
+  - { year: 1900,  from: 1750,  until: 1955, note: Borders approximate · c. 1900 AD }
+  - { year: 2010,  from: 1955,  until: 2100, note: Borders c. 2010 }

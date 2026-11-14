@@ -1,0 +1,476 @@
+[
+{
+"name": "Paleo-Siberian hunter-gatherers",
+"lng": 121.2024,
+"lat": 63.7121,
+"minzoom": 1.46
+},
+{
+"name": "Finno-Ugric taiga hunter-gatherers",
+"lng": 71.1372,
+"lat": 67.8033,
+"minzoom": 1.88
+},
+{
+"name": "Arctic marine mammal hunters",
+"lng": -123.5475,
+"lat": 65.8137,
+"minzoom": 1.7
+},
+{
+"name": "Subarctic forest hunter-gatherers",
+"lng": -113.0245,
+"lat": 56.9737,
+"minzoom": 1.59
+},
+{
+"name": "Khoisan",
+"lng": 24.4695,
+"lat": -12.4306,
+"minzoom": 0.86
+},
+{
+"name": "Australian aboriginal hunter-gatherers",
+"lng": 134.3844,
+"lat": -26.1631,
+"minzoom": 3.24
+},
+{
+"name": "West African cereal farmers",
+"lng": 19.738,
+"lat": 8.4976,
+"minzoom": 1.99
+},
+{
+"name": "Ruanruan",
+"lng": 96.0457,
+"lat": 47.8247,
+"minzoom": 0.91
+},
+{
+"name": "Savanna hunter-gatherers",
+"lng": -53.3576,
+"lat": -20.5585,
+"minzoom": 2.81
+},
+{
+"name": "Plain bison hunters",
+"lng": -103.1754,
+"lat": 42.9535,
+"minzoom": 3.23
+},
+{
+"name": "Amazon hunter-gatherers",
+"lng": -56.3881,
+"lat": -6.5679,
+"minzoom": 2.84
+},
+{
+"name": "Saami",
+"lng": 24.4192,
+"lat": 67.0056,
+"minzoom": 0.69
+},
+{
+"name": "Jin",
+"lng": 111.0074,
+"lat": 28.9211,
+"minzoom": 0.41
+},
+{
+"name": "Western Roman Empire",
+"lng": 4.5894,
+"lat": 44.6934,
+"minzoom": 2.73
+},
+{
+"name": "Desert hunter-gatherers",
+"lng": -110.5451,
+"lat": 33.9021,
+"minzoom": 3.26
+},
+{
+"name": "Persia",
+"lng": 50.4787,
+"lat": 34.2786,
+"minzoom": 1.28
+},
+{
+"name": "Gupta Empire",
+"lng": 79.048,
+"lat": 25.0036,
+"minzoom": 2.23
+},
+{
+"name": "Pampas cultures",
+"lng": -64.5376,
+"lat": -38.9449,
+"minzoom": 2.91
+},
+{
+"name": "Eastern Roman Empire",
+"lng": 31.936,
+"lat": 33.9812,
+"minzoom": 3.16
+},
+{
+"name": "Hunnic Empire",
+"lng": 37.7849,
+"lat": 49.228,
+"minzoom": 2.29
+},
+{
+"name": "Sixteen Kingdoms",
+"lng": 112.1003,
+"lat": 38.8924,
+"minzoom": 2.63
+},
+{
+"name": "Plateau fichers and hunter gatherers",
+"lng": -118.577,
+"lat": 49.0458,
+"minzoom": 4.42
+},
+{
+"name": "Suren Kingdom",
+"lng": 66.2037,
+"lat": 30.0145,
+"minzoom": 3.08
+},
+{
+"name": "Hopewell Culture",
+"lng": -87.2988,
+"lat": 40.2066,
+"minzoom": 2.99
+},
+{
+"name": "North American Pacific foraging, hunting and fishing peoples",
+"lng": -123.5111,
+"lat": 46.5091,
+"minzoom": 5.89
+},
+{
+"name": "Andean hunter-gatherers",
+"lng": -69.8888,
+"lat": -30.6169,
+"minzoom": 4.85
+},
+{
+"name": "Laurel complex",
+"lng": -95.4627,
+"lat": 50.9601,
+"minzoom": 3.39
+},
+{
+"name": "Meroe",
+"lng": 32.6628,
+"lat": 17.4089,
+"minzoom": 2.96
+},
+{
+"name": "Caucasian Alans",
+"lng": 42.4534,
+"lat": 45.1865,
+"minzoom": 3.88
+},
+{
+"name": "Satavahanihara",
+"lng": 77.088,
+"lat": 17.0805,
+"minzoom": 4.08
+},
+{
+"name": "Himyarite Kingdom",
+"lng": 44.497,
+"lat": 17.0089,
+"minzoom": 4.0
+},
+{
+"name": "Point Peninsula",
+"lng": -75.2897,
+"lat": 45.7421,
+"minzoom": 3.84
+},
+{
+"name": "Patagonian shellfish and marine mammal hunters",
+"lng": -72.3246,
+"lat": -48.3551,
+"minzoom": 6.03
+},
+{
+"name": "Maya chiefdoms and states",
+"lng": -90.1855,
+"lat": 17.561,
+"minzoom": 5.23
+},
+{
+"name": "Empire of Ghana",
+"lng": -7.8203,
+"lat": 15.8878,
+"minzoom": 4.51
+},
+{
+"name": "Swift Creek Culture",
+"lng": -84.221,
+"lat": 32.0461,
+"minzoom": 4.9
+},
+{
+"name": "Caribbean hunter-gatherers",
+"lng": -66.7318,
+"lat": 9.6239,
+"minzoom": 4.6
+},
+{
+"name": "Northern Liang",
+"lng": 99.4879,
+"lat": 39.5278,
+"minzoom": 3.94
+},
+{
+"name": "Paleo-Inuit",
+"lng": -56.0665,
+"lat": 48.8118,
+"minzoom": 4.07
+},
+{
+"name": "Koguryo",
+"lng": 127.2726,
+"lat": 40.4593,
+"minzoom": 4.14
+},
+{
+"name": "Hindu kingdoms",
+"lng": 77.6295,
+"lat": 11.218,
+"minzoom": 4.67
+},
+{
+"name": "Marksville Culture",
+"lng": -91.8339,
+"lat": 31.2012,
+"minzoom": 4.97
+},
+{
+"name": "Shellfish gatherers",
+"lng": -46.908,
+"lat": -24.0254,
+"minzoom": 4.8
+},
+{
+"name": "Ainu",
+"lng": 142.5911,
+"lat": 50.1048,
+"minzoom": 3.77
+},
+{
+"name": "Yueban",
+"lng": 73.1033,
+"lat": 46.1787,
+"minzoom": 3.94
+},
+{
+"name": "Hadramaut",
+"lng": 51.184,
+"lat": 16.6654,
+"minzoom": 3.97
+},
+{
+"name": "Blemmyes",
+"lng": 35.0915,
+"lat": 22.2715,
+"minzoom": 4.41
+},
+{
+"name": "Tasmanian hunter-gatherers",
+"lng": 146.6048,
+"lat": -42.1416,
+"minzoom": 6.17
+},
+{
+"name": "Fourche Maline Culture",
+"lng": -94.3842,
+"lat": 33.8245,
+"minzoom": 5.77
+},
+{
+"name": "Moche",
+"lng": -78.3157,
+"lat": -8.8701,
+"minzoom": 3.24
+},
+{
+"name": "Geats",
+"lng": 13.8539,
+"lat": 58.1225,
+"minzoom": 3.47
+},
+{
+"name": "Swedes",
+"lng": 17.0733,
+"lat": 59.6176,
+"minzoom": 4.01
+},
+{
+"name": "Axum",
+"lng": 39.8271,
+"lat": 14.053,
+"minzoom": 3.48
+},
+{
+"name": "Ostrogoths",
+"lng": 30.0556,
+"lat": 46.7411,
+"minzoom": 4.75
+},
+{
+"name": "Couture Complex",
+"lng": -83.4452,
+"lat": 42.1909,
+"minzoom": 5.75
+},
+{
+"name": "Goodall Focus",
+"lng": -85.7099,
+"lat": 42.5267,
+"minzoom": 5.17
+},
+{
+"name": "Visigoths",
+"lng": 20.8796,
+"lat": 40.0437,
+"minzoom": 4.92
+},
+{
+"name": "Glades Culture",
+"lng": -81.159,
+"lat": 26.883,
+"minzoom": 5.7
+},
+{
+"name": "Porter",
+"lng": -88.1862,
+"lat": 31.7812,
+"minzoom": 4.41
+},
+{
+"name": "Monte Alb\u00e1n",
+"lng": -97.2653,
+"lat": 17.187,
+"minzoom": 4.87
+},
+{
+"name": "Copena",
+"lng": -87.168,
+"lat": 33.9348,
+"minzoom": 4.41
+},
+{
+"name": "Miller",
+"lng": -89.1225,
+"lat": 34.3789,
+"minzoom": 4.47
+},
+{
+"name": "Simhala",
+"lng": 80.6761,
+"lat": 7.56,
+"minzoom": 5.01
+},
+{
+"name": "Saugeen Complex",
+"lng": -81.0053,
+"lat": 43.5551,
+"minzoom": 5.9
+},
+{
+"name": "Paekche",
+"lng": 127.1489,
+"lat": 35.9249,
+"minzoom": 5.01
+},
+{
+"name": "Gepids",
+"lng": 25.5738,
+"lat": 50.1351,
+"minzoom": 4.37
+},
+{
+"name": "Silla",
+"lng": 128.553,
+"lat": 36.544,
+"minzoom": 4.82
+},
+{
+"name": "Teotihuacan",
+"lng": -99.7368,
+"lat": 19.9239,
+"minzoom": 5.45
+},
+{
+"name": "Nazca",
+"lng": -75.1289,
+"lat": -14.3593,
+"minzoom": 4.42
+},
+{
+"name": "Mill Creek Culture",
+"lng": -95.0405,
+"lat": 32.2949,
+"minzoom": 6.24
+},
+{
+"name": "Alamans",
+"lng": 8.8152,
+"lat": 48.738,
+"minzoom": 4.94
+},
+{
+"name": "Akatziri",
+"lng": 32.6608,
+"lat": 47.3182,
+"minzoom": 5.0
+},
+{
+"name": "Hainan",
+"lng": 109.6229,
+"lat": 19.1201,
+"minzoom": 4.7
+},
+{
+"name": "Dumonii",
+"lng": -4.1632,
+"lat": 50.6648,
+"minzoom": 4.73
+},
+{
+"name": "Burgundians",
+"lng": 8.32,
+"lat": 50.309,
+"minzoom": 5.84
+},
+{
+"name": "Skirii",
+"lng": 30.2638,
+"lat": 48.0765,
+"minzoom": 4.9
+},
+{
+"name": "Franks",
+"lng": 6.9082,
+"lat": 51.7086,
+"minzoom": 4.85
+},
+{
+"name": "Guanches",
+"lng": -13.8917,
+"lat": 28.6577,
+"minzoom": 6.21
+},
+{
+"name": "Gaya",
+"lng": 128.0992,
+"lat": 35.0349,
+"minzoom": 6.04
+}
+]

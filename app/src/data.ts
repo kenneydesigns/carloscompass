@@ -32,8 +32,10 @@ export interface Pack {
   explore_filters?: { key: string; label?: string }[]
   pin_colors?: Record<string, string>   // collection (tag value) -> brand color role
   start_view?: { lng: number; lat: number; zoom: number }
-  borders?: { year: number; until?: number; note?: string }
+  borders?: BorderYear[]
 }
+/** One border year the map can show, for timeline years from <= year < until (pack.yaml `borders`). */
+export interface BorderYear { year: number; from?: number; until?: number; note?: string; start?: boolean }
 
 const packFiles = import.meta.glob('../../packs/bible-catholic/pack.yaml', {
   query: '?raw', import: 'default', eager: true,

@@ -1,9 +1,10 @@
-Border files in this folder (100-realms.geojson, 100-lines.geojson, 100-labels.json)
+Border files in this folder (<year>-realms.geojson, <year>-lines.geojson, <year>-labels.json for
+-1500 (1500 BC), 100, 400, 700, 1000, 1200, 1300, 1400, 1600, 1900 and 2010)
 
 Derived from historical-basemaps by André Ourednik (https://github.com/aourednik/historical-basemaps),
 licensed under the GNU General Public License v3.0 (https://www.gnu.org/licenses/gpl-3.0.html).
-Changes: clipped to Natural Earth land, simplified, edges deduplicated, label points added,
-by app/scripts/build_borders.py in https://github.com/josephtunge-cyber/carloscompass.
+Changes: clipped to Natural Earth land, simplified, coordinates rounded, edges deduplicated, label
+points added, by app/scripts/build_borders.py in https://github.com/josephtunge-cyber/carloscompass.
 These files stay under GPL-3.0.
 
 Coastlines, lakes and rivers (../ne_50m_*.geojson): Natural Earth, public domain.

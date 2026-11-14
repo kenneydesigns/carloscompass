@@ -1,0 +1,3824 @@
+[
+{
+"name": "central Asian khanates",
+"lng": 115.3908,
+"lat": 62.6557,
+"minzoom": 1.22
+},
+{
+"name": "Tsardom of Muscovy",
+"lng": 60.8064,
+"lat": 61.1987,
+"minzoom": 1.48
+},
+{
+"name": "Ming Chinese Empire",
+"lng": 118.1966,
+"lat": 39.753,
+"minzoom": 2.14
+},
+{
+"name": "Athabaskan",
+"lng": -134.4736,
+"lat": 62.6719,
+"minzoom": 1.02
+},
+{
+"name": "T'atsaot'ine",
+"lng": -100.9464,
+"lat": 65.4217,
+"minzoom": 1.53
+},
+{
+"name": "Ottoman Empire",
+"lng": 31.8811,
+"lat": 32.2554,
+"minzoom": 1.4
+},
+{
+"name": "Quazaq Khanate",
+"lng": 71.1103,
+"lat": 48.4097,
+"minzoom": 2.31
+},
+{
+"name": "Chukchi",
+"lng": 170.6353,
+"lat": 65.8503,
+"minzoom": 1.76
+},
+{
+"name": "Subarctic forest hunter-gatherers",
+"lng": -73.804,
+"lat": 50.9959,
+"minzoom": 3.65
+},
+{
+"name": "Inupiaq",
+"lng": -154.6872,
+"lat": 68.0456,
+"minzoom": 1.24
+},
+{
+"name": "Savanna hunter-gatherers",
+"lng": -58.3306,
+"lat": -23.2289,
+"minzoom": 3.6
+},
+{
+"name": "Sweden",
+"lng": 22.2513,
+"lat": 63.789,
+"minzoom": 1.62
+},
+{
+"name": "Amazon hunter-gatherers",
+"lng": -60.1469,
+"lat": -6.0345,
+"minzoom": 3.28
+},
+{
+"name": "Pampas cultures",
+"lng": -64.5376,
+"lat": -38.9449,
+"minzoom": 2.91
+},
+{
+"name": "Tibet",
+"lng": 91.5692,
+"lat": 32.984,
+"minzoom": 1.12
+},
+{
+"name": "Cree",
+"lng": -96.9268,
+"lat": 55.9438,
+"minzoom": 1.05
+},
+{
+"name": "Poland-Lithuania",
+"lng": 26.4187,
+"lat": 53.096,
+"minzoom": 2.96
+},
+{
+"name": "Islamic and Hindu states",
+"lng": 76.9345,
+"lat": 25.2453,
+"minzoom": 2.84
+},
+{
+"name": "Nganasan",
+"lng": 103.9531,
+"lat": 74.3008,
+"minzoom": 1.92
+},
+{
+"name": "Safavid Empire",
+"lng": 57.3314,
+"lat": 32.9499,
+"minzoom": 3.13
+},
+{
+"name": "Mughal Empire",
+"lng": 74.8293,
+"lat": 31.9526,
+"minzoom": 2.73
+},
+{
+"name": "Denmark-Norway",
+"lng": 14.31,
+"lat": 64.6032,
+"minzoom": 2.45
+},
+{
+"name": "Khiva Khanate",
+"lng": 60.4821,
+"lat": 41.3699,
+"minzoom": 2.73
+},
+{
+"name": "Holy Roman Empire",
+"lng": 12.1443,
+"lat": 50.2515,
+"minzoom": 3.65
+},
+{
+"name": "Viceroyalty of New Spain",
+"lng": -87.606,
+"lat": 14.7971,
+"minzoom": 2.45
+},
+{
+"name": "Obiwa",
+"lng": -91.5884,
+"lat": 50.0311,
+"minzoom": 1.55
+},
+{
+"name": "Naskapi Innu",
+"lng": -71.7351,
+"lat": 59.1127,
+"minzoom": 2.82
+},
+{
+"name": "Inca Empire",
+"lng": -73.0045,
+"lat": -15.4464,
+"minzoom": 2.89
+},
+{
+"name": "Eyaq",
+"lng": -137.225,
+"lat": 59.5649,
+"minzoom": 1.11
+},
+{
+"name": "France",
+"lng": 1.9662,
+"lat": 46.5388,
+"minzoom": 2.31
+},
+{
+"name": "Shoshoni",
+"lng": -112.7602,
+"lat": 41.8606,
+"minzoom": 2.64
+},
+{
+"name": "Yup'ik & Cup'ik",
+"lng": -160.2093,
+"lat": 61.0184,
+"minzoom": 3.53
+},
+{
+"name": "Spain",
+"lng": -3.5279,
+"lat": 40.4899,
+"minzoom": 2.02
+},
+{
+"name": "Assiniboin",
+"lng": -102.7882,
+"lat": 50.213,
+"minzoom": 3.29
+},
+{
+"name": "Enets",
+"lng": 87.6788,
+"lat": 70.917,
+"minzoom": 2.35
+},
+{
+"name": "Nogai Horde",
+"lng": 55.592,
+"lat": 48.217,
+"minzoom": 3.49
+},
+{
+"name": "Songhai",
+"lng": -2.2326,
+"lat": 16.4336,
+"minzoom": 2.68
+},
+{
+"name": "Ayutthaya",
+"lng": 102.1593,
+"lat": 13.6162,
+"minzoom": 3.16
+},
+{
+"name": "Papuans",
+"lng": 140.9429,
+"lat": -5.4922,
+"minzoom": 1.85
+},
+{
+"name": "Koryaks",
+"lng": 164.3134,
+"lat": 59.6981,
+"minzoom": 2.08
+},
+{
+"name": "Malaysian Islamic states",
+"lng": 114.2607,
+"lat": 0.784,
+"minzoom": 4.59
+},
+{
+"name": "Madagascar",
+"lng": 46.7006,
+"lat": -19.5454,
+"minzoom": 3.8
+},
+{
+"name": "Montagnais Innu",
+"lng": -60.4998,
+"lat": 52.8016,
+"minzoom": 3.98
+},
+{
+"name": "Yukagir",
+"lng": 157.0875,
+"lat": 69.7665,
+"minzoom": 2.7
+},
+{
+"name": "Kanem-Bornu",
+"lng": 13.4284,
+"lat": 15.695,
+"minzoom": 3.96
+},
+{
+"name": "Ethiopia",
+"lng": 38.7249,
+"lat": 11.8356,
+"minzoom": 3.78
+},
+{
+"name": "Watassid Morocco",
+"lng": -5.9891,
+"lat": 32.2284,
+"minzoom": 4.02
+},
+{
+"name": "Itelmen",
+"lng": 158.1168,
+"lat": 54.6472,
+"minzoom": 3.42
+},
+{
+"name": "Ute",
+"lng": -108.2762,
+"lat": 38.9875,
+"minzoom": 2.35
+},
+{
+"name": "Patagonian shellfish and marine mammal hunters",
+"lng": -72.3246,
+"lat": -48.3551,
+"minzoom": 6.03
+},
+{
+"name": "Apache",
+"lng": -106.9704,
+"lat": 29.2431,
+"minzoom": 2.34
+},
+{
+"name": "Vijayanagara",
+"lng": 77.4134,
+"lat": 13.0052,
+"minzoom": 4.11
+},
+{
+"name": "Northern Paiute",
+"lng": -118.7503,
+"lat": 42.0771,
+"minzoom": 4.68
+},
+{
+"name": "Darfur",
+"lng": 26.4531,
+"lat": 15.318,
+"minzoom": 3.05
+},
+{
+"name": "Rajputana",
+"lng": 72.3873,
+"lat": 26.3987,
+"minzoom": 3.71
+},
+{
+"name": "England and Ireland",
+"lng": -1.7967,
+"lat": 52.5144,
+"minzoom": 4.68
+},
+{
+"name": "Illinois",
+"lng": -89.8101,
+"lat": 40.3724,
+"minzoom": 3.88
+},
+{
+"name": "Crimean Khanate",
+"lng": 36.6889,
+"lat": 47.0041,
+"minzoom": 4.15
+},
+{
+"name": "Luba",
+"lng": 26.9259,
+"lat": -7.8639,
+"minzoom": 2.41
+},
+{
+"name": "Korea",
+"lng": 127.3309,
+"lat": 38.7131,
+"minzoom": 3.0
+},
+{
+"name": "Shan states",
+"lng": 95.884,
+"lat": 25.0987,
+"minzoom": 3.89
+},
+{
+"name": "Crow",
+"lng": -107.3352,
+"lat": 45.7879,
+"minzoom": 2.41
+},
+{
+"name": "Japan (Warring States)",
+"lng": 138.0231,
+"lat": 36.638,
+"minzoom": 4.3
+},
+{
+"name": "Adal",
+"lng": 44.7655,
+"lat": 9.8615,
+"minzoom": 2.18
+},
+{
+"name": "Senegal",
+"lng": -13.8615,
+"lat": 13.0384,
+"minzoom": 3.4
+},
+{
+"name": "Oromo",
+"lng": 39.5142,
+"lat": 3.7359,
+"minzoom": 2.9
+},
+{
+"name": "Osage",
+"lng": -94.1645,
+"lat": 36.8024,
+"minzoom": 2.85
+},
+{
+"name": "Arapaho",
+"lng": -102.9222,
+"lat": 40.0226,
+"minzoom": 3.27
+},
+{
+"name": "Comanche",
+"lng": -101.3407,
+"lat": 33.519,
+"minzoom": 3.54
+},
+{
+"name": "\u0110\u1ea1i Vi\u1ec7t",
+"lng": 106.2323,
+"lat": 18.0558,
+"minzoom": 3.45
+},
+{
+"name": "Andean hunter-gatherers",
+"lng": -70.7079,
+"lat": -36.8637,
+"minzoom": 5.17
+},
+{
+"name": "Mescalero",
+"lng": -104.16,
+"lat": 32.1571,
+"minzoom": 3.69
+},
+{
+"name": "Santee",
+"lng": -94.2898,
+"lat": 45.2754,
+"minzoom": 3.31
+},
+{
+"name": "Lunda",
+"lng": 20.6538,
+"lat": -8.8991,
+"minzoom": 3.03
+},
+{
+"name": "Shawnee",
+"lng": -85.3151,
+"lat": 37.4573,
+"minzoom": 3.42
+},
+{
+"name": "Maoris",
+"lng": 170.4434,
+"lat": -44.1693,
+"minzoom": 2.96
+},
+{
+"name": "Hausa States",
+"lng": 7.4796,
+"lat": 11.9543,
+"minzoom": 4.05
+},
+{
+"name": "Ahmadnagar",
+"lng": 75.3698,
+"lat": 20.2911,
+"minzoom": 4.12
+},
+{
+"name": "Teton",
+"lng": -102.4416,
+"lat": 44.7426,
+"minzoom": 3.37
+},
+{
+"name": "Wiradjuri",
+"lng": 147.1614,
+"lat": -33.7389,
+"minzoom": 3.94
+},
+{
+"name": "Blackfoot",
+"lng": -111.8721,
+"lat": 48.0794,
+"minzoom": 3.74
+},
+{
+"name": "Kiowa",
+"lng": -99.1168,
+"lat": 36.7566,
+"minzoom": 3.3
+},
+{
+"name": "Finnmark",
+"lng": 27.4117,
+"lat": 69.1903,
+"minzoom": 3.09
+},
+{
+"name": "Islamic city-states",
+"lng": 39.8665,
+"lat": -4.4155,
+"minzoom": 4.86
+},
+{
+"name": "Mi'kma'ki",
+"lng": -65.1,
+"lat": 46.4922,
+"minzoom": 3.82
+},
+{
+"name": "Beothuk",
+"lng": -56.0665,
+"lat": 48.8118,
+"minzoom": 3.42
+},
+{
+"name": "Mwenemutapa",
+"lng": 32.4939,
+"lat": -19.6648,
+"minzoom": 4.62
+},
+{
+"name": "Burmese kingdoms",
+"lng": 95.9775,
+"lat": 20.7909,
+"minzoom": 4.95
+},
+{
+"name": "Kokatha",
+"lng": 133.6254,
+"lat": -29.7627,
+"minzoom": 3.15
+},
+{
+"name": "Erie",
+"lng": -81.1633,
+"lat": 41.1295,
+"minzoom": 2.4
+},
+{
+"name": "Scotland",
+"lng": -3.9796,
+"lat": 56.6163,
+"minzoom": 4.29
+},
+{
+"name": "Mardu",
+"lng": 124.0651,
+"lat": -23.3118,
+"minzoom": 2.83
+},
+{
+"name": "Yankontai",
+"lng": -98.5185,
+"lat": 46.1334,
+"minzoom": 4.28
+},
+{
+"name": "Pawnee",
+"lng": -99.035,
+"lat": 40.9209,
+"minzoom": 3.63
+},
+{
+"name": "Pintupi",
+"lng": 128.9159,
+"lat": -22.6667,
+"minzoom": 3.77
+},
+{
+"name": "Southern Paiute",
+"lng": -113.2854,
+"lat": 37.2206,
+"minzoom": 4.75
+},
+{
+"name": "Catawba",
+"lng": -79.8834,
+"lat": 35.0829,
+"minzoom": 3.73
+},
+{
+"name": "Caddo",
+"lng": -93.6297,
+"lat": 32.6866,
+"minzoom": 3.68
+},
+{
+"name": "Watjarri",
+"lng": 116.8925,
+"lat": -26.1876,
+"minzoom": 3.97
+},
+{
+"name": "Wichita",
+"lng": -97.6966,
+"lat": 33.4557,
+"minzoom": 4.02
+},
+{
+"name": "Cambodia",
+"lng": 105.2979,
+"lat": 11.4956,
+"minzoom": 4.06
+},
+{
+"name": "Arrernte",
+"lng": 134.5617,
+"lat": -24.7406,
+"minzoom": 4.25
+},
+{
+"name": "Potawatomi",
+"lng": -84.6882,
+"lat": 43.7617,
+"minzoom": 4.6
+},
+{
+"name": "Merina Kingdom",
+"lng": 46.9802,
+"lat": -20.4425,
+"minzoom": 5.46
+},
+{
+"name": "Laos",
+"lng": 101.3316,
+"lat": 21.0584,
+"minzoom": 2.71
+},
+{
+"name": "Bengal",
+"lng": 87.897,
+"lat": 22.697,
+"minzoom": 3.5
+},
+{
+"name": "Coahuiltec",
+"lng": -99.927,
+"lat": 27.0749,
+"minzoom": 4.38
+},
+{
+"name": "Ainu",
+"lng": 142.5911,
+"lat": 50.1048,
+"minzoom": 3.77
+},
+{
+"name": "Abnaki",
+"lng": -69.2826,
+"lat": 45.4576,
+"minzoom": 3.81
+},
+{
+"name": "Nyanganyatjara",
+"lng": 125.2627,
+"lat": -29.4018,
+"minzoom": 4.59
+},
+{
+"name": "Aaniiih",
+"lng": -108.6859,
+"lat": 48.3869,
+"minzoom": 4.02
+},
+{
+"name": "Suspiaq",
+"lng": -156.7684,
+"lat": 57.795,
+"minzoom": 3.3
+},
+{
+"name": "Yankton",
+"lng": -96.5126,
+"lat": 43.4443,
+"minzoom": 3.58
+},
+{
+"name": "Warlpiri",
+"lng": 131.146,
+"lat": -20.4378,
+"minzoom": 4.2
+},
+{
+"name": "Portugal",
+"lng": -7.9614,
+"lat": 39.7127,
+"minzoom": 4.55
+},
+{
+"name": "Mirning",
+"lng": 127.264,
+"lat": -31.3514,
+"minzoom": 3.31
+},
+{
+"name": "Iroquois",
+"lng": -75.5578,
+"lat": 43.4738,
+"minzoom": 3.74
+},
+{
+"name": "Muskogee",
+"lng": -83.2175,
+"lat": 33.0108,
+"minzoom": 3.64
+},
+{
+"name": "Lan Na",
+"lng": 99.6456,
+"lat": 19.0407,
+"minzoom": 3.56
+},
+{
+"name": "Chickasaw",
+"lng": -88.5675,
+"lat": 34.8733,
+"minzoom": 4.47
+},
+{
+"name": "Iowa",
+"lng": -93.713,
+"lat": 41.4994,
+"minzoom": 3.02
+},
+{
+"name": "Bidjara",
+"lng": 146.7718,
+"lat": -25.3783,
+"minzoom": 4.02
+},
+{
+"name": "Kalaamaya",
+"lng": 118.8529,
+"lat": -30.098,
+"minzoom": 4.21
+},
+{
+"name": "Kamilaroi",
+"lng": 149.5343,
+"lat": -30.1619,
+"minzoom": 4.28
+},
+{
+"name": "Navaho",
+"lng": -108.3807,
+"lat": 36.0314,
+"minzoom": 3.2
+},
+{
+"name": "Hadramaut",
+"lng": 48.7984,
+"lat": 15.4096,
+"minzoom": 4.1
+},
+{
+"name": "Chiricahua",
+"lng": -108.618,
+"lat": 32.6168,
+"minzoom": 4.66
+},
+{
+"name": "Flathead",
+"lng": -114.3955,
+"lat": 47.195,
+"minzoom": 4.39
+},
+{
+"name": "Prussia",
+"lng": 20.8394,
+"lat": 54.0789,
+"minzoom": 3.97
+},
+{
+"name": "Mahra",
+"lng": 52.9875,
+"lat": 17.5968,
+"minzoom": 3.37
+},
+{
+"name": "Cheyenne",
+"lng": -104.0214,
+"lat": 43.7585,
+"minzoom": 4.42
+},
+{
+"name": "Quapaw",
+"lng": -90.9993,
+"lat": 35.161,
+"minzoom": 4.01
+},
+{
+"name": "Naples",
+"lng": 15.7382,
+"lat": 40.6589,
+"minzoom": 3.56
+},
+{
+"name": "Caribbean hunter-gatherers",
+"lng": -65.614,
+"lat": 8.9209,
+"minzoom": 4.86
+},
+{
+"name": "Guachichiles",
+"lng": -101.1697,
+"lat": 23.8739,
+"minzoom": 5.15
+},
+{
+"name": "Wadai",
+"lng": 21.0892,
+"lat": 14.4846,
+"minzoom": 3.87
+},
+{
+"name": "Choctaw",
+"lng": -89.2645,
+"lat": 31.618,
+"minzoom": 3.72
+},
+{
+"name": "Cuba (Spain)",
+"lng": -79.0127,
+"lat": 21.63,
+"minzoom": 3.52
+},
+{
+"name": "Mossi States",
+"lng": -1.8404,
+"lat": 12.3203,
+"minzoom": 4.94
+},
+{
+"name": "Nyangumarda",
+"lng": 122.1069,
+"lat": -20.5543,
+"minzoom": 4.82
+},
+{
+"name": "Bagirmi",
+"lng": 17.4001,
+"lat": 12.4327,
+"minzoom": 3.65
+},
+{
+"name": "Pegu",
+"lng": 96.3108,
+"lat": 17.0689,
+"minzoom": 3.21
+},
+{
+"name": "Malacca",
+"lng": 101.1755,
+"lat": 0.7485,
+"minzoom": 3.75
+},
+{
+"name": "Tonkawa",
+"lng": -96.4682,
+"lat": 31.1638,
+"minzoom": 4.17
+},
+{
+"name": "Habsburg Netherlands",
+"lng": 4.1346,
+"lat": 50.563,
+"minzoom": 5.53
+},
+{
+"name": "Susquehanna",
+"lng": -77.0683,
+"lat": 41.0327,
+"minzoom": 5.01
+},
+{
+"name": "Wirangu",
+"lng": 133.3599,
+"lat": -31.4085,
+"minzoom": 3.78
+},
+{
+"name": "Tasmanian hunter-gatherers",
+"lng": 146.6048,
+"lat": -42.1416,
+"minzoom": 6.17
+},
+{
+"name": "Zacatecs",
+"lng": -103.6755,
+"lat": 24.2054,
+"minzoom": 4.78
+},
+{
+"name": "Gharra",
+"lng": 56.4285,
+"lat": 19.6472,
+"minzoom": 3.65
+},
+{
+"name": "Wawula",
+"lng": 120.9837,
+"lat": -25.044,
+"minzoom": 3.89
+},
+{
+"name": "Cherokee",
+"lng": -82.8515,
+"lat": 35.6956,
+"minzoom": 4.03
+},
+{
+"name": "Warumungu",
+"lng": 134.319,
+"lat": -19.4007,
+"minzoom": 4.42
+},
+{
+"name": "Nez Perce",
+"lng": -116.1256,
+"lat": 45.793,
+"minzoom": 4.63
+},
+{
+"name": "Mayas",
+"lng": -88.635,
+"lat": 20.0583,
+"minzoom": 4.02
+},
+{
+"name": "Bijapur",
+"lng": 75.7353,
+"lat": 17.2041,
+"minzoom": 3.93
+},
+{
+"name": "Ngatatjara",
+"lng": 127.3759,
+"lat": -25.1457,
+"minzoom": 4.81
+},
+{
+"name": "Ngaanyatjarra",
+"lng": 124.3933,
+"lat": -25.7084,
+"minzoom": 4.81
+},
+{
+"name": "Benin",
+"lng": 5.8495,
+"lat": 7.201,
+"minzoom": 3.88
+},
+{
+"name": "Delaware",
+"lng": -74.9147,
+"lat": 40.7225,
+"minzoom": 5.15
+},
+{
+"name": "Mandjindja",
+"lng": 125.9067,
+"lat": -27.3992,
+"minzoom": 5.05
+},
+{
+"name": "Iningai",
+"lng": 144.9835,
+"lat": -23.2447,
+"minzoom": 4.24
+},
+{
+"name": "Kalaako/Malpa",
+"lng": 121.7707,
+"lat": -32.0746,
+"minzoom": 5.24
+},
+{
+"name": "Wangkathaa",
+"lng": 121.8894,
+"lat": -29.8838,
+"minzoom": 4.7
+},
+{
+"name": "Dutch Republic",
+"lng": 5.6189,
+"lat": 52.2046,
+"minzoom": 5.25
+},
+{
+"name": "Wangkangurru",
+"lng": 137.3251,
+"lat": -26.2201,
+"minzoom": 5.45
+},
+{
+"name": "Cochim\u00ed",
+"lng": -112.1346,
+"lat": 25.9841,
+"minzoom": 3.65
+},
+{
+"name": "Golkonda",
+"lng": 79.7588,
+"lat": 17.0221,
+"minzoom": 4.19
+},
+{
+"name": "Caloosahatchee culture",
+"lng": -81.2833,
+"lat": 27.0856,
+"minzoom": 6.31
+},
+{
+"name": "Yankuntjatjara",
+"lng": 132.0215,
+"lat": -27.0916,
+"minzoom": 5.65
+},
+{
+"name": "Hitchiti",
+"lng": -83.5605,
+"lat": 31.7729,
+"minzoom": 4.81
+},
+{
+"name": "Missouri",
+"lng": -93.4771,
+"lat": 39.5235,
+"minzoom": 4.41
+},
+{
+"name": "Luritja",
+"lng": 132.1278,
+"lat": -24.7995,
+"minzoom": 4.34
+},
+{
+"name": "Miami",
+"lng": -86.582,
+"lat": 40.7824,
+"minzoom": 4.24
+},
+{
+"name": "Papal States",
+"lng": 12.7269,
+"lat": 43.0284,
+"minzoom": 5.36
+},
+{
+"name": "Nakako",
+"lng": 128.4722,
+"lat": -27.3844,
+"minzoom": 4.05
+},
+{
+"name": "Tutelo",
+"lng": -78.8091,
+"lat": 37.6553,
+"minzoom": 4.26
+},
+{
+"name": "Banggarla",
+"lng": 136.8295,
+"lat": -32.4862,
+"minzoom": 4.53
+},
+{
+"name": "Congo",
+"lng": 13.884,
+"lat": -6.9272,
+"minzoom": 4.23
+},
+{
+"name": "Hispaniola (Spain)",
+"lng": -71.3086,
+"lat": 18.9459,
+"minzoom": 4.9
+},
+{
+"name": "Pitjantjatjara",
+"lng": 129.9325,
+"lat": -25.9679,
+"minzoom": 5.92
+},
+{
+"name": "Venice",
+"lng": 11.9802,
+"lat": 45.9765,
+"minzoom": 3.84
+},
+{
+"name": "Wudjari",
+"lng": 121.2362,
+"lat": -33.5217,
+"minzoom": 3.91
+},
+{
+"name": "Swiss Confederation",
+"lng": 8.7044,
+"lat": 46.8548,
+"minzoom": 5.54
+},
+{
+"name": "Lipan",
+"lng": -99.521,
+"lat": 29.5062,
+"minzoom": 3.75
+},
+{
+"name": "Guachimis",
+"lng": -115.0178,
+"lat": 30.2307,
+"minzoom": 4.52
+},
+{
+"name": "Wongaibon",
+"lng": 145.7171,
+"lat": -31.4438,
+"minzoom": 4.89
+},
+{
+"name": "Tepehuane",
+"lng": -105.8254,
+"lat": 25.6935,
+"minzoom": 4.8
+},
+{
+"name": "Arabana",
+"lng": 135.9196,
+"lat": -28.5096,
+"minzoom": 4.68
+},
+{
+"name": "Timucua",
+"lng": -82.2564,
+"lat": 29.7638,
+"minzoom": 4.44
+},
+{
+"name": "Cahitas",
+"lng": -109.0776,
+"lat": 26.9767,
+"minzoom": 4.31
+},
+{
+"name": "Barundji",
+"lng": 144.2135,
+"lat": -30.1497,
+"minzoom": 5.18
+},
+{
+"name": "Yokuts",
+"lng": -119.956,
+"lat": 36.7288,
+"minzoom": 4.14
+},
+{
+"name": "Alyawarre",
+"lng": 135.6629,
+"lat": -22.1836,
+"minzoom": 4.86
+},
+{
+"name": "Antakarinja",
+"lng": 134.081,
+"lat": -27.4773,
+"minzoom": 5.56
+},
+{
+"name": "Gugu-Badhun",
+"lng": 145.4424,
+"lat": -19.4033,
+"minzoom": 5.12
+},
+{
+"name": "Dharawala",
+"lng": 145.1016,
+"lat": -25.5692,
+"minzoom": 4.75
+},
+{
+"name": "Kwakwaka'wakw",
+"lng": -125.8261,
+"lat": 49.7354,
+"minzoom": 4.75
+},
+{
+"name": "Florence",
+"lng": 11.1563,
+"lat": 43.702,
+"minzoom": 4.95
+},
+{
+"name": "Kaytej",
+"lng": 134.4977,
+"lat": -21.1973,
+"minzoom": 4.14
+},
+{
+"name": "Tamalipueca",
+"lng": -98.267,
+"lat": 24.7082,
+"minzoom": 5.87
+},
+{
+"name": "Papago",
+"lng": -112.8256,
+"lat": 31.6535,
+"minzoom": 4.28
+},
+{
+"name": "Menomini",
+"lng": -86.5703,
+"lat": 46.0831,
+"minzoom": 4.03
+},
+{
+"name": "Wakaya",
+"lng": 137.069,
+"lat": -19.7863,
+"minzoom": 4.21
+},
+{
+"name": "Wergaia",
+"lng": 142.2228,
+"lat": -35.7344,
+"minzoom": 4.55
+},
+{
+"name": "Yavapai",
+"lng": -112.8349,
+"lat": 34.0246,
+"minzoom": 4.49
+},
+{
+"name": "Yulparitja",
+"lng": 124.881,
+"lat": -21.2231,
+"minzoom": 4.99
+},
+{
+"name": "Pennacook",
+"lng": -71.6059,
+"lat": 43.8129,
+"minzoom": 5.38
+},
+{
+"name": "Savoy",
+"lng": 6.9518,
+"lat": 45.2838,
+"minzoom": 4.08
+},
+{
+"name": "Kansa",
+"lng": -96.2862,
+"lat": 39.267,
+"minzoom": 3.91
+},
+{
+"name": "Atakapa",
+"lng": -94.2565,
+"lat": 30.1991,
+"minzoom": 4.06
+},
+{
+"name": "Saylan",
+"lng": 80.6761,
+"lat": 7.56,
+"minzoom": 4.78
+},
+{
+"name": "Akan",
+"lng": -0.0461,
+"lat": 7.0977,
+"minzoom": 4.1
+},
+{
+"name": "Nyaki-nyaki",
+"lng": 118.8653,
+"lat": -32.2644,
+"minzoom": 5.26
+},
+{
+"name": "Kuwarra",
+"lng": 120.4042,
+"lat": -28.1987,
+"minzoom": 4.17
+},
+{
+"name": "Jicarilla",
+"lng": -103.9971,
+"lat": 36.5736,
+"minzoom": 5.18
+},
+{
+"name": "Ngarinyin",
+"lng": 126.3869,
+"lat": -15.7751,
+"minzoom": 4.76
+},
+{
+"name": "Oyo",
+"lng": 3.8533,
+"lat": 9.0851,
+"minzoom": 3.57
+},
+{
+"name": "Maiawali",
+"lng": 141.9972,
+"lat": -23.3894,
+"minzoom": 4.78
+},
+{
+"name": "Nayarit",
+"lng": -105.2012,
+"lat": 21.9914,
+"minzoom": 4.18
+},
+{
+"name": "Tjupany",
+"lng": 119.5115,
+"lat": -26.8547,
+"minzoom": 4.42
+},
+{
+"name": "Ngalea",
+"lng": 129.0731,
+"lat": -29.1999,
+"minzoom": 3.9
+},
+{
+"name": "Ponca",
+"lng": -99.6623,
+"lat": 43.2596,
+"minzoom": 4.11
+},
+{
+"name": "Yirandali",
+"lng": 144.4509,
+"lat": -21.3121,
+"minzoom": 5.0
+},
+{
+"name": "Wailwan",
+"lng": 147.9025,
+"lat": -30.9156,
+"minzoom": 4.45
+},
+{
+"name": "Pima",
+"lng": -111.2081,
+"lat": 31.8508,
+"minzoom": 4.51
+},
+{
+"name": "Barunggam",
+"lng": 150.7866,
+"lat": -26.7751,
+"minzoom": 4.84
+},
+{
+"name": "Orissa",
+"lng": 83.391,
+"lat": 18.499,
+"minzoom": 3.96
+},
+{
+"name": "Milan",
+"lng": 9.1085,
+"lat": 45.3463,
+"minzoom": 4.26
+},
+{
+"name": "Meru",
+"lng": 140.3814,
+"lat": -34.1371,
+"minzoom": 3.73
+},
+{
+"name": "Wangkumara",
+"lng": 142.7466,
+"lat": -27.1398,
+"minzoom": 5.43
+},
+{
+"name": "Birria",
+"lng": 142.4141,
+"lat": -25.5446,
+"minzoom": 4.49
+},
+{
+"name": "Kija",
+"lng": 127.8271,
+"lat": -17.1713,
+"minzoom": 3.56
+},
+{
+"name": "Nyamal",
+"lng": 119.8873,
+"lat": -21.2537,
+"minzoom": 4.53
+},
+{
+"name": "Pitta-Pitta",
+"lng": 139.8473,
+"lat": -23.2952,
+"minzoom": 5.58
+},
+{
+"name": "Gunggari",
+"lng": 147.7211,
+"lat": -26.4536,
+"minzoom": 5.21
+},
+{
+"name": "Ngarti",
+"lng": 128.9899,
+"lat": -20.2811,
+"minzoom": 4.4
+},
+{
+"name": "Kunjen",
+"lng": 142.6244,
+"lat": -15.9311,
+"minzoom": 4.88
+},
+{
+"name": "Andyamathanha",
+"lng": 139.3477,
+"lat": -30.9238,
+"minzoom": 6.19
+},
+{
+"name": "Wunumara",
+"lng": 141.8185,
+"lat": -21.1058,
+"minzoom": 4.73
+},
+{
+"name": "Danggali",
+"lng": 141.2088,
+"lat": -32.6059,
+"minzoom": 4.13
+},
+{
+"name": "Ngarigo",
+"lng": 148.6474,
+"lat": -36.2224,
+"minzoom": 5.31
+},
+{
+"name": "Mahican",
+"lng": -73.408,
+"lat": 42.9614,
+"minzoom": 5.0
+},
+{
+"name": "Tjalkanti",
+"lng": 123.0168,
+"lat": -27.7276,
+"minzoom": 4.98
+},
+{
+"name": "Malyangaba",
+"lng": 140.808,
+"lat": -30.6555,
+"minzoom": 5.4
+},
+{
+"name": "Mangala",
+"lng": 124.0461,
+"lat": -19.4261,
+"minzoom": 4.89
+},
+{
+"name": "Serano",
+"lng": -117.1158,
+"lat": 34.8086,
+"minzoom": 3.99
+},
+{
+"name": "Knucati",
+"lng": -86.1214,
+"lat": 34.0976,
+"minzoom": 5.03
+},
+{
+"name": "Wangkamana",
+"lng": 138.8291,
+"lat": -23.9713,
+"minzoom": 6.22
+},
+{
+"name": "Australian aboriginal hunter-gatherers",
+"lng": 137.1167,
+"lat": -24.0149,
+"minzoom": 7.41
+},
+{
+"name": "Bigambul",
+"lng": 149.6573,
+"lat": -28.1565,
+"minzoom": 4.63
+},
+{
+"name": "Jaru",
+"lng": 128.0462,
+"lat": -18.6021,
+"minzoom": 3.82
+},
+{
+"name": "Dhirari",
+"lng": 137.7114,
+"lat": -28.6163,
+"minzoom": 5.22
+},
+{
+"name": "Nawu",
+"lng": 135.4359,
+"lat": -33.6342,
+"minzoom": 3.9
+},
+{
+"name": "Ngatjumay",
+"lng": 123.6477,
+"lat": -32.2909,
+"minzoom": 5.75
+},
+{
+"name": "Oman",
+"lng": 58.5766,
+"lat": 22.4591,
+"minzoom": 4.04
+},
+{
+"name": "Ngargad",
+"lng": 140.479,
+"lat": -35.3839,
+"minzoom": 5.05
+},
+{
+"name": "Kooma",
+"lng": 147.0639,
+"lat": -28.0813,
+"minzoom": 4.27
+},
+{
+"name": "Kuyani",
+"lng": 138.0898,
+"lat": -30.3005,
+"minzoom": 4.39
+},
+{
+"name": "Nana",
+"lng": 121.9296,
+"lat": -26.818,
+"minzoom": 4.08
+},
+{
+"name": "Dieri",
+"lng": 139.1101,
+"lat": -28.3233,
+"minzoom": 4.74
+},
+{
+"name": "Kurnai",
+"lng": 147.3617,
+"lat": -37.8224,
+"minzoom": 4.26
+},
+{
+"name": "Kukatja",
+"lng": 126.87,
+"lat": -20.5296,
+"minzoom": 4.96
+},
+{
+"name": "Barkindji",
+"lng": 142.4588,
+"lat": -32.856,
+"minzoom": 4.79
+},
+{
+"name": "Barindji",
+"lng": 143.6114,
+"lat": -32.7058,
+"minzoom": 5.17
+},
+{
+"name": "Agwarmin",
+"lng": 143.9244,
+"lat": -17.9277,
+"minzoom": 5.42
+},
+{
+"name": "Alawa",
+"lng": 134.4605,
+"lat": -15.9175,
+"minzoom": 4.68
+},
+{
+"name": "Warlmanpa",
+"lng": 132.5523,
+"lat": -18.5081,
+"minzoom": 4.93
+},
+{
+"name": "Badimaya",
+"lng": 117.2757,
+"lat": -28.2235,
+"minzoom": 4.79
+},
+{
+"name": "Mudburra",
+"lng": 132.2835,
+"lat": -17.1782,
+"minzoom": 5.0
+},
+{
+"name": "Ngadjuri",
+"lng": 138.9748,
+"lat": -33.0455,
+"minzoom": 5.37
+},
+{
+"name": "Yakima",
+"lng": -120.1709,
+"lat": 46.4105,
+"minzoom": 4.56
+},
+{
+"name": "Karuwali",
+"lng": 141.3054,
+"lat": -24.8785,
+"minzoom": 5.26
+},
+{
+"name": "Yandruwandha",
+"lng": 140.7291,
+"lat": -28.2265,
+"minzoom": 5.53
+},
+{
+"name": "Walmatjarri",
+"lng": 125.7275,
+"lat": -19.4909,
+"minzoom": 5.72
+},
+{
+"name": "Kuungkari",
+"lng": 144.2039,
+"lat": -24.4108,
+"minzoom": 5.03
+},
+{
+"name": "Sicily",
+"lng": 14.1229,
+"lat": 37.5835,
+"minzoom": 4.32
+},
+{
+"name": "Palyku",
+"lng": 120.2211,
+"lat": -22.6468,
+"minzoom": 4.68
+},
+{
+"name": "Sardinia",
+"lng": 9.0412,
+"lat": 40.0938,
+"minzoom": 5.62
+},
+{
+"name": "Amangu",
+"lng": 115.5795,
+"lat": -29.4409,
+"minzoom": 4.83
+},
+{
+"name": "Gurindji",
+"lng": 129.8452,
+"lat": -17.627,
+"minzoom": 4.8
+},
+{
+"name": "Yuchi",
+"lng": -84.5481,
+"lat": 35.6646,
+"minzoom": 3.75
+},
+{
+"name": "Chisos",
+"lng": -104.1362,
+"lat": 27.2039,
+"minzoom": 4.85
+},
+{
+"name": "Bandjigali",
+"lng": 142.3659,
+"lat": -30.5445,
+"minzoom": 5.33
+},
+{
+"name": "Nyikina",
+"lng": 124.2911,
+"lat": -18.0176,
+"minzoom": 4.63
+},
+{
+"name": "Kalapuya",
+"lng": -122.8534,
+"lat": 44.3439,
+"minzoom": 5.63
+},
+{
+"name": "Wiljali",
+"lng": 141.0156,
+"lat": -31.9923,
+"minzoom": 4.77
+},
+{
+"name": "Ballardong",
+"lng": 117.2847,
+"lat": -31.2852,
+"minzoom": 5.74
+},
+{
+"name": "Natchez",
+"lng": -91.5348,
+"lat": 31.4018,
+"minzoom": 4.78
+},
+{
+"name": "Margany",
+"lng": 144.4012,
+"lat": -27.2954,
+"minzoom": 5.23
+},
+{
+"name": "Guamar / Pecchichitane",
+"lng": -101.4799,
+"lat": 21.5391,
+"minzoom": 6.4
+},
+{
+"name": "Omaha",
+"lng": -97.1147,
+"lat": 42.1459,
+"minzoom": 4.52
+},
+{
+"name": "Tenimo",
+"lng": -120.7848,
+"lat": 45.0481,
+"minzoom": 4.51
+},
+{
+"name": "Wakabunga",
+"lng": 138.6216,
+"lat": -19.4967,
+"minzoom": 5.13
+},
+{
+"name": "Andegerebenha",
+"lng": 137.6898,
+"lat": -22.6065,
+"minzoom": 6.28
+},
+{
+"name": "Bundjalung",
+"lng": 152.6716,
+"lat": -28.6651,
+"minzoom": 5.8
+},
+{
+"name": "Fox",
+"lng": -89.4396,
+"lat": 44.4978,
+"minzoom": 3.96
+},
+{
+"name": "Naniaho",
+"lng": -87.4296,
+"lat": 31.0949,
+"minzoom": 5.4
+},
+{
+"name": "Spokane",
+"lng": -118.0951,
+"lat": 47.4566,
+"minzoom": 5.5
+},
+{
+"name": "Yawarawarka",
+"lng": 140.8669,
+"lat": -26.9244,
+"minzoom": 5.78
+},
+{
+"name": "Cayuse",
+"lng": -118.3009,
+"lat": 45.4932,
+"minzoom": 4.98
+},
+{
+"name": "Ngamini",
+"lng": 139.1995,
+"lat": -26.8249,
+"minzoom": 4.91
+},
+{
+"name": "Kalispel",
+"lng": -116.6707,
+"lat": 48.2148,
+"minzoom": 4.88
+},
+{
+"name": "Chumash",
+"lng": -119.7759,
+"lat": 34.9107,
+"minzoom": 4.9
+},
+{
+"name": "Chatot",
+"lng": -85.924,
+"lat": 30.9479,
+"minzoom": 5.24
+},
+{
+"name": "Guwa",
+"lng": 142.2007,
+"lat": -22.1984,
+"minzoom": 4.29
+},
+{
+"name": "Miwok",
+"lng": -120.4709,
+"lat": 38.2815,
+"minzoom": 4.27
+},
+{
+"name": "Bidar",
+"lng": 77.722,
+"lat": 17.6934,
+"minzoom": 5.33
+},
+{
+"name": "Acaxea",
+"lng": -107.1933,
+"lat": 25.1578,
+"minzoom": 4.89
+},
+{
+"name": "Bularnu",
+"lng": 137.9141,
+"lat": -21.0982,
+"minzoom": 4.85
+},
+{
+"name": "Conoy",
+"lng": -77.236,
+"lat": 39.1078,
+"minzoom": 4.59
+},
+{
+"name": "Banjima",
+"lng": 118.5681,
+"lat": -22.8515,
+"minzoom": 4.97
+},
+{
+"name": "Jardwadjali",
+"lng": 142.0725,
+"lat": -36.9964,
+"minzoom": 5.49
+},
+{
+"name": "Taungurung",
+"lng": 145.5597,
+"lat": -36.9069,
+"minzoom": 5.18
+},
+{
+"name": "Gangulu",
+"lng": 149.7555,
+"lat": -24.0356,
+"minzoom": 4.92
+},
+{
+"name": "Kurrama",
+"lng": 116.6945,
+"lat": -22.1188,
+"minzoom": 4.74
+},
+{
+"name": "Nhanta",
+"lng": 114.5081,
+"lat": -27.5772,
+"minzoom": 5.21
+},
+{
+"name": "Maiou",
+"lng": -121.1362,
+"lat": 39.9646,
+"minzoom": 4.78
+},
+{
+"name": "Karankawa",
+"lng": -96.6119,
+"lat": 28.7895,
+"minzoom": 4.92
+},
+{
+"name": "Wiilman",
+"lng": 117.0638,
+"lat": -32.853,
+"minzoom": 4.83
+},
+{
+"name": "Walapai",
+"lng": -113.7709,
+"lat": 35.4037,
+"minzoom": 5.18
+},
+{
+"name": "Arikara",
+"lng": -100.6019,
+"lat": 45.5434,
+"minzoom": 5.77
+},
+{
+"name": "Minang",
+"lng": 117.6118,
+"lat": -34.7032,
+"minzoom": 4.58
+},
+{
+"name": "Anmatyerre",
+"lng": 132.8583,
+"lat": -22.4541,
+"minzoom": 5.37
+},
+{
+"name": "Muruwari",
+"lng": 146.4524,
+"lat": -29.0745,
+"minzoom": 5.31
+},
+{
+"name": "Ngarabal",
+"lng": 151.2965,
+"lat": -28.7535,
+"minzoom": 5.93
+},
+{
+"name": "Kalkadoon",
+"lng": 139.7988,
+"lat": -20.9732,
+"minzoom": 5.48
+},
+{
+"name": "Wurundjeri",
+"lng": 145.3814,
+"lat": -37.6862,
+"minzoom": 5.43
+},
+{
+"name": "Dja Dja Wurrung",
+"lng": 143.852,
+"lat": -36.7371,
+"minzoom": 6.31
+},
+{
+"name": "Biri",
+"lng": 148.0153,
+"lat": -20.8478,
+"minzoom": 4.35
+},
+{
+"name": "Mandandanji",
+"lng": 149.0037,
+"lat": -26.9711,
+"minzoom": 6.34
+},
+{
+"name": "Yuat",
+"lng": 115.906,
+"lat": -30.695,
+"minzoom": 4.43
+},
+{
+"name": "Gayiri",
+"lng": 147.9304,
+"lat": -23.8527,
+"minzoom": 5.22
+},
+{
+"name": "Ngawun",
+"lng": 142.0239,
+"lat": -19.9152,
+"minzoom": 5.02
+},
+{
+"name": "Mayi-Kulan",
+"lng": 141.7326,
+"lat": -18.7086,
+"minzoom": 5.55
+},
+{
+"name": "Havasupai",
+"lng": -112.3482,
+"lat": 35.7051,
+"minzoom": 5.38
+},
+{
+"name": "Jawoyn",
+"lng": 132.8304,
+"lat": -14.0088,
+"minzoom": 5.1
+},
+{
+"name": "Yangman",
+"lng": 132.9862,
+"lat": -15.6891,
+"minzoom": 5.58
+},
+{
+"name": "Yinggarda",
+"lng": 114.6886,
+"lat": -25.2749,
+"minzoom": 5.24
+},
+{
+"name": "Kaniyang",
+"lng": 116.6351,
+"lat": -33.7038,
+"minzoom": 5.3
+},
+{
+"name": "Waka Waka",
+"lng": 151.8038,
+"lat": -26.1829,
+"minzoom": 5.43
+},
+{
+"name": "Kuku-yalanji",
+"lng": 144.7067,
+"lat": -16.5966,
+"minzoom": 6.3
+},
+{
+"name": "Wadigali",
+"lng": 141.3986,
+"lat": -29.3183,
+"minzoom": 5.31
+},
+{
+"name": "Yolngu",
+"lng": 135.7162,
+"lat": -12.8284,
+"minzoom": 4.8
+},
+{
+"name": "Yuin",
+"lng": 149.8802,
+"lat": -35.9115,
+"minzoom": 4.8
+},
+{
+"name": "Gumbainggir",
+"lng": 152.4154,
+"lat": -29.9487,
+"minzoom": 5.83
+},
+{
+"name": "Oto",
+"lng": -96.1109,
+"lat": 40.5258,
+"minzoom": 4.09
+},
+{
+"name": "Ngarinman",
+"lng": 130.0574,
+"lat": -16.3685,
+"minzoom": 5.67
+},
+{
+"name": "Jingili",
+"lng": 133.819,
+"lat": -17.3424,
+"minzoom": 5.81
+},
+{
+"name": "Yuma",
+"lng": -114.624,
+"lat": 32.5793,
+"minzoom": 4.6
+},
+{
+"name": "Alabama",
+"lng": -86.4674,
+"lat": 32.384,
+"minzoom": 5.39
+},
+{
+"name": "Patwin",
+"lng": -121.9155,
+"lat": 38.9729,
+"minzoom": 5.03
+},
+{
+"name": "Gureng Gureng",
+"lng": 151.3107,
+"lat": -24.751,
+"minzoom": 6.18
+},
+{
+"name": "Worla",
+"lng": 126.7334,
+"lat": -16.9568,
+"minzoom": 4.75
+},
+{
+"name": "Winebago",
+"lng": -88.1336,
+"lat": 43.6426,
+"minzoom": 5.46
+},
+{
+"name": "Gundungurra",
+"lng": 149.6135,
+"lat": -34.6006,
+"minzoom": 5.49
+},
+{
+"name": "Garawa",
+"lng": 137.3433,
+"lat": -16.8865,
+"minzoom": 5.09
+},
+{
+"name": "Xecora",
+"lng": -104.4993,
+"lat": 22.6815,
+"minzoom": 5.22
+},
+{
+"name": "Costanoan",
+"lng": -121.7804,
+"lat": 37.309,
+"minzoom": 5.69
+},
+{
+"name": "Mbara",
+"lng": 143.4374,
+"lat": -20.062,
+"minzoom": 4.68
+},
+{
+"name": "Ngalawangka",
+"lng": 119.3303,
+"lat": -24.1545,
+"minzoom": 6.27
+},
+{
+"name": "Toboso",
+"lng": -102.5916,
+"lat": 27.2495,
+"minzoom": 5.25
+},
+{
+"name": "Yarluyandi",
+"lng": 139.7567,
+"lat": -25.795,
+"minzoom": 5.79
+},
+{
+"name": "Karenggapa",
+"lng": 142.7083,
+"lat": -29.2158,
+"minzoom": 6.1
+},
+{
+"name": "Kurtjar",
+"lng": 142.0137,
+"lat": -17.3464,
+"minzoom": 4.97
+},
+{
+"name": "Dharug",
+"lng": 150.2065,
+"lat": -33.7872,
+"minzoom": 4.54
+},
+{
+"name": "Kawahsu",
+"lng": -117.3804,
+"lat": 35.8158,
+"minzoom": 5.12
+},
+{
+"name": "Mayi-Yapi",
+"lng": 140.5166,
+"lat": -19.1025,
+"minzoom": 6.14
+},
+{
+"name": "Chtimacha",
+"lng": -90.5614,
+"lat": 29.5967,
+"minzoom": 4.92
+},
+{
+"name": "Wambaya",
+"lng": 135.9017,
+"lat": -18.1509,
+"minzoom": 4.57
+},
+{
+"name": "Kamia",
+"lng": -115.5976,
+"lat": 32.8174,
+"minzoom": 5.09
+},
+{
+"name": "Jaitmatang",
+"lng": 147.7251,
+"lat": -36.6856,
+"minzoom": 6.49
+},
+{
+"name": "Wik",
+"lng": 142.2686,
+"lat": -13.8159,
+"minzoom": 4.38
+},
+{
+"name": "Dyungungoo (Gubbi Gubbi)",
+"lng": 152.4538,
+"lat": -26.0255,
+"minzoom": 7.52
+},
+{
+"name": "Waanyi",
+"lng": 137.5196,
+"lat": -17.915,
+"minzoom": 5.16
+},
+{
+"name": "Maya",
+"lng": 114.3114,
+"lat": -24.4146,
+"minzoom": 4.37
+},
+{
+"name": "Wathaurong",
+"lng": 143.835,
+"lat": -37.7328,
+"minzoom": 5.8
+},
+{
+"name": "Mayi-Kutuna",
+"lng": 139.6906,
+"lat": -18.9897,
+"minzoom": 6.79
+},
+{
+"name": "Kijkitat",
+"lng": -121.5359,
+"lat": 46.0434,
+"minzoom": 5.48
+},
+{
+"name": "Kokowarra",
+"lng": 144.2205,
+"lat": -15.4733,
+"minzoom": 5.87
+},
+{
+"name": "Darumbal",
+"lng": 149.9157,
+"lat": -23.0563,
+"minzoom": 5.33
+},
+{
+"name": "Yagalingu",
+"lng": 146.7522,
+"lat": -23.1531,
+"minzoom": 6.22
+},
+{
+"name": "Tunica",
+"lng": -90.9069,
+"lat": 32.5207,
+"minzoom": 5.17
+},
+{
+"name": "Yilba",
+"lng": 146.0353,
+"lat": -20.9904,
+"minzoom": 5.02
+},
+{
+"name": "Goreng",
+"lng": 118.369,
+"lat": -33.8633,
+"minzoom": 4.91
+},
+{
+"name": "Doolboong/Miriwoong",
+"lng": 128.9954,
+"lat": -15.6789,
+"minzoom": 6.35
+},
+{
+"name": "Yindjibarndi",
+"lng": 117.9573,
+"lat": -21.7086,
+"minzoom": 5.8
+},
+{
+"name": "Thiin",
+"lng": 116.5702,
+"lat": -23.7688,
+"minzoom": 4.63
+},
+{
+"name": "Biripi",
+"lng": 152.1282,
+"lat": -31.5799,
+"minzoom": 5.11
+},
+{
+"name": "Kunja",
+"lng": 145.3688,
+"lat": -28.2972,
+"minzoom": 5.14
+},
+{
+"name": "Ngarrindjeri",
+"lng": 139.5351,
+"lat": -35.9716,
+"minzoom": 5.59
+},
+{
+"name": "Yitha Yitha",
+"lng": 144.3549,
+"lat": -33.5997,
+"minzoom": 5.98
+},
+{
+"name": "Ngandji",
+"lng": 135.2455,
+"lat": -17.1187,
+"minzoom": 5.42
+},
+{
+"name": "Yangga",
+"lng": 147.0926,
+"lat": -21.2586,
+"minzoom": 5.38
+},
+{
+"name": "Pirlatapa",
+"lng": 140.326,
+"lat": -29.3277,
+"minzoom": 5.85
+},
+{
+"name": "Waveroo",
+"lng": 146.6607,
+"lat": -36.4667,
+"minzoom": 5.53
+},
+{
+"name": "Wardaman",
+"lng": 131.7403,
+"lat": -15.2255,
+"minzoom": 5.83
+},
+{
+"name": "Geawegal",
+"lng": 150.8222,
+"lat": -32.0605,
+"minzoom": 5.21
+},
+{
+"name": "Pocumtuk",
+"lng": -72.5574,
+"lat": 42.6936,
+"minzoom": 6.21
+},
+{
+"name": "Tecuexe",
+"lng": -102.6556,
+"lat": 21.0481,
+"minzoom": 5.18
+},
+{
+"name": "Baraba Baraba",
+"lng": 144.4989,
+"lat": -35.7358,
+"minzoom": 6.32
+},
+{
+"name": "Nganyaywana",
+"lng": 151.3798,
+"lat": -30.4947,
+"minzoom": 6.38
+},
+{
+"name": "Nguburinji",
+"lng": 138.839,
+"lat": -18.495,
+"minzoom": 6.15
+},
+{
+"name": "Cahulia",
+"lng": -115.9463,
+"lat": 33.7414,
+"minzoom": 5.17
+},
+{
+"name": "Ngunawal",
+"lng": 148.6346,
+"lat": -34.8947,
+"minzoom": 5.5
+},
+{
+"name": "Binbinga",
+"lng": 136.0663,
+"lat": -16.2641,
+"minzoom": 5.97
+},
+{
+"name": "Pomo",
+"lng": -123.2953,
+"lat": 39.2095,
+"minzoom": 5.02
+},
+{
+"name": "Bidwell",
+"lng": 149.1511,
+"lat": -37.3086,
+"minzoom": 5.23
+},
+{
+"name": "Wagiman",
+"lng": 131.3146,
+"lat": -14.2538,
+"minzoom": 5.4
+},
+{
+"name": "Modoc",
+"lng": -121.3712,
+"lat": 41.8981,
+"minzoom": 4.8
+},
+{
+"name": "Ninticoy",
+"lng": -75.771,
+"lat": 38.4819,
+"minzoom": 5.94
+},
+{
+"name": "Shuar",
+"lng": -77.8819,
+"lat": -2.411,
+"minzoom": 5.26
+},
+{
+"name": "Saunan",
+"lng": -120.8268,
+"lat": 35.9917,
+"minzoom": 4.98
+},
+{
+"name": "Yinhawangka",
+"lng": 117.6635,
+"lat": -23.4315,
+"minzoom": 6.12
+},
+{
+"name": "Walangama",
+"lng": 142.06,
+"lat": -18.1801,
+"minzoom": 5.65
+},
+{
+"name": "Aceh",
+"lng": 95.9103,
+"lat": 4.8273,
+"minzoom": 4.83
+},
+{
+"name": "Nhuwala",
+"lng": 115.6534,
+"lat": -21.7564,
+"minzoom": 5.31
+},
+{
+"name": "Tharrgari",
+"lng": 115.1771,
+"lat": -24.0931,
+"minzoom": 6.13
+},
+{
+"name": "Payungu",
+"lng": 114.2265,
+"lat": -23.3144,
+"minzoom": 5.93
+},
+{
+"name": "Irritilas",
+"lng": -102.4824,
+"lat": 25.7022,
+"minzoom": 5.6
+},
+{
+"name": "Genoa",
+"lng": 8.6544,
+"lat": 44.386,
+"minzoom": 4.41
+},
+{
+"name": "Gunditjmara",
+"lng": 141.875,
+"lat": -38.0757,
+"minzoom": 5.97
+},
+{
+"name": "Yiman",
+"lng": 149.5161,
+"lat": -25.6127,
+"minzoom": 5.47
+},
+{
+"name": "Luiseno",
+"lng": -117.2034,
+"lat": 33.6976,
+"minzoom": 5.53
+},
+{
+"name": "Bibbulman",
+"lng": 115.9552,
+"lat": -34.3943,
+"minzoom": 5.98
+},
+{
+"name": "Lagunero",
+"lng": -102.9627,
+"lat": 26.2442,
+"minzoom": 5.4
+},
+{
+"name": "Mithaka",
+"lng": 140.1799,
+"lat": -24.962,
+"minzoom": 5.47
+},
+{
+"name": "Umatilla",
+"lng": -119.4852,
+"lat": 45.4556,
+"minzoom": 6.04
+},
+{
+"name": "Warriyangga",
+"lng": 115.9407,
+"lat": -24.4883,
+"minzoom": 6.53
+},
+{
+"name": "Unggumi",
+"lng": 125.0443,
+"lat": -17.0651,
+"minzoom": 5.62
+},
+{
+"name": "Ganggalida",
+"lng": 138.7137,
+"lat": -17.4714,
+"minzoom": 6.11
+},
+{
+"name": "Wonnarua",
+"lng": 150.7335,
+"lat": -32.5721,
+"minzoom": 5.56
+},
+{
+"name": "Kullilla",
+"lng": 143.191,
+"lat": -28.353,
+"minzoom": 5.39
+},
+{
+"name": "Warluwarra",
+"lng": 138.7438,
+"lat": -21.6643,
+"minzoom": 6.23
+},
+{
+"name": "Boonwurrung",
+"lng": 145.7387,
+"lat": -38.4245,
+"minzoom": 5.74
+},
+{
+"name": "Kariyarra",
+"lng": 118.3796,
+"lat": -20.9533,
+"minzoom": 6.33
+},
+{
+"name": "Gunindiri",
+"lng": 136.281,
+"lat": -17.4591,
+"minzoom": 6.14
+},
+{
+"name": "Ngambri",
+"lng": 148.9522,
+"lat": -35.4867,
+"minzoom": 6.15
+},
+{
+"name": "Gabalbara",
+"lng": 148.6106,
+"lat": -22.911,
+"minzoom": 5.99
+},
+{
+"name": "Wappynger",
+"lng": -73.09,
+"lat": 41.5506,
+"minzoom": 6.06
+},
+{
+"name": "Nguri",
+"lng": 147.8364,
+"lat": -25.6511,
+"minzoom": 5.37
+},
+{
+"name": "Riro",
+"lng": -106.8643,
+"lat": 34.0123,
+"minzoom": 4.94
+},
+{
+"name": "Budjari",
+"lng": 144.2782,
+"lat": -28.4084,
+"minzoom": 5.7
+},
+{
+"name": "Wajuk",
+"lng": 116.1073,
+"lat": -31.8746,
+"minzoom": 5.37
+},
+{
+"name": "Madi Madi",
+"lng": 143.5385,
+"lat": -34.1731,
+"minzoom": 6.04
+},
+{
+"name": "Wadjigu",
+"lng": 149.4092,
+"lat": -24.567,
+"minzoom": 6.2
+},
+{
+"name": "Caxcane",
+"lng": -103.228,
+"lat": 21.5782,
+"minzoom": 5.41
+},
+{
+"name": "Thalanyji",
+"lng": 114.7575,
+"lat": -22.5648,
+"minzoom": 5.24
+},
+{
+"name": "Mayi-Thakurti",
+"lng": 140.6652,
+"lat": -20.0617,
+"minzoom": 6.67
+},
+{
+"name": "Janabres",
+"lng": -99.7528,
+"lat": 24.0629,
+"minzoom": 5.48
+},
+{
+"name": "Miyan",
+"lng": 146.228,
+"lat": -21.9825,
+"minzoom": 5.29
+},
+{
+"name": "Gunu",
+"lng": 145.3777,
+"lat": -29.6565,
+"minzoom": 5.62
+},
+{
+"name": "Hopie",
+"lng": -110.5597,
+"lat": 35.6777,
+"minzoom": 5.27
+},
+{
+"name": "Jaminjung",
+"lng": 130.4194,
+"lat": -15.1038,
+"minzoom": 5.97
+},
+{
+"name": "Kureinji",
+"lng": 142.5754,
+"lat": -34.2281,
+"minzoom": 5.76
+},
+{
+"name": "Tu\u02bbi Tonga Empire",
+"lng": 177.9716,
+"lat": -17.8249,
+"minzoom": 6.88
+},
+{
+"name": "Darkinung",
+"lng": 150.6314,
+"lat": -33.0543,
+"minzoom": 5.72
+},
+{
+"name": "Takalak",
+"lng": 143.122,
+"lat": -18.0848,
+"minzoom": 6.15
+},
+{
+"name": "Gooniyandi",
+"lng": 126.1387,
+"lat": -18.4855,
+"minzoom": 6.29
+},
+{
+"name": "Wemba Wemba",
+"lng": 144.0614,
+"lat": -35.2358,
+"minzoom": 6.13
+},
+{
+"name": "Polynesians",
+"lng": -155.6364,
+"lat": 19.6248,
+"minzoom": 6.48
+},
+{
+"name": "Ngalakan",
+"lng": 134.1974,
+"lat": -14.5098,
+"minzoom": 5.7
+},
+{
+"name": "Djabwurung",
+"lng": 142.6593,
+"lat": -37.5183,
+"minzoom": 6.01
+},
+{
+"name": "Yorta Yorta",
+"lng": 145.12,
+"lat": -35.8057,
+"minzoom": 6.38
+},
+{
+"name": "Yanga",
+"lng": 143.354,
+"lat": -19.1232,
+"minzoom": 5.45
+},
+{
+"name": "Dainggatti",
+"lng": 152.409,
+"lat": -30.9046,
+"minzoom": 6.19
+},
+{
+"name": "Malkana",
+"lng": 114.2023,
+"lat": -26.2,
+"minzoom": 5.29
+},
+{
+"name": "Purduna",
+"lng": 115.3183,
+"lat": -23.2274,
+"minzoom": 5.88
+},
+{
+"name": "Zuni",
+"lng": -108.8336,
+"lat": 34.9177,
+"minzoom": 5.15
+},
+{
+"name": "Bakanh",
+"lng": 142.7774,
+"lat": -14.5615,
+"minzoom": 5.27
+},
+{
+"name": "Kaurna Pangkarra",
+"lng": 138.3736,
+"lat": -34.1998,
+"minzoom": 7.66
+},
+{
+"name": "Kukatj",
+"lng": 140.3504,
+"lat": -18.1119,
+"minzoom": 5.62
+},
+{
+"name": "Barna",
+"lng": 148.1312,
+"lat": -22.0982,
+"minzoom": 5.78
+},
+{
+"name": "Gungabula",
+"lng": 148.7803,
+"lat": -25.6433,
+"minzoom": 6.39
+},
+{
+"name": "Mandan",
+"lng": -100.8407,
+"lat": 46.6151,
+"minzoom": 5.47
+},
+{
+"name": "Garingbal",
+"lng": 148.6413,
+"lat": -24.8045,
+"minzoom": 6.6
+},
+{
+"name": "Latje Latje",
+"lng": 142.1259,
+"lat": -34.5234,
+"minzoom": 6.21
+},
+{
+"name": "Pewa",
+"lng": -105.9703,
+"lat": 35.7906,
+"minzoom": 4.92
+},
+{
+"name": "Cusabo",
+"lng": -80.3482,
+"lat": 32.6673,
+"minzoom": 5.2
+},
+{
+"name": "Buandig",
+"lng": 140.4889,
+"lat": -37.6466,
+"minzoom": 5.56
+},
+{
+"name": "Mara",
+"lng": 135.3161,
+"lat": -15.0679,
+"minzoom": 5.08
+},
+{
+"name": "Worora",
+"lng": 124.9843,
+"lat": -15.7892,
+"minzoom": 5.35
+},
+{
+"name": "Yambina",
+"lng": 147.33,
+"lat": -22.1322,
+"minzoom": 5.88
+},
+{
+"name": "Karajarri",
+"lng": 122.3263,
+"lat": -18.6418,
+"minzoom": 6.03
+},
+{
+"name": "Wuli-wuli",
+"lng": 150.3644,
+"lat": -25.2903,
+"minzoom": 6.66
+},
+{
+"name": "Narangga",
+"lng": 137.678,
+"lat": -34.599,
+"minzoom": 6.23
+},
+{
+"name": "Karangpurru",
+"lng": 131.5244,
+"lat": -16.172,
+"minzoom": 6.4
+},
+{
+"name": "Jiwarli",
+"lng": 116.7894,
+"lat": -23.2932,
+"minzoom": 5.05
+},
+{
+"name": "Rembarnga",
+"lng": 134.5136,
+"lat": -12.9521,
+"minzoom": 6.23
+},
+{
+"name": "Bilinara",
+"lng": 130.845,
+"lat": -16.9302,
+"minzoom": 6.15
+},
+{
+"name": "Kokomini",
+"lng": 143.34,
+"lat": -16.293,
+"minzoom": 5.92
+},
+{
+"name": "Yalarrnga",
+"lng": 139.7523,
+"lat": -21.8445,
+"minzoom": 6.27
+},
+{
+"name": "Republic of the Seven Zenden",
+"lng": 7.5088,
+"lat": 46.1532,
+"minzoom": 7.52
+},
+{
+"name": "Worimi",
+"lng": 152.0098,
+"lat": -32.4409,
+"minzoom": 5.8
+},
+{
+"name": "Wunambul",
+"lng": 125.6011,
+"lat": -15.1219,
+"minzoom": 6.45
+},
+{
+"name": "Kaantju",
+"lng": 143.0852,
+"lat": -13.6239,
+"minzoom": 6.77
+},
+{
+"name": "Bindjali",
+"lng": 140.579,
+"lat": -36.5495,
+"minzoom": 6.25
+},
+{
+"name": "Wangan",
+"lng": 147.5085,
+"lat": -22.8694,
+"minzoom": 5.95
+},
+{
+"name": "Warray",
+"lng": 132.0789,
+"lat": -13.4788,
+"minzoom": 5.43
+},
+{
+"name": "Ngalkbun",
+"lng": 134.8245,
+"lat": -13.4988,
+"minzoom": 6.27
+},
+{
+"name": "Nari Nari",
+"lng": 144.3178,
+"lat": -34.4393,
+"minzoom": 6.48
+},
+{
+"name": "Nukunu",
+"lng": 138.0684,
+"lat": -32.7422,
+"minzoom": 6.17
+},
+{
+"name": "Apalachee",
+"lng": -84.6095,
+"lat": 30.1107,
+"minzoom": 5.85
+},
+{
+"name": "Yugambeh",
+"lng": 153.0027,
+"lat": -28.1235,
+"minzoom": 6.41
+},
+{
+"name": "Wandjiwalgu",
+"lng": 142.8465,
+"lat": -31.1382,
+"minzoom": 6.6
+},
+{
+"name": "Baradha",
+"lng": 148.9427,
+"lat": -22.0163,
+"minzoom": 6.36
+},
+{
+"name": "Tharawal",
+"lng": 150.745,
+"lat": -34.5319,
+"minzoom": 6.26
+},
+{
+"name": "Otomies",
+"lng": -100.0149,
+"lat": 21.5247,
+"minzoom": 6.19
+},
+{
+"name": "Yanda",
+"lng": 140.6604,
+"lat": -22.0982,
+"minzoom": 5.91
+},
+{
+"name": "Houma",
+"lng": -90.8064,
+"lat": 30.9963,
+"minzoom": 5.42
+},
+{
+"name": "Ngurraiillam",
+"lng": 145.1472,
+"lat": -36.3837,
+"minzoom": 6.49
+},
+{
+"name": "Wadi Wadi",
+"lng": 143.5509,
+"lat": -34.9872,
+"minzoom": 6.42
+},
+{
+"name": "Jurruru",
+"lng": 117.2118,
+"lat": -23.1173,
+"minzoom": 5.77
+},
+{
+"name": "Djirbalngan",
+"lng": 145.5955,
+"lat": -17.6934,
+"minzoom": 7.06
+},
+{
+"name": "Gunwinggu",
+"lng": 133.5109,
+"lat": -12.3339,
+"minzoom": 6.51
+},
+{
+"name": "Anggamudi",
+"lng": 142.377,
+"lat": -11.5681,
+"minzoom": 6.87
+},
+{
+"name": "Giraiwurung",
+"lng": 142.9189,
+"lat": -38.2767,
+"minzoom": 6.91
+},
+{
+"name": "Guwinmal",
+"lng": 149.631,
+"lat": -22.4511,
+"minzoom": 6.08
+},
+{
+"name": "Dangbon",
+"lng": 134.1633,
+"lat": -12.552,
+"minzoom": 5.93
+},
+{
+"name": "Kwini",
+"lng": 127.556,
+"lat": -14.7296,
+"minzoom": 6.08
+},
+{
+"name": "Kungarakany",
+"lng": 130.8499,
+"lat": -13.2071,
+"minzoom": 6.32
+},
+{
+"name": "Pisones",
+"lng": -99.3776,
+"lat": 23.4913,
+"minzoom": 6.03
+},
+{
+"name": "Massachusett",
+"lng": -71.1509,
+"lat": 42.2068,
+"minzoom": 6.65
+},
+{
+"name": "Pinikura",
+"lng": 116.4184,
+"lat": -22.666,
+"minzoom": 6.35
+},
+{
+"name": "Punuba",
+"lng": 125.8014,
+"lat": -17.7635,
+"minzoom": 5.9
+},
+{
+"name": "Ngan\u2019giwumirri",
+"lng": 130.5155,
+"lat": -14.1937,
+"minzoom": 7.21
+},
+{
+"name": "Kadjerong",
+"lng": 128.7982,
+"lat": -15.199,
+"minzoom": 5.61
+},
+{
+"name": "Karangura",
+"lng": 138.4754,
+"lat": -26.183,
+"minzoom": 6.54
+},
+{
+"name": "Tano",
+"lng": -105.9397,
+"lat": 35.1646,
+"minzoom": 5.24
+},
+{
+"name": "Nimanburu",
+"lng": 123.0901,
+"lat": -17.5268,
+"minzoom": 6.86
+},
+{
+"name": "Montana",
+"lng": -73.1484,
+"lat": 40.8313,
+"minzoom": 5.15
+},
+{
+"name": "Koknar",
+"lng": 141.5965,
+"lat": -16.4046,
+"minzoom": 6.43
+},
+{
+"name": "Peramangk",
+"lng": 138.9331,
+"lat": -34.8929,
+"minzoom": 7.05
+},
+{
+"name": "Barranbinya",
+"lng": 146.208,
+"lat": -29.8537,
+"minzoom": 6.31
+},
+{
+"name": "Nyawaygi",
+"lng": 146.142,
+"lat": -19.0403,
+"minzoom": 6.26
+},
+{
+"name": "Luthigh",
+"lng": 142.3333,
+"lat": -12.5995,
+"minzoom": 6.76
+},
+{
+"name": "Ngarluma",
+"lng": 117.5212,
+"lat": -20.97,
+"minzoom": 6.01
+},
+{
+"name": "Ngandi",
+"lng": 135.2127,
+"lat": -14.0879,
+"minzoom": 6.22
+},
+{
+"name": "Mangarayi",
+"lng": 133.6225,
+"lat": -14.7073,
+"minzoom": 6.5
+},
+{
+"name": "Yanyuwa",
+"lng": 136.9025,
+"lat": -16.056,
+"minzoom": 4.75
+},
+{
+"name": "Wardandi",
+"lng": 115.3693,
+"lat": -33.8953,
+"minzoom": 6.53
+},
+{
+"name": "Guugu-Yimidhirr",
+"lng": 144.9422,
+"lat": -15.5101,
+"minzoom": 7.89
+},
+{
+"name": "Wuningangk",
+"lng": 133.1865,
+"lat": -13.0775,
+"minzoom": 6.61
+},
+{
+"name": "Martuthunira",
+"lng": 116.6959,
+"lat": -21.0937,
+"minzoom": 7.08
+},
+{
+"name": "Lamalama",
+"lng": 143.7576,
+"lat": -14.6929,
+"minzoom": 6.59
+},
+{
+"name": "Yawuru",
+"lng": 122.7332,
+"lat": -18.1184,
+"minzoom": 6.13
+},
+{
+"name": "Warwa",
+"lng": 124.1685,
+"lat": -17.1292,
+"minzoom": 5.78
+},
+{
+"name": "Gulidjan",
+"lng": 143.7225,
+"lat": -38.2787,
+"minzoom": 6.79
+},
+{
+"name": "Yuggera",
+"lng": 152.5769,
+"lat": -27.4647,
+"minzoom": 6.09
+},
+{
+"name": "Nunggubuyu",
+"lng": 135.6295,
+"lat": -13.982,
+"minzoom": 7.14
+},
+{
+"name": "Malak malak",
+"lng": 130.7111,
+"lat": -13.6711,
+"minzoom": 6.61
+},
+{
+"name": "Ngaliwuru",
+"lng": 130.9341,
+"lat": -15.854,
+"minzoom": 6.48
+},
+{
+"name": "Limilngan",
+"lng": 131.9186,
+"lat": -12.6591,
+"minzoom": 7.16
+},
+{
+"name": "Tancalba",
+"lng": -99.3195,
+"lat": 24.6402,
+"minzoom": 6.5
+},
+{
+"name": "Guanches",
+"lng": -13.8917,
+"lat": 28.6577,
+"minzoom": 6.21
+},
+{
+"name": "Gadubanud",
+"lng": 143.6576,
+"lat": -38.6565,
+"minzoom": 6.31
+},
+{
+"name": "Djargurdwurung",
+"lng": 143.248,
+"lat": -38.1647,
+"minzoom": 7.66
+},
+{
+"name": "Ngumbarl",
+"lng": 122.4827,
+"lat": -17.5386,
+"minzoom": 6.7
+},
+{
+"name": "Miwa",
+"lng": 127.0053,
+"lat": -14.1989,
+"minzoom": 5.62
+},
+{
+"name": "Wargamaygan",
+"lng": 145.7622,
+"lat": -18.3199,
+"minzoom": 7.2
+},
+{
+"name": "Woolna",
+"lng": 131.4051,
+"lat": -12.6372,
+"minzoom": 6.61
+},
+{
+"name": "Nungali",
+"lng": 130.9141,
+"lat": -15.5528,
+"minzoom": 6.03
+},
+{
+"name": "Gamberre",
+"lng": 126.3141,
+"lat": -14.4044,
+"minzoom": 6.58
+},
+{
+"name": "Thompson",
+"lng": -121.3717,
+"lat": 48.8094,
+"minzoom": 7.03
+},
+{
+"name": "Larrakia",
+"lng": 130.9325,
+"lat": -12.7034,
+"minzoom": 6.57
+},
+{
+"name": "Murrinh-patha",
+"lng": 129.9169,
+"lat": -14.5597,
+"minzoom": 7.06
+},
+{
+"name": "Ngarla",
+"lng": 119.4034,
+"lat": -20.2171,
+"minzoom": 6.02
+},
+{
+"name": "Mpalitjanh",
+"lng": 142.5755,
+"lat": -12.2475,
+"minzoom": 6.98
+},
+{
+"name": "Thaayorre",
+"lng": 141.7675,
+"lat": -14.7348,
+"minzoom": 7.32
+},
+{
+"name": "Biloxi",
+"lng": -88.5709,
+"lat": 30.5892,
+"minzoom": 6.1
+},
+{
+"name": "Guringai",
+"lng": 151.2468,
+"lat": -33.4357,
+"minzoom": 7.07
+},
+{
+"name": "Yuwi",
+"lng": 148.9739,
+"lat": -21.2487,
+"minzoom": 5.83
+},
+{
+"name": "Umida",
+"lng": 124.1483,
+"lat": -16.6514,
+"minzoom": 5.76
+},
+{
+"name": "Bayali",
+"lng": 150.8215,
+"lat": -23.8757,
+"minzoom": 6.42
+},
+{
+"name": "Jabirrjabirr",
+"lng": 122.561,
+"lat": -17.2029,
+"minzoom": 7.25
+},
+{
+"name": "Thul Garrie Waja (Bindal)",
+"lng": 147.023,
+"lat": -19.6742,
+"minzoom": 8.41
+},
+{
+"name": "Giya",
+"lng": 148.4828,
+"lat": -20.444,
+"minzoom": 5.91
+},
+{
+"name": "Djabuganjdji",
+"lng": 145.4459,
+"lat": -16.9572,
+"minzoom": 8.06
+},
+{
+"name": "Winda Winda",
+"lng": 141.8007,
+"lat": -13.1885,
+"minzoom": 7.91
+},
+{
+"name": "Yiiji",
+"lng": 127.8486,
+"lat": -15.2339,
+"minzoom": 6.78
+},
+{
+"name": "Yinwum",
+"lng": 142.7657,
+"lat": -12.8161,
+"minzoom": 7.21
+},
+{
+"name": "Mutumui",
+"lng": 144.5264,
+"lat": -14.7338,
+"minzoom": 6.18
+},
+{
+"name": "Maratines",
+"lng": -99.5549,
+"lat": 23.8659,
+"minzoom": 7.14
+},
+{
+"name": "Iwaidja",
+"lng": 132.5905,
+"lat": -11.5595,
+"minzoom": 5.94
+},
+{
+"name": "Pinjarup",
+"lng": 115.9093,
+"lat": -32.6902,
+"minzoom": 7.56
+},
+{
+"name": "Badtjala",
+"lng": 152.7649,
+"lat": -25.7493,
+"minzoom": 7.69
+},
+{
+"name": "Awabakal",
+"lng": 151.5762,
+"lat": -32.977,
+"minzoom": 6.91
+},
+{
+"name": "Kuuku-ya\u2019u",
+"lng": 143.0609,
+"lat": -12.6543,
+"minzoom": 7.36
+},
+{
+"name": "Amarak",
+"lng": 132.837,
+"lat": -11.885,
+"minzoom": 6.96
+},
+{
+"name": "Unggarangi",
+"lng": 123.7732,
+"lat": -16.6525,
+"minzoom": 7.7
+},
+{
+"name": "Wuthathi",
+"lng": 142.8768,
+"lat": -12.0773,
+"minzoom": 7.3
+},
+{
+"name": "Jukun",
+"lng": 122.434,
+"lat": -17.877,
+"minzoom": 6.4
+},
+{
+"name": "Wulgurukaba",
+"lng": 146.7714,
+"lat": -19.5569,
+"minzoom": 8.14
+},
+{
+"name": "Marrithiyel",
+"lng": 129.9884,
+"lat": -13.8802,
+"minzoom": 7.9
+},
+{
+"name": "Koko-bera",
+"lng": 141.6078,
+"lat": -15.6666,
+"minzoom": 7.88
+},
+{
+"name": "Dadi Dadi",
+"lng": 143.1604,
+"lat": -34.6434,
+"minzoom": 7.5
+},
+{
+"name": "Gagudju",
+"lng": 132.5559,
+"lat": -12.521,
+"minzoom": 7.71
+},
+{
+"name": "Kundjey\u2019mi",
+"lng": 132.8071,
+"lat": -12.4759,
+"minzoom": 8.24
+},
+{
+"name": "Anguthimri",
+"lng": 141.9017,
+"lat": -12.3861,
+"minzoom": 7.9
+},
+{
+"name": "Mbabaram",
+"lng": 145.0031,
+"lat": -17.4649,
+"minzoom": 6.96
+},
+{
+"name": "Mbeiwum",
+"lng": 142.2058,
+"lat": -13.0396,
+"minzoom": 6.62
+},
+{
+"name": "Mingin",
+"lng": 139.5338,
+"lat": -17.8031,
+"minzoom": 7.05
+},
+{
+"name": "Nyul Nyul",
+"lng": 122.8099,
+"lat": -16.8918,
+"minzoom": 7.4
+},
+{
+"name": "Marringarr",
+"lng": 129.7788,
+"lat": -14.2352,
+"minzoom": 7.84
+},
+{
+"name": "Yidinjdji",
+"lng": 145.7405,
+"lat": -17.2325,
+"minzoom": 7.47
+},
+{
+"name": "Konbudj",
+"lng": 132.317,
+"lat": -12.5571,
+"minzoom": 8.0
+},
+{
+"name": "Uutaalnganu",
+"lng": 143.3241,
+"lat": -13.1,
+"minzoom": 8.39
+},
+{
+"name": "Kuthant",
+"lng": 140.9509,
+"lat": -17.5797,
+"minzoom": 6.98
+},
+{
+"name": "Mbukarla",
+"lng": 132.6238,
+"lat": -13.0334,
+"minzoom": 7.11
+},
+{
+"name": "Awngthim",
+"lng": 141.9899,
+"lat": -12.7115,
+"minzoom": 7.78
+},
+{
+"name": "Yuru",
+"lng": 147.4671,
+"lat": -19.8459,
+"minzoom": 5.72
+},
+{
+"name": "Ngombur",
+"lng": 132.5376,
+"lat": -12.9078,
+"minzoom": 7.5
+},
+{
+"name": "Eora",
+"lng": 151.1142,
+"lat": -33.8695,
+"minzoom": 6.55
+},
+{
+"name": "Yadhaigana",
+"lng": 142.6021,
+"lat": -11.3197,
+"minzoom": 7.55
+},
+{
+"name": "Umbindhamu",
+"lng": 143.494,
+"lat": -14.1982,
+"minzoom": 8.12
+},
+{
+"name": "Kuuku-yani",
+"lng": 143.4223,
+"lat": -13.962,
+"minzoom": 8.45
+},
+{
+"name": "Turrbal",
+"lng": 152.9183,
+"lat": -27.4268,
+"minzoom": 7.67
+},
+{
+"name": "Maranunggu",
+"lng": 130.1558,
+"lat": -13.7064,
+"minzoom": 7.88
+},
+{
+"name": "Ngan\u2019gikurunggurr",
+"lng": 129.9624,
+"lat": -14.2304,
+"minzoom": 9.36
+},
+{
+"name": "Umpila",
+"lng": 143.4028,
+"lat": -13.6056,
+"minzoom": 8.31
+},
+{
+"name": "Gunbalang",
+"lng": 133.9045,
+"lat": -12.1194,
+"minzoom": 8.15
+},
+{
+"name": "Gungurugoni",
+"lng": 134.2637,
+"lat": -12.2094,
+"minzoom": 8.6
+},
+{
+"name": "Teppathiggi",
+"lng": 142.0379,
+"lat": -12.0754,
+"minzoom": 8.69
+},
+{
+"name": "Maung",
+"lng": 133.2419,
+"lat": -11.8446,
+"minzoom": 6.84
+},
+{
+"name": "Marramaninjsji",
+"lng": 130.2115,
+"lat": -14.0255,
+"minzoom": 8.89
+},
+{
+"name": "Bukurnidja",
+"lng": 132.7688,
+"lat": -12.7407,
+"minzoom": 8.67
+},
+{
+"name": "Gunibidji",
+"lng": 134.09,
+"lat": -12.1768,
+"minzoom": 8.74
+},
+{
+"name": "Kuwema",
+"lng": 130.2609,
+"lat": -13.5265,
+"minzoom": 8.42
+},
+{
+"name": "Bardi",
+"lng": 122.8187,
+"lat": -16.6962,
+"minzoom": 7.85
+},
+{
+"name": "Yir Yoront",
+"lng": 141.7217,
+"lat": -15.2852,
+"minzoom": 9.55
+},
+{
+"name": "Burarra",
+"lng": 134.6587,
+"lat": -12.0979,
+"minzoom": 9.01
+},
+{
+"name": "Yupangathi",
+"lng": 141.8873,
+"lat": -12.1497,
+"minzoom": 9.51
+},
+{
+"name": "Nakara",
+"lng": 134.5207,
+"lat": -12.1043,
+"minzoom": 8.47
+},
+{
+"name": "Tjerratj",
+"lng": 130.3559,
+"lat": -13.4175,
+"minzoom": 9.53
+},
+{
+"name": "Tjungundji",
+"lng": 141.9044,
+"lat": -12.0722,
+"minzoom": 10.48
+},
+{
+"name": "Gananggalinda",
+"lng": 138.9819,
+"lat": -17.0231,
+"minzoom": 10.06
+},
+{
+"name": "Jaburrara",
+"lng": 116.7819,
+"lat": -20.7896,
+"minzoom": 11.04
+}
+]

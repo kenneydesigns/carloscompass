@@ -11,6 +11,8 @@ Realm shapes are clipped to today's land, and edges to land a little in from the
 and dashes stop at the coastline (needs the `shapely` package).
 
 Usage: python3 app/scripts/build_borders.py 100     (with shapely installed, e.g. in a venv)
+       python3 app/scripts/build_borders.py bc1500  (BC years are written as -1500-*.geojson)
+The pack lists which years the map uses (pack.yaml `borders:`).
 """
 import json, math, sys
 from pathlib import Path
@@ -20,7 +22,8 @@ from shapely.validation import make_valid
 
 ROOT = Path(__file__).resolve().parents[2]
 APP = ROOT / 'app'
-year = sys.argv[1] if len(sys.argv) > 1 else '100'
+year = sys.argv[1] if len(sys.argv) > 1 else '100'   # source name: 100, 1200, bc1500 ...
+name = '-' + year[2:] if year.startswith('bc') else year   # output name is the signed year: -1500
 src = ROOT / 'design/map/data/historical-basemaps' / f'world_{year}.geojson'
 if not src.exists():  # worktrees don't carry design/ until it is committed; fall back to main checkout
     src = ROOT.parents[1] / 'design/map/data/historical-basemaps' / f'world_{year}.geojson'
@@ -31,6 +34,16 @@ realms = json.load(open(src))['features']
 land = unary_union([make_valid(shape(f['geometry']))
                     for f in json.load(open(APP / 'public/basemap/ne_50m_land.geojson'))['features']])
 inland = land.buffer(-0.05)   # about 5 km in from the coast: realm edges that trace the coast are dropped
+
+def small(g):
+    """GeoJSON geometry with coordinates rounded to 0.001° (~100 m): plenty for approximate borders
+    at our region-level zoom, and it about halves the file size."""
+    r = lambda c: [round(c[0], 3), round(c[1], 3)] if isinstance(c[0], (int, float)) else [r(x) for x in c]
+    def walk(m):
+        if m['type'] == 'GeometryCollection':
+            return {'type': m['type'], 'geometries': [walk(x) for x in m['geometries']]}
+        return {'type': m['type'], 'coordinates': r(m['coordinates'])}
+    return walk(mapping(g))
 
 def polys(g):
     return [g['coordinates']] if g['type'] == 'Polygon' else g['coordinates'] if g['type'] == 'MultiPolygon' else []
@@ -57,8 +70,8 @@ for i, f in enumerate(realms):
     if g.is_empty:
         continue
     g = g.simplify(0.01, preserve_topology=True)
-    fills.append({'type': 'Feature', 'geometry': mapping(g), 'properties': {'name': name, 'tint': tint[i]}})
-json.dump({'type': 'FeatureCollection', 'features': fills}, open(out / f'{year}-realms.geojson', 'w'),
+    fills.append({'type': 'Feature', 'geometry': small(g), 'properties': {'name': name, 'tint': tint[i]}})
+json.dump({'type': 'FeatureCollection', 'features': fills}, open(out / f'{name}-realms.geojson', 'w'),
           separators=(',', ':'))
 
 # --- edges: every segment once, chained into lines -----------------------------------------
@@ -87,10 +100,10 @@ for a, b in segs:
                 break
             n = nxt[0]; used.add((tip, n)); used.add((n, tip))
             chain.append(n) if end else chain.insert(0, n)
-    clipped = LineString(chain).intersection(inland)
+    clipped = LineString(chain).simplify(0.01).intersection(inland)
     if not clipped.is_empty:
-        lines.append({'type': 'Feature', 'properties': {}, 'geometry': mapping(clipped)})
-json.dump({'type': 'FeatureCollection', 'features': lines}, open(out / f'{year}-lines.geojson', 'w'),
+        lines.append({'type': 'Feature', 'properties': {}, 'geometry': small(clipped)})
+json.dump({'type': 'FeatureCollection', 'features': lines}, open(out / f'{name}-lines.geojson', 'w'),
           separators=(',', ':'))
 
 # --- labels: centroid of each realm's largest polygon (in Mercator), zoom where the name fits ---
@@ -125,6 +138,6 @@ for name, b in sorted(best.items(), key=lambda kv: -kv[1]['area']):
     minzoom = max(math.log2(text_w / (512 * b['w'])), math.log2(40 / (512 * b['h'])))
     lng, lat = unmerc(b['x'], b['y'])
     labels.append({'name': name, 'lng': round(lng, 4), 'lat': round(lat, 4), 'minzoom': round(minzoom, 2)})
-json.dump(labels, open(out / f'{year}-labels.json', 'w'), indent=0)
+json.dump(labels, open(out / f'{name}-labels.json', 'w'), indent=0)
 
 print(f'{len(fills)} realms on land, {len(lines)} edge lines, {len(labels)} labels')

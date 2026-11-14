@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
-import type { Place } from './data'
+import type { BorderYear, Place } from './data'
 import { hasCoords, placeColor, ringFor } from './data'
 
 // Calm basemap we style ourselves (vision.md "Basemap"): Natural Earth land, lakes and rivers,
@@ -23,37 +23,67 @@ const GOLD = '#DBBB7C'
 // design/map/render_styles.py. Neighbouring realms get different tints (index from the build script).
 const TINTS = ['#F1E2BC', '#EBE0C3', '#E6E1CB', '#F5EAC8', '#DFD0B2']
 
-export interface Borders { year: number; until?: number; note?: string }
+const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] }
+const FADE_MS = 150    // short fade when the border year changes
+const SETTLE_MS = 150  // on a fast drag, wait until the handle pauses before swapping (vision.md update rules)
+const LINE_OPACITY = ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5] as const
 
-function makeStyle(borders?: Borders): StyleSpecification {
-  const b = borders ? `${BASE}/basemap/borders/${borders.year}` : ''
+/** The pack's border year for a timeline year (from <= year < until), if any; with no year yet,
+ *  the pack's `start` one. */
+export function borderYearFor(list: BorderYear[] | undefined, year: number | undefined) {
+  if (!list?.length) return undefined
+  if (year === undefined) return list.find(b => b.start)
+  return list.find(b => (b.from ?? -Infinity) <= year && year < (b.until ?? Infinity))
+}
+
+interface BorderSet { realms: FeatureCollection; lines: FeatureCollection; labels: RealmLabel[] }
+const borderCache = new Map<number, Promise<BorderSet>>()
+/** Fetch one border year's files once; later calls share the same promise (preload = call early). */
+function loadBorders(year: number): Promise<BorderSet> {
+  let p = borderCache.get(year)
+  if (!p) {
+    const get = (f: string) => fetch(`${BASE}/basemap/borders/${year}-${f}`).then(r => {
+      if (!r.ok) throw new Error(`${year}-${f}: ${r.status}`)
+      return r.json()
+    })
+    p = Promise.all([get('realms.geojson'), get('lines.geojson'), get('labels.json')])
+      .then(([realms, lines, labels]) => ({ realms, lines, labels }))
+    p.catch(() => borderCache.delete(year))  // let a later swap retry
+    borderCache.set(year, p)
+  }
+  return p
+}
+
+function makeStyle(hasBorders: boolean): StyleSpecification {
   return {
     version: 8,
     sources: {
       land: { type: 'geojson', data: BASE + '/basemap/ne_50m_land.geojson' },
       lakes: { type: 'geojson', data: BASE + '/basemap/ne_50m_lakes.geojson' },
       rivers: { type: 'geojson', data: BASE + '/basemap/ne_50m_rivers_lake_centerlines.geojson' },
-      ...(borders ? {
-        realms: { type: 'geojson', data: `${b}-realms.geojson` },
-        realmLines: { type: 'geojson', data: `${b}-lines.geojson` },
+      // Filled in by MapView with the border year the timeline is on.
+      ...(hasBorders ? {
+        realms: { type: 'geojson', data: EMPTY },
+        realmLines: { type: 'geojson', data: EMPTY },
       } : {}),
     },
     layers: [
       { id: 'sea', type: 'background', paint: { 'background-color': SEA } },
       { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': PARCH } },
-      ...(borders ? [
+      ...(hasBorders ? [
         { id: 'realms', type: 'fill', source: 'realms', paint: {
           'fill-color': ['match', ['get', 'tint'], 0, TINTS[0], 1, TINTS[1], 2, TINTS[2], 3, TINTS[3], TINTS[4]],
-          'fill-opacity': 0.45,
+          'fill-opacity': 0.45, 'fill-opacity-transition': { duration: FADE_MS, delay: 0 },
         } },
         // The realm around the selected pin turns gold (the map's "Then:" line).
         { id: 'realm-selected', type: 'fill', source: 'realms', filter: ['==', ['get', 'name'], '\u0000'],
-          paint: { 'fill-color': GOLD, 'fill-opacity': 0.38 } },
+          paint: { 'fill-color': GOLD, 'fill-opacity': 0.38, 'fill-opacity-transition': { duration: FADE_MS, delay: 0 } } },
         // Dashed: every old border is approximate.
         { id: 'realm-lines', type: 'line', source: 'realmLines', paint: {
           'line-color': EARTH, 'line-width': 1, 'line-dasharray': [5, 3.5],
           // Faint when zoomed out (many small realms would crowd the view), full strength from zoom 5.
-          'line-opacity': ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5],
+          'line-opacity': LINE_OPACITY as unknown as number,
+          'line-opacity-transition': { duration: FADE_MS, delay: 0 },
         } },
       ] as StyleSpecification['layers'] : []),
       { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
@@ -67,7 +97,7 @@ interface RealmLabel { name: string; lng: number; lat: number; minzoom: number }
 
 /** Realm names as small-caps HTML labels (no font server needed), shown only where they fit
  *  and never overlapping each other. */
-function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
+function realmLabels(m: MlMap, isOn: () => boolean) {
   let labels: { data: RealmLabel; marker: Marker; el: HTMLDivElement }[] = []
   const place = () => {
     const z = m.getZoom()
@@ -87,7 +117,9 @@ function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
       l.el.style.display = show ? '' : 'none'
     }
   }
-  fetch(`${BASE}/basemap/borders/${year}-labels.json`).then(r => r.json()).then((data: RealmLabel[]) => {
+  /** Replace the names with another border year's. */
+  const set = (data: RealmLabel[]) => {
+    for (const l of labels) l.marker.remove()
     labels = data.map(d => {
       const el = document.createElement('div')
       el.className = 'realm-label'
@@ -96,10 +128,10 @@ function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
       return { data: d, el, marker: new Marker({ element: el }).setLngLat([d.lng, d.lat]).addTo(m) }
     })
     place()
-  }).catch(() => {})
+  }
   m.on('moveend', place)
   m.on('zoom', place)
-  return place
+  return { place, set }
 }
 
 function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
@@ -124,7 +156,7 @@ interface Props {
   places: Place[]
   selectedId?: string
   start: { lng: number; lat: number; zoom: number }
-  borders?: Borders
+  borders?: BorderYear[]
   year?: number
   fitTo?: Place[]
   fitKey?: number
@@ -135,11 +167,17 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
   const box = useRef<HTMLDivElement>(null)
   const map = useRef<MlMap | null>(null)
   const ready = useRef(false)
-  // Borders only belong to their own era (pack `borders.until`); hidden past it.
-  const bordersOn = !!borders && (year === undefined || borders.until === undefined || year <= borders.until)
+  // The border year the timeline is on (pack `borders`); none outside every range.
+  const wanted = borderYearFor(borders, year)
+  // The border year actually on screen: it trails `wanted` by a short pause, so a fast drag
+  // across centuries doesn't flash through each one (vision.md "Update rules").
+  const [shown, setShown] = useState<BorderYear>()
+  const bordersOn = !!shown
   const bordersOnRef = useRef(bordersOn)
   bordersOnRef.current = bordersOn
-  const placeLabels = useRef<() => void>(() => {})
+  const labelsCtl = useRef<{ place: () => void; set: (d: RealmLabel[]) => void }>(undefined)
+  const attrib = useRef<AttributionControl>(undefined)
+  const swapSeq = useRef(0)  // so a late fade-in from an older swap can't undo a newer fade-out
   const latest = useRef({ places, selectedId })
   latest.current = { places, selectedId }
 
@@ -149,7 +187,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     const worldFits = () => Math.min(2, Math.log2(box.current!.clientWidth / 512))
     const m = new MlMap({
       container: box.current!,
-      style: makeStyle(borders),
+      style: makeStyle(!!borders?.length),
       center: [start.lng, start.lat],
       zoom: start.zoom,
       minZoom: worldFits(),
@@ -160,8 +198,9 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     })
     m.touchZoomRotate.disableRotation()
     m.on('resize', () => m.setMinZoom(worldFits()))
-    m.addControl(new AttributionControl({ compact: true, customAttribution: borders?.note ? [borders.note] : [] }), 'top-right') // bottom belongs to the search bar
-    if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
+    attrib.current = new AttributionControl({ compact: true })
+    m.addControl(attrib.current, 'top-right') // bottom belongs to the search bar
+    if (borders?.length) labelsCtl.current = realmLabels(m, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.
     m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
     m.on('load', () => {
@@ -208,10 +247,62 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     ;(m.getSource('places') as GeoJSONSource | undefined)?.setData(toGeoJSON(places, selectedId))
   }, [places, selectedId])
 
+  // Swap the border set when the timeline crosses into another border year: wait for the handle
+  // to settle, fade out, swap the (already loaded) data and names, fade back in.
+  useEffect(() => {
+    const m = map.current
+    if (!m || !borders?.length) return
+    // Keep the years either side of the one on screen loaded ahead, so the next swap is quick (most
+    // of all on phones). Only around the settled year: a fast drag doesn't fetch every year it crosses.
+    const i = borders.indexOf((shown ?? wanted)!)
+    for (const j of [i - 1, i + 1]) if (i >= 0 && borders[j]) loadBorders(borders[j].year).catch(() => {})
+    if (wanted === shown) return
+    let cancelled = false
+    const realmPaint: [string, string, number][] = [
+      ['realms', 'fill-opacity', 0.45], ['realm-selected', 'fill-opacity', 0.38], ['realm-lines', 'line-opacity', LINE_OPACITY as unknown as number],
+    ]
+    const fade = (on: boolean) => {
+      for (const [id, prop, v] of realmPaint) if (m.getLayer(id)) m.setPaintProperty(id, prop as 'fill-opacity', on ? v : 0)
+      m.getContainer().classList.toggle('borders-fading', !on)
+    }
+    const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
+    const t = window.setTimeout(async () => {
+      if (!wanted) { setShown(undefined); return }  // outside every range: the visibility effect hides them
+      let data: BorderSet
+      try { data = await loadBorders(wanted.year) } catch { return }
+      if (cancelled) return
+      if (!ready.current) await new Promise(r => m.once('load', r))
+      const seq = ++swapSeq.current
+      if (shown) { fade(false); await wait(FADE_MS) } else fade(false)
+      if (cancelled) { fade(true); return }
+      ;(m.getSource('realms') as GeoJSONSource | undefined)?.setData(data.realms)
+      ;(m.getSource('realmLines') as GeoJSONSource | undefined)?.setData(data.lines)
+      labelsCtl.current?.set(data.labels)
+      setShown(wanted)
+      // Fade back in once the new set has drawn (or after a moment, if the map isn't drawing).
+      let done = false
+      const show = () => { if (!done && seq === swapSeq.current) { done = true; fade(true) } }
+      m.once('idle', show)
+      setTimeout(show, 300)
+    }, shown ? SETTLE_MS : 0)
+    return () => { cancelled = true; clearTimeout(t) }
+  }, [borders, wanted, shown])
+
+  // The credits (the (i) button) name the border year on screen.
+  useEffect(() => {
+    const m = map.current
+    if (!m || !borders?.length) return
+    const open = m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.contains('maplibregl-compact-show')
+    if (attrib.current) m.removeControl(attrib.current)
+    attrib.current = new AttributionControl({ compact: true, customAttribution: shown?.note ? [shown.note] : [] })
+    m.addControl(attrib.current, 'top-right')
+    m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.toggle('maplibregl-compact-show', !!open)
+  }, [borders, shown])
+
   // Gold realm under the selected pin.
   useEffect(() => {
     const m = map.current
-    if (!m || !borders) return
+    if (!m || !borders?.length) return
     const p = places.find(x => x.id === selectedId)
     const apply = () => {
       if (!m.getLayer('realm-selected')) return
@@ -222,16 +313,18 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
       }
       m.setFilter('realm-selected', ['==', ['get', 'name'], name ?? '\u0000'])
     }
-    if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
-  }, [places, selectedId, borders, bordersOn])
+    // Again once a just-swapped border set has rendered.
+    if (m.isStyleLoaded()) apply()
+    m.once('idle', apply)
+  }, [places, selectedId, borders, shown])
 
   useEffect(() => {
     const m = map.current
-    if (!m || !borders) return
+    if (!m || !borders?.length) return
     const apply = () => {
       for (const id of ['realms', 'realm-selected', 'realm-lines'])
         if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', bordersOn ? 'visible' : 'none')
-      placeLabels.current()
+      labelsCtl.current?.place()
     }
     if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
   }, [borders, bordersOn])

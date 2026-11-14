@@ -193,8 +193,19 @@ One calm world map we style ourselves, not an embedded map service.
   and the sea. **The realm around the selected pin turns gold**, the map's version of the card's
   "Then:" line (brand rule: only the selected thing gets gold). Beat Quiet, Atlas, and full
   Tinted (too busy, fills fought the pins).
-- **Which border year to show (proposed):** the nearest available year, not only the one at or
-  before. The 1200 vs 1279 gap is why Bolsena 1264 showed 1200 borders.
+- **Which border years (Joseph, 2026-11-14; render `docs/mockups/2026-11-14-border-years.png`):**
+  eleven, "balanced": 1500 BC (Exodus), 100 AD (Life of Jesus), 400, 700, 1000, 1200, 1300, 1400,
+  1600, 1900 and 2010 (today). Every century where the miracles are dense (1200–1400); skipped
+  1500, 1700 and 1800 (1600–1800 data is heavy with small German states). Beat a lean set of 7 and
+  every century (15). The pack lists them in `pack.yaml` `borders:`, each with a `from`/`until`
+  range of timeline years and its own note; ranges meet halfway between years, so the map shows
+  the nearest year, not only the one at or before (the 1200 vs 1279 gap is why Bolsena 1264 used
+  to show 1200 borders). 100 AD is stretched over the whole Gospel era (see below) and is the
+  `start` year shown before the timeline moves. Outside every range, no borders.
+- **Swapping as the timeline moves (built 2026-11-14):** follows the update rules above. The map
+  swaps only when the handle crosses into another border year's range, waits 0.15 s so a fast drag
+  doesn't flash through centuries, fades out and in (0.15 s), and keeps the years either side of
+  the one on screen loaded ahead. The ⓘ note always names the year on screen.
 - **Close zoom (Holy Land): borders plus region names** (Joseph, 2026-11-13, mockup v3). Borders
   and tints stay on at every zoom. At Holy Land zoom, hand-placed 1st-century region names are
   added (GALILEE, SAMARIA, JUDEA, DECAPOLIS, PEREA), smaller and lighter than realm names; they are
@@ -205,7 +216,7 @@ One calm world map we style ourselves, not an embedded map service.
   less detail, but true for Jesus' ministry. So the border year is not always the nearest one;
   the pack can pin a reviewed year for an era. Real Galilee/Samaria/Judea borders would have to
   be drawn from a sourced atlas as pack data (later).
-- **In the prototype (2026-11-13, `phone-layout` branch):** 100 AD borders only, soft tinted,
+- **In the prototype (2026-11-13, `phone-layout` branch; superseded 2026-11-14 by the eleven years above):** 100 AD borders only, soft tinted,
   dashed, gold realm under the selected pin, realm names shown only where they fit. The
   "approximate · c. 100 AD" note sits in the map credits (the ⓘ button) for now, to keep the
   phone screen clear. Region names (Galilee, Samaria…) wait for a sourced atlas. Files are made
@@ -222,8 +233,9 @@ One calm world map we style ourselves, not an embedded map service.
     - **Detail:** drawn for world/continent scale, which matches our region-level zoom limit.
       Each shape has a `NAME` (for labels) and a `BORDERPRECISION` (1 approximate, 2 moderately
       precise, 3 legal), so the map can blur or dash the approximate borders honestly.
-    - **Size:** about 1–2 MB per year as raw GeoJSON. The build step should simplify and
-      compress them to a few hundred KB each; only the year in view is loaded.
+    - **Size:** about 1–2 MB per year as raw GeoJSON. The build step simplifies them and rounds
+      to 0.001° (~100 m): about 0.8–1.4 MB per year, 250–410 KB gzipped as served. Only the year
+      in view and its two neighbours are loaded.
     - **License: GPL-3.0.** We may use and share it, but the border files must stay GPL-3.0 with
       credit to the author. Plan: keep them in their own folder in the pack with their own
       license file, separate from the MIT engine code and the
@@ -232,7 +244,7 @@ One calm world map we style ourselves, not an embedded map service.
     - **Zoom out to the whole world** (Joseph, 2026-11-13): the farthest zoom-out is set from the
       screen width so the world's full width fits (much farther on a phone than the old fixed limit).
     - **Credit lives with the files, not on the map** (Joseph, 2026-11-13): the ⓘ shows only
-      "Borders approximate · c. 100 AD". The GPL credit is in `app/public/basemap/borders/CREDITS.txt`
+      "Borders approximate · c. 100 AD" (the year on screen). The GPL credit is in `app/public/basemap/borders/CREDITS.txt`
       (served with the files); add it to the About page later if wanted.
   - Modern: Natural Earth (public domain).
   - OpenHistoricalMap stays the "later" option for finer, year-by-year borders.

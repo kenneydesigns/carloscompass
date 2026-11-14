@@ -54,7 +54,10 @@ a { color: var(--ink); }
 .realm-label {
   font: 400 12px/1 var(--serif); font-variant: small-caps; letter-spacing: 0.22em; text-transform: lowercase;
   color: var(--earth); opacity: 0.6; white-space: nowrap; pointer-events: none; z-index: 0;
+  transition: opacity 150ms;
 }
+/* Short fade while the border year changes with the timeline. */
+.borders-fading .realm-label { opacity: 0; }
 
 /* Floating surfaces: parchment, soft shadow, one radius family. */
 /* Search bar: bottom of the map, the one way into Explore. Crimson only on the search icon. */

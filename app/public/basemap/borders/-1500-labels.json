@@ -1,0 +1,410 @@
+[
+{
+"name": "Paleo-Siberian hunter-gatherers",
+"lng": 121.2024,
+"lat": 63.7121,
+"minzoom": 1.46
+},
+{
+"name": "Finno-Ugric taiga hunter-gatherers",
+"lng": 71.1372,
+"lat": 67.8033,
+"minzoom": 1.88
+},
+{
+"name": "Arctic marine mammal hunters",
+"lng": -123.5475,
+"lat": 65.8137,
+"minzoom": 1.7
+},
+{
+"name": "Subarctic forest hunter-gatherers",
+"lng": -112.3229,
+"lat": 56.7995,
+"minzoom": 1.59
+},
+{
+"name": "Khoisan",
+"lng": 24.4695,
+"lat": -12.4306,
+"minzoom": 0.86
+},
+{
+"name": "Saharan pastoral nomads",
+"lng": 9.779,
+"lat": 21.8431,
+"minzoom": 2.03
+},
+{
+"name": "Proto-Altaic pastoralists",
+"lng": 110.6127,
+"lat": 48.6194,
+"minzoom": 2.07
+},
+{
+"name": "Karasuk culture",
+"lng": 73.1472,
+"lat": 50.4992,
+"minzoom": 1.61
+},
+{
+"name": "Australian aboriginal hunter-gatherers",
+"lng": 134.3844,
+"lat": -26.1631,
+"minzoom": 3.24
+},
+{
+"name": "West African cereal farmers",
+"lng": 19.9487,
+"lat": 8.6214,
+"minzoom": 1.99
+},
+{
+"name": "Eastern North American hunter-gatherers",
+"lng": -83.1155,
+"lat": 41.2907,
+"minzoom": 3.5
+},
+{
+"name": "Savanna hunter-gatherers",
+"lng": -53.3576,
+"lat": -20.5585,
+"minzoom": 2.81
+},
+{
+"name": "Plain bison hunters",
+"lng": -102.9829,
+"lat": 43.0191,
+"minzoom": 3.23
+},
+{
+"name": "Cimerians",
+"lng": 38.4067,
+"lat": 48.9878,
+"minzoom": 1.5
+},
+{
+"name": "N. European Bronze Age cultures",
+"lng": 30.5257,
+"lat": 56.2859,
+"minzoom": 2.69
+},
+{
+"name": "Tibetans",
+"lng": 90.3498,
+"lat": 34.7443,
+"minzoom": 1.48
+},
+{
+"name": "Manioc farmers",
+"lng": -67.2521,
+"lat": -2.025,
+"minzoom": 1.93
+},
+{
+"name": "Dravidians",
+"lng": 76.6973,
+"lat": 24.6166,
+"minzoom": 1.96
+},
+{
+"name": "Iranian pastoralists",
+"lng": 63.5347,
+"lat": 36.9492,
+"minzoom": 2.67
+},
+{
+"name": "Amazon hunter-gatherers",
+"lng": -56.3881,
+"lat": -6.5679,
+"minzoom": 2.84
+},
+{
+"name": "Saami",
+"lng": 24.4192,
+"lat": 67.0056,
+"minzoom": 0.69
+},
+{
+"name": "Desert hunter-gatherers",
+"lng": -110.5451,
+"lat": 33.9021,
+"minzoom": 3.26
+},
+{
+"name": "Urnfield cultures",
+"lng": 8.7433,
+"lat": 47.8123,
+"minzoom": 2.75
+},
+{
+"name": "Arabian pastoral nomads",
+"lng": 46.7626,
+"lat": 22.7375,
+"minzoom": 3.21
+},
+{
+"name": "Pampas cultures",
+"lng": -64.5376,
+"lat": -38.9449,
+"minzoom": 2.91
+},
+{
+"name": "Sinic",
+"lng": 114.5014,
+"lat": 35.8048,
+"minzoom": 0.79
+},
+{
+"name": "Austro-Asiatic rice cultures",
+"lng": 104.8903,
+"lat": 17.8012,
+"minzoom": 3.33
+},
+{
+"name": "Maize farmers",
+"lng": -95.8078,
+"lat": 18.8404,
+"minzoom": 2.01
+},
+{
+"name": "Zhoa",
+"lng": 112.3194,
+"lat": 34.2225,
+"minzoom": 1.15
+},
+{
+"name": "Plateau fichers and hunter gatherers",
+"lng": -118.577,
+"lat": 49.0458,
+"minzoom": 4.42
+},
+{
+"name": "Berbers",
+"lng": 4.4121,
+"lat": 33.3059,
+"minzoom": 1.41
+},
+{
+"name": "Vedic Aryans",
+"lng": 76.498,
+"lat": 26.9231,
+"minzoom": 2.75
+},
+{
+"name": "Burmese",
+"lng": 97.1116,
+"lat": 24.6538,
+"minzoom": 2.14
+},
+{
+"name": "North American Pacific foraging, hunting and fishing peoples",
+"lng": -123.5111,
+"lat": 46.5091,
+"minzoom": 5.89
+},
+{
+"name": "Andean hunter-gatherers",
+"lng": -69.8888,
+"lat": -30.6169,
+"minzoom": 4.85
+},
+{
+"name": "Celtiberians",
+"lng": -4.5877,
+"lat": 40.262,
+"minzoom": 3.47
+},
+{
+"name": "Papuan neolithic farmers",
+"lng": 140.9429,
+"lat": -5.4922,
+"minzoom": 3.63
+},
+{
+"name": "Austronesians",
+"lng": 114.0908,
+"lat": 0.7905,
+"minzoom": 3.68
+},
+{
+"name": "Hittites",
+"lng": 35.7161,
+"lat": 38.6075,
+"minzoom": 2.92
+},
+{
+"name": "Arameans",
+"lng": 41.283,
+"lat": 32.3455,
+"minzoom": 2.48
+},
+{
+"name": "Elam",
+"lng": 54.3147,
+"lat": 29.1801,
+"minzoom": 1.91
+},
+{
+"name": "state societies and Aramaean kingdoms",
+"lng": 49.7532,
+"lat": 35.4184,
+"minzoom": 5.3
+},
+{
+"name": "Thrace",
+"lng": 24.1795,
+"lat": 43.0506,
+"minzoom": 2.58
+},
+{
+"name": "Urartu",
+"lng": 44.0263,
+"lat": 39.2281,
+"minzoom": 2.41
+},
+{
+"name": "Patagonian shellfish and marine mammal hunters",
+"lng": -72.3246,
+"lat": -48.3551,
+"minzoom": 6.03
+},
+{
+"name": "Illyrians",
+"lng": 17.9641,
+"lat": 44.3631,
+"minzoom": 3.46
+},
+{
+"name": "Ethiopian highland farmers",
+"lng": 35.749,
+"lat": 8.7249,
+"minzoom": 5.27
+},
+{
+"name": "Kush",
+"lng": 32.4731,
+"lat": 19.3561,
+"minzoom": 2.86
+},
+{
+"name": "Late Jomon culture",
+"lng": 138.0231,
+"lat": 36.638,
+"minzoom": 4.01
+},
+{
+"name": "Egypt",
+"lng": 31.7035,
+"lat": 27.2449,
+"minzoom": 3.52
+},
+{
+"name": "Phrygians",
+"lng": 30.3976,
+"lat": 39.4314,
+"minzoom": 3.48
+},
+{
+"name": "Wu",
+"lng": 119.3922,
+"lat": 31.3236,
+"minzoom": 1.98
+},
+{
+"name": "Caribbean hunter-gatherers",
+"lng": -66.7318,
+"lat": 9.6239,
+"minzoom": 4.6
+},
+{
+"name": "Assyria",
+"lng": 43.359,
+"lat": 35.6309,
+"minzoom": 3.72
+},
+{
+"name": "Chorrera",
+"lng": -77.0239,
+"lat": -2.9547,
+"minzoom": 3.35
+},
+{
+"name": "Paleo-Koreans",
+"lng": 127.1578,
+"lat": 37.4861,
+"minzoom": 4.69
+},
+{
+"name": "Kingdom of David and Solomon",
+"lng": 36.4698,
+"lat": 33.0676,
+"minzoom": 5.63
+},
+{
+"name": "Poverty point culture",
+"lng": -94.4972,
+"lat": 33.9547,
+"minzoom": 5.39
+},
+{
+"name": "Babylonia",
+"lng": 46.5943,
+"lat": 32.7327,
+"minzoom": 4.05
+},
+{
+"name": "Shellfish gatherers",
+"lng": -46.908,
+"lat": -24.0254,
+"minzoom": 4.8
+},
+{
+"name": "Ainu",
+"lng": 142.5911,
+"lat": 50.1048,
+"minzoom": 3.77
+},
+{
+"name": "El Paraiso",
+"lng": -76.9794,
+"lat": -9.9473,
+"minzoom": 4.28
+},
+{
+"name": "Greek city-states",
+"lng": 22.1573,
+"lat": 39.3735,
+"minzoom": 5.18
+},
+{
+"name": "Saba",
+"lng": 43.6993,
+"lat": 16.971,
+"minzoom": 3.4
+},
+{
+"name": "Tasmanian hunter-gatherers",
+"lng": 146.6048,
+"lat": -42.1416,
+"minzoom": 6.17
+},
+{
+"name": "Olmec",
+"lng": -94.5172,
+"lat": 17.9027,
+"minzoom": 4.02
+},
+{
+"name": "Chinchoros",
+"lng": -69.5831,
+"lat": -18.9121,
+"minzoom": 5.14
+},
+{
+"name": "Guanches",
+"lng": -13.8917,
+"lat": 28.6577,
+"minzoom": 6.21
+}
+]
