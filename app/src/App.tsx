@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import MapView from './MapView'
 import Explore from './Explore'
-import About from './About'
+import StoryPage from './About'
 import Sheet from './Sheet'
 import Timeline from './Timeline'
-import { collectionColor, firstYear, matches, pack, places } from './data'
+import { aboutText, collectionColor, firstYear, involvedText, matches, pack, places } from './data'
 
 export default function App() {
   const [exploreOpen, setExploreOpen] = useState(false)
@@ -14,20 +14,21 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string>()
   const [year, setYear] = useState<number>()
   const [fitKey, setFitKey] = useState(0) // bumps each time Show is pressed, so the map fits the results
-  // About opens at #about, so the link works from anywhere, can be shared, and Back closes it.
-  const [aboutOpen, setAboutOpen] = useState(() => window.location.hash === '#about')
+  // Story pages open at #about / #involved, so links work from anywhere, can be shared, and Back closes them.
+  const pageFromHash = () => (['#about', '#involved'].includes(window.location.hash) ? window.location.hash.slice(1) : undefined)
+  const [page, setPage] = useState<string | undefined>(pageFromHash)
   useEffect(() => {
     const onHash = () => {
-      const open = window.location.hash === '#about'
-      setAboutOpen(open)
+      const open = pageFromHash()
+      setPage(open)
       if (open) setExploreOpen(false)
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
-  function closeAbout() {
-    if (window.location.hash === '#about') history.replaceState(null, '', window.location.pathname + window.location.search)
-    setAboutOpen(false)
+  function closePage() {
+    if (pageFromHash()) history.replaceState(null, '', window.location.pathname + window.location.search)
+    setPage(undefined)
   }
 
   const results = useMemo(
@@ -58,18 +59,17 @@ export default function App() {
 
   return (
     <div className="app">
-      {/* The top bar stays on the About page too (Joseph, 2026-11-14): Map goes back, and Donate shows
-          on phones there as well, since the Explore footer that holds it on phones is not reachable. */}
+      {/* The top bar stays on the story pages too (Joseph, 2026-11-14): Map goes back, and Get involved
+          shows on phones there as well, since the Explore footer that holds it on phones is not reachable. */}
       <header className="topbar">
-        <a href="#" className="logo-link" aria-label={aboutOpen ? 'Back to the map' : undefined}
-          onClick={e => { e.preventDefault(); closeAbout() }}>
+        <a href="#" className="logo-link" aria-label={page ? 'Back to the map' : undefined}
+          onClick={e => { e.preventDefault(); closePage() }}>
           <img className="logo" src="/brand/carlo-compass-lockup-horizontal-parchment.svg" alt={pack.name ?? ''} />
         </a>
-        <nav className={`toplinks ${aboutOpen ? 'about-open' : ''}`}>
-          {aboutOpen
-            ? <a href="#" onClick={e => { e.preventDefault(); closeAbout() }}>Map</a>
-            : <a href="#about">About</a>}
-          <a className="toplink-donate" href={pack.links?.donate}>Donate</a>
+        <nav className={`toplinks ${page ? 'page-open' : ''}`}>
+          {page && <a href="#" onClick={e => { e.preventDefault(); closePage() }}>Map</a>}
+          {page !== 'about' && <a href="#about">About</a>}
+          {page !== 'involved' && <a className="toplink-involved" href={pack.links?.involved}>Get involved</a>}
         </nav>
       </header>
 
@@ -124,7 +124,10 @@ export default function App() {
         {selected && <Sheet place={selected} onClose={() => setSelectedId(undefined)} />}
       </main>
 
-      {aboutOpen && <About onClose={closeAbout} />}
+      {page && (
+        <StoryPage key={page} text={page === 'about' ? aboutText : involvedText}
+          label={page === 'about' ? 'About' : 'Get involved'} onClose={closePage} />
+      )}
 
       {exploreOpen && (
         <Explore

@@ -28,7 +28,7 @@ export interface Pack {
   name?: string
   certainty?: Partial<Record<Certainty, { label?: string; explain?: string }>>
   suggest_edit?: { label?: string; phone?: string }
-  links?: { donate?: string }
+  links?: { involved?: string }
   explore_filters?: { key: string; label?: string }[]
   pin_colors?: Record<string, string>   // collection (tag value) -> brand color role
   start_view?: { lng: number; lat: number; zoom: number }
@@ -48,6 +48,11 @@ const placeFiles = import.meta.glob('../../packs/bible-catholic/places/*.yaml', 
 export const pack: Pack = parse(Object.values(packFiles)[0] ?? '') ?? {}
 /** The pack's About page text (Markdown-ish, written by a person), or '' when the pack has none. */
 export const aboutText: string = Object.values(aboutFiles)[0] ?? ''
+const involvedFiles = import.meta.glob('../../packs/bible-catholic/involved.md', {
+  query: '?raw', import: 'default', eager: true,
+}) as Record<string, string>
+/** The pack's "Get involved" page text (same format as about.md), or '' when the pack has none. */
+export const involvedText: string = Object.values(involvedFiles)[0] ?? ''
 // Pictures for the About page live in the pack's about/ folder; about.md names them as "about/<file>".
 const aboutImageFiles = import.meta.glob('../../packs/bible-catholic/about/*.{jpg,jpeg,png,webp}', {
   query: '?url', import: 'default', eager: true,

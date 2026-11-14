@@ -42,9 +42,9 @@ a { color: var(--ink); }
 .logo { height: 36px; width: auto; display: block; }
 .toplinks { display: flex; margin-left: auto; gap: 24px; }
 .toplinks a { display: inline-flex; align-items: center; min-height: 44px; color: var(--parchment); text-decoration: none; font-size: 16px; }
-/* Phones: only About in the top bar (Joseph, 2026-11-13); Donate stays in the Explore footer. */
-.toplink-donate { display: none !important; }
-.toplinks.about-open .toplink-donate { display: inline-flex !important; }
+/* Phones: only About in the top bar (Joseph, 2026-11-13); Get involved stays in the Explore footer. */
+.toplink-involved { display: none !important; }
+.toplinks.page-open .toplink-involved { display: inline-flex !important; }
 .logo-link { display: flex; align-items: center; min-height: 44px; }
 
 .stage { position: relative; flex: 1; min-height: 0; }
@@ -262,6 +262,9 @@ a { color: var(--ink); }
 .pin-text > * { margin-bottom: 12dvh !important; }
 .pin-text > *:last-child { margin-bottom: 8dvh !important; }
 .story-missing { height: 100%; display: grid; place-items: center; color: var(--parchment); }
+.story-list { margin: 0 0 24px; padding-left: 24px; font-size: 20px; line-height: 1.6; }
+.story-list li::marker { color: var(--gold-text); }
+.story-button { display: inline-flex; align-items: center; text-decoration: none; color: #fff !important; max-width: 100%; overflow-wrap: anywhere; }
 .story-end { min-height: 30dvh; align-items: center; border-radius: 32px 32px 0 0; }
 
 /* Fade up into view, one part after another. */
@@ -277,7 +280,7 @@ a { color: var(--ink); }
 /* Desktop / tablet. */
 @media (min-width: 768px) {
   :root { --pad: 24px; --bar-h: 64px; }
-  .toplink-donate { display: inline-flex !important; }
+  .toplink-involved { display: inline-flex !important; }
   .sheet, .sheet.full {
     top: 0; bottom: 0; left: auto; width: 400px; height: auto; border-radius: 0; box-shadow: none;
     border-left: 1px solid rgba(92, 107, 122, 0.25);

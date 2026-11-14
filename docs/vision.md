@@ -108,8 +108,13 @@ hamburger menu, nothing on the map itself.
   Compact (Joseph, same day): panels are only as tall as their words, so the top of the next
   panel always shows before you scroll.
 - **Top bar stays on the About page** (Joseph, 2026-11-14): the navy bar shows above the story with
-  **Map** (back to the map; the logo does the same) and **Donate**, on phones too. Replaces the × button.
-  The Donate page itself is not built yet; the link goes to `#donate`.
+  **Map** (back to the map; the logo does the same) and **Get involved**, on phones too. Replaces the × button.
+- **Donate becomes "Get involved" for now** (Joseph, 2026-11-14). The link and page are named Get
+  involved (`#involved`). It opens in the same scrolling style as About: "Want to get involved?",
+  a "Help build Carlo's Compass" panel with an Email Joseph button (joseph.tunge@mines.sdsmt.edu, at his
+  request), and a Donations skeleton ("online giving is coming soon", then the three things gifts pay
+  for). Words live in the pack's `involved.md`; the engine reuses the About page layout. Provider and
+  real donate button still to come.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

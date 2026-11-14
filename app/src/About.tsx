@@ -1,9 +1,10 @@
 import { useEffect, useId, useRef, type CSSProperties, type ReactNode } from 'react'
-import { MISSING, aboutImage, aboutText } from './data'
+import { MISSING, aboutImage } from './data'
 
-// About page: a full-screen scrolling story over the map (vision.md "About and Donate pages").
-// The words and pictures come only from the pack's about.md, written by a person; the engine just
-// lays them out. Format is described at the top of about.md.
+// Story pages (About, Get involved): a full-screen scrolling page over the map, under the top bar
+// (vision.md "About and Donate pages"). The words and pictures come only from the pack's Markdown
+// files (about.md, involved.md), written by a person; the engine just lays them out. Format is
+// described at the top of about.md.
 // Scroll effects (engine, not content), all tied to the scroll position, no animation library:
 // - sections are panels that stick and the next one slides up over them;
 // - the opening line shrinks and dims as the next panel covers it;
@@ -18,6 +19,8 @@ type Block =
   | { kind: 'h1' | 'h2' | 'p' | 'curve'; text: string }
   | { kind: 'quote'; text: string; cite?: string }
   | { kind: 'images'; images: Img[] }
+  | { kind: 'list'; items: string[] }
+  | { kind: 'button'; text: string; href: string }
 
 const IMG = /^!\[([^\]]*)\]\(\s*(\S+?)(?:\s+"([^"]*)")?\s*\)$/
 
@@ -35,6 +38,11 @@ function parseSection(md: string): Block[] {
     } else if (lines[0].startsWith('# ')) out.push({ kind: 'h1', text: lines.join(' ').slice(2) })
     else if (lines[0].startsWith('## ')) out.push({ kind: 'h2', text: lines.join(' ').slice(3) })
     else if (lines[0].startsWith('~ ')) out.push({ kind: 'curve', text: lines.join(' ').slice(2) })
+    else if (lines.every(l => l.startsWith('- '))) out.push({ kind: 'list', items: lines.map(l => l.slice(2)) })
+    else if (/^\[[^\]]+\]\([^)\s]+\)$/.test(lines.join(' '))) {
+      const [, text, href] = lines.join(' ').match(/^\[([^\]]+)\]\(([^)\s]+)\)$/)!
+      out.push({ kind: 'button', text, href })
+    }
     else out.push({ kind: 'p', text: lines.join(' ') })
   }
   return out
@@ -106,6 +114,10 @@ function Section({ blocks, index }: { blocks: Block[]; index: number }) {
         return images.length
           ? <p key={i} className="reveal" style={delay(i)}>{inline(b.text)}</p>
           : <p key={i} className={`story-words ${i === firstP && !headed ? 'story-lead' : ''}`}>{inline(b.text, true)}</p>
+      case 'list':
+        return <ul key={i} className="story-list reveal" style={delay(i)}>{b.items.map((t, k) => <li key={k}>{inline(t)}</li>)}</ul>
+      case 'button':
+        return <p key={i} className="reveal" style={delay(i)}><a className="primary story-button" href={b.href}>{b.text}</a></p>
       case 'quote':
         return (
           <figure key={i} className="story-quote reveal" style={delay(i)}>
@@ -148,7 +160,7 @@ function Section({ blocks, index }: { blocks: Block[]; index: number }) {
 
 const clamp = (n: number) => Math.min(1, Math.max(0, n))
 
-export default function About({ onClose }: { onClose: () => void }) {
+export default function StoryPage({ text, label, onClose }: { text: string; label: string; onClose: () => void }) {
   const scroller = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -226,12 +238,12 @@ export default function About({ onClose }: { onClose: () => void }) {
       root.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [text])
 
-  const content = sections(aboutText)
+  const content = sections(text)
 
   return (
-    <div className="story" ref={scroller} role="dialog" aria-modal="true" aria-label="About">
+    <div className="story" ref={scroller} role="dialog" aria-modal="true" aria-label={label}>
       {content.length === 0
         ? <section className="story-section"><p>{MISSING}</p></section>
         : content.map((s, k) => <Section key={k} blocks={s} index={k} />)}

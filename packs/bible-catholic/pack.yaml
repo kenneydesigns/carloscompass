@@ -30,7 +30,7 @@ pin_colors:
   World history: ink
   Exodus: muted              # slate; the one brand role not yet used for pins (2026-11-14 overnight draft)
 links:
-  donate: "#donate"
+  involved: "#involved"   # Get involved page (involved.md); donations will live there later
 # Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
 # and the Holy Land (Jesus) are both in view and it is clear what you are looking at
 # (Joseph, 2026-11-13; was a close-up of the Holy Land).
