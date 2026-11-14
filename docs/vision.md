@@ -115,6 +115,9 @@ hamburger menu, nothing on the map itself.
   request), and a Donations skeleton ("online giving is coming soon", then the three things gifts pay
   for). Words live in the pack's `involved.md`; the engine reuses the About page layout. Provider and
   real donate button still to come.
+- **Both saints' quotes side by side** (Joseph, 2026-11-14): St. Carlo and St. Thérèse share one navy
+  panel, left and right, lined up at the top, right after "This is no substitute for time with God"
+  (stacked on phones). Any About section made only of quotes gets this layout.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

@@ -12,7 +12,7 @@ import { MISSING, aboutImage } from './data'
 // - a "~ " line runs along a wave and slides sideways;
 // - a section's pictures stay pinned beside its text and change as the text goes by;
 // - everything else fades up once when it comes into view.
-// A section that is only a quote is set large on navy. Reduced-motion users get a still page.
+// A section of only quotes is set large on navy; two or more sit side by side (stacked on phones). Reduced-motion users get a still page.
 
 type Img = { alt: string; src: string; credit?: string }
 type Block =
@@ -101,7 +101,8 @@ function Section({ blocks, index }: { blocks: Block[]; index: number }) {
   const firstP = text.findIndex(b => b.kind === 'p')
   const headed = text.some(b => b.kind === 'h1' || b.kind === 'h2')
   const hero = index === 0
-  const dark = !hero && text.length === 1 && text[0].kind === 'quote'
+  const dark = !hero && text.length > 0 && text.every(b => b.kind === 'quote')
+  const quotes = dark ? text.length : 0
 
   const body = text.map((b, i) => {
     switch (b.kind) {
@@ -151,7 +152,7 @@ function Section({ blocks, index }: { blocks: Block[]; index: number }) {
           <div className="pin-text">{body}</div>
         </div>
       ) : (
-        <div className="story-inner">{body}</div>
+        <div className={`story-inner ${quotes > 1 ? 'story-quote-row' : ''}`}>{body}</div>
       )}
       {hero && <div className="story-cue" aria-hidden="true">Scroll<span>⌄</span></div>}
     </section>

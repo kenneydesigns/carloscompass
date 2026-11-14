@@ -236,6 +236,9 @@ a { color: var(--ink); }
 .story-dark .story-quote blockquote { font-size: 28px; }
 .story-dark .story-quote blockquote::before { color: var(--gold); }
 .story-dark .story-quote figcaption { color: var(--gold); }
+.story-quote-row { display: grid; gap: 40px; }
+.story-quote-row .story-quote { margin: 0; }
+.story-quote-row .story-quote blockquote { font-size: 23px; } /* two quotes: a bit smaller so both fit a phone screen */
 
 /* Pictures pinned beside the text; one shows at a time and they cross-fade as the text goes by.
    Phone: pinned across the top, text scrolls under. */
@@ -303,6 +306,9 @@ a { color: var(--ink); }
   .story-curve { height: 170px; margin-bottom: 24px; }
   .story-curve text { font-size: 40px; }
   .story-dark .story-quote blockquote { font-size: 36px; }
+  /* Two quotes side by side, lined up at the top. */
+  .story-quote-row { max-width: 1080px; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 64px; align-items: start; }
+  .story-quote-row .story-quote blockquote { font-size: 26px; }
   /* Pictures pinned on the right, text scrolls on the left. */
   .pin-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
   .pin-media { box-shadow: var(--shadow); grid-column: 2; grid-row: 1; top: calc(50dvh - min(19vw, 34dvh)); max-height: none; aspect-ratio: 4 / 5; max-height: 68dvh; }

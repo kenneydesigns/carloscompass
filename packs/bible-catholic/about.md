@@ -7,6 +7,7 @@ Format (the engine reads only this):
 - A line with just --- starts a new scroll section. The first section is the opening screen.
 - "# " big heading, "## " smaller heading, *text* italic, [text](url) a link.
 - "> " a quote; a following line starting with "— " is who said it (may hold a link).
+  A section of only quotes is set on navy; two quotes there sit side by side.
 - ![description](about/file.jpg "credit") a picture from packs/bible-catholic/about/.
   Pictures next to each other (no blank line) sit side by side.
 - "~ " a line of text that runs along a wave and moves as you scroll (use for one short phrase).
@@ -41,14 +42,14 @@ Carlo's Compass is a tool for people wrestling with God: put the events of Scrip
 
 ---
 
-> When we face the sun, we get a tan. But when we place ourselves before Jesus in the Eucharist, we become saints.
-— St. Carlo Acutis ([as quoted](https://www.catholicworldreport.com/2023/10/12/the-eucharist-is-my-highway-to-heaven/))
-
----
-
 ## This is no substitute for time with God.
 
 It should never replace the great depth of the faith. A loving community, prayer, and more prayer should always come first.
+
+---
+
+> When we face the sun, we get a tan. But when we place ourselves before Jesus in the Eucharist, we become saints.
+— St. Carlo Acutis ([as quoted](https://www.catholicworldreport.com/2023/10/12/the-eucharist-is-my-highway-to-heaven/))
 
 > For me, prayer is a surge of the heart; it is a simple look turned toward heaven, it is a cry of recognition and of love, embracing both trial and joy.
 — St. Thérèse of Lisieux ([Catechism 2558](https://www.vatican.va/archive/ENG0015/__P8Z.HTM))
