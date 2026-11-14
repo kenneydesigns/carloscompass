@@ -1,0 +1,26 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient aec23b1 ('Gabbatha') -> identification #1 'within 500 m of Herod’s palace', confidence 605/1000, center.
+# Certainty 'uncertain': OpenBible's leading proposal: within 500 m of Herod's palace (605/1000). The Antonia-fortress tradition (Ecce Homo / Sisters of Zion) scores below zero.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: gabbatha
+name: "Gabbatha, the Stone Pavement"
+category: gospel-place
+location:
+  lat: 31.776083
+  lng: 35.228036
+  certainty: uncertain
+events:
+  - title: "Jesus before Pilate"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 27:11–26
+      - Mark 15:1–15
+      - Luke 23:1–25
+      - John 18:28–19:16
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Gabbatha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/aec23b1/gabbatha"

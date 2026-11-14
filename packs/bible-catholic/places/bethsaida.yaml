@@ -1,0 +1,36 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a91b732 ('Bethsaida 1') -> identification #1 'At Tell', confidence 466/1000, point.
+# Certainty 'uncertain': Et-Tell (OpenBible 466/1000) vs. el-Araj (172/1000); still actively disputed by excavators, hence 'uncertain'.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: bethsaida
+name: "Bethsaida"
+category: gospel-place
+location:
+  lat: 32.91038
+  lng: 35.63096
+  certainty: uncertain
+events:
+  - title: "Home town of Philip, Andrew and Peter"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 1:44
+  - title: "Feeding of the five thousand, which Luke places near Bethsaida"
+    date: { from: 29, approx: true }
+    scripture:
+      - Luke 9:10–17
+  - title: "Jesus heals a blind man at Bethsaida"
+    date: { from: 29, approx: true }
+    scripture:
+      - Mark 8:22–26
+  - title: "\"Woe to you, Bethsaida\""
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 11:21
+      - Luke 10:13
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Bethsaida 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a91b732/bethsaida-1"

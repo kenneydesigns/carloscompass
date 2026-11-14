@@ -1,0 +1,29 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient aaf03fa ('Jericho 2') -> identification #1 'Tell el Alayiq', confidence 1000/1000, point.
+# Certainty 'confirmed': Herodian Jericho at Tulul Abu el-Alayiq (OpenBible 1000/1000), not the Old Testament tell.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: jericho
+name: "Jericho (New Testament city)"
+category: gospel-place
+location:
+  lat: 31.851872
+  lng: 35.436238
+  certainty: confirmed
+events:
+  - title: "Jesus heals blind Bartimaeus"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 20:29–34
+      - Mark 10:46–52
+      - Luke 18:35–43
+  - title: "Zacchaeus"
+    date: { from: 30, approx: true }
+    scripture:
+      - Luke 19:1–10
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Judea"]
+sources:
+  - kind: dataset
+    title: "Jericho 2 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/aaf03fa/jericho-2"

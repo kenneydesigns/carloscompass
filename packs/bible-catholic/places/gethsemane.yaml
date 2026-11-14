@@ -1,0 +1,32 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a42418f ('Gethsemane') -> identification #1 'Gethsemane', confidence 1000/1000, point.
+# Certainty 'probable': Garden at the foot of the Mount of Olives; the precise spot (Church of All Nations) is traditional.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: gethsemane
+name: "Gethsemane"
+category: gospel-place
+location:
+  lat: 31.779419
+  lng: 35.239425
+  certainty: probable
+events:
+  - title: "The agony in the garden"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 26:36–46
+      - Mark 14:32–42
+      - Luke 22:39–46
+  - title: "The arrest of Jesus"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 26:47–56
+      - Mark 14:43–52
+      - Luke 22:47–53
+      - John 18:1–12
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Gethsemane (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a42418f/gethsemane"

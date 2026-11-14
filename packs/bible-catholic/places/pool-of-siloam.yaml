@@ -1,0 +1,23 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a294859 ('Siloam') -> identification #1 'Pool of Siloam', confidence 1000/1000, point.
+# Certainty 'confirmed': OpenBible 1000/1000.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: pool-of-siloam
+name: "Pool of Siloam"
+category: gospel-place
+location:
+  lat: 31.770556
+  lng: 35.235
+  certainty: confirmed
+events:
+  - title: "Jesus heals the man born blind: \"Go, wash in the pool of Siloam\""
+    date: { from: 29, approx: true }
+    scripture:
+      - John 9:1–12
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Siloam (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a294859/siloam"

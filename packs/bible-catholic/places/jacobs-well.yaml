@@ -1,0 +1,28 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: Jacob's Well at Bir Ya'qub monastery, Nablus. Coordinates from the Wikipedia 'Jacob's Well' infobox as reported by web search (live page not opened); GeoNames 281302 gives 32.20952, 35.28518, which agrees. Sychar itself is identified with nearby Askar (OpenBible 620/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: jacobs-well
+name: "Jacob's Well (Sychar)"
+category: gospel-place
+location:
+  lat: 32.209461
+  lng: 35.285331
+  certainty: probable
+events:
+  - title: "Jesus and the Samaritan woman at the well"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 4:4–42
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Samaria"]
+sources:
+  - kind: encyclopedia
+    title: "Jacob's Well (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Jacob%27s_Well"
+  - kind: gazetteer
+    title: "Bi'r Ya'qub (GeoNames)"
+    url: "https://www.geonames.org/281302"
+  - kind: dataset
+    title: "Sychar (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a27b472/sychar"

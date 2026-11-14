@@ -1,0 +1,23 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a0aa8cf ('Bethesda') -> identification #1 'Pool of Bethesda', confidence 1000/1000, point.
+# Certainty 'confirmed': Excavated pools beside the Church of St Anne (OpenBible 1000/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: pool-of-bethesda
+name: "Pool of Bethesda"
+category: gospel-place
+location:
+  lat: 31.781389
+  lng: 35.235833
+  certainty: confirmed
+events:
+  - title: "Jesus heals the paralysed man at the pool"
+    date: { from: 29, approx: true }
+    scripture:
+      - John 5:1–15
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Bethesda (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a0aa8cf/bethesda"

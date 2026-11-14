@@ -1,0 +1,33 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a6e060d ('Bethany 2') -> identification #1 'Al Maghtas', confidence 320/1000, point.
+# Certainty 'probable': Al-Maghtas, the traditional baptism site. OpenBible score is only 320/1000 for this identification of 'Bethany beyond the Jordan' (John 1:28); marked probable as a traditional site.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: jordan-baptism
+name: "Bethany beyond the Jordan (baptism site)"
+category: gospel-place
+location:
+  lat: 31.837109
+  lng: 35.550301
+  certainty: probable
+events:
+  - title: "The baptism of Jesus in the Jordan"
+    date: { from: 28, approx: true }
+    scripture:
+      - Matthew 3:13–17
+      - Mark 1:9–11
+      - Luke 3:21–22
+  - title: "John the Baptist: \"Behold, the Lamb of God\""
+    date: { from: 28, approx: true }
+    scripture:
+      - John 1:28–34
+  - title: "Andrew and another disciple follow Jesus; Simon is named Cephas"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 1:35–42
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jordan Valley"]
+sources:
+  - kind: dataset
+    title: "Bethany 2 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a6e060d/bethany-2"

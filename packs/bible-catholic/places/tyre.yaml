@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a160272 ('Tyre') -> identification #1 'Tyre', confidence 1000/1000, point.
+# Certainty 'confirmed': OpenBible 1000/1000 for the city; the event took place in 'the region of Tyre' (Mark 7:24).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: tyre
+name: "Tyre"
+category: gospel-place
+location:
+  lat: 33.270833
+  lng: 35.196111
+  certainty: confirmed
+events:
+  - title: "Jesus heals the Syrophoenician woman's daughter, in the region of Tyre"
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 15:21–28
+      - Mark 7:24–30
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Phoenicia"]
+sources:
+  - kind: dataset
+    title: "Tyre (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a160272/tyre"

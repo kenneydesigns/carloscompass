@@ -1,0 +1,26 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient acd63ee ('Mount Tabor') -> identification #1 'Jebel et Tur', confidence 1000/1000, point.
+# Certainty 'probable': The mountain itself is certain (Jebel et-Tur). The Gospels say only 'a high mountain'; Tabor is the traditional site of the Transfiguration (Mount Hermon is the main alternative proposal).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: mount-tabor
+name: "Mount Tabor"
+category: gospel-place
+location:
+  lat: 32.68625
+  lng: 35.392917
+  certainty: probable
+events:
+  - title: "The Transfiguration (traditional site)"
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 17:1–9
+      - Mark 9:2–10
+      - Luke 9:28–36
+      - 2 Peter 1:16–18
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Mount Tabor (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/acd63ee/mount-tabor"

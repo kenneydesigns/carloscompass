@@ -1,0 +1,40 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient ac2c4c5 ('Mount of Olives') -> identification #1 'Mount of Olives', confidence 1000/1000, point.
+# Certainty 'confirmed': Point for the ridge as a whole; Bethphage (Et-Tur, OpenBible 698/1000) is on its summit and is folded in here.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: mount-of-olives
+name: "Mount of Olives"
+category: gospel-place
+location:
+  lat: 31.777946
+  lng: 35.245686
+  certainty: confirmed
+events:
+  - title: "Entry into Jerusalem, setting out from Bethphage on the Mount of Olives"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 21:1–11
+      - Mark 11:1–11
+      - Luke 19:28–40
+      - John 12:12–15
+  - title: "Jesus weeps over Jerusalem"
+    date: { from: 30, approx: true }
+    scripture:
+      - Luke 19:41–44
+  - title: "The discourse on the end of the age"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 24:3–25:46
+      - Mark 13:3–37
+  - title: "The Ascension"
+    date: { from: 30, approx: true }
+    scripture:
+      - Luke 24:50–51
+      - Acts 1:9–12
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Mount of Olives (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ac2c4c5/mount-of-olives"

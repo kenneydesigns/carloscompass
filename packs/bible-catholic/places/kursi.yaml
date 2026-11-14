@@ -1,0 +1,28 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible modern m7767c8 ('Kursi'), coordinates via wikidata Q2469418.
+# Certainty 'uncertain': The Gospels name the region differently (Gerasenes / Gadarenes); Kursi on the east shore is the traditional site of the event (OpenBible links it to 'Gergesa', a manuscript variant).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: kursi
+name: "Kursi (country of the Gerasenes)"
+category: gospel-place
+location:
+  lat: 32.826086
+  lng: 35.650378
+  certainty: uncertain
+events:
+  - title: "Jesus heals the Gerasene demoniac"
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 8:28–34
+      - Mark 5:1–20
+      - Luke 8:26–39
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Decapolis"]
+sources:
+  - kind: dataset
+    title: "Kursi (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/modern/m7767c8/kursi"
+  - kind: dataset
+    title: "Gerasa (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ada6b64/gerasa"

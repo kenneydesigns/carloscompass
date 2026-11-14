@@ -1,0 +1,32 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible modern mbbfbf9 ('Tabgha'), coordinates via wikidata Q1026813.
+# Certainty 'uncertain': OpenBible modern record (coordinates from Wikidata Q1026813). The link of these events to Tabgha is church tradition (Church of the Multiplication; Church of the Primacy of St Peter), not stated in Scripture; Luke 9:10 places the feeding near Bethsaida instead.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: tabgha
+name: "Tabgha"
+category: gospel-place
+location:
+  lat: 32.873658
+  lng: 35.548975
+  certainty: uncertain
+events:
+  - title: "Feeding of the five thousand (traditional site)"
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 14:13–21
+      - Mark 6:30–44
+      - John 6:1–14
+  - title: "The risen Jesus by the sea: \"Feed my sheep\" (traditional site)"
+    date: { from: 30, approx: true }
+    scripture:
+      - John 21:1–19
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Tabgha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/modern/mbbfbf9/tabgha"
+  - kind: encyclopedia
+    title: "Church of the Primacy of Saint Peter (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Church_of_the_Primacy_of_Saint_Peter"

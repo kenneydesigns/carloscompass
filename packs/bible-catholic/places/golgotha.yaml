@@ -1,0 +1,40 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a631d35 ('Golgotha') -> identification #1 'Church of the Holy Sepulchre', confidence 426/1000, point.
+# Certainty 'probable': Church of the Holy Sepulchre (OpenBible 426/1000; Gordon's Calvary scores below zero).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: golgotha
+name: "Golgotha (Calvary) and the tomb"
+category: gospel-place
+location:
+  lat: 31.778444
+  lng: 35.22975
+  certainty: probable
+events:
+  - title: "The Crucifixion"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 27:33–56
+      - Mark 15:22–41
+      - Luke 23:33–49
+      - John 19:17–37
+  - title: "The burial of Jesus in a nearby garden tomb"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 27:57–61
+      - Mark 15:42–47
+      - Luke 23:50–56
+      - John 19:38–42
+  - title: "The Resurrection: the empty tomb"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 28:1–10
+      - Mark 16:1–8
+      - Luke 24:1–12
+      - John 20:1–18
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: dataset
+    title: "Golgotha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a631d35/golgotha"

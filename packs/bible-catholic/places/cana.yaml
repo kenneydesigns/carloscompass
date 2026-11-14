@@ -1,0 +1,27 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a031bda ('Cana') -> identification #1 'Horbat Qana', confidence 690/1000, point.
+# Certainty 'probable': OpenBible's leading identification is Khirbet Qana (Horbat Qana). The Catholic pilgrimage church is at Kafr Kanna (OpenBible score 80/1000); not used here.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: cana
+name: "Cana"
+category: gospel-place
+location:
+  lat: 32.8222
+  lng: 35.30269
+  certainty: probable
+events:
+  - title: "The wedding at Cana: water made wine, Jesus' first sign"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 2:1–11
+  - title: "At Cana, Jesus heals the royal official's son lying ill at Capernaum"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 4:46–54
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Cana (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a031bda/cana"

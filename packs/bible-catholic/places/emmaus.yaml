@@ -1,0 +1,23 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient ae7274b ('Emmaus') -> identification #1 'Qalunya', confidence 338/1000, point.
+# Certainty 'uncertain': One proposal of several: Qalunya/Motza (OpenBible 338/1000). Alternatives: Emmaus Nicopolis (240) and el-Qubeibeh (60, a Franciscan tradition).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: emmaus
+name: "Emmaus"
+category: gospel-place
+location:
+  lat: 31.79289
+  lng: 35.16419
+  certainty: uncertain
+events:
+  - title: "The road to Emmaus: Jesus made known in the breaking of the bread"
+    date: { from: 30, approx: true }
+    scripture:
+      - Luke 24:13–35
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Judea"]
+sources:
+  - kind: dataset
+    title: "Emmaus (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ae7274b/emmaus"

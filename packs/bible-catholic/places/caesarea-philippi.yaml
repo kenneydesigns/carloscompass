@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient ab7bf48 ('Caesarea Philippi') -> identification #1 'Banias', confidence 1000/1000, point.
+# Certainty 'confirmed': Banias (OpenBible 1000/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: caesarea-philippi
+name: "Caesarea Philippi"
+category: gospel-place
+location:
+  lat: 33.246111
+  lng: 35.693333
+  certainty: confirmed
+events:
+  - title: "Peter's confession: \"You are the Christ\""
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 16:13–20
+      - Mark 8:27–30
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Golan"]
+sources:
+  - kind: dataset
+    title: "Caesarea Philippi (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ab7bf48/caesarea-philippi"

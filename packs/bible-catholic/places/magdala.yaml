@@ -1,0 +1,23 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient af75e9e ('Magdala') -> identification #1 'Majdal', confidence 1000/1000, point.
+# Certainty 'probable': Majdal / Migdal (OpenBible 1000/1000 for the town). The link to Mary Magdalene rests on her name; Scripture does not name her town, hence 'probable'.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: magdala
+name: "Magdala"
+category: gospel-place
+location:
+  lat: 32.827069
+  lng: 35.513552
+  certainty: probable
+events:
+  - title: "Mary called Magdalene among the women who follow Jesus"
+    date: { from: 28, approx: true }
+    scripture:
+      - Luke 8:1–3
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Magdala (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/af75e9e/magdala"

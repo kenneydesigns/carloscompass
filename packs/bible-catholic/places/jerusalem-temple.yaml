@@ -1,0 +1,48 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: Temple Mount, coordinates from the Wikipedia 'Temple Mount' infobox (31°46'41"N 35°14'9"E) as reported by web search through mirrors; the live page could not be opened from this session. Cross-reference: GeoNames 11258705.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: jerusalem-temple
+name: "The Temple, Jerusalem"
+category: gospel-place
+location:
+  lat: 31.77806
+  lng: 35.23583
+  certainty: confirmed
+events:
+  - title: "The Presentation of Jesus in the Temple; Simeon and Anna"
+    date: { from: -5, approx: true }
+    scripture:
+      - Luke 2:22–38
+  - title: "The boy Jesus found in the Temple"
+    date: { from: 8, approx: true }
+    scripture:
+      - Luke 2:41–52
+  - title: "Jesus drives out the money-changers (John's account, first Passover)"
+    date: { from: 28, approx: true }
+    scripture:
+      - John 2:13–22
+  - title: "Jesus teaches in Solomon's portico at the Feast of Dedication"
+    date: { from: 29, approx: true }
+    scripture:
+      - John 10:22–39
+  - title: "Jesus drives out the money-changers (Holy Week)"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 21:12–13
+      - Mark 11:15–17
+      - Luke 19:45–46
+  - title: "The widow's offering"
+    date: { from: 30, approx: true }
+    scripture:
+      - Mark 12:41–44
+      - Luke 21:1–4
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: encyclopedia
+    title: "Temple Mount (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Temple_Mount"
+  - kind: gazetteer
+    title: "Temple Mount (GeoNames)"
+    url: "https://www.geonames.org/11258705"

@@ -1,0 +1,23 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient aee679c ('Nain') -> identification #1 'Nein', confidence 1000/1000, point.
+# Certainty 'confirmed': Nein (OpenBible 1000/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: nain
+name: "Nain"
+category: gospel-place
+location:
+  lat: 32.630694
+  lng: 35.350139
+  certainty: confirmed
+events:
+  - title: "Jesus raises the widow's son"
+    date: { from: 28, approx: true }
+    scripture:
+      - Luke 7:11–17
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Nain (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/aee679c/nain"

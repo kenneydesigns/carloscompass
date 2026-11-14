@@ -1,0 +1,37 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: Cenacle on Mount Zion, coordinates from the Wikipedia 'Cenacle' infobox (31°46'18"N 35°13'44"E) as reported by web search through mirrors; the live page could not be opened from this session. Scripture does not name the house; the Mount Zion tradition is attested from the 4th century and the present room is Crusader-era, hence 'uncertain'.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: upper-room
+name: "The Upper Room (Cenacle)"
+category: gospel-place
+location:
+  lat: 31.7718
+  lng: 35.229
+  certainty: uncertain
+events:
+  - title: "The Last Supper: Jesus institutes the Eucharist"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 26:17–30
+      - Mark 14:12–26
+      - Luke 22:7–20
+      - 1 Corinthians 11:23–26
+  - title: "Jesus washes the disciples' feet"
+    date: { from: 30, approx: true }
+    scripture:
+      - John 13:1–17
+  - title: "The apostles gather in the upper room with Mary, the mother of Jesus"
+    date: { from: 30, approx: true }
+    scripture:
+      - Acts 1:12–14
+  - title: "Pentecost: the Holy Spirit descends (traditionally in the same place)"
+    date: { from: 30, approx: true }
+    scripture:
+      - Acts 2:1–4
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Jerusalem"]
+sources:
+  - kind: encyclopedia
+    title: "Cenacle (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Cenacle"

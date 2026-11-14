@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a593a48 ('Chorazin') -> identification #1 'Khirbet Karraza', confidence 786/1000, point.
+# Certainty 'probable': Khirbet Karraza (OpenBible 786/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: chorazin
+name: "Chorazin"
+category: gospel-place
+location:
+  lat: 32.911389
+  lng: 35.563889
+  certainty: probable
+events:
+  - title: "\"Woe to you, Chorazin\""
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 11:20–24
+      - Luke 10:13–15
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Chorazin (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a593a48/chorazin"

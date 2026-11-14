@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a7de69e ('Gennesaret') -> identification #1 'El Ghuweir', confidence 1000/1000, representative point.
+# Certainty 'probable': The plain of el-Ghuweir (OpenBible 1000/1000); a region, so the pin is a representative point.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: gennesaret
+name: "Gennesaret"
+category: gospel-place
+location:
+  lat: 32.860556
+  lng: 35.507222
+  certainty: probable
+events:
+  - title: "The sick are healed by touching the fringe of his garment"
+    date: { from: 29, approx: true }
+    scripture:
+      - Matthew 14:34–36
+      - Mark 6:53–56
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Galilee"]
+sources:
+  - kind: dataset
+    title: "Gennesaret (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a7de69e/gennesaret"

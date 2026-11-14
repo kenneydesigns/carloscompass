@@ -1,0 +1,34 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a4f35bc ('Bethany 1') -> identification #1 'Al Eizariya', confidence 889/1000, point.
+# Certainty 'confirmed': Al-Eizariya (OpenBible 889/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: bethany
+name: "Bethany"
+category: gospel-place
+location:
+  lat: 31.771661
+  lng: 35.255903
+  certainty: confirmed
+events:
+  - title: "Jesus raises Lazarus"
+    date: { from: 30, approx: true }
+    scripture:
+      - John 11:1–44
+  - title: "Jesus is anointed at Bethany"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 26:6–13
+      - Mark 14:3–9
+      - John 12:1–8
+  - title: "Jesus lodges at Bethany during his last week"
+    date: { from: 30, approx: true }
+    scripture:
+      - Matthew 21:17
+      - Mark 11:11–12
+tags:
+  collection: ["Life of Jesus"]
+  region: ["Judea"]
+sources:
+  - kind: dataset
+    title: "Bethany 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a4f35bc/bethany-1"
