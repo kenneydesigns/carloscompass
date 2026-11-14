@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { Place } from './data'
-import { hasCoords, pack } from './data'
+import { hasCoords, placeColor, ringFor } from './data'
 
 // Calm basemap we style ourselves (vision.md "Basemap"): Natural Earth land, lakes and rivers,
 // no terrain, no modern labels. Colors are mixed from the brand tokens, as in render_styles.py.
@@ -16,10 +16,6 @@ const PARCH = '#FAF3D7'
 const SEA = '#CDD2C9'    // parchment mixed 34% toward muted water
 const RIVER = '#8A9FAC'  // parchment mixed 80% toward muted water
 const EARTH = '#71421D'
-const INK = '#002747'
-// Brand color roles a pack may name for its pins (brand.md); unknown roles fall back to earth.
-const ROLES: Record<string, string> = { earth: EARTH, ink: INK, muted: '#5C6B7A', 'gold-text': '#8A6420' }
-const pinColor = (category?: string) => ROLES[pack.pin_colors?.[category ?? ''] ?? 'earth'] ?? EARTH
 const SIGNATURE = '#A80C31'
 
 const GOLD = '#DBBB7C'
@@ -55,7 +51,9 @@ function makeStyle(borders?: Borders): StyleSpecification {
           paint: { 'fill-color': GOLD, 'fill-opacity': 0.38 } },
         // Dashed: every old border is approximate.
         { id: 'realm-lines', type: 'line', source: 'realmLines', paint: {
-          'line-color': EARTH, 'line-opacity': 0.5, 'line-width': 1, 'line-dasharray': [5, 3.5],
+          'line-color': EARTH, 'line-width': 1, 'line-dasharray': [5, 3.5],
+          // Faint when zoomed out (many small realms would crowd the view), full strength from zoom 5.
+          'line-opacity': ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5],
         } },
       ] as StyleSpecification['layers'] : []),
       { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
@@ -82,7 +80,7 @@ function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
         const p = m.project([l.data.lng, l.data.lat])
         const w = l.el.offsetWidth || l.data.name.length * 11, h = 20
         const r = new DOMRect(p.x - w / 2, p.y - h / 2, w, h)
-        show = r.right > 0 && r.left < box.width && r.bottom > 0 && r.top < box.height
+        show = r.left >= 8 && r.right <= box.width - 8 && r.top >= 8 && r.bottom <= box.height - 8 // whole name on screen
           && !taken.some(t => r.left < t.right && r.right > t.left && r.top < t.bottom && r.bottom > t.top)
         if (show) taken.push(r)
       }
@@ -115,7 +113,8 @@ function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
         id: p.id,
         selected: p.id === selectedId,
         uncertain: p.location?.certainty === 'uncertain',
-        color: pinColor(p.category),
+        color: placeColor(p),
+        ring: ringFor(placeColor(p)),
       },
     })),
   }
@@ -170,8 +169,8 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
         paint: {
           'circle-radius': 6,
           'circle-color': ['case', ['get', 'uncertain'], 'rgba(0,0,0,0)', ['get', 'color']],
-          'circle-stroke-color': ['get', 'color'],
-          'circle-stroke-width': ['case', ['get', 'uncertain'], 2, 0],
+          'circle-stroke-color': ['get', 'ring'],
+          'circle-stroke-width': ['case', ['get', 'uncertain'], 2, ['!=', ['get', 'ring'], ['get', 'color']], 1.5, 0],
         },
       })
       m.addLayer({

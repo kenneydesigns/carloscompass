@@ -252,6 +252,10 @@ Joseph: the site must never show made-up example content.
   1347), Columbus's landfall (San Salvador Island, 1492, probable), Luther's Ninety-five Theses
   (Wittenberg, 1517). Emperors and more may join later. Ticking boxes under different headings
   now shows both ("or"), since every heading is a collection of pins.
+- **First load is zoomed out over the Mediterranean** (Joseph, 2026-11-13; replaces "centered on
+  the Holy Land" close-up): Europe and the Holy Land both in view, so it is clear what the map is.
+  Realm borders are faint at this zoom and full strength from zoom 5.
+- **Each collection has its own pin color** (Joseph, 2026-11-13); see brand.md.
 ### First dataset: Eucharistic miracles (decision 2026-11-13)
 Joseph: start the data with the Eucharistic miracles, not Bible places, because it is simpler.
 - Why it's simpler: one category, no journeys to draw, and most sites are churches that still

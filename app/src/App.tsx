@@ -3,7 +3,7 @@ import MapView from './MapView'
 import Explore from './Explore'
 import Sheet from './Sheet'
 import Timeline from './Timeline'
-import { firstYear, matches, pack, places } from './data'
+import { collectionColor, firstYear, matches, pack, places } from './data'
 
 export default function App() {
   const [exploreOpen, setExploreOpen] = useState(false)
@@ -85,6 +85,7 @@ export default function App() {
                 {chips.map(c => (
                   <button key={c.key + c.value} className="chip" onClick={() => removeChip(c.key, c.value)}
                     aria-label={`Remove ${c.value}`}>
+                    {collectionColor(c.value) && <span className="dot" style={{ background: collectionColor(c.value) }} aria-hidden />}
                     {c.value} <span aria-hidden>×</span>
                   </button>
                 ))}

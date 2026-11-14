@@ -22,15 +22,19 @@ explore_filters:
     label: Collections
   - key: history
     label: Historical events   # context for the timeline; emperors etc. may join later
-# Pin color by category, as a brand color role (earth is the default for every other category).
-# World events are navy so the context pins read apart from the faith pins (Joseph, 2026-11-13).
+# Pin color for each collection (an Explore box), as a brand color role. The same color shows as a
+# dot beside the box in Explore and on its tag in the search bar (Joseph, 2026-11-13).
 pin_colors:
-  world-event: ink
+  Eucharistic miracles: earth
+  Life of Jesus: gold        # light gold with a darker ring (brown and gold-text looked alike)
+  World history: ink
 links:
   story: "#story"
   donate: "#donate"
-# Where the map opens on first load (decision: empty map centered on the Holy Land).
-start_view: { lng: 35.3, lat: 31.9, zoom: 6.4 }
+# Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
+# and the Holy Land (Jesus) are both in view and it is clear what you are looking at
+# (Joseph, 2026-11-13; was a close-up of the Holy Land).
+start_view: { lng: 22, lat: 40, zoom: 2.7 }
 # Realm borders on the map (vision.md "Basemap"). The pack pins the border year: 100 AD for the
 # Gospel era, because the 1 BC data is wrong around Galilee and Samaria. Files are made by
 # app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).

@@ -30,7 +30,7 @@ export interface Pack {
   suggest_edit?: { label?: string; phone?: string }
   links?: { story?: string; donate?: string }
   explore_filters?: { key: string; label?: string }[]
-  pin_colors?: Record<string, string>
+  pin_colors?: Record<string, string>   // collection (tag value) -> brand color role
   start_view?: { lng: number; lat: number; zoom: number }
   borders?: { year: number; until?: number; note?: string }
 }
@@ -106,4 +106,25 @@ export function matches(p: Place, query: string, chosen: Record<string, string[]
     const have = Array.isArray(raw) ? raw : raw ? [raw] : []
     return wanted.some(w => have.includes(w))
   })
+}
+
+// Brand color roles a pack may name for its pins (brand.md); anything else falls back to earth.
+const ROLES: Record<string, string> = { earth: '#71421D', ink: '#002747', muted: '#5C6B7A', 'gold-text': '#8A6420', gold: '#DBBB7C' }
+/** Ring for a light pin color so it reads on parchment (gold gets gold-text). */
+export const ringFor = (color: string) => (color === ROLES.gold ? ROLES['gold-text'] : color)
+
+/** Color for one collection value (e.g. "Life of Jesus"), or undefined if the pack gives none. */
+export function collectionColor(value: string): string | undefined {
+  const role = pack.pin_colors?.[value]
+  return role ? ROLES[role] ?? ROLES.earth : undefined
+}
+
+/** Pin color for a place: the first of its tag values the pack colors, else earth. */
+export function placeColor(p: Place): string {
+  for (const raw of Object.values(p.tags ?? {}))
+    for (const v of Array.isArray(raw) ? raw : [raw]) {
+      const c = v && collectionColor(v)
+      if (c) return c
+    }
+  return ROLES.earth
 }

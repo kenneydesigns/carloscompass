@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { filterGroups, matches, pack, places } from './data'
+import { collectionColor, filterGroups, matches, pack, places } from './data'
 
 interface Props {
   query: string
@@ -57,6 +57,7 @@ export default function Explore({ query, chosen, onQuery, onChosen, onClose, onS
               {g.values.map(v => (
                 <label key={v} className="check">
                   <input type="checkbox" checked={(chosen[g.key] ?? []).includes(v)} onChange={() => toggle(g.key, v)} />
+                  {collectionColor(v) && <span className="dot" style={{ background: collectionColor(v) }} aria-hidden />}
                   <span>{v}</span>
                 </label>
               ))}
