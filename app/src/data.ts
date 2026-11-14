@@ -29,6 +29,7 @@ export interface Pack {
   certainty?: Partial<Record<Certainty, { label?: string; explain?: string }>>
   suggest_edit?: { label?: string; phone?: string }
   links?: { story?: string; donate?: string }
+  explore_filters?: { key: string; label?: string }[]
   start_view?: { lng: number; lat: number; zoom: number }
   borders?: { year: number; until?: number; note?: string }
 }
@@ -72,8 +73,9 @@ export function formatYear(y: number | undefined, approx = false): string {
   return approx ? `c. ${label}` : label
 }
 
-/** Filter groups built from the data itself; a group with no values is never shown. */
-export function filterGroups(list: Place[]): { key: string; values: string[] }[] {
+/** Filter groups built from the data itself; a group with no values is never shown.
+ *  When the pack lists `explore_filters`, only those groups appear, in that order, with its labels. */
+export function filterGroups(list: Place[]): { key: string; label: string; values: string[] }[] {
   const groups = new Map<string, Set<string>>()
   for (const p of list) {
     for (const [key, raw] of Object.entries(p.tags ?? {})) {
@@ -81,7 +83,10 @@ export function filterGroups(list: Place[]): { key: string; values: string[] }[]
       for (const v of vals) if (v) (groups.get(key) ?? groups.set(key, new Set()).get(key)!).add(v)
     }
   }
-  return [...groups].filter(([, v]) => v.size).map(([key, v]) => ({ key, values: [...v].sort() }))
+  const all = [...groups].filter(([, v]) => v.size).map(([key, v]) => ({ key, label: key, values: [...v].sort() }))
+  const wanted = pack.explore_filters
+  if (!wanted?.length) return all
+  return wanted.flatMap(w => all.filter(g => g.key === w.key).map(g => ({ ...g, label: w.label ?? g.key })))
 }
 
 /** Simple browser-side search over place names and event titles. */

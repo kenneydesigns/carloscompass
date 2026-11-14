@@ -15,6 +15,11 @@ certainty:
 suggest_edit:
   label: Suggest an edit
   phone: 605-261-7740
+# The only checkbox groups in Explore (Joseph, 2026-11-13: just the main collections; country and
+# region stay in the data for search and later, but are not offered as checkboxes).
+explore_filters:
+  - key: collection
+    label: Collections
 links:
   story: "#story"
   donate: "#donate"

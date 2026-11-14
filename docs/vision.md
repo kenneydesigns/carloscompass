@@ -237,6 +237,9 @@ Joseph: the site must never show made-up example content.
   opens a one-sentence explanation of what that level means. No icon. The testament/category
   label is dropped from the card (the filters already show it).
 
+- **Explore shows only the main collections** (Joseph, 2026-11-13): "Eucharistic miracles" and
+  "Life of Jesus", no country or region checkboxes. The pack lists which groups Explore offers
+  (`explore_filters` in pack.yaml); country and region stay in the data.
 ### First dataset: Eucharistic miracles (decision 2026-11-13)
 Joseph: start the data with the Eucharistic miracles, not Bible places, because it is simpler.
 - Why it's simpler: one category, no journeys to draw, and most sites are churches that still

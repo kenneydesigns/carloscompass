@@ -52,7 +52,7 @@ export default function Explore({ query, chosen, onQuery, onChosen, onClose, onS
 
           {groups.map(g => (
             <fieldset key={g.key} className="group">
-              <legend>{g.key}</legend>
+              <legend>{g.label}</legend>
               {g.values.map(v => (
                 <label key={v} className="check">
                   <input type="checkbox" checked={(chosen[g.key] ?? []).includes(v)} onChange={() => toggle(g.key, v)} />
