@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo Tuner</title>
+<style>
+  :root { --bg:#1d1c1a; --panel:#272522; --ink:#e9e3d2; --muted:#a39b88; --line:#3a3732; --accent:#DBBB7C; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:13px/1.4 -apple-system, "Helvetica Neue", sans-serif; }
+  .wrap { display:flex; flex-wrap:wrap; gap:16px; padding:16px; }
+  .controls { width:270px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .controls h3 { margin:12px 0 6px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+  .controls h3:first-child { margin-top:0; }
+  label { display:block; margin:6px 0 2px; }
+  label span { float:right; color:var(--muted); font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; accent-color:var(--accent); }
+  select, button, textarea { width:100%; background:#1b1a18; color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px; font:inherit; }
+  button { cursor:pointer; margin-top:6px; }
+  button:hover { border-color:var(--accent); }
+  .presets { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .presets button { margin:0; }
+  .presets button.on { border-color:var(--accent); color:var(--accent); }
+  .preview { flex:1; min-width:300px; }
+  .big { width:min(420px,100%); aspect-ratio:1; border-radius:50%; overflow:hidden; display:block; }
+  .big svg, .sm svg { width:100%; height:100%; display:block; }
+  .row { display:flex; gap:14px; align-items:center; margin-top:14px; flex-wrap:wrap; }
+  .sm { border-radius:50%; overflow:hidden; flex:none; }
+  .white { background:#fff; padding:10px; border-radius:8px; display:flex; gap:10px; }
+  .note { color:var(--muted); margin-top:10px; max-width:420px; }
+  textarea { height:84px; font:11px ui-monospace, monospace; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="controls">
+    <h3>Presets</h3>
+    <div class="presets" id="presets"></div>
+
+    <h3>The Eucharist</h3>
+    <label>Brightness <span id="v-host"></span></label><input type="range" id="host" min="0" max="1" step="0.01">
+    <label>Style</label>
+    <select id="hostMode">
+      <option value="fill">Filled</option>
+      <option value="rim">Rim only (lit edge)</option>
+      <option value="tone">Tone-on-tone (warmer, not brighter)</option>
+    </select>
+    <label>Glow pool on screen <span id="v-pool"></span></label><input type="range" id="pool" min="0" max="1" step="0.01">
+
+    <h3>Light</h3>
+    <label>Source left/right <span id="v-lx"></span></label><input type="range" id="lx" min="0" max="512" step="1">
+    <label>Source up/down <span id="v-ly"></span></label><input type="range" id="ly" min="-100" max="560" step="1">
+    <label>Strength <span id="v-power"></span></label><input type="range" id="power" min="0" max="1.6" step="0.01">
+    <label>Spread <span id="v-spread"></span></label><input type="range" id="spread" min="80" max="520" step="1">
+    <label>Warmth <span id="v-warm"></span></label><input type="range" id="warm" min="0" max="1" step="0.01">
+
+    <h3>Shapes</h3>
+    <label>Halo</label>
+    <select id="halo"><option value="disc">Disc</option><option value="ring">Ring</option><option value="none">None</option></select>
+    <label>Halo strength <span id="v-haloA"></span></label><input type="range" id="haloA" min="0" max="1" step="0.01">
+    <label>Edge gaps <span id="v-gap"></span></label><input type="range" id="gap" min="0" max="12" step="0.5">
+
+    <h3>Save</h3>
+    <button id="dl">Download SVG</button>
+    <button id="copy">Copy settings</button>
+    <textarea id="json" readonly></textarea>
+  </div>
+
+  <div class="preview">
+    <div class="big" id="big"></div>
+    <div class="row" id="smalls"></div>
+    <p class="note">Sizes left to right: 96, 64, 48, 32 px, then on a white page. Profile pictures mostly show at 32–48 px, so judge it there.</p>
+  </div>
+</div>
+
+<script>
+// Geometry is fixed (original drawing, see explorations/README.md). Only light and tone change here.
+const BASE = { host:0.75, hostMode:'fill', pool:0.55, lx:256, ly:335, power:1, spread:250, warm:0.6, halo:'disc', haloA:0.7, gap:6 };
+const PRESETS = {
+  'Current':        {},
+  'Tone-on-tone':   { host:0.18, hostMode:'tone', pool:0.15, power:0.85, spread:230 },
+  'Rim light':      { host:0.35, hostMode:'rim', pool:0.2, power:0.8 },
+  'Embers':         { host:0.35, pool:0.35, power:0.7, spread:170, warm:0.9 },
+  'Backlit halo':   { host:0.22, pool:0.05, lx:256, ly:150, power:1.05, spread:230, haloA:0.9 },
+  'From above':     { host:0.3, pool:0.1, lx:256, ly:-40, power:1.2, spread:420, haloA:0.55 },
+  'From the side':  { host:0.3, pool:0.15, lx:470, ly:240, power:1.15, spread:380 },
+  'Almost black':   { host:0.2, hostMode:'tone', pool:0.08, power:0.5, spread:300, haloA:0.35, gap:4 },
+};
+let S = { ...BASE };
+
+const mix = (a, b, t) => {
+  const p = h => [1,3,5].map(i => parseInt(h.slice(i, i+2), 16));
+  const A = p(a), B = p(b);
+  return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * Math.max(0, Math.min(1, t))).toString(16).padStart(2, '0')).join('');
+};
+
+function svg(s) {
+  const neutral = '#5A5550', warmLit = '#7A6440';
+  const litHue = mix(neutral, warmLit, s.warm);
+  const k = s.power;
+  const c0 = mix('#0B0A08', litHue, 0.62 * k);       // brightest body tone
+  const c1 = mix('#0B0A08', litHue, 0.24 * k);
+  const sc0 = mix('#0B0A08', mix(litHue, '#C9A869', 0.3), 0.85 * k);
+  const bg0 = mix('#050505', litHue, 0.38 * k);
+  const parch = mix('#EDE6D6', '#FAF3D7', s.warm);
+  // Eucharist colors
+  let hostA, hostB, hostStroke = 'none', hostSW = 0;
+  if (s.hostMode === 'fill') {
+    hostA = mix(c0, parch, s.host); hostB = mix(c0, '#C9A869', s.host * 0.9);
+  } else if (s.hostMode === 'tone') {
+    hostA = mix(c0, '#B08A48', 0.25 + s.host); hostB = mix(c1, '#8A6A34', 0.25 + s.host);
+  } else {
+    hostA = c1; hostB = '#0B0A08';
+    hostStroke = mix(c1, parch, 0.15 + s.host * 0.6); hostSW = 2.5;
+  }
+  const haloLit = mix('#1A160F', mix(litHue, '#DBBB7C', 0.5), s.haloA);
+  const haloDim = mix('#0B0A08', '#1A160F', s.haloA);
+  const L = `gradientUnits="userSpaceOnUse" cx="${s.lx}" cy="${s.ly}"`;
+  const gap = s.gap > 0 ? `stroke="#050505" stroke-width="${s.gap}" stroke-linejoin="round"` : '';
+  let curls = '';
+  for (let t = 170; t >= 10; t -= 20) {
+    const r = t * Math.PI / 180;
+    curls += `<circle cx="${(256 + 62 * Math.cos(r)).toFixed(1)}" cy="${(168 - 56 * Math.sin(r)).toFixed(1)}" r="16"/>`;
+  }
+  const head = `<ellipse cx="256" cy="192" rx="52" ry="60"/><ellipse cx="256" cy="166" rx="62" ry="54"/>${curls}<rect x="234" y="232" width="44" height="42"/>`;
+  const haloEl = s.halo === 'disc' ? `<circle cx="256" cy="178" r="104" fill="url(#g-halo)"/>`
+               : s.halo === 'ring' ? `<circle cx="256" cy="178" r="98" fill="none" stroke="url(#g-halo)" stroke-width="12"/>` : '';
+  const cib = `<circle cx="256" cy="276" r="6"/><path d="M226 300 Q228 283 256 281 Q284 283 286 300 Z"/>
+    <rect x="220" y="298" width="72" height="9" rx="4.5"/><path d="M222 309 H290 Q292 343 256 349 Q220 343 222 309 Z"/>
+    <rect x="250" y="348" width="12" height="38"/><ellipse cx="256" cy="366" rx="10" ry="6"/><ellipse cx="256" cy="390" rx="23" ry="7"/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="g-bg" ${L} r="${s.spread * 1.2}"><stop offset="0" stop-color="${bg0}"/><stop offset="0.5" stop-color="#0D0B08"/><stop offset="1" stop-color="#050505"/></radialGradient>
+    <radialGradient id="g-lit" ${L} r="${s.spread}"><stop offset="0" stop-color="${c0}"/><stop offset="0.45" stop-color="${c1}"/><stop offset="1" stop-color="#0C0B09"/></radialGradient>
+    <radialGradient id="g-screen" ${L} r="${s.spread * 0.6}"><stop offset="0" stop-color="${sc0}"/><stop offset="0.55" stop-color="${c1}"/><stop offset="1" stop-color="#161310"/></radialGradient>
+    <radialGradient id="g-deck" ${L} r="${s.spread * 0.64}"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="#100E0B"/></radialGradient>
+    <radialGradient id="g-halo" ${L} r="${s.spread}"><stop offset="0" stop-color="${haloLit}"/><stop offset="1" stop-color="${haloDim}"/></radialGradient>
+    <radialGradient id="g-host" gradientUnits="userSpaceOnUse" cx="256" cy="320" r="70"><stop offset="0" stop-color="${hostA}"/><stop offset="1" stop-color="${hostB}"/></radialGradient>
+    <radialGradient id="g-pool"><stop offset="0" stop-color="${parch}" stop-opacity="${0.6 * s.pool}"/><stop offset="1" stop-color="#DBBB7C" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g-bg)"/>
+  <g transform="translate(256 300) scale(1.14) translate(-256 -300)">
+    ${haloEl}
+    <path d="M64 520 L70 372 Q78 300 160 282 L214 266 Q256 292 298 266 L352 282 Q434 300 442 372 L448 520 Z" fill="url(#g-lit)" ${gap}/>
+    ${s.halo === 'disc' ? `<g fill="url(#g-lit)" ${gap}>${head}</g>` : ''}
+    <g fill="url(#g-lit)">${head}</g>
+    <rect x="150" y="300" width="212" height="142" rx="6" fill="url(#g-screen)" ${gap}/>
+    ${s.pool > 0 ? '<ellipse cx="256" cy="408" rx="78" ry="26" fill="url(#g-pool)"/>' : ''}
+    <path d="M150 442 H362 L400 490 H112 Z" fill="url(#g-deck)" ${gap}/>
+    <g fill="url(#g-host)" stroke="${hostStroke}" stroke-width="${hostSW}" stroke-linejoin="round">${cib}</g>
+  </g>
+</svg>`;
+}
+
+const ids = ['host','hostMode','pool','lx','ly','power','spread','warm','halo','haloA','gap'];
+function render() {
+  const out = svg(S);
+  document.getElementById('big').innerHTML = out;
+  const sm = [96, 64, 48, 32].map(n => `<div class="sm" style="width:${n}px;height:${n}px">${out}</div>`).join('');
+  document.getElementById('smalls').innerHTML = sm + `<div class="white"><div class="sm" style="width:48px;height:48px">${out}</div><div class="sm" style="width:32px;height:32px">${out}</div></div>`;
+  ids.forEach(id => {
+    const el = document.getElementById(id); el.value = S[id];
+    const v = document.getElementById('v-' + id); if (v) v.textContent = (+S[id]).toFixed(el.step < 1 ? 2 : 0);
+  });
+  document.getElementById('json').value = JSON.stringify(S);
+  try { localStorage.setItem('cc-logo-tuner', JSON.stringify(S)); } catch (e) {}
+}
+ids.forEach(id => document.getElementById(id).addEventListener('input', e => {
+  S[id] = e.target.type === 'range' ? +e.target.value : e.target.value;
+  document.querySelectorAll('.presets button').forEach(b => b.classList.remove('on'));
+  render();
+}));
+const pbox = document.getElementById('presets');
+Object.entries(PRESETS).forEach(([name, p]) => {
+  const b = document.createElement('button'); b.textContent = name;
+  b.onclick = () => { S = { ...BASE, ...p }; document.querySelectorAll('.presets button').forEach(x => x.classList.remove('on')); b.classList.add('on'); render(); };
+  pbox.appendChild(b);
+});
+document.getElementById('dl').onclick = () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([svg(S)], { type: 'image/svg+xml' }));
+  a.download = 'carlo-mark.svg'; a.click();
+};
+document.getElementById('copy').onclick = async () => {
+  try { await navigator.clipboard.writeText(JSON.stringify(S)); } catch (e) { document.getElementById('json').select(); document.execCommand('copy'); }
+};
+try { const saved = JSON.parse(localStorage.getItem('cc-logo-tuner')); if (saved) S = { ...BASE, ...saved }; } catch (e) {}
+render();
+</script>
+</body>
+</html>

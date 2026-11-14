@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Carlo's Compass mark (dark)</title>
+  <defs>
+    <!-- One light source: the Eucharist. Everything else is lit by it and falls off to black.
+         glow is in page coords; lit/screen/host are in the figure group's local coords. -->
+    <radialGradient id="glow" gradientUnits="userSpaceOnUse" cx="256" cy="360" r="240">
+      <stop offset="0" stop-color="#F3DFA8" stop-opacity="0.42"/>
+      <stop offset="0.22" stop-color="#DBBB7C" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#DBBB7C" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#DBBB7C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lit" gradientUnits="userSpaceOnUse" cx="95" cy="188" r="150">
+      <stop offset="0" stop-color="#5E4E31"/>
+      <stop offset="0.35" stop-color="#2A2318"/>
+      <stop offset="1" stop-color="#0B0B0B"/>
+    </radialGradient>
+    <radialGradient id="screen" gradientUnits="userSpaceOnUse" cx="95" cy="186" r="62">
+      <stop offset="0" stop-color="#6A5733"/>
+      <stop offset="0.6" stop-color="#2A2316"/>
+      <stop offset="1" stop-color="#15120D"/>
+    </radialGradient>
+    <radialGradient id="host" gradientUnits="userSpaceOnUse" cx="95" cy="182" r="30">
+      <stop offset="0" stop-color="#FAF3D7"/>
+      <stop offset="1" stop-color="#C9A869"/>
+    </radialGradient>
+    <radialGradient id="deck" gradientUnits="userSpaceOnUse" cx="95" cy="222" r="80">
+      <stop offset="0" stop-color="#4E4129"/>
+      <stop offset="1" stop-color="#1C1811"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" fill="#050505"/>
+  <rect width="512" height="512" fill="url(#glow)"/>
+
+  <g transform="translate(104 60) scale(1.6)">
+    <!-- halo -->
+    <circle cx="95" cy="80" r="46" fill="none" stroke="url(#lit)" stroke-width="6"/>
+    <!-- shoulders -->
+    <path d="M22 280 L22 185 Q22 132 95 124 Q168 132 168 185 L168 280 Z" fill="url(#lit)"/>
+    <!-- head + curls -->
+    <ellipse cx="95" cy="88" rx="25" ry="30" fill="url(#lit)"/>
+    <circle cx="76" cy="67" r="11" fill="url(#lit)"/>
+    <circle cx="90" cy="60" r="11" fill="url(#lit)"/>
+    <circle cx="104" cy="60" r="11" fill="url(#lit)"/>
+    <circle cx="116" cy="69" r="10" fill="url(#lit)"/>
+    <!-- laptop screen -->
+    <rect x="46" y="138" width="98" height="86" rx="3" fill="url(#screen)"/>
+    <!-- ciborium (no cross): knob, lid, cup, stem, foot -->
+    <circle cx="95" cy="160" r="3.5" fill="url(#host)"/>
+    <path d="M76 178 Q95 158 114 178 Z" fill="url(#host)"/>
+    <path d="M73 180 H117 Q114 202 95 205 Q76 202 73 180 Z" fill="url(#host)"/>
+    <rect x="91" y="205" width="8" height="12" fill="url(#host)"/>
+    <ellipse cx="95" cy="218" rx="15" ry="5" fill="url(#host)"/>
+    <!-- laptop base -->
+    <path d="M38 227 H152 L170 252 H20 Z" fill="url(#deck)" stroke="#0A0907" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" gradientUnits="userSpaceOnUse" cx="256" cy="340" r="300">
+      <stop offset="0" stop-color="#2A2214"/><stop offset="0.5" stop-color="#0D0B08"/><stop offset="1" stop-color="#050505"/></radialGradient>
+    <radialGradient id="lit" gradientUnits="userSpaceOnUse" cx="256" cy="335" r="250">
+      <stop offset="0" stop-color="#4C3F27"/><stop offset="0.45" stop-color="#211B13"/><stop offset="1" stop-color="#0C0B09"/></radialGradient>
+    <radialGradient id="screen" gradientUnits="userSpaceOnUse" cx="256" cy="400" r="150">
+      <stop offset="0" stop-color="#6E5832"/><stop offset="0.55" stop-color="#2C2417"/><stop offset="1" stop-color="#161310"/></radialGradient>
+    <radialGradient id="deck" gradientUnits="userSpaceOnUse" cx="256" cy="430" r="160">
+      <stop offset="0" stop-color="#3A3020"/><stop offset="1" stop-color="#100E0B"/></radialGradient>
+    <radialGradient id="halo" gradientUnits="userSpaceOnUse" cx="256" cy="300" r="240">
+      <stop offset="0" stop-color="#8A7044"/><stop offset="0.5" stop-color="#4A3C24"/><stop offset="1" stop-color="#1A160F"/></radialGradient>
+    <radialGradient id="host" gradientUnits="userSpaceOnUse" cx="256" cy="320" r="70">
+      <stop offset="0" stop-color="#FFF8E2"/><stop offset="0.6" stop-color="#EBD6A0"/><stop offset="1" stop-color="#C9A869"/></radialGradient>
+    <radialGradient id="pool"><stop offset="0" stop-color="#F3DFA8" stop-opacity="0.55"/><stop offset="1" stop-color="#DBBB7C" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g transform="translate(256 300) scale(1.14) translate(-256 -300)">
+  <circle cx="256" cy="178" r="104" fill="url(#halo)"/>
+  <path d="M64 520 L70 372 Q78 300 160 282 L214 266 Q256 292 298 266 L352 282 Q434 300 442 372 L448 520 Z" fill="url(#lit)" stroke="#050505" stroke-width="6" stroke-linejoin="round"/>
+  <g fill="url(#lit)" stroke="#050505" stroke-width="6" stroke-linejoin="round"><ellipse cx="256" cy="192" rx="52" ry="60"/>
+      <ellipse cx="256" cy="166" rx="62" ry="54"/><circle cx="194.9" cy="158.3" r="16"/><circle cx="202.3" cy="140.0" r="16"/><circle cx="216.1" cy="125.1" r="16"/><circle cx="234.8" cy="115.4" r="16"/><circle cx="256.0" cy="112.0" r="16"/><circle cx="277.2" cy="115.4" r="16"/><circle cx="295.9" cy="125.1" r="16"/><circle cx="309.7" cy="140.0" r="16"/><circle cx="317.1" cy="158.3" r="16"/>
+      <rect x="234" y="232" width="44" height="42"/></g>
+  <g fill="url(#lit)"><ellipse cx="256" cy="192" rx="52" ry="60"/>
+      <ellipse cx="256" cy="166" rx="62" ry="54"/><circle cx="194.9" cy="158.3" r="16"/><circle cx="202.3" cy="140.0" r="16"/><circle cx="216.1" cy="125.1" r="16"/><circle cx="234.8" cy="115.4" r="16"/><circle cx="256.0" cy="112.0" r="16"/><circle cx="277.2" cy="115.4" r="16"/><circle cx="295.9" cy="125.1" r="16"/><circle cx="309.7" cy="140.0" r="16"/><circle cx="317.1" cy="158.3" r="16"/>
+      <rect x="234" y="232" width="44" height="42"/></g>
+  <g fill="url(#screen)" stroke="#050505" stroke-width="6" stroke-linejoin="round"><rect x="150" y="300" width="212" height="142" rx="6"/></g>
+  <ellipse cx="256" cy="408" rx="78" ry="26" fill="url(#pool)"/>
+  <path d="M150 442 H362 L400 490 H112 Z" fill="url(#deck)" stroke="#050505" stroke-width="6" stroke-linejoin="round"/>
+  <g fill="url(#host)"><circle cx="256" cy="276" r="6"/>
+      <path d="M226 300 Q228 283 256 281 Q284 283 286 300 Z"/>
+      <rect x="220" y="298" width="72" height="9" rx="4.5"/>
+      <path d="M222 309 H290 Q292 343 256 349 Q220 343 222 309 Z"/>
+      <rect x="250" y="348" width="12" height="38"/>
+      <ellipse cx="256" cy="366" rx="10" ry="6"/>
+      <ellipse cx="256" cy="390" rx="23" ry="7"/></g>
+  </g>
+</svg>
