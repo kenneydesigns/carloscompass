@@ -115,6 +115,9 @@ hamburger menu, nothing on the map itself.
   request), and a Donations skeleton ("online giving is coming soon", then the three things gifts pay
   for). Words live in the pack's `involved.md`; the engine reuses the About page layout. Provider and
   real donate button still to come.
+- **Opening line is now "Still wrestling with God?"** (Joseph, 2026-11-14; was "Is the Bible
+  trustworthy?"), so the opening, the Israel definition and the "tool for people wrestling with God"
+  line read as one thread.
 - **Both saints' quotes side by side** (Joseph, 2026-11-14): St. Carlo and St. Thérèse share one navy
   panel, left and right, lined up at the top, right after "This is no substitute for time with God"
   (stacked on phones). Any About section made only of quotes gets this layout.

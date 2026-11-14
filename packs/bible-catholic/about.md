@@ -25,7 +25,7 @@ Photos: St. Carlo Acutis Catholic Student Center, Rapid City (stcarlocsc.org). P
 REUSE STILL TO BE ASKED (on main since 2026-11-14 at Joseph's call).
 -->
 
-# Is the Bible trustworthy?
+# Still *wrestling with God?*
 
 ---
 
