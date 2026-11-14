@@ -7,13 +7,16 @@ Out: app/public/basemap/borders/<year>-realms.geojson  realm shapes, each with a
                                                        design/map/render_styles.py)
      app/public/basemap/borders/<year>-lines.geojson   realm edges, shared edges once (clean dashes)
      app/public/basemap/borders/<year>-labels.json     realm names, label point, zoom where they fit
-     app/public/basemap/sea.geojson                    world minus land: drawn over the tints so
-                                                       they stop at today's coast
+Realm shapes are clipped to today's land, and edges to land a little in from the coast, so tints
+and dashes stop at the coastline (needs the `shapely` package).
 
-Usage: python3 app/scripts/build_borders.py 100
+Usage: python3 app/scripts/build_borders.py 100     (with shapely installed, e.g. in a venv)
 """
 import json, math, sys
 from pathlib import Path
+from shapely.geometry import shape, mapping, LineString
+from shapely.ops import unary_union
+from shapely.validation import make_valid
 
 ROOT = Path(__file__).resolve().parents[2]
 APP = ROOT / 'app'
@@ -25,6 +28,9 @@ out = APP / 'public/basemap/borders'
 out.mkdir(parents=True, exist_ok=True)
 
 realms = json.load(open(src))['features']
+land = unary_union([make_valid(shape(f['geometry']))
+                    for f in json.load(open(APP / 'public/basemap/ne_50m_land.geojson'))['features']])
+inland = land.buffer(-0.05)   # about 5 km in from the coast: realm edges that trace the coast are dropped
 
 def polys(g):
     return [g['coordinates']] if g['type'] == 'Polygon' else g['coordinates'] if g['type'] == 'MultiPolygon' else []
@@ -47,8 +53,11 @@ for i in sorted(nbrs, key=lambda i: -len(nbrs[i])):
 fills = []
 for i, f in enumerate(realms):
     name = f['properties'].get('NAME')
-    fills.append({'type': 'Feature', 'geometry': f['geometry'],
-                  'properties': {'name': name, 'tint': tint[i]}})
+    g = make_valid(shape(f['geometry'])).intersection(land)
+    if g.is_empty:
+        continue
+    g = g.simplify(0.01, preserve_topology=True)
+    fills.append({'type': 'Feature', 'geometry': mapping(g), 'properties': {'name': name, 'tint': tint[i]}})
 json.dump({'type': 'FeatureCollection', 'features': fills}, open(out / f'{year}-realms.geojson', 'w'),
           separators=(',', ':'))
 
@@ -78,8 +87,9 @@ for a, b in segs:
                 break
             n = nxt[0]; used.add((tip, n)); used.add((n, tip))
             chain.append(n) if end else chain.insert(0, n)
-    lines.append({'type': 'Feature', 'properties': {},
-                  'geometry': {'type': 'LineString', 'coordinates': [list(c) for c in chain]}})
+    clipped = LineString(chain).intersection(inland)
+    if not clipped.is_empty:
+        lines.append({'type': 'Feature', 'properties': {}, 'geometry': mapping(clipped)})
 json.dump({'type': 'FeatureCollection', 'features': lines}, open(out / f'{year}-lines.geojson', 'w'),
           separators=(',', ':'))
 
@@ -117,17 +127,4 @@ for name, b in sorted(best.items(), key=lambda kv: -kv[1]['area']):
     labels.append({'name': name, 'lng': round(lng, 4), 'lat': round(lat, 4), 'minzoom': round(minzoom, 2)})
 json.dump(labels, open(out / f'{year}-labels.json', 'w'), indent=0)
 
-# --- sea mask: world box with every land outline cut out ------------------------------------
-land = json.load(open(APP / 'public/basemap/ne_50m_land.geojson'))['features']
-holes, islands_in_holes = [], []
-for f in land:
-    for p in polys(f['geometry']):
-        holes.append(p[0])
-        islands_in_holes += [[r] for r in p[1:]]   # a lake-like hole in land is sea again
-world = [[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]
-sea = {'type': 'Feature', 'properties': {},
-       'geometry': {'type': 'MultiPolygon', 'coordinates': [[world] + holes] + islands_in_holes}}
-json.dump({'type': 'FeatureCollection', 'features': [sea]}, open(APP / 'public/basemap/sea.geojson', 'w'),
-          separators=(',', ':'))
-
-print(f'{len(fills)} realms, {len(lines)} edge lines, {len(labels)} labels, {len(holes)} land outlines')
+print(f'{len(fills)} realms on land, {len(lines)} edge lines, {len(labels)} labels')

@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Alcalá de Henares"; check
+id: miracle-alcala
+name: "Alcalà"
+category: eucharistic-miracle
+location:
+  lat: 40.482
+  lng: -3.364
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Alcalà"
+    date: { from: 1597 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Alcalà"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=spagna&wh=alcala
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Spain"]

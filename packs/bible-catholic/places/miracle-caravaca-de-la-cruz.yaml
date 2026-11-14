@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-caravaca-de-la-cruz
+name: "Caravaca de la Cruz"
+category: eucharistic-miracle
+location:
+  lat: 38.1047
+  lng: -1.8611
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Caravaca de la Cruz"
+    date: { from: 1231 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Caravaca de la Cruz"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=spagna&wh=caravaca_de_la_cruz
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Spain"]

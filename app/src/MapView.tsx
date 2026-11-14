@@ -23,7 +23,7 @@ const GOLD = '#DBBB7C'
 // design/map/render_styles.py. Neighbouring realms get different tints (index from the build script).
 const TINTS = ['#F1E2BC', '#EBE0C3', '#E6E1CB', '#F5EAC8', '#DFD0B2']
 
-export interface Borders { year: number; note?: string }
+export interface Borders { year: number; until?: number; note?: string }
 
 function makeStyle(borders?: Borders): StyleSpecification {
   const b = borders ? `${BASE}/basemap/borders/${borders.year}` : ''
@@ -36,7 +36,6 @@ function makeStyle(borders?: Borders): StyleSpecification {
       ...(borders ? {
         realms: { type: 'geojson', data: `${b}-realms.geojson` },
         realmLines: { type: 'geojson', data: `${b}-lines.geojson` },
-        seaMask: { type: 'geojson', data: BASE + '/basemap/sea.geojson' },
       } : {}),
     },
     layers: [
@@ -54,8 +53,6 @@ function makeStyle(borders?: Borders): StyleSpecification {
         { id: 'realm-lines', type: 'line', source: 'realmLines', paint: {
           'line-color': EARTH, 'line-opacity': 0.5, 'line-width': 1, 'line-dasharray': [5, 3.5],
         } },
-        // Today's sea drawn back over the tints and dashes, so they stop at the coast.
-        { id: 'sea-mask', type: 'fill', source: 'seaMask', paint: { 'fill-color': SEA, 'fill-antialias': false } },
       ] as StyleSpecification['layers'] : []),
       { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
       { id: 'lakes', type: 'fill', source: 'lakes', paint: { 'fill-color': SEA } },
@@ -68,14 +65,15 @@ interface RealmLabel { name: string; lng: number; lat: number; minzoom: number }
 
 /** Realm names as small-caps HTML labels (no font server needed), shown only where they fit
  *  and never overlapping each other. */
-function realmLabels(m: MlMap, year: number) {
+function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
   let labels: { data: RealmLabel; marker: Marker; el: HTMLDivElement }[] = []
   const place = () => {
     const z = m.getZoom()
+    const on = isOn()
     const taken: DOMRect[] = []
     const box = m.getContainer().getBoundingClientRect()
     for (const l of labels) {
-      let show = z >= l.data.minzoom
+      let show = on && z >= l.data.minzoom
       if (show) {
         const p = m.project([l.data.lng, l.data.lat])
         const w = l.el.offsetWidth || l.data.name.length * 11, h = 20
@@ -99,6 +97,7 @@ function realmLabels(m: MlMap, year: number) {
   }).catch(() => {})
   m.on('moveend', place)
   m.on('zoom', place)
+  return place
 }
 
 function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
@@ -122,13 +121,21 @@ interface Props {
   selectedId?: string
   start: { lng: number; lat: number; zoom: number }
   borders?: Borders
+  year?: number
+  fitTo?: Place[]
+  fitKey?: number
   onSelect: (id: string | undefined) => void
 }
 
-export default function MapView({ places, selectedId, start, borders, onSelect }: Props) {
+export default function MapView({ places, selectedId, start, borders, year, fitTo, fitKey, onSelect }: Props) {
   const box = useRef<HTMLDivElement>(null)
   const map = useRef<MlMap | null>(null)
   const ready = useRef(false)
+  // Borders only belong to their own era (pack `borders.until`); hidden past it.
+  const bordersOn = !!borders && (year === undefined || borders.until === undefined || year <= borders.until)
+  const bordersOnRef = useRef(bordersOn)
+  bordersOnRef.current = bordersOn
+  const placeLabels = useRef<() => void>(() => {})
   const latest = useRef({ places, selectedId })
   latest.current = { places, selectedId }
 
@@ -146,7 +153,7 @@ export default function MapView({ places, selectedId, start, borders, onSelect }
     })
     m.touchZoomRotate.disableRotation()
     m.addControl(new AttributionControl({ compact: true, customAttribution: ['Natural Earth', ...(borders?.note ? [borders.note + ' (GPL-3.0)'] : [])] }))
-    if (borders) realmLabels(m, borders.year)
+    if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.
     m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
     m.on('load', () => {
@@ -201,14 +208,47 @@ export default function MapView({ places, selectedId, start, borders, onSelect }
     const apply = () => {
       if (!m.getLayer('realm-selected')) return
       let name: string | undefined
-      if (p && hasCoords(p)) {
+      if (p && hasCoords(p) && bordersOnRef.current) {
         const hit = m.queryRenderedFeatures(m.project([p.location!.lng!, p.location!.lat!]), { layers: ['realms'] })
         name = hit[0]?.properties?.name as string | undefined
       }
       m.setFilter('realm-selected', ['==', ['get', 'name'], name ?? '\u0000'])
     }
     if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
-  }, [places, selectedId, borders])
+  }, [places, selectedId, borders, bordersOn])
+
+  useEffect(() => {
+    const m = map.current
+    if (!m || !borders) return
+    const apply = () => {
+      for (const id of ['realms', 'realm-selected', 'realm-lines'])
+        if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', bordersOn ? 'visible' : 'none')
+      placeLabels.current()
+    }
+    if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
+  }, [borders, bordersOn])
+
+  // Each time Show is pressed, fit the map to the results (open space only: not under the panels).
+  useEffect(() => {
+    const m = map.current
+    const pts = (fitTo ?? []).filter(hasCoords).map(p => [p.location!.lng!, p.location!.lat!] as [number, number])
+    if (!m || !fitKey || !pts.length) return
+    // With many results, fit where most of them are (middle 80%), so a few far-off ones don't
+    // leave a phone looking at empty ocean; they stay a pan away.
+    const trim = (v: number[]) => {
+      const s = [...v].sort((a, b) => a - b)
+      if (s.length < 10) return s
+      const k = Math.floor(s.length * 0.1)
+      return s.slice(k, s.length - k)
+    }
+    const lngs = trim(pts.map(p => p[0])), lats = trim(pts.map(p => p[1]))
+    const phone = !window.matchMedia('(min-width: 768px)').matches
+    m.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], {
+      padding: phone ? { top: 80, bottom: 140, left: 32, right: 32 } : { top: 96, bottom: 140, left: 64, right: 64 },
+      maxZoom: 7, duration: 600,
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fitKey])
 
   // Keep the selected pin in the part of the map the card (and, on a phone, the raised timeline)
   // doesn't cover. Only moves the map when the pin would be hidden.

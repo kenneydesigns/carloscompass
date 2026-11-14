@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-cimballa
+name: "Cimballa"
+category: eucharistic-miracle
+location:
+  lat: 41.1012
+  lng: -1.7737
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Cimballa"
+    date: { from: 1370 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Cimballa"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=spagna&wh=cimballa
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Spain"]

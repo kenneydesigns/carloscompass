@@ -1,0 +1,20 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+id: miracle-canosio
+name: "Canosio"
+category: eucharistic-miracle
+location:
+  lat: 44.4558
+  lng: 7.0827
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Canosio"
+    date: { from: 1630 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Canosio"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=italia&wh=canosio
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Italy"]

@@ -25,4 +25,6 @@ start_view: { lng: 35.3, lat: 31.9, zoom: 6.4 }
 # app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
 borders:
   year: 100
+  # Hide them once the timeline passes this year (a 1264 miracle is not in the Roman Empire).
+  until: 300
   note: Borders approximate · c. 100 AD · historical-basemaps

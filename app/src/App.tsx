@@ -12,6 +12,7 @@ export default function App() {
   const [applied, setApplied] = useState(false) // nothing on the map until the user chooses
   const [selectedId, setSelectedId] = useState<string>()
   const [year, setYear] = useState<number>()
+  const [fitKey, setFitKey] = useState(0) // bumps each time Show is pressed, so the map fits the results
 
   const results = useMemo(
     () => (applied ? places.filter(p => matches(p, query, chosen)) : []),
@@ -23,6 +24,12 @@ export default function App() {
     [results, year],
   )
   const selected = visible.find(p => p.id === selectedId)
+  // The year the map is showing: the scrubber's, or the latest result's when it hasn't moved.
+  const shownYear = useMemo(() => {
+    if (year !== undefined) return year
+    const ys = results.map(firstYear).filter((y): y is number => y !== undefined)
+    return ys.length ? Math.max(...ys) : undefined
+  }, [year, results])
   const chips = [
     ...(query.trim() ? [{ key: '__q', value: query.trim() }] : []),
     ...Object.entries(chosen).flatMap(([key, vals]) => vals.map(value => ({ key, value }))),
@@ -50,6 +57,9 @@ export default function App() {
           selectedId={selected?.id}
           start={pack.start_view ?? { lng: 0, lat: 20, zoom: 2 }}
           borders={pack.borders}
+          year={shownYear}
+          fitTo={results}
+          fitKey={fitKey}
           onSelect={setSelectedId}
         />
 
@@ -84,7 +94,7 @@ export default function App() {
           onQuery={setQuery}
           onChosen={setChosen}
           onClose={() => setExploreOpen(false)}
-          onShow={() => { setApplied(true); setYear(undefined); setExploreOpen(false) }}
+          onShow={() => { setApplied(true); setYear(undefined); setSelectedId(undefined); setFitKey(k => k + 1); setExploreOpen(false) }}
           onClear={() => { setQuery(''); setChosen({}); setApplied(false); setSelectedId(undefined) }}
         />
       )}

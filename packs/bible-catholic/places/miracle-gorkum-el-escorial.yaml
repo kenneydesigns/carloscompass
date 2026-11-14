@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "San Lorenzo de El Escorial"; check
+id: miracle-gorkum-el-escorial
+name: "Gorkum-El Escorial"
+category: eucharistic-miracle
+location:
+  lat: 40.5927
+  lng: -4.1472
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Gorkum-El Escorial"
+    date: { from: 1572 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Gorkum-El Escorial"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=spagna&wh=gorkum-el_escorial
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Spain"]

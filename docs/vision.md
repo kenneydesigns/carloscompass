@@ -418,5 +418,12 @@ file disagrees, this section wins.
   151 rows, 108 place miracles in 20 countries (map pins) plus saints, Our Lady, and miraculous
   communions (people, not fixed places; decide later whether they get pins). All `unreviewed`.
   Next: add coordinates + certainty, then Church-recognition sources, starting with the featured few.
+- Done 2026-11-13 (`phone-layout` branch): all 108 place miracles turned into draft place files by
+  `app/scripts/import_miracles.py`: name, country, date, Carlo's catalogue link, and town-centre
+  coordinates from OpenStreetMap (106 found; St. Mary of Egypt and S. Peter Damian are people, so
+  no pin). Summary, location certainty and Church recognition are left empty (they show FFFF).
+  Unreviewed, so only the local dev server shows them. Lookups marked "check" in the CSV need a
+  person (e.g. Scete, Betania, the double names). The 100 AD borders hide past 300 AD (`until`
+  in pack.yaml), and Show fits the map to the middle 80% of the results.
 - Hackathon pitch deck: first draft in Canva (Mines account), "Carlo's Compass - Hackathon Pitch",
   https://www.canva.com/design/DAHa2jbuDfk/edit. Outline in [presentation.md](presentation.md).

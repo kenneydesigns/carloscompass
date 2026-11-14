@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: catalogue link shared with another entry; check page
+id: miracle-la-rochelle
+name: "La Rochelle"
+category: eucharistic-miracle
+location:
+  lat: 46.1597
+  lng: -1.1516
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of La Rochelle"
+    date: { from: 1461 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: La Rochelle"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=francia&wh=la_rochelle
+tags:
+  collection: [Eucharistic miracles]
+  country: ["France"]

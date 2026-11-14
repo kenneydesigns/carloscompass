@@ -55,7 +55,8 @@ export default function Sheet({ place, onClose }: { place: Place; onClose: () =>
 
         <h3 className="label">Sources</h3>
         <ul className="links">
-          {(place.sources?.length ? place.sources : [undefined]).map((s, i) => (
+          {/* The event's own sources first, then the place's. */}
+          {([...(event?.sources ?? []), ...(place.sources ?? [])].length ? [...(event?.sources ?? []), ...(place.sources ?? [])] : [undefined]).map((s, i) => (
             <li key={i}>{s?.url ? <a href={s.url} target="_blank" rel="noreferrer">{show(s.title)}</a> : show(s?.title)}</li>
           ))}
         </ul>

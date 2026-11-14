@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: catalogue link shared with another entry; check page
+id: miracle-san-mauro-la-bruca
+name: "San Mauro La Bruca"
+category: eucharistic-miracle
+location:
+  lat: 40.1229
+  lng: 15.2898
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of San Mauro La Bruca"
+    date: { from: 1969 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: San Mauro La Bruca"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=italia&wh=dronero
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Italy"]

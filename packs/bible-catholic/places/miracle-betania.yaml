@@ -1,0 +1,21 @@
+# Draft from the staged catalogue row (eucharistic-miracles-catalogue.csv), 2026-11-13. Not reviewed by a person:
+# it shows only on the local dev server. Summary, certainty and Church recognition still to
+# be filled from sources (link to the catalogue, do not copy its text).
+# Staging note: located via "Cúa"; check
+id: miracle-betania
+name: "Betania"
+category: eucharistic-miracle
+location:
+  lat: 10.1654
+  lng: -66.8865
+  note: Town centre from OpenStreetMap; the exact site is not checked yet.
+events:
+  - title: "Eucharistic miracle of Betania"
+    date: { from: 1991 }
+    sources:
+      - kind: catalogue
+        title: "Carlo Acutis, The Eucharistic Miracles of the World: Betania"
+        url: https://www.miracolieucaristici.org/en/Liste/scheda.html?nat=venezuela&wh=betania
+tags:
+  collection: [Eucharistic miracles]
+  country: ["Venezuela"]
