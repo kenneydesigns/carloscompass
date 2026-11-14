@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { BorderYear, Place } from './data'
-import { hasCoords, placeColor, ringFor } from './data'
+import { borderYearFor, hasCoords, placeColor, ringFor } from './data'
 
 // Calm basemap we style ourselves (vision.md "Basemap"): Natural Earth land, lakes and rivers,
 // no terrain, no modern labels. Colors are mixed from the brand tokens, as in render_styles.py.
@@ -27,14 +27,6 @@ const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] }
 const FADE_MS = 150    // short fade when the border year changes
 const SETTLE_MS = 150  // on a fast drag, wait until the handle pauses before swapping (vision.md update rules)
 const LINE_OPACITY = ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5] as const
-
-/** The pack's border year for a timeline year (from <= year < until), if any; with no year yet,
- *  the pack's `start` one. */
-export function borderYearFor(list: BorderYear[] | undefined, year: number | undefined) {
-  if (!list?.length) return undefined
-  if (year === undefined) return list.find(b => b.start)
-  return list.find(b => (b.from ?? -Infinity) <= year && year < (b.until ?? Infinity))
-}
 
 interface BorderSet { realms: FeatureCollection; lines: FeatureCollection; labels: RealmLabel[] }
 const borderCache = new Map<number, Promise<BorderSet>>()

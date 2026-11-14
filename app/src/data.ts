@@ -37,6 +37,31 @@ export interface Pack {
 /** One border year the map can show, for timeline years from <= year < until (pack.yaml `borders`). */
 export interface BorderYear { year: number; from?: number; until?: number; note?: string; start?: boolean }
 
+/** The pack's border year for a timeline year (from <= year < until), if any; with no year yet,
+ *  the pack's `start` one. */
+export function borderYearFor(list: BorderYear[] | undefined, year: number | undefined) {
+  if (!list?.length) return undefined
+  if (year === undefined) return list.find(b => b.start)
+  return list.find(b => (b.from ?? -Infinity) <= year && year < (b.until ?? Infinity))
+}
+
+/** "Borders c. 1250–1350" for the timeline: the stretch of timeline years that show this border
+ *  set, ending at "today" when it runs past the present. */
+export function borderSpanLabel(b: BorderYear): string {
+  const y = (n: number) => (n < 0 ? `${-n} BC` : `${n}`)
+  const now = new Date().getFullYear()
+  const from = b.from ?? b.year
+  const u = b.until
+  // Say AD on the end year only when the range starts in BC ("c. 700 BC–250 AD").
+  const end = u === undefined || u > now ? 'today' : u >= 0 && from < 0 ? `${u} AD` : y(u)
+  return `Borders c. ${y(from)}–${end}`
+}
+
+/** Years between two timeline years; there is no year 0, so 1 BC to 1 AD is one year. */
+export function yearSpan(a: number, b: number): number {
+  return b - a - (a < 0 && b > 0 ? 1 : 0)
+}
+
 const packFiles = import.meta.glob('../../packs/bible-catholic/pack.yaml', {
   query: '?raw', import: 'default', eager: true,
 }) as Record<string, string>

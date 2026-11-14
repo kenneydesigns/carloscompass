@@ -86,7 +86,7 @@ export default function App() {
         />
 
         {applied && results.length > 0 && (
-          <Timeline places={results} year={year} onYear={setYear} raised={!!selected} />
+          <Timeline places={results} year={year} onYear={setYear} raised={!!selected} borders={pack.borders} />
         )}
 
         {/* The one search box, at the bottom where a thumb reaches it (Joseph, 2026-11-13). Tapping it

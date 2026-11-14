@@ -206,6 +206,10 @@ One calm world map we style ourselves, not an embedded map service.
   swaps only when the handle crosses into another border year's range, waits 0.15 s so a fast drag
   doesn't flash through centuries, fades out and in (0.15 s), and keeps the years either side of
   the one on screen loaded ahead. The ⓘ note always names the year on screen.
+- **The timeline says what you're looking at (Joseph, 2026-11-14):** a small muted line under the
+  bold year, e.g. "Borders c. 1250–1350 · 1,813 years": the stretch of timeline years the current
+  borders cover, then how many years the whole timeline spans. Picked over the period alone, the
+  span alone, or a shaded band on the track.
 - **Close zoom (Holy Land): borders plus region names** (Joseph, 2026-11-13, mockup v3). Borders
   and tints stay on at every zoom. At Holy Land zoom, hand-placed 1st-century region names are
   added (GALILEE, SAMARIA, JUDEA, DECAPOLIS, PEREA), smaller and lighter than realm names; they are
