@@ -62,7 +62,7 @@ export default function App() {
         <img className="logo" src="/brand/carlo-compass-lockup-horizontal-parchment.svg" alt={pack.name ?? ''} />
         <nav className="toplinks">
           <a href="#about">About</a>
-          <a href={pack.links?.donate}>Donate</a>
+          <a className="toplink-donate" href={pack.links?.donate}>Donate</a>
         </nav>
       </header>
 

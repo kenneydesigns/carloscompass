@@ -464,6 +464,8 @@ file disagrees, this section wins.
   files stay in their own folder.
 - **Phone: About · Donate go at the bottom of the Explore overlay** (Joseph, 2026-11-13). No
   hamburger menu. The rest of the phone layout is being worked on in another chat.
+  - **Update (Joseph, 2026-11-13):** About was too hidden there, so phones also show **About** in
+    the navy top bar (right side). Donate stays only in the Explore footer on phones.
 
 ## Lessons from the similar-products research (2026-11-13)
 Full report: [reports/Bible map similar products.md](../reports/Bible%20map%20similar%20products.md)

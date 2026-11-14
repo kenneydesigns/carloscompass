@@ -40,8 +40,10 @@ a { color: var(--ink); }
   display: flex; align-items: center; gap: 16px; background: var(--ink); color: var(--parchment);
 }
 .logo { height: 36px; width: auto; display: block; }
-.toplinks { display: none; margin-left: auto; gap: 24px; }
-.toplinks a { color: var(--parchment); text-decoration: none; font-size: 16px; }
+.toplinks { display: flex; margin-left: auto; gap: 24px; }
+.toplinks a { display: inline-flex; align-items: center; min-height: 44px; color: var(--parchment); text-decoration: none; font-size: 16px; }
+/* Phones: only About in the top bar (Joseph, 2026-11-13); Donate stays in the Explore footer. */
+.toplink-donate { display: none !important; }
 
 .stage { position: relative; flex: 1; min-height: 0; }
 .map { position: absolute; inset: 0; }
@@ -179,7 +181,7 @@ a { color: var(--ink); }
 /* Desktop / tablet. */
 @media (min-width: 768px) {
   :root { --pad: 24px; --bar-h: 64px; }
-  .toplinks { display: flex; }
+  .toplink-donate { display: inline-flex !important; }
   .sheet, .sheet.full {
     top: 0; bottom: 0; left: auto; width: 400px; height: auto; border-radius: 0; box-shadow: none;
     border-left: 1px solid rgba(92, 107, 122, 0.25);
