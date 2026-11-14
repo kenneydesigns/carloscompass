@@ -28,7 +28,7 @@ export interface Pack {
   name?: string
   certainty?: Partial<Record<Certainty, { label?: string; explain?: string }>>
   suggest_edit?: { label?: string; phone?: string }
-  links?: { story?: string; donate?: string }
+  links?: { donate?: string }
   explore_filters?: { key: string; label?: string }[]
   pin_colors?: Record<string, string>   // collection (tag value) -> brand color role
   start_view?: { lng: number; lat: number; zoom: number }
@@ -38,11 +38,16 @@ export interface Pack {
 const packFiles = import.meta.glob('../../packs/bible-catholic/pack.yaml', {
   query: '?raw', import: 'default', eager: true,
 }) as Record<string, string>
+const aboutFiles = import.meta.glob('../../packs/bible-catholic/about.md', {
+  query: '?raw', import: 'default', eager: true,
+}) as Record<string, string>
 const placeFiles = import.meta.glob('../../packs/bible-catholic/places/*.yaml', {
   query: '?raw', import: 'default', eager: true,
 }) as Record<string, string>
 
 export const pack: Pack = parse(Object.values(packFiles)[0] ?? '') ?? {}
+/** The pack's About page text (Markdown-ish, written by a person), or '' when the pack has none. */
+export const aboutText: string = Object.values(aboutFiles)[0] ?? ''
 
 // Drafts show too, everywhere, but each card says plainly that it is not reviewed yet
 // (Joseph, 2026-11-13, for the hackathon demo; see vision.md "Drafts on the live site").

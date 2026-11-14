@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import MapView from './MapView'
 import Explore from './Explore'
+import About from './About'
 import Sheet from './Sheet'
 import Timeline from './Timeline'
 import { collectionColor, firstYear, matches, pack, places } from './data'
@@ -13,6 +14,21 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string>()
   const [year, setYear] = useState<number>()
   const [fitKey, setFitKey] = useState(0) // bumps each time Show is pressed, so the map fits the results
+  // About opens at #about, so the link works from anywhere, can be shared, and Back closes it.
+  const [aboutOpen, setAboutOpen] = useState(() => window.location.hash === '#about')
+  useEffect(() => {
+    const onHash = () => {
+      const open = window.location.hash === '#about'
+      setAboutOpen(open)
+      if (open) setExploreOpen(false)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+  function closeAbout() {
+    if (window.location.hash === '#about') history.replaceState(null, '', window.location.pathname + window.location.search)
+    setAboutOpen(false)
+  }
 
   const results = useMemo(
     () => (applied ? places.filter(p => matches(p, query, chosen)) : []),
@@ -45,7 +61,7 @@ export default function App() {
       <header className="topbar">
         <img className="logo" src="/brand/carlo-compass-lockup-horizontal-parchment.svg" alt={pack.name ?? ''} />
         <nav className="toplinks">
-          <a href={pack.links?.story}>Story</a>
+          <a href="#about">About</a>
           <a href={pack.links?.donate}>Donate</a>
         </nav>
       </header>
@@ -100,6 +116,8 @@ export default function App() {
 
         {selected && <Sheet place={selected} onClose={() => setSelectedId(undefined)} />}
       </main>
+
+      {aboutOpen && <About onClose={closeAbout} />}
 
       {exploreOpen && (
         <Explore

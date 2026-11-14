@@ -170,6 +170,11 @@ a { color: var(--ink); }
 .explore-links { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 4px 0 12px; color: var(--muted); }
 .explore-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ink); }
 
+/* About page: reading text, comfortable line length. */
+.about-body { max-width: 640px; }
+.about-body p { margin: 0 0 16px; font-size: 17px; line-height: 1.65; }
+.about-body h3 { font: 700 20px/1.3 var(--serif); margin: 24px 0 8px; }
+
 /* Desktop / tablet. */
 @media (min-width: 768px) {
   :root { --pad: 24px; --bar-h: 64px; }
@@ -186,5 +191,7 @@ a { color: var(--ink); }
   .timeline.raised { bottom: calc(24px + 56px + 8px); width: min(860px, calc(100% - 448px)); }
   .scrim { align-items: center; justify-content: center; padding: 48px; }
   .explore { width: min(920px, 100%); height: auto; max-height: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
-  .explore-links { display: none; } /* desktop has Story · Donate in the top bar */
+  .explore-links { display: none; } /* desktop has About · Donate in the top bar */
+  .about { width: min(720px, 100%); }
+  .about-body { padding: 8px 32px 32px; }
 }

@@ -85,6 +85,11 @@ hamburger menu, nothing on the map itself.
   shown on the About page only, never on the map screen.
 - **The About page includes pictures** (Joseph, 2026-11-13). Which pictures is still open.
   Each one needs a credit and permission or an open license before it goes on the site.
+- **About page built** (2026-11-13): opens as a parchment page over the map at `#about` (top-bar
+  link on desktop, Explore footer on phones), so the link can be shared and Back closes it. It
+  shows `about.md` word for word; notes for editors go in `<!-- -->` and are not shown. The link
+  is now named About (was Story). Pictures, the team credit and "help improve the map" are
+  still to be written by Joseph.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen

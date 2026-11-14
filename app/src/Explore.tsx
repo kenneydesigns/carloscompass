@@ -72,9 +72,9 @@ export default function Explore({ query, chosen, onQuery, onChosen, onClose, onS
           </button>
         </div>
 
-        {/* Phone: Story · Donate live here instead of a menu (pre-build decision). */}
+        {/* Phone: About · Donate live here instead of a menu (pre-build decision). */}
         <nav className="explore-links">
-          <a href={pack.links?.story}>Story</a>
+          <a href="#about">About</a>
           <span aria-hidden>·</span>
           <a href={pack.links?.donate}>Donate</a>
         </nav>

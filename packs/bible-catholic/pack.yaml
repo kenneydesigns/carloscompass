@@ -29,7 +29,6 @@ pin_colors:
   Life of Jesus: gold        # light gold with a darker ring (brown and gold-text looked alike)
   World history: ink
 links:
-  story: "#story"
   donate: "#donate"
 # Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
 # and the Holy Land (Jesus) are both in view and it is clear what you are looking at
