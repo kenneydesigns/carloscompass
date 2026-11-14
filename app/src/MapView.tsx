@@ -144,18 +144,22 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
   latest.current = { places, selectedId }
 
   useEffect(() => {
+    // Zoom out until the whole world's width fits the screen (the world is 512 px wide at zoom 0),
+    // so a phone can see all of it, not just Europe (Joseph, 2026-11-13). Never tighter than before (2).
+    const worldFits = () => Math.min(2, Math.log2(box.current!.clientWidth / 512))
     const m = new MlMap({
       container: box.current!,
       style: makeStyle(borders),
       center: [start.lng, start.lat],
       zoom: start.zoom,
-      minZoom: 2,
+      minZoom: worldFits(),
       maxZoom: 11,
       attributionControl: false,
       dragRotate: false,
       pitchWithRotate: false,
     })
     m.touchZoomRotate.disableRotation()
+    m.on('resize', () => m.setMinZoom(worldFits()))
     m.addControl(new AttributionControl({ compact: true, customAttribution: borders?.note ? [borders.note] : [] }), 'top-right') // bottom belongs to the search bar
     if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.

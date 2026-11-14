@@ -198,6 +198,8 @@ One calm world map we style ourselves, not an embedded map service.
       license file, separate from the MIT engine code and the
       CC BY-SA pin content. Whether loading GPL data makes the engine itself GPL is not settled
       law; keeping them separate is the cautious route. Confirm before launch.
+    - **Zoom out to the whole world** (Joseph, 2026-11-13): the farthest zoom-out is set from the
+      screen width so the world's full width fits (much farther on a phone than the old fixed limit).
     - **Credit lives with the files, not on the map** (Joseph, 2026-11-13): the ⓘ shows only
       "Borders approximate · c. 100 AD". The GPL credit is in `app/public/basemap/borders/CREDITS.txt`
       (served with the files); add it to the About page later if wanted.
