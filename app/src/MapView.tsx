@@ -152,7 +152,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
       pitchWithRotate: false,
     })
     m.touchZoomRotate.disableRotation()
-    m.addControl(new AttributionControl({ compact: true, customAttribution: ['Natural Earth', ...(borders?.note ? [borders.note + ' (GPL-3.0)'] : [])] }))
+    m.addControl(new AttributionControl({ compact: true, customAttribution: ['Natural Earth', ...(borders?.note ? [borders.note + ' (GPL-3.0)'] : [])] }), 'top-right') // bottom belongs to the search bar
     if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.
     m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
@@ -244,7 +244,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     const lngs = trim(pts.map(p => p[0])), lats = trim(pts.map(p => p[1]))
     const phone = !window.matchMedia('(min-width: 768px)').matches
     m.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], {
-      padding: phone ? { top: 80, bottom: 140, left: 32, right: 32 } : { top: 96, bottom: 140, left: 64, right: 64 },
+      padding: phone ? { top: 48, bottom: 200, left: 32, right: 32 } : { top: 64, bottom: 200, left: 64, right: 64 },
       maxZoom: 7, duration: 600,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -263,7 +263,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     const margin = 32
     const padding = phone
       ? { top: margin + 56, left: margin, right: margin, bottom: window.innerHeight * 0.42 + timelineH + 16 }
-      : { top: margin + 56, left: margin, right: 400 + margin, bottom: timelineH + 24 + margin }
+      : { top: margin, left: margin, right: 400 + margin, bottom: timelineH + 24 + 64 + margin }
     const pt = m.project(lngLat)
     const hidden = pt.x < padding.left || pt.x > box.width - padding.right
       || pt.y < padding.top || pt.y > box.height - padding.bottom

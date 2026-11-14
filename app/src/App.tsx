@@ -48,7 +48,6 @@ export default function App() {
           <a href={pack.links?.story}>Story</a>
           <a href={pack.links?.donate}>Donate</a>
         </nav>
-        <button className="explore-btn" onClick={() => setExploreOpen(true)}>Explore</button>
       </header>
 
       <main className="stage">
@@ -63,25 +62,34 @@ export default function App() {
           onSelect={setSelectedId}
         />
 
-        {applied && chips.length > 0 && (
-          <div className="chips">
-            {chips.map(c => (
-              <button key={c.key + c.value} className="chip" onClick={() => removeChip(c.key, c.value)}
-                aria-label={`Remove ${c.value}`}>
-                {c.value} <span aria-hidden>×</span>
-              </button>
-            ))}
-          </div>
-        )}
-
-        {!applied && !exploreOpen && (
-          <button className="nudge" onClick={() => setExploreOpen(true)}>
-            Choose what to show on the map <span aria-hidden>→</span>
-          </button>
-        )}
-
         {applied && results.length > 0 && (
           <Timeline places={results} year={year} onYear={setYear} raised={!!selected} />
+        )}
+
+        {/* The one search box, at the bottom where a thumb reaches it (Joseph, 2026-11-13). Tapping it
+            opens Explore; what is showing appears as removable tags inside it. */}
+        {!exploreOpen && (
+          <div className={`searchbar ${selected ? 'card-open' : ''}`}
+            onClick={e => e.target === e.currentTarget && setExploreOpen(true)}>
+            <button className="search-open" onClick={() => setExploreOpen(true)}
+              aria-label={applied && chips.length ? 'Search or explore' : undefined}>
+              <svg className="search-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" strokeWidth="2.4" />
+                <path d="M15.5 15.5 21 21" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+              </svg>
+              {!(applied && chips.length) && <span>Search or explore</span>}
+            </button>
+            {applied && chips.length > 0 && (
+              <div className="bar-chips">
+                {chips.map(c => (
+                  <button key={c.key + c.value} className="chip" onClick={() => removeChip(c.key, c.value)}
+                    aria-label={`Remove ${c.value}`}>
+                    {c.value} <span aria-hidden>×</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         )}
 
         {selected && <Sheet place={selected} onClose={() => setSelectedId(undefined)} />}

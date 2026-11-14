@@ -11,7 +11,7 @@ interface Props {
   onClear: () => void
 }
 
-// Explore overlay: the only search on the site. Groups appear only when the data has values
+// Explore overlay, opened from the search bar at the bottom: the only search on the site. Groups appear only when the data has values
 // for them (pre-build decision), so with no reviewed places it is just the search box.
 export default function Explore({ query, chosen, onQuery, onChosen, onClose, onShow, onClear }: Props) {
   const groups = filterGroups(places)
@@ -46,6 +46,7 @@ export default function Explore({ query, chosen, onQuery, onChosen, onClose, onS
               onChange={e => onQuery(e.target.value)}
               placeholder="Search places, people or events"
               enterKeyHint="search"
+              autoFocus
               onKeyDown={e => e.key === 'Enter' && count > 0 && onShow()}
             />
           </label>

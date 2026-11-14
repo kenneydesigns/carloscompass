@@ -85,6 +85,12 @@ The map stays clean; all the "pull things up" options live on one overlay screen
 opened by the Explore button. Users tick checkmarks, then press **Show on map**:
 the overlay closes and only the matching places load. Nothing on the map changes
 while they're still choosing.
+- **Search bar at the bottom, by the timeline** (Joseph, 2026-11-13, later; replaces the next
+  item's placement and the top-bar Explore button). One parchment bar with a navy outline and a
+  crimson search icon sits at the bottom of the map; tapping it opens the Explore panel with the
+  keyboard up. What is showing appears inside the bar as removable navy tags. The timeline sits
+  just above it. The top bar is now only the logo on phones (Story · Donate on desktop); the
+  top-right spot is free for something not yet decided (the map credits ⓘ sit there for now).
 - **Search box inside the overlay** (2026-11-13): at the top of the panel, so people can type
   exactly what they want and combine it with checkmarks. This is the only search box: the
   top-bar search was removed (Joseph, 2026-11-13), so the main screen is just map + panel.
