@@ -195,9 +195,12 @@ One calm world map we style ourselves, not an embedded map service.
       compress them to a few hundred KB each; only the year in view is loaded.
     - **License: GPL-3.0.** We may use and share it, but the border files must stay GPL-3.0 with
       credit to the author. Plan: keep them in their own folder in the pack with their own
-      license file and a credit line on the map, separate from the MIT engine code and the
+      license file, separate from the MIT engine code and the
       CC BY-SA pin content. Whether loading GPL data makes the engine itself GPL is not settled
       law; keeping them separate is the cautious route. Confirm before launch.
+    - **Credit lives with the files, not on the map** (Joseph, 2026-11-13): the ⓘ shows only
+      "Borders approximate · c. 100 AD". The GPL credit is in `app/public/basemap/borders/CREDITS.txt`
+      (served with the files); add it to the About page later if wanted.
   - Modern: Natural Earth (public domain).
   - OpenHistoricalMap stays the "later" option for finer, year-by-year borders.
 - **On top:** only our pins (plain dots; name on the selected pin or when zoomed in).

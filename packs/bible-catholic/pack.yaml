@@ -41,4 +41,4 @@ borders:
   year: 100
   # Hide them once the timeline passes this year (a 1264 miracle is not in the Roman Empire).
   until: 300
-  note: Borders approximate · c. 100 AD · historical-basemaps
+  note: Borders approximate · c. 100 AD

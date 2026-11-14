@@ -156,7 +156,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
       pitchWithRotate: false,
     })
     m.touchZoomRotate.disableRotation()
-    m.addControl(new AttributionControl({ compact: true, customAttribution: ['Natural Earth', ...(borders?.note ? [borders.note + ' (GPL-3.0)'] : [])] }), 'top-right') // bottom belongs to the search bar
+    m.addControl(new AttributionControl({ compact: true, customAttribution: borders?.note ? [borders.note] : [] }), 'top-right') // bottom belongs to the search bar
     if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.
     m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
