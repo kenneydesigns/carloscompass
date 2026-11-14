@@ -30,6 +30,7 @@ export interface Pack {
   suggest_edit?: { label?: string; phone?: string }
   links?: { story?: string; donate?: string }
   start_view?: { lng: number; lat: number; zoom: number }
+  borders?: { year: number; note?: string }
 }
 
 const packFiles = import.meta.glob('../../packs/bible-catholic/pack.yaml', {

@@ -50,6 +50,11 @@ a { color: var(--ink); }
 .stage { position: relative; flex: 1; min-height: 0; }
 .map { position: absolute; inset: 0; }
 .maplibregl-ctrl-attrib { font-size: 12px; }
+/* Realm names: small caps, letter-spaced, earth at 60%, never catch taps (pins stay the focus). */
+.realm-label {
+  font: 400 12px/1 var(--serif); font-variant: small-caps; letter-spacing: 0.22em; text-transform: lowercase;
+  color: var(--earth); opacity: 0.6; white-space: nowrap; pointer-events: none; z-index: 0;
+}
 
 /* Floating surfaces: parchment, soft shadow, one radius family. */
 .chips {

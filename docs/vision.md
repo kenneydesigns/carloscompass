@@ -147,6 +147,11 @@ One calm world map we style ourselves, not an embedded map service.
   Tinted (too busy, fills fought the pins).
 - **Which border year to show (proposed):** the nearest available year, not only the one at or
   before. The 1200 vs 1279 gap is why Bolsena 1264 showed 1200 borders.
+- **In the prototype (2026-11-13, `phone-layout` branch):** 100 AD borders only, soft tinted,
+  dashed, gold realm under the selected pin, realm names shown only where they fit. The
+  "approximate · c. 100 AD" note sits in the map credits (the ⓘ button) for now, to keep the
+  phone screen clear. Region names (Galilee, Samaria…) wait for a sourced atlas. Files are made
+  by `app/scripts/build_borders.py`.
 - **Borders are approximate** and say so (small note on the map). Old borders were fuzzy and
   disputed, and the data is thin before about 1000 AD (Lanciano c. 750, the Egypt entries).
 - **Border data (to confirm licenses):**

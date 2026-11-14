@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { AttributionControl, Map as MlMap, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
+import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
 import type { FeatureCollection } from 'geojson'
 import type { Place } from './data'
 import { hasCoords } from './data'
@@ -18,20 +18,87 @@ const RIVER = '#8A9FAC'  // parchment mixed 80% toward muted water
 const EARTH = '#71421D'
 const SIGNATURE = '#A80C31'
 
-const style: StyleSpecification = {
-  version: 8,
-  sources: {
-    land: { type: 'geojson', data: BASE + '/basemap/ne_50m_land.geojson' },
-    lakes: { type: 'geojson', data: BASE + '/basemap/ne_50m_lakes.geojson' },
-    rivers: { type: 'geojson', data: BASE + '/basemap/ne_50m_rivers_lake_centerlines.geojson' },
-  },
-  layers: [
-    { id: 'sea', type: 'background', paint: { 'background-color': SEA } },
-    { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': PARCH } },
-    { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
-    { id: 'lakes', type: 'fill', source: 'lakes', paint: { 'fill-color': SEA } },
-    { id: 'rivers', type: 'line', source: 'rivers', paint: { 'line-color': RIVER, 'line-width': 1 } },
-  ],
+const GOLD = '#DBBB7C'
+// Pale realm tints (soft tinted style): parchment mixed toward gold, earth and muted, as in
+// design/map/render_styles.py. Neighbouring realms get different tints (index from the build script).
+const TINTS = ['#F1E2BC', '#EBE0C3', '#E6E1CB', '#F5EAC8', '#DFD0B2']
+
+export interface Borders { year: number; note?: string }
+
+function makeStyle(borders?: Borders): StyleSpecification {
+  const b = borders ? `${BASE}/basemap/borders/${borders.year}` : ''
+  return {
+    version: 8,
+    sources: {
+      land: { type: 'geojson', data: BASE + '/basemap/ne_50m_land.geojson' },
+      lakes: { type: 'geojson', data: BASE + '/basemap/ne_50m_lakes.geojson' },
+      rivers: { type: 'geojson', data: BASE + '/basemap/ne_50m_rivers_lake_centerlines.geojson' },
+      ...(borders ? {
+        realms: { type: 'geojson', data: `${b}-realms.geojson` },
+        realmLines: { type: 'geojson', data: `${b}-lines.geojson` },
+        seaMask: { type: 'geojson', data: BASE + '/basemap/sea.geojson' },
+      } : {}),
+    },
+    layers: [
+      { id: 'sea', type: 'background', paint: { 'background-color': SEA } },
+      { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': PARCH } },
+      ...(borders ? [
+        { id: 'realms', type: 'fill', source: 'realms', paint: {
+          'fill-color': ['match', ['get', 'tint'], 0, TINTS[0], 1, TINTS[1], 2, TINTS[2], 3, TINTS[3], TINTS[4]],
+          'fill-opacity': 0.45,
+        } },
+        // The realm around the selected pin turns gold (the map's "Then:" line).
+        { id: 'realm-selected', type: 'fill', source: 'realms', filter: ['==', ['get', 'name'], '\u0000'],
+          paint: { 'fill-color': GOLD, 'fill-opacity': 0.38 } },
+        // Dashed: every old border is approximate.
+        { id: 'realm-lines', type: 'line', source: 'realmLines', paint: {
+          'line-color': EARTH, 'line-opacity': 0.5, 'line-width': 1, 'line-dasharray': [5, 3.5],
+        } },
+        // Today's sea drawn back over the tints and dashes, so they stop at the coast.
+        { id: 'sea-mask', type: 'fill', source: 'seaMask', paint: { 'fill-color': SEA, 'fill-antialias': false } },
+      ] as StyleSpecification['layers'] : []),
+      { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
+      { id: 'lakes', type: 'fill', source: 'lakes', paint: { 'fill-color': SEA } },
+      { id: 'rivers', type: 'line', source: 'rivers', paint: { 'line-color': RIVER, 'line-width': 1 } },
+    ],
+  }
+}
+
+interface RealmLabel { name: string; lng: number; lat: number; minzoom: number }
+
+/** Realm names as small-caps HTML labels (no font server needed), shown only where they fit
+ *  and never overlapping each other. */
+function realmLabels(m: MlMap, year: number) {
+  let labels: { data: RealmLabel; marker: Marker; el: HTMLDivElement }[] = []
+  const place = () => {
+    const z = m.getZoom()
+    const taken: DOMRect[] = []
+    const box = m.getContainer().getBoundingClientRect()
+    for (const l of labels) {
+      let show = z >= l.data.minzoom
+      if (show) {
+        const p = m.project([l.data.lng, l.data.lat])
+        const w = l.el.offsetWidth || l.data.name.length * 11, h = 20
+        const r = new DOMRect(p.x - w / 2, p.y - h / 2, w, h)
+        show = r.right > 0 && r.left < box.width && r.bottom > 0 && r.top < box.height
+          && !taken.some(t => r.left < t.right && r.right > t.left && r.top < t.bottom && r.bottom > t.top)
+        if (show) taken.push(r)
+      }
+      l.el.style.display = show ? '' : 'none'
+    }
+  }
+  fetch(`${BASE}/basemap/borders/${year}-labels.json`).then(r => r.json()).then((data: RealmLabel[]) => {
+    labels = data.map(d => {
+      const el = document.createElement('div')
+      el.className = 'realm-label'
+      el.textContent = d.name
+      el.setAttribute('aria-hidden', 'true')
+      return { data: d, el, marker: new Marker({ element: el }).setLngLat([d.lng, d.lat]).addTo(m) }
+    })
+    place()
+  }).catch(() => {})
+  m.on('moveend', place)
+  m.on('zoom', place)
 }
 
 function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
@@ -54,10 +121,11 @@ interface Props {
   places: Place[]
   selectedId?: string
   start: { lng: number; lat: number; zoom: number }
+  borders?: Borders
   onSelect: (id: string | undefined) => void
 }
 
-export default function MapView({ places, selectedId, start, onSelect }: Props) {
+export default function MapView({ places, selectedId, start, borders, onSelect }: Props) {
   const box = useRef<HTMLDivElement>(null)
   const map = useRef<MlMap | null>(null)
   const ready = useRef(false)
@@ -67,7 +135,7 @@ export default function MapView({ places, selectedId, start, onSelect }: Props) 
   useEffect(() => {
     const m = new MlMap({
       container: box.current!,
-      style,
+      style: makeStyle(borders),
       center: [start.lng, start.lat],
       zoom: start.zoom,
       minZoom: 2,
@@ -77,7 +145,10 @@ export default function MapView({ places, selectedId, start, onSelect }: Props) 
       pitchWithRotate: false,
     })
     m.touchZoomRotate.disableRotation()
-    m.addControl(new AttributionControl({ compact: true, customAttribution: 'Natural Earth' }))
+    m.addControl(new AttributionControl({ compact: true, customAttribution: ['Natural Earth', ...(borders?.note ? [borders.note + ' (GPL-3.0)'] : [])] }))
+    if (borders) realmLabels(m, borders.year)
+    // Start the credits folded into the (i) button so they never sit under the bottom controls.
+    m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
     m.on('load', () => {
       m.addSource('places', { type: 'geojson', data: toGeoJSON(latest.current.places, latest.current.selectedId) })
       // Pin look (brand.md): 12 px earth dot; uncertain = hollow; selected = 16 px crimson, white ring.
@@ -121,6 +192,23 @@ export default function MapView({ places, selectedId, start, onSelect }: Props) 
     if (!m || !ready.current) return
     ;(m.getSource('places') as GeoJSONSource | undefined)?.setData(toGeoJSON(places, selectedId))
   }, [places, selectedId])
+
+  // Gold realm under the selected pin.
+  useEffect(() => {
+    const m = map.current
+    if (!m || !borders) return
+    const p = places.find(x => x.id === selectedId)
+    const apply = () => {
+      if (!m.getLayer('realm-selected')) return
+      let name: string | undefined
+      if (p && hasCoords(p)) {
+        const hit = m.queryRenderedFeatures(m.project([p.location!.lng!, p.location!.lat!]), { layers: ['realms'] })
+        name = hit[0]?.properties?.name as string | undefined
+      }
+      m.setFilter('realm-selected', ['==', ['get', 'name'], name ?? '\u0000'])
+    }
+    if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
+  }, [places, selectedId, borders])
 
   // Keep the selected pin in the part of the map the card (and, on a phone, the raised timeline)
   // doesn't cover. Only moves the map when the pin would be hidden.

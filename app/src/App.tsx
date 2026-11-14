@@ -49,6 +49,7 @@ export default function App() {
           places={visible}
           selectedId={selected?.id}
           start={pack.start_view ?? { lng: 0, lat: 20, zoom: 2 }}
+          borders={pack.borders}
           onSelect={setSelectedId}
         />
 
