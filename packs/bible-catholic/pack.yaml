@@ -1,0 +1,22 @@
+# Pack settings for the Catholic site. The engine reads these; nothing here is hard-coded in it.
+name: Carlo's Compass
+# Certainty labels and the one-sentence explanation shown on hover (desktop) or tap (phone).
+certainty:
+  confirmed:
+    label: Confirmed location
+    explain: Archaeology or an unbroken record ties this place to this exact spot.
+  probable:
+    label: Probable location
+    explain: Most scholars place it here, but the exact spot is not proven.
+  uncertain:
+    label: Uncertain location
+    explain: Scholars disagree about where this place was; the pin marks one proposal.
+# Demo contact for "Suggest an edit" (Joseph, 2026-11-13; see docs/vision.md).
+suggest_edit:
+  label: Suggest an edit
+  phone: 605-261-7740
+links:
+  story: "#story"
+  donate: "#donate"
+# Where the map opens on first load (decision: empty map centered on the Holy Land).
+start_view: { lng: 35.3, lat: 31.9, zoom: 6.4 }
