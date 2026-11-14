@@ -1,0 +1,26 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: capernaum
+name: Capernaum
+category: gospel-place
+location:
+  lat: 32.8810     # excavated town on the north shore of the Sea of Galilee
+  lng: 35.5750
+  certainty: confirmed
+events:
+  - title: Jesus makes his home by the sea
+    date: { from: 28, approx: true }
+    summary: >-
+      After leaving Nazareth, Jesus settled in Capernaum by the Sea of Galilee and began to
+      preach there. In this town he called fishermen to follow him, healed Peter's mother-in-law,
+      and forgave and healed a paralyzed man lowered through the roof.
+    scripture:
+      - Matthew 4:13–22
+      - Mark 1:21–31
+      - Mark 2:1–12
+tags:
+  era: [Life of Jesus]
+  region: [Galilee]
+sources:
+  - kind: encyclopedia
+    title: Capernaum (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Capernaum
