@@ -40,3 +40,11 @@ made, update `docs/vision.md`.
 Never put example or placeholder content in the app code (no sample places, no lorem ipsum).
 Everything shown comes from the data files; any empty field renders as "FFFF FFFF FFFF" so
 gaps are obvious. See docs/vision.md "No mock data in the app".
+
+## Where work lives (so nothing gets lost)
+
+- This folder is a git repo; GitHub `josephtunge-cyber/carloscompass` (private) is the home.
+  Vercel deploys `main` to carloscompass.com and gives every other branch a preview link.
+- Commit every prototype or mockup change; try experiments on a branch (e.g. `phone-layout`)
+  and open its Vercel preview on a phone. No loose HTML files outside this repo.
+- Mockup snapshots: `docs/mockups/`. Decisions: `docs/vision.md`. Look: `docs/brand.md`.
