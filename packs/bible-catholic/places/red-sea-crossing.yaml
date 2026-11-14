@@ -1,0 +1,27 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a3d18b2 ('Red Sea 1') -> identification #2 'Bitter Lakes', confidence 304/1000, representative point.
+# Certainty 'uncertain': One proposal among several. OpenBible ranks the Gulf of Suez first (369/1000) but only offers a mid-gulf representative point ~180 km south; the Bitter Lakes (304/1000) are shown instead. Lake Timsah (128/1000) and the Gulf of Aqaba are other proposals.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: red-sea-crossing
+name: "The Red Sea crossing (one proposal: the Bitter Lakes)"
+category: exodus-place
+location:
+  lat: 30.338333
+  lng: 32.377778
+  certainty: uncertain
+events:
+  - title: "Israel crosses the sea on dry ground"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 14:1–31
+  - title: "The Song of Moses and Miriam"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 15:1–21
+tags:
+  collection: ["Exodus"]
+  region: ["Egypt"]
+sources:
+  - kind: dataset
+    title: "Red Sea 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a3d18b2/red-sea-1"

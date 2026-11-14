@@ -1,0 +1,28 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient ac2cef0 ('Kadesh-barnea') -> identification #1 'Ain el Qudeirat', confidence 864/1000, point.
+# Certainty 'probable': Ain el-Qudeirat (OpenBible 864/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: kadesh-barnea
+name: "Kadesh-barnea"
+category: exodus-place
+location:
+  lat: 30.648333
+  lng: 34.422222
+  certainty: probable
+events:
+  - title: "The twelve spies return from Canaan; Israel refuses to enter"
+    date: { from: -1445, approx: true }
+    scripture:
+      - Numbers 13:1–14:45
+      - Deuteronomy 1:19–46
+  - title: "Miriam dies; water from the rock at Meribah"
+    date: { from: -1407, approx: true }
+    scripture:
+      - Numbers 20:1–13
+tags:
+  collection: ["Exodus"]
+  region: ["Negev"]
+sources:
+  - kind: dataset
+    title: "Kadesh-barnea (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ac2cef0/kadesh-barnea"

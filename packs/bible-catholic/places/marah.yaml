@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient ad3970d ('Marah') -> identification #1 'Ain Hawarah', confidence 384/1000, point.
+# Certainty 'uncertain': Ain Hawarah (OpenBible 384/1000); depends on a southern Sinai route.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: marah
+name: "Marah"
+category: exodus-place
+location:
+  lat: 29.34604
+  lng: 32.94284
+  certainty: uncertain
+events:
+  - title: "The bitter water made sweet"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 15:22–26
+      - Numbers 33:8
+tags:
+  collection: ["Exodus"]
+  region: ["Sinai"]
+sources:
+  - kind: dataset
+    title: "Marah (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/ad3970d/marah"

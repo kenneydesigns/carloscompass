@@ -1,0 +1,27 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a05ebb7 ('Rephidim') -> identification #1 'along Wadi Rufaiyil', confidence 379/1000, representative point.
+# Certainty 'uncertain': Along Wadi Rufaiyil (OpenBible 379/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: rephidim
+name: "Rephidim"
+category: exodus-place
+location:
+  lat: 28.623056
+  lng: 33.880278
+  certainty: uncertain
+events:
+  - title: "Water from the rock at Massah and Meribah"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 17:1–7
+  - title: "Victory over Amalek while Moses' hands are held up"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 17:8–16
+tags:
+  collection: ["Exodus"]
+  region: ["Sinai"]
+sources:
+  - kind: dataset
+    title: "Rephidim (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a05ebb7/rephidim"

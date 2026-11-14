@@ -1,0 +1,27 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient aefaa2d ('Mount Nebo') -> identification #1 'Jabal al Naba', confidence 413/1000, point.
+# Certainty 'probable': Jabal al-Naba (OpenBible 413/1000). Ras Siyagha, site of the Franciscan Memorial of Moses, is ~2.3 km west and scores 365/1000 (as Nebo) / 453 (as Pisgah).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: mount-nebo
+name: "Mount Nebo"
+category: exodus-place
+location:
+  lat: 31.766667
+  lng: 35.75
+  certainty: probable
+events:
+  - title: "Moses sees the Promised Land and dies in Moab"
+    date: { from: -1407, approx: true }
+    scripture:
+      - Deuteronomy 32:48–52
+      - Deuteronomy 34:1–8
+tags:
+  collection: ["Exodus"]
+  region: ["Moab"]
+sources:
+  - kind: dataset
+    title: "Mount Nebo (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/aefaa2d/mount-nebo"
+  - kind: dataset
+    title: "Pisgah (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/afd9259/pisgah"

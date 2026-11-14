@@ -1,0 +1,27 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a079b21 ('Rameses') -> identification #1 'Qantir', confidence 509/1000, point.
+# Certainty 'probable': Qantir, site of Pi-Ramesses (OpenBible 509/1000; Tell el-Dab'a, adjacent, 270/1000).
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: rameses
+name: "Rameses, in the land of Goshen"
+category: exodus-place
+location:
+  lat: 30.79937
+  lng: 31.834217
+  certainty: probable
+events:
+  - title: "Israel sets out from Rameses"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 12:37
+      - Numbers 33:3–5
+tags:
+  collection: ["Exodus"]
+  region: ["Egypt"]
+sources:
+  - kind: dataset
+    title: "Rameses (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a079b21/rameses"
+  - kind: dataset
+    title: "Goshen (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a60f092/goshen-1"

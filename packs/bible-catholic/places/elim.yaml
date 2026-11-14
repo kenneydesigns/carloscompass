@@ -1,0 +1,24 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a2410c1 ('Elim') -> identification #1 'along Wadi Gharandal', confidence 533/1000, representative point.
+# Certainty 'uncertain': Along Wadi Gharandal (OpenBible 533/1000); depends on a southern Sinai route.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: elim
+name: "Elim"
+category: exodus-place
+location:
+  lat: 29.254722
+  lng: 32.915833
+  certainty: uncertain
+events:
+  - title: "Twelve springs and seventy palm trees"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 15:27
+      - Numbers 33:9
+tags:
+  collection: ["Exodus"]
+  region: ["Sinai"]
+sources:
+  - kind: dataset
+    title: "Elim (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a2410c1/elim"

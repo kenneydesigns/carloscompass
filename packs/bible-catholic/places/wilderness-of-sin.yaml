@@ -1,0 +1,25 @@
+# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.
+# Coordinates: OpenBible ancient a0f54e4 ('Sin') -> identification #1 'Debbet er Ramleh', confidence 311/1000, representative point.
+# Certainty 'uncertain': Debbet er-Ramleh (OpenBible 311/1000); a region, pin is a representative point.
+# Verse references written by hand from the Gospels/Torah; please proof-read.
+id: wilderness-of-sin
+name: "Wilderness of Sin"
+category: exodus-place
+location:
+  lat: 29.147778
+  lng: 33.536667
+  certainty: uncertain
+events:
+  - title: "Manna, bread from heaven, and the quail"
+    date: { from: -1446, approx: true }
+    scripture:
+      - Exodus 16:1–36
+      - Numbers 33:11
+      - John 6:31–35
+tags:
+  collection: ["Exodus"]
+  region: ["Sinai"]
+sources:
+  - kind: dataset
+    title: "Sin (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    url: "https://www.openbible.info/geo/ancient/a0f54e4/sin"

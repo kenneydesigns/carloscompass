@@ -28,6 +28,7 @@ pin_colors:
   Eucharistic miracles: earth
   Life of Jesus: gold        # light gold with a darker ring (brown and gold-text looked alike)
   World history: ink
+  Exodus: muted              # slate; the one brand role not yet used for pins (2026-11-14 overnight draft)
 links:
   donate: "#donate"
 # Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
