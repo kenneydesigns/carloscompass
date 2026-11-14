@@ -48,6 +48,13 @@ const placeFiles = import.meta.glob('../../packs/bible-catholic/places/*.yaml', 
 export const pack: Pack = parse(Object.values(packFiles)[0] ?? '') ?? {}
 /** The pack's About page text (Markdown-ish, written by a person), or '' when the pack has none. */
 export const aboutText: string = Object.values(aboutFiles)[0] ?? ''
+// Pictures for the About page live in the pack's about/ folder; about.md names them as "about/<file>".
+const aboutImageFiles = import.meta.glob('../../packs/bible-catholic/about/*.{jpg,jpeg,png,webp}', {
+  query: '?url', import: 'default', eager: true,
+}) as Record<string, string>
+/** URL for a picture named in about.md (e.g. "about/church.jpg"), or undefined if the pack has no such file. */
+export const aboutImage = (name: string): string | undefined =>
+  Object.entries(aboutImageFiles).find(([path]) => path.endsWith('/' + name))?.[1]
 
 // Drafts show too, everywhere, but each card says plainly that it is not reviewed yet
 // (Joseph, 2026-11-13, for the hackathon demo; see vision.md "Drafts on the live site").

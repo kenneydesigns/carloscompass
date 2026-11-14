@@ -90,6 +90,15 @@ hamburger menu, nothing on the map itself.
   shows `about.md` word for word; notes for editors go in `<!-- -->` and are not shown. The link
   is now named About (was Story). Pictures, the team credit and "help improve the map" are
   still to be written by Joseph.
+- **About page is a scrolling story** (Joseph, 2026-11-14). Opens on one navy screen, "Is the
+  Bible trustworthy?", and more fades in as you scroll: the problem (timeline and geography are
+  hard to picture from books), "Israel = one who wrestles with God" (Gen 32:28) and the site as a
+  tool for people wrestling with God, a St. Carlo quote, "no substitute for time with God" with a
+  St. Thérèse quote (CCC 2558), then how it started at the St. Carlo Acutis Center with photos from
+  stcarlocsc.org. Goals: 6 (beautiful, true to Carlo), 7 (built phone-first), 5 (all words and
+  pictures live in the pack's `about.md` and `about/` folder; the engine only lays out sections).
+  Nothing changes on the map screen (goal 1). **Photos need the center's permission before this
+  merges to main**; it lives on the `about-scroll` branch until then.
 
 ## Explore overlay (decision 2026-11-13)
 The map stays clean; all the "pull things up" options live on one overlay screen
