@@ -19,5 +19,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Bethesda (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Bethesda (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a0aa8cf/bethesda"

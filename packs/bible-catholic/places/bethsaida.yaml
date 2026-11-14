@@ -32,5 +32,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Bethsaida 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Bethsaida 1 (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a91b732/bethsaida-1"

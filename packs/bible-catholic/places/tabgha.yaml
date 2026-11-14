@@ -25,7 +25,7 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Tabgha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Tabgha (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/modern/mbbfbf9/tabgha"
   - kind: encyclopedia
     title: "Church of the Primacy of Saint Peter (Wikipedia)"

@@ -22,5 +22,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Gabbatha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Gabbatha (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/aec23b1/gabbatha"

@@ -24,5 +24,5 @@ sources:
     title: "Bi'r Ya'qub (GeoNames)"
     url: "https://www.geonames.org/281302"
   - kind: dataset
-    title: "Sychar (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Sychar (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a27b472/sychar"

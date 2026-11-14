@@ -23,5 +23,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Cana (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Cana (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a031bda/cana"

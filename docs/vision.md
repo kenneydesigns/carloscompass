@@ -322,6 +322,39 @@ Agreed as the foundation; schema/build files come later.
 - The database can grow to thousands of places; the anti-clutter rules decide what shows.
 - Only the team picks which places are **featured** on the default view.
 
+### Gospel and Exodus places (overnight draft by Claude, 2026-11-14; not yet reviewed)
+Joseph asked for sourced places only, no AI summaries (the gap shows FFFF on purpose).
+- **Added:** 24 Life of Jesus places (`gospel-place`) and a new **Exodus** collection
+  (`exodus-place`, 9 places). Every event cites Scripture; every verse range was checked to
+  exist (KJV numbering) and to begin and end on the event it names.
+- **Coordinates:** 30 of 33 come from the OpenBible.info Bible Geocoding Data (CC BY 4.0,
+  credited on each source link), read from the dataset by `app/scripts/generate_openbible_places.py`,
+  not typed by hand. Each file's header names the OpenBible identification and its confidence
+  score (out of 1000). The other three (Temple Mount, Cenacle, Jacob's Well) are Wikipedia
+  infobox coordinates seen only through search results, because wikipedia.org was blocked
+  from the session; check them on the live pages.
+- **Certainty rule used:** `confirmed` when OpenBible scores the site ~800+ and nobody disputes
+  it; `probable` for traditional sites and good-but-contested identifications; `uncertain` for
+  disputed sites (Upper Room, Bethsaida, Tabgha, Emmaus, Kursi, Gabbatha) and every Sinai route
+  station (they all depend on the southern-route assumption). Gethsemane is `probable` although
+  OpenBible gives it 1000, because the exact spot is traditional.
+- **One proposal per disputed site** (the card's "uncertain" text already says the pin marks one
+  proposal): Cana = Khirbet Qana (OpenBible's leading identification), not the Kafr Kanna
+  pilgrimage church; Emmaus = Qalunya/Motza; Red Sea = the Bitter Lakes (OpenBible ranks the
+  Gulf of Suez first, but its only point is mid-gulf, ~180 km south); Mount Nebo = Jabal al-Naba
+  (the Franciscan Memorial at Ras Siyagha is ~2 km west). Alternatives are named in each file.
+- **Gospel dates** (all approx): Presentation c. 5 BC; finding in the Temple c. AD 8; baptism and
+  early ministry AD 28 (Luke 3:1, 15th year of Tiberius); mid-ministry AD 29; Holy Week through
+  Pentecost AD 30 (AD 33 is the other common proposal). The Temple cleansing is listed twice
+  (John's early account and the Synoptic Holy Week account), without harmonizing.
+- **Exodus dating is disputed.** Chosen: the early chronology, exodus c. 1446 BC from 1 Kings 6:1
+  (480 years before Solomon's 4th year); the main alternative is c. 1250 BC. Year-1 events -1446;
+  the spies at Kadesh -1445 (2nd year, Num 10:11); Kadesh in Num 20 and Moses' death on Nebo
+  -1407 (40th year, Num 33:38, Deut 1:3).
+- **Pin color:** Exodus = `muted` (slate), the one brand role not yet used for pins.
+- **Left out (cannot be located):** the temptation in the wilderness, the Sermon on the Mount,
+  the burning bush (dated before the exodus year), Aenon, Salim, Ephraim.
+
 ## Editing model: GitHub as the wiki
 - Each pin is a small data file in the repo.
 - "Suggest an edit" → form → pull request → team reviews → merged. History is free (git).
@@ -543,3 +576,6 @@ pages, store listings and press, not the products hands-on, so "none found" is n
   in pack.yaml), and Show fits the map to the middle 80% of the results.
 - Hackathon pitch deck: first draft in Canva (Mines account), "Carlo's Compass - Hackathon Pitch",
   https://www.canva.com/design/DAHa2jbuDfk/edit. Outline in [presentation.md](presentation.md).
+- Done 2026-11-14 (`overnight-data` branch, Claude, unreviewed): 24 Life of Jesus places and a new
+  Exodus collection (9 places), sourced from OpenBible.info and Scripture, no summaries. Judgment
+  calls in "Gospel and Exodus places" above.

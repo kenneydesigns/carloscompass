@@ -20,5 +20,5 @@ tags:
   region: ["Sinai"]
 sources:
   - kind: dataset
-    title: "Marah (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Marah (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/ad3970d/marah"

@@ -22,5 +22,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Mount Tabor (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Mount Tabor (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/acd63ee/mount-tabor"

@@ -36,5 +36,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Mount of Olives (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Mount of Olives (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/ac2c4c5/mount-of-olives"

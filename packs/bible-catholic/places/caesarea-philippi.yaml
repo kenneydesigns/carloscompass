@@ -20,5 +20,5 @@ tags:
   region: ["Golan"]
 sources:
   - kind: dataset
-    title: "Caesarea Philippi (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Caesarea Philippi (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/ab7bf48/caesarea-philippi"

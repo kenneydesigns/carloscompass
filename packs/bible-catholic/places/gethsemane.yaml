@@ -28,5 +28,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Gethsemane (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Gethsemane (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a42418f/gethsemane"

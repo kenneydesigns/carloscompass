@@ -20,8 +20,8 @@ tags:
   region: ["Moab"]
 sources:
   - kind: dataset
-    title: "Mount Nebo (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Mount Nebo (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/aefaa2d/mount-nebo"
   - kind: dataset
-    title: "Pisgah (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Pisgah (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/afd9259/pisgah"

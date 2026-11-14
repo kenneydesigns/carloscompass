@@ -19,5 +19,5 @@ tags:
   region: ["Judea"]
 sources:
   - kind: dataset
-    title: "Emmaus (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Emmaus (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/ae7274b/emmaus"

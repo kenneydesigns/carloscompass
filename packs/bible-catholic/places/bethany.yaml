@@ -30,5 +30,5 @@ tags:
   region: ["Judea"]
 sources:
   - kind: dataset
-    title: "Bethany 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Bethany 1 (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a4f35bc/bethany-1"

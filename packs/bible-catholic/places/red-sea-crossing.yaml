@@ -23,5 +23,5 @@ tags:
   region: ["Egypt"]
 sources:
   - kind: dataset
-    title: "Red Sea 1 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Red Sea 1 (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a3d18b2/red-sea-1"

@@ -25,5 +25,5 @@ tags:
   region: ["Judea"]
 sources:
   - kind: dataset
-    title: "Jericho 2 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Jericho 2 (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/aaf03fa/jericho-2"

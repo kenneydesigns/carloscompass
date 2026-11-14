@@ -13,7 +13,7 @@ import os
 import sys
 
 HEADER = "# Draft by Claude (overnight session), 2026-11-14. Not yet reviewed by a person.\n"
-OB_SUFFIX = "(OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+OB_SUFFIX = "(OpenBible.info, CC BY 4.0)"
 
 
 def ob_url(kind, rid, slug):

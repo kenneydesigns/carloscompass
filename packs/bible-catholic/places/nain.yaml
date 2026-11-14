@@ -19,5 +19,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Nain (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Nain (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/aee679c/nain"

@@ -21,8 +21,8 @@ tags:
   region: ["Decapolis"]
 sources:
   - kind: dataset
-    title: "Kursi (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Kursi (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/modern/m7767c8/kursi"
   - kind: dataset
-    title: "Gerasa (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Gerasa (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/ada6b64/gerasa"

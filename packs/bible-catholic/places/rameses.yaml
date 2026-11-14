@@ -20,8 +20,8 @@ tags:
   region: ["Egypt"]
 sources:
   - kind: dataset
-    title: "Rameses (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Rameses (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a079b21/rameses"
   - kind: dataset
-    title: "Goshen (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Goshen (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a60f092/goshen-1"

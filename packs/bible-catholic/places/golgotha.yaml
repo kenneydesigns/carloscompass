@@ -36,5 +36,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Golgotha (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Golgotha (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a631d35/golgotha"

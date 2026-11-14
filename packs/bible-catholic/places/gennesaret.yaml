@@ -20,5 +20,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Gennesaret (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Gennesaret (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a7de69e/gennesaret"

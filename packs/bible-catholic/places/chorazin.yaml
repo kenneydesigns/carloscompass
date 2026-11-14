@@ -20,5 +20,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Chorazin (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Chorazin (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a593a48/chorazin"

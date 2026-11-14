@@ -19,5 +19,5 @@ tags:
   region: ["Galilee"]
 sources:
   - kind: dataset
-    title: "Magdala (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Magdala (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/af75e9e/magdala"

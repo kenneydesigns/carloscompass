@@ -29,5 +29,5 @@ tags:
   region: ["Jordan Valley"]
 sources:
   - kind: dataset
-    title: "Bethany 2 (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Bethany 2 (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a6e060d/bethany-2"

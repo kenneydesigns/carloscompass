@@ -23,5 +23,5 @@ tags:
   region: ["Sinai"]
 sources:
   - kind: dataset
-    title: "Rephidim (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Rephidim (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a05ebb7/rephidim"

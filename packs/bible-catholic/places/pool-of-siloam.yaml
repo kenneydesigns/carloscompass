@@ -19,5 +19,5 @@ tags:
   region: ["Jerusalem"]
 sources:
   - kind: dataset
-    title: "Siloam (OpenBible.info Bible Geocoding Data, CC BY 4.0)"
+    title: "Siloam (OpenBible.info, CC BY 4.0)"
     url: "https://www.openbible.info/geo/ancient/a294859/siloam"
