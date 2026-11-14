@@ -28,28 +28,82 @@ pin_colors:
   Eucharistic miracles: earth
   Life of Jesus: gold        # light gold with a darker ring (brown and gold-text looked alike)
   World history: ink
-  Exodus: muted              # slate; the one brand role not yet used for pins (2026-11-14 overnight draft)
 links:
-  involved: "#involved"   # Get involved page (involved.md); donations will live there later
+  donate: "#donate"
 # Where the map opens on first load: zoomed out over the Mediterranean, so Europe (the miracles)
 # and the Holy Land (Jesus) are both in view and it is clear what you are looking at
 # (Joseph, 2026-11-13; was a close-up of the Holy Land).
 start_view: { lng: 22, lat: 40, zoom: 2.7 }
-# Realm borders on the map (vision.md "Basemap"). The map shows the border year whose range holds
-# the timeline year (from <= year < until) and hides borders outside every range. `start` is the one
-# shown before there is a timeline year (on first load). Ranges meet halfway
-# between years, except 100 AD, which the pack pins for the whole Gospel era because the 1 BC data is
-# wrong around Galilee and Samaria. Picked by Joseph 2026-11-14 (docs/mockups/2026-11-14-border-years.png).
-# Files are made by app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
+# Jerusalem context is a teaching aid, not a reconstruction of city walls.
+city_view:
+  name: Jerusalem
+  place_id: jerusalem
+  lng: 35.234156
+  lat: 31.776679
+  zoom: 10
+  periods:
+    - from: -1000
+      to: -587
+      title: First Temple Jerusalem
+      subtitle: c. 1000–587 BC
+      summary: Jerusalem became the seat of the kingdom of Judah. The extent of the city in its earliest centuries remains debated.
+      source: https://www.jerusalemlocal.com/jerusalem-through-time
+    - from: -586
+      to: -333
+      title: Exile and return
+      subtitle: 586–333 BC
+      summary: Babylon destroyed Jerusalem and its Temple. Under Persian rule, the Temple and city walls were rebuilt.
+      source: https://www.britannica.com/place/Jerusalem/History
+    - from: -332
+      to: -64
+      title: Greek and Hasmonean Jerusalem
+      subtitle: 332–64 BC
+      summary: Jerusalem came under Hellenistic rulers, then became the capital of the Hasmonean kingdom.
+      source: https://www.britannica.com/place/Jerusalem/History
+    - from: -63
+      to: 69
+      title: Jerusalem in the time of Jesus
+      subtitle: 63 BC–AD 69
+      summary: Under Roman rule, Herod expanded the Temple complex. Jesus visited Jerusalem during this era; the city and Temple were destroyed in AD 70.
+      source: https://www.jerusalemlocal.com/jerusalem-through-time
+    - from: 70
+      to: 323
+      title: Roman Jerusalem
+      subtitle: AD 70–323
+      summary: After the destruction of the city and Temple, the Romans later established the colony of Aelia Capitolina.
+      source: https://www.britannica.com/place/Jerusalem/History
+    - from: 324
+      to: 637
+      title: Byzantine Jerusalem
+      subtitle: AD 324–637
+      summary: Jerusalem grew as a Christian pilgrimage center, and the Church of the Holy Sepulchre was dedicated in this period.
+      source: https://www.jerusalemlocal.com/jerusalem-through-time
+    - from: 638
+      to: 1098
+      title: Early Islamic Jerusalem
+      subtitle: AD 638–1098
+      summary: Jerusalem came under Muslim rule. The Dome of the Rock was built on the Temple Mount in the late seventh century.
+      source: https://www.britannica.com/place/Jerusalem/History
+    - from: 1099
+      to: 1186
+      title: Crusader Jerusalem
+      subtitle: AD 1099–1186
+      summary: Jerusalem became the capital of a Crusader kingdom following the conquest of the city in 1099.
+      source: https://www.britannica.com/place/Jerusalem/History
+    - from: 1187
+      to: 1515
+      title: Ayyubid and Mamluk Jerusalem
+      subtitle: AD 1187–1515
+      summary: Saladin took Jerusalem in 1187; Ayyubid and later Mamluk rulers governed the city in the centuries that followed.
+      source: https://www.britannica.com/place/Jerusalem/History
+# Realm borders on the map (vision.md "Basemap"). The pack pins the border year: 100 AD for the
+# Gospel era, because the 1 BC data is wrong around Galilee and Samaria. Files are made by
+# app/scripts/build_borders.py from historical-basemaps (GPL-3.0; license still to confirm).
 borders:
-  - { year: -1500, from: -2500, until: -700, note: Borders approximate · c. 1500 BC }   # Exodus
-  - { year: 100,   from: -700,  until: 250,  note: Borders approximate · c. 100 AD, start: true }  # Life of Jesus; shown before the timeline moves
-  - { year: 400,   from: 250,   until: 550,  note: Borders approximate · c. 400 AD }
-  - { year: 700,   from: 550,   until: 850,  note: Borders approximate · c. 700 AD }
-  - { year: 1000,  from: 850,   until: 1100, note: Borders approximate · c. 1000 AD }
-  - { year: 1200,  from: 1100,  until: 1250, note: Borders approximate · c. 1200 AD }
-  - { year: 1300,  from: 1250,  until: 1350, note: Borders approximate · c. 1300 AD }
-  - { year: 1400,  from: 1350,  until: 1500, note: Borders approximate · c. 1400 AD }
-  - { year: 1600,  from: 1500,  until: 1750, note: Borders approximate · c. 1600 AD }
-  - { year: 1900,  from: 1750,  until: 1955, note: Borders approximate · c. 1900 AD }
-  - { year: 2010,  from: 1955,  until: 2100, note: Borders c. 2010 }
+  year: 100
+  # Hide them once the timeline passes this year (a 1264 miracle is not in the Roman Empire).
+  until: 300
+  periods:
+    - { year: 100, from: -50, to: 300, file: '100' }
+    - { year: 1200, from: 1100, to: 1300, file: '1200' }
+  note: Borders approximate · c. 100 AD

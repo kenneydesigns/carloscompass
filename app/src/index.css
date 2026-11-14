@@ -42,10 +42,8 @@ a { color: var(--ink); }
 .logo { height: 36px; width: auto; display: block; }
 .toplinks { display: flex; margin-left: auto; gap: 24px; }
 .toplinks a { display: inline-flex; align-items: center; min-height: 44px; color: var(--parchment); text-decoration: none; font-size: 16px; }
-/* Phones: only About in the top bar (Joseph, 2026-11-13); Get involved stays in the Explore footer. */
-.toplink-involved { display: none !important; }
-.toplinks.page-open .toplink-involved { display: inline-flex !important; }
-.logo-link { display: flex; align-items: center; min-height: 44px; }
+/* Phones: only About in the top bar (Joseph, 2026-11-13); Donate stays in the Explore footer. */
+.toplink-donate { display: none !important; }
 
 .stage { position: relative; flex: 1; min-height: 0; }
 .map { position: absolute; inset: 0; }
@@ -54,10 +52,7 @@ a { color: var(--ink); }
 .realm-label {
   font: 400 12px/1 var(--serif); font-variant: small-caps; letter-spacing: 0.22em; text-transform: lowercase;
   color: var(--earth); opacity: 0.6; white-space: nowrap; pointer-events: none; z-index: 0;
-  transition: opacity 150ms;
 }
-/* Short fade while the border year changes with the timeline. */
-.borders-fading .realm-label { opacity: 0; }
 
 /* Floating surfaces: parchment, soft shadow, one radius family. */
 /* Search bar: bottom of the map, the one way into Explore. Crimson only on the search icon. */
@@ -93,10 +88,78 @@ a { color: var(--ink); }
   z-index: 2; transition: bottom 0.2s ease;
 }
 .timeline.raised { bottom: calc(var(--sheet-peek) + 8px); }
+.map-context { position: absolute; top: 66px; left: var(--pad); z-index: 2; width: min(390px, calc(100% - 64px)); pointer-events: none; }
+.map-context > * { pointer-events: auto; }
+.history-pane {
+  position: absolute; top: 0; right: 0; bottom: 0; z-index: 4; width: 360px; padding: 20px 18px 24px;
+  display: flex; flex-direction: column; gap: 18px; overflow-y: auto; overscroll-behavior: contain;
+  background: rgba(250, 243, 215, .98); border-left: 1px solid rgba(92, 107, 122, .25); box-shadow: var(--shadow);
+}
+.history-pane-head { display: flex; align-items: flex-start; justify-content: space-between; border-bottom: 1px solid rgba(92, 107, 122, .25); padding-bottom: 12px; }
+.history-pane-head .history-kicker { margin: 0; }
+.history-pane-head h2 { margin: 2px 0 0; font: 700 27px/1.15 var(--serif); }
+.history-pane h3 { margin: 0 0 7px; font: 700 17px/1.25 var(--serif); }
+.history-pane h4 { margin: 15px 0 3px; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.history-pane p { margin: 6px 0; font-size: 13px; line-height: 1.45; }
+.history-pane a { display: inline-flex; min-height: 36px; align-items: center; font-size: 13px; font-weight: 700; }
+.history-current, .history-legend, .history-milestones, .history-route-list, .history-selected-event, .history-selected-route { padding-bottom: 14px; border-bottom: 1px solid rgba(92, 107, 122, .22); }
+.history-current .history-date, .history-pane .history-date { color: var(--muted); font-size: 12px; }
+.history-status { display: block; margin: 11px 0 4px; color: var(--gold-text); font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.history-event-link { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding: 9px 10px; border: 1px solid rgba(0, 39, 71, .16); border-radius: 8px; background: rgba(255,255,255,.52); text-align: left; }
+.history-event-link:hover, .history-event-link.selected { border-color: var(--gold-text); background: rgba(219, 187, 124, .18); }
+.history-event-link strong { font-size: 13px; }
+.history-event-link span, .history-event-link small { color: var(--muted); font-size: 11px; line-height: 1.35; }
+.history-event-link small { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.history-realm-list { list-style: none; margin: 8px 0 10px; padding: 0; }
+.history-realm-list li { display: grid; grid-template-columns: 15px minmax(0, 1fr); column-gap: 8px; align-items: center; min-height: 32px; font-size: 13px; }
+.history-realm-list small { grid-column: 2; color: var(--muted); font-size: 10px; line-height: 1.2; }
+.realm-swatch { width: 14px; height: 14px; border: 2px solid; border-radius: 3px; }
+.history-symbol-key { display: flex; align-items: center; gap: 8px; margin: 6px 0; color: var(--muted); font-size: 11px; }
+.line-swatch { width: 24px; border-top: 2px dashed var(--earth); }
+.route-line-swatch { width: 24px; border-top: 3px dashed; }
+.route-jesus { border-color: var(--signature); }
+.route-apostles { border-color: #287681; }
+.event-swatch { width: 11px; height: 11px; border: 2px solid #fff; border-radius: 50%; background: var(--signature); box-shadow: 0 0 0 1px var(--signature); }
+.history-milestones ol { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 7px; }
+.history-event-date { font-size: 10px !important; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.history-caveat { color: var(--muted); font-size: 11px !important; }
+.history-back { min-height: 36px; margin: 0 0 12px; border: 0; background: none; color: var(--ink); padding: 0; font-size: 12px; font-weight: 700; }
+.history-mobile-close { display: none; }
+.history-toggle { display: none; }
+.layer-control { position: absolute; left: var(--pad); top: 12px; z-index: 5; }
+.layer-trigger { min-height: 44px; border: 1px solid rgba(0,39,71,.2); border-radius: 999px; background: var(--parchment); padding: 0 18px; font-weight: 700; box-shadow: var(--shadow); }
+.layer-panel { position: absolute; top: 50px; left: 0; width: min(300px, calc(100vw - 48px)); padding: 10px 16px; background: var(--parchment); border-radius: var(--radius); box-shadow: var(--shadow); }
+.layer-panel label { display: flex; align-items: center; min-height: 40px; gap: 9px; font-size: 14px; }
+.layer-panel input { width: 19px; height: 19px; accent-color: var(--ink); }
+.layer-panel small { color: var(--muted); }
+.layer-panel p { font-size: 12px; color: var(--muted); }
+.view-switch { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--parchment); box-shadow: var(--shadow); }
+.view-switch button { min-height: 40px; padding: 0 15px; border: 0; border-radius: 999px; background: transparent; font-size: 13px; font-weight: 700; }
+.view-switch button[aria-pressed='true'] { background: var(--ink); color: var(--parchment); }
+.border-status { display: table; margin-top: 8px; padding: 5px 10px; border-radius: 6px; background: rgba(250, 243, 215, .92); color: var(--ink); font-size: 12px; }
+.history-card { margin-top: 8px; padding: 14px 16px; border-radius: var(--radius); background: rgba(250,243,215,.96); box-shadow: var(--shadow); }
+.history-kicker { color: var(--gold-text); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.history-card h2 { margin: 3px 0; font: 700 20px/1.2 var(--serif); }
+.history-date, .history-note { color: var(--muted); font-size: 12px; }
+.history-card p { margin: 8px 0; font-size: 13px; line-height: 1.4; }
+.history-card a { font-size: 12px; font-weight: 700; }
+.history-card .history-note { margin: 8px 0 4px; font-size: 11px; }
+.era-controls { display: flex; gap: 5px; align-items: center; }
+.era-controls button { min-width: 44px; min-height: 40px; border: 1px solid rgba(0,39,71,.22); border-radius: 7px; background: transparent; font-size: 13px; font-weight: 700; }
+.era-controls button:nth-child(2) { padding: 0 14px; }
+.era-controls button:disabled { opacity: .4; cursor: default; }
+@media (max-height: 680px) { .history-card p:not(.history-note) { display: none; } .history-card { padding: 9px 12px; } }
 .timeline-row { display: flex; justify-content: space-between; font-size: 14px; }
 .timeline-row strong { font-weight: 700; }
-/* Under the year: the borders' period and how many years the timeline covers. Small and quiet. */
-.timeline-scope { margin-top: 2px; font-size: 13px; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
+.timeline-actions { display: flex; gap: 8px; align-items: center; }
+.timeline-actions button, .timeline-actions select { min-height: 38px; border: 1px solid rgba(0,39,71,.3); border-radius: 7px; background: white; color: var(--ink); padding: 0 8px; font: inherit; font-size: 13px; }
+.timeline-actions label { font-size: 12px; white-space: nowrap; }
+.era-select { margin-left: auto; min-width: 0; }
+.era-select select { max-width: 100%; }
+.event-panel { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; max-height: var(--sheet-peek); overflow-y: auto; padding: 24px var(--pad); background: var(--parchment); border-radius: var(--radius) var(--radius) 0 0; box-shadow: var(--shadow); }
+.event-panel h2 { font: 700 24px/1.2 var(--serif); margin: 0 44px 8px 0; }
+.event-panel h3 { font-size: 13px; text-transform: uppercase; color: var(--muted); margin-bottom: 0; }
+.event-close { position: absolute; right: 8px; top: 8px; }
 .timeline input[type='range'] {
   width: 100%; height: 44px; margin: 0; background: transparent; -webkit-appearance: none; appearance: none;
 }
@@ -180,146 +243,40 @@ a { color: var(--ink); }
 .explore-links { display: flex; justify-content: center; align-items: center; gap: 12px; padding: 4px 0 12px; color: var(--muted); }
 .explore-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ink); }
 
-/* About page: a full-screen scrolling story. Sections are panels with rounded tops that stick
-   and get covered by the next one sliding up (About.tsx sets each panel's sticky top). The opening
-   panel and quote-only panels are navy with gold accents; the rest are parchment with ink text. */
-.story {
-  /* Sits under the navy top bar, which stays visible with Map and Donate links. */
-  position: fixed; inset: calc(var(--bar-h) + env(safe-area-inset-top)) 0 0; z-index: 50; overflow-y: auto; overscroll-behavior: contain;
-  background: var(--ink); color: var(--ink); -webkit-overflow-scrolling: touch;
-}
-.story-section {
-  /* Compact (Joseph, 2026-11-14): panels are only as tall as their words plus breathing room, so the
-     top of the next panel already shows before you scroll. */
-  position: sticky; top: 0; min-height: 60dvh; display: flex; flex-direction: column; justify-content: center;
-  padding: 64px var(--pad); background: var(--parchment); color: var(--ink);
-  border-radius: 32px 32px 0 0; box-shadow: 0 -12px 40px rgba(0, 39, 71, 0.25);
-}
-.story-inner { width: 100%; max-width: 640px; margin: 0 auto; }
-.story h2 { font: 700 28px/1.25 var(--serif); margin: 0 0 24px; text-wrap: balance; }
-.story p { font-size: 20px; line-height: 1.6; margin: 0 0 24px; text-wrap: pretty; }
-.story strong { color: var(--signature); font-weight: 700; }
-.story a { color: inherit; text-underline-offset: 3px; }
-
-/* Opening panel: the question shrinks and dims as the next panel slides over it (--p 0 → 1). */
-.story-hero { min-height: 72dvh; background: var(--ink); color: var(--parchment); border-radius: 0; box-shadow: none; align-items: center; }
-.hero-title {
-  font: 700 44px/1.1 var(--serif); margin: 0; text-align: center; text-wrap: balance;
-  transform: scale(calc(1 - var(--p, 0) * 0.25)) translateY(calc(var(--p, 0) * -40px));
-  opacity: calc(1 - var(--p, 0) * 0.7);
-  animation: story-rise 1.2s ease both;
-}
-.hero-title em { color: var(--gold); }
-@keyframes story-rise { from { opacity: 0; transform: translateY(24px); } }
-.story-cue {
-  position: absolute; left: 0; right: 0; bottom: calc(24px + env(safe-area-inset-bottom));
-  display: flex; flex-direction: column; align-items: center;
-  font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
-  opacity: calc(1 - var(--p, 0) * 4);
-}
-.story-cue span { font-size: 28px; line-height: 1; animation: story-bob 1.8s ease-in-out infinite; }
-@keyframes story-bob { 50% { transform: translateY(6px); } }
-
-/* Word-by-word: words start faint and light up as the paragraph scrolls up the screen. */
-.story-lead { font: 400 28px/1.4 var(--serif) !important; }
-.w { opacity: 0.18; transition: opacity 0.25s ease; }
-.w.lit { opacity: 1; }
-
-/* A phrase running along a wave, sliding as you scroll. */
-.story-curve { width: 100vw; margin: 0 0 16px calc(50% - 50vw); height: 110px; overflow: hidden; }
-.story-curve svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.story-curve text { font: italic 400 34px var(--serif); fill: var(--gold-text); }
-
-.story-quote { margin: 24px 0 0; }
-.story-quote blockquote { margin: 0; font: italic 400 22px/1.5 var(--serif); position: relative; padding-top: 40px; }
-.story-quote blockquote::before {
-  content: '\201C'; position: absolute; top: -8px; left: -4px; font: 700 72px/1 var(--serif); color: var(--gold-text);
-}
-.story-quote figcaption::before { content: '— '; }
-.story-quote figcaption { margin-top: 16px; font-size: 16px; font-weight: 700; color: var(--earth); }
-.story-dark { background: var(--ink); color: var(--parchment); box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35); }
-.story-dark .story-quote blockquote { font-size: 28px; }
-.story-dark .story-quote blockquote::before { color: var(--gold); }
-.story-dark .story-quote figcaption { color: var(--gold); }
-.story-quote-row { display: grid; gap: 40px; }
-.story-quote-row .story-quote { margin: 0; }
-.story-quote-row .story-quote blockquote { font-size: 23px; } /* two quotes: a bit smaller so both fit a phone screen */
-
-/* Pictures pinned beside the text; one shows at a time and they cross-fade as the text goes by.
-   Phone: pinned across the top, text scrolls under. */
-.story-pinned, .story-end { position: relative; top: 0 !important; } /* scroll normally: they hold their own sticky pictures */
-.story-pinned { justify-content: flex-start; }
-.pin-wrap { width: 100%; max-width: 1080px; margin: 0 auto; min-height: calc(var(--n, 1) * 35dvh); } /* room for each picture */
-.pin-media {
-  position: sticky; top: 16px; z-index: 1; aspect-ratio: 3 / 2; max-height: 42dvh; width: 100%;
-  border-radius: var(--radius); overflow: hidden; background: var(--ink);
-  /* Phone: a parchment band above the picture hides the text scrolling up behind it. */
-  box-shadow: 0 -96px 0 0 var(--parchment), var(--shadow);
-}
-.pin-media figure { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.06); transition: opacity 0.7s ease, transform 1.2s ease; }
-.pin-media figure.on { opacity: 1; transform: none; }
-.pin-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pin-media figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 12px 8px; font-size: 12px; color: #fff;
-  background: linear-gradient(transparent, rgba(0, 39, 71, 0.75));
-}
-.pin-dots { position: absolute; top: 12px; right: 12px; display: flex; gap: 6px; }
-.pin-dots span { width: 8px; height: 8px; border-radius: 999px; background: rgba(250, 243, 215, 0.5); transition: width 0.3s ease, background 0.3s ease; }
-.pin-dots span.on { width: 24px; background: var(--gold); }
-.pin-text { padding-top: 32px; }
-.pin-text > * { margin-bottom: 12dvh !important; }
-.pin-text > *:last-child { margin-bottom: 8dvh !important; }
-.story-missing { height: 100%; display: grid; place-items: center; color: var(--parchment); }
-.story-list { margin: 0 0 24px; padding-left: 24px; font-size: 20px; line-height: 1.6; }
-.story-list li::marker { color: var(--gold-text); }
-.story-button { display: inline-flex; align-items: center; text-decoration: none; color: #fff !important; max-width: 100%; overflow-wrap: anywhere; }
-.story-end { min-height: 30dvh; align-items: center; border-radius: 32px 32px 0 0; }
-
-/* Fade up into view, one part after another. */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; transition-delay: calc(var(--i, 0) * 0.12s); }
-.reveal.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .hero-title { opacity: 1; transform: none; transition: none; animation: none; }
-  .w { opacity: 1; }
-  .story-cue span { animation: none; }
-  .pin-media figure { transition: none; transform: none; }
-}
+/* About page: reading text, comfortable line length. */
+.about-body { max-width: 640px; }
+.about-body p { margin: 0 0 16px; font-size: 17px; line-height: 1.65; }
+.about-body h3 { font: 700 20px/1.3 var(--serif); margin: 24px 0 8px; }
 
 /* Desktop / tablet. */
 @media (min-width: 768px) {
   :root { --pad: 24px; --bar-h: 64px; }
-  .toplink-involved { display: inline-flex !important; }
+  .toplink-donate { display: inline-flex !important; }
+  .map-context { width: min(390px, calc(100% - 408px)); }
+  .maplibregl-ctrl-top-right { right: 368px; }
   .sheet, .sheet.full {
     top: 0; bottom: 0; left: auto; width: 400px; height: auto; border-radius: 0; box-shadow: none;
     border-left: 1px solid rgba(92, 107, 122, 0.25);
   }
+  .event-panel { top: 0; left: auto; bottom: 0; width: 400px; max-height: none; border-radius: 0; }
   .handle { display: none; }
   .card { padding-top: 24px; }
-  .searchbar { left: 24px; right: auto; bottom: 24px; width: min(860px, calc(100% - 48px)); }
+  .searchbar { left: 24px; right: auto; bottom: 24px; width: min(860px, calc(100% - 408px)); }
   .searchbar.card-open { width: min(860px, calc(100% - 448px)); }
-  .timeline { width: min(860px, calc(100% - 48px)); left: 24px; right: auto; bottom: calc(24px + 56px + 8px); }
+  .timeline { width: min(860px, calc(100% - 408px)); left: 24px; right: auto; bottom: calc(24px + 56px + 8px); }
   .timeline.raised { bottom: calc(24px + 56px + 8px); width: min(860px, calc(100% - 448px)); }
   .scrim { align-items: center; justify-content: center; padding: 48px; }
   .explore { width: min(920px, 100%); height: auto; max-height: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
   .explore-links { display: none; } /* desktop has About · Donate in the top bar */
-  .story-section { padding: 72px 48px; border-radius: 48px 48px 0 0; }
-  .story-hero { border-radius: 0; }
-  .story-inner { max-width: 760px; }
-  .hero-title { font-size: 72px; }
-  .story h2 { font-size: 36px; }
-  .story-lead { font-size: 36px !important; }
-  .story-curve { height: 170px; margin-bottom: 24px; }
-  .story-curve text { font-size: 40px; }
-  .story-dark .story-quote blockquote { font-size: 36px; }
-  /* Two quotes side by side, lined up at the top. */
-  .story-quote-row { max-width: 1080px; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 64px; align-items: start; }
-  .story-quote-row .story-quote blockquote { font-size: 26px; }
-  /* Pictures pinned on the right, text scrolls on the left. */
-  .pin-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: start; }
-  .pin-media { box-shadow: var(--shadow); grid-column: 2; grid-row: 1; top: calc(50dvh - min(19vw, 34dvh)); max-height: none; aspect-ratio: 4 / 5; max-height: 68dvh; }
-  .pin-text {
-    grid-column: 1; grid-row: 1; padding: 10dvh 0 14dvh; min-height: calc(var(--n, 1) * 35dvh);
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .pin-text > *, .pin-text > *:last-child { margin-bottom: 0 !important; }
-  }
+  .about { width: min(720px, 100%); }
+  .about-body { padding: 8px 32px 32px; }
+}
+
+@media (max-width: 767px) {
+  .history-pane { display: none; top: 62px; right: 12px; bottom: auto; left: 12px; width: auto; max-height: min(42dvh, calc(100% - 220px)); padding: 16px; border: 1px solid rgba(92, 107, 122, .28); border-radius: var(--radius); }
+  .history-pane.history-pane-open { display: flex; }
+  .history-pane-head h2 { font-size: 22px; }
+  .history-mobile-close { display: inline-grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; font-size: 26px; }
+  .history-toggle { position: absolute; top: 12px; right: 12px; z-index: 6; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid rgba(0,39,71,.2); border-radius: 999px; background: var(--parchment); box-shadow: var(--shadow); font-size: 13px; font-weight: 700; }
+  .history-toggle span { color: var(--muted); font-size: 11px; font-weight: 600; }
+}

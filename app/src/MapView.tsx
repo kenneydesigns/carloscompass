@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
-import { AttributionControl, Map as MlMap, Marker, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
-import type { FeatureCollection } from 'geojson'
-import type { BorderYear, Place } from './data'
-import { borderYearFor, hasCoords, placeColor, ringFor } from './data'
+import { useEffect, useRef } from 'react'
+import { AttributionControl, Map as MlMap, Marker, Popup, setWorkerUrl, type GeoJSONSource, type MapLayerMouseEvent, type MapMouseEvent, type StyleSpecification } from 'maplibre-gl'
+import { borderForYear, type BorderPeriod } from './borderPeriods'
+import type { FeatureCollection, LineString, Position } from 'geojson'
+import type { Place } from './data'
+import { hasCoords, placeColor, ringFor } from './data'
+import type { HistoricalEvent, LayerSettings, TerritoryProperties, TravelRouteProperties } from './gis'
+import { formatAstronomicalYear } from './temporal'
+import type { Geometry } from 'geojson'
 
 // Calm basemap we style ourselves (vision.md "Basemap"): Natural Earth land, lakes and rivers,
 // no terrain, no modern labels. Colors are mixed from the brand tokens, as in render_styles.py.
@@ -23,64 +27,44 @@ const GOLD = '#DBBB7C'
 // design/map/render_styles.py. Neighbouring realms get different tints (index from the build script).
 const TINTS = ['#F1E2BC', '#EBE0C3', '#E6E1CB', '#F5EAC8', '#DFD0B2']
 
-const EMPTY: FeatureCollection = { type: 'FeatureCollection', features: [] }
-const FADE_MS = 150    // short fade when the border year changes
-const SETTLE_MS = 150  // on a fast drag, wait until the handle pauses before swapping (vision.md update rules)
-const LINE_OPACITY = ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5] as const
+export interface Borders { year: number; until?: number; note?: string; periods?: BorderPeriod[] }
 
-interface BorderSet { realms: FeatureCollection; lines: FeatureCollection; labels: RealmLabel[] }
-const borderCache = new Map<number, Promise<BorderSet>>()
-/** Fetch one border year's files once; later calls share the same promise (preload = call early). */
-function loadBorders(year: number): Promise<BorderSet> {
-  let p = borderCache.get(year)
-  if (!p) {
-    const get = (f: string) => fetch(`${BASE}/basemap/borders/${year}-${f}`).then(r => {
-      if (!r.ok) throw new Error(`${year}-${f}: ${r.status}`)
-      return r.json()
-    })
-    p = Promise.all([get('realms.geojson'), get('lines.geojson'), get('labels.json')])
-      .then(([realms, lines, labels]) => ({ realms, lines, labels }))
-    p.catch(() => borderCache.delete(year))  // let a later swap retry
-    borderCache.set(year, p)
-  }
-  return p
-}
-
-function makeStyle(hasBorders: boolean): StyleSpecification {
+function makeStyle(borders?: Borders): StyleSpecification {
+  const b = borders ? `${BASE}/basemap/borders/${borders.year}` : ''
   return {
     version: 8,
     sources: {
       land: { type: 'geojson', data: BASE + '/basemap/ne_50m_land.geojson' },
       lakes: { type: 'geojson', data: BASE + '/basemap/ne_50m_lakes.geojson' },
       rivers: { type: 'geojson', data: BASE + '/basemap/ne_50m_rivers_lake_centerlines.geojson' },
-      // Filled in by MapView with the border year the timeline is on.
-      ...(hasBorders ? {
-        realms: { type: 'geojson', data: EMPTY },
-        realmLines: { type: 'geojson', data: EMPTY },
+      modern: { type: 'geojson', data: BASE + '/basemap/modern-boundaries.geojson' },
+      ...(borders ? {
+        realms: { type: 'geojson', data: `${b}-realms.geojson` },
+        realmLines: { type: 'geojson', data: `${b}-lines.geojson` },
       } : {}),
     },
     layers: [
       { id: 'sea', type: 'background', paint: { 'background-color': SEA } },
       { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': PARCH } },
-      ...(hasBorders ? [
+      ...(borders ? [
         { id: 'realms', type: 'fill', source: 'realms', paint: {
           'fill-color': ['match', ['get', 'tint'], 0, TINTS[0], 1, TINTS[1], 2, TINTS[2], 3, TINTS[3], TINTS[4]],
-          'fill-opacity': 0.45, 'fill-opacity-transition': { duration: FADE_MS, delay: 0 },
+          'fill-opacity': 0.45,
         } },
         // The realm around the selected pin turns gold (the map's "Then:" line).
         { id: 'realm-selected', type: 'fill', source: 'realms', filter: ['==', ['get', 'name'], '\u0000'],
-          paint: { 'fill-color': GOLD, 'fill-opacity': 0.38, 'fill-opacity-transition': { duration: FADE_MS, delay: 0 } } },
+          paint: { 'fill-color': GOLD, 'fill-opacity': 0.38 } },
         // Dashed: every old border is approximate.
         { id: 'realm-lines', type: 'line', source: 'realmLines', paint: {
           'line-color': EARTH, 'line-width': 1, 'line-dasharray': [5, 3.5],
           // Faint when zoomed out (many small realms would crowd the view), full strength from zoom 5.
-          'line-opacity': LINE_OPACITY as unknown as number,
-          'line-opacity-transition': { duration: FADE_MS, delay: 0 },
+          'line-opacity': ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5],
         } },
       ] as StyleSpecification['layers'] : []),
       { id: 'coast', type: 'line', source: 'land', paint: { 'line-color': RIVER, 'line-width': 0.8, 'line-opacity': 0.6 } },
       { id: 'lakes', type: 'fill', source: 'lakes', paint: { 'fill-color': SEA } },
       { id: 'rivers', type: 'line', source: 'rivers', paint: { 'line-color': RIVER, 'line-width': 1 } },
+      { id: 'modern-lines', type: 'line', source: 'modern', layout: { visibility: 'none' }, paint: { 'line-color': '#426b85', 'line-width': 1.2, 'line-dasharray': [2, 2], 'line-opacity': 0.8 } },
     ],
   }
 }
@@ -89,7 +73,7 @@ interface RealmLabel { name: string; lng: number; lat: number; minzoom: number }
 
 /** Realm names as small-caps HTML labels (no font server needed), shown only where they fit
  *  and never overlapping each other. */
-function realmLabels(m: MlMap, isOn: () => boolean) {
+function realmLabels(m: MlMap, year: number, isOn: () => boolean) {
   let labels: { data: RealmLabel; marker: Marker; el: HTMLDivElement }[] = []
   const place = () => {
     const z = m.getZoom()
@@ -109,9 +93,7 @@ function realmLabels(m: MlMap, isOn: () => boolean) {
       l.el.style.display = show ? '' : 'none'
     }
   }
-  /** Replace the names with another border year's. */
-  const set = (data: RealmLabel[]) => {
-    for (const l of labels) l.marker.remove()
+  fetch(`${BASE}/basemap/borders/${year}-labels.json`).then(r => r.json()).then((data: RealmLabel[]) => {
     labels = data.map(d => {
       const el = document.createElement('div')
       el.className = 'realm-label'
@@ -120,10 +102,10 @@ function realmLabels(m: MlMap, isOn: () => boolean) {
       return { data: d, el, marker: new Marker({ element: el }).setLngLat([d.lng, d.lat]).addTo(m) }
     })
     place()
-  }
+  }).catch(() => {})
   m.on('moveend', place)
   m.on('zoom', place)
-  return { place, set }
+  return place
 }
 
 function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
@@ -144,34 +126,67 @@ function toGeoJSON(list: Place[], selectedId?: string): FeatureCollection {
   }
 }
 
+function routeStopsToGeoJSON(routes: FeatureCollection<LineString, TravelRouteProperties>): FeatureCollection {
+  return {
+    type: 'FeatureCollection',
+    features: routes.features.flatMap(route => route.geometry.coordinates.map((position: Position, index) => ({
+      type: 'Feature' as const,
+      id: `${route.properties.id}-${index}`,
+      geometry: { type: 'Point' as const, coordinates: [position[0], position[1]] },
+      properties: { id: route.properties.id, routeGroup: route.properties.routeGroup, stop: route.properties.stops[index] ?? '' },
+    }))),
+  }
+}
+
 interface Props {
   places: Place[]
   selectedId?: string
   start: { lng: number; lat: number; zoom: number }
-  borders?: BorderYear[]
+  borders?: Borders
   year?: number
   fitTo?: Place[]
   fitKey?: number
+  view?: { lng: number; lat: number; zoom: number }
+  viewKey: number
+  playing: boolean
+  focusEvents: HistoricalEvent[]
+  focusEventId?: string
+  historicalTerritories: FeatureCollection<Geometry, TerritoryProperties>
+  historicalEvents: HistoricalEvent[]
+  historicalRoutes: FeatureCollection<LineString, TravelRouteProperties>
+  selectedRouteId?: string
+  layers: LayerSettings
+  onEvent: (id: string) => void
+  onRoute: (id: string) => void
   onSelect: (id: string | undefined) => void
 }
 
-export default function MapView({ places, selectedId, start, borders, year, fitTo, fitKey, onSelect }: Props) {
+export default function MapView({ places, selectedId, start, borders, year, fitTo, fitKey, view, viewKey, playing, focusEvents, focusEventId, onSelect, historicalTerritories, historicalEvents, historicalRoutes, selectedRouteId, layers, onEvent, onRoute }: Props) {
   const box = useRef<HTMLDivElement>(null)
   const map = useRef<MlMap | null>(null)
   const ready = useRef(false)
-  // The border year the timeline is on (pack `borders`); none outside every range.
-  const wanted = borderYearFor(borders, year)
-  // The border year actually on screen: it trails `wanted` by a short pause, so a fast drag
-  // across centuries doesn't flash through each one (vision.md "Update rules").
-  const [shown, setShown] = useState<BorderYear>()
-  const bordersOn = !!shown
-  const bordersOnRef = useRef(bordersOn)
-  bordersOnRef.current = bordersOn
-  const labelsCtl = useRef<{ place: () => void; set: (d: RealmLabel[]) => void }>(undefined)
-  const attrib = useRef<AttributionControl>(undefined)
-  const swapSeq = useRef(0)  // so a late fade-in from an older swap can't undo a newer fade-out
+  const playbackCamera = useRef({ wasPlaying: false, focusedEventId: '', focusedRouteKey: '' })
+  // Borders only belong to their own era (pack `borders.until`); hidden past it.
+  const period = borders ? borderForYear(borders.periods ?? [], year ?? borders.year) : undefined
+  const bordersOn = !!period
+  const bordersOnRef = useRef(bordersOn && period?.year === 100)
+  bordersOnRef.current = bordersOn && period?.year === 100
+  const placeLabels = useRef<() => void>(() => {})
   const latest = useRef({ places, selectedId })
   latest.current = { places, selectedId }
+  const latestGis = useRef({ historicalTerritories, historicalEvents, historicalRoutes, layers })
+  latestGis.current = { historicalTerritories, historicalEvents, historicalRoutes, layers }
+  const eventData = (list: HistoricalEvent[]): FeatureCollection => ({ type: 'FeatureCollection', features: list.map(e => ({ type: 'Feature', id: e.id, geometry: { type: 'Point', coordinates: e.coordinates }, properties: { id: e.id } })) })
+  const updateGis = (m: MlMap) => {
+    const g = latestGis.current
+    ;(m.getSource('history-territories') as GeoJSONSource | undefined)?.setData(g.historicalTerritories)
+    ;(m.getSource('history-events') as GeoJSONSource | undefined)?.setData(eventData(g.historicalEvents))
+    ;(m.getSource('history-routes') as GeoJSONSource | undefined)?.setData(g.historicalRoutes)
+    ;(m.getSource('history-route-stops') as GeoJSONSource | undefined)?.setData(routeStopsToGeoJSON(g.historicalRoutes))
+    for (const id of ['lakes', 'rivers']) if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', g.layers.physical ? 'visible' : 'none')
+    for (const id of ['history-route-lines', 'history-route-hit', 'history-route-stops']) if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', g.layers.routes ? 'visible' : 'none')
+    if (m.getLayer('modern-lines')) m.setLayoutProperty('modern-lines', 'visibility', g.layers.modern ? 'visible' : 'none')
+  }
 
   useEffect(() => {
     // Zoom out until the whole world's width fits the screen (the world is 512 px wide at zoom 0),
@@ -179,7 +194,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     const worldFits = () => Math.min(2, Math.log2(box.current!.clientWidth / 512))
     const m = new MlMap({
       container: box.current!,
-      style: makeStyle(!!borders?.length),
+      style: makeStyle(borders),
       center: [start.lng, start.lat],
       zoom: start.zoom,
       minZoom: worldFits(),
@@ -190,12 +205,46 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     })
     m.touchZoomRotate.disableRotation()
     m.on('resize', () => m.setMinZoom(worldFits()))
-    attrib.current = new AttributionControl({ compact: true })
-    m.addControl(attrib.current, 'top-right') // bottom belongs to the search bar
-    if (borders?.length) labelsCtl.current = realmLabels(m, () => bordersOnRef.current)
+    m.addControl(new AttributionControl({ compact: true, customAttribution: ['Historical borders: Andr&#233; Ourednik, historical-basemaps (GPL-3.0)'] }), 'top-right')
+    if (borders) placeLabels.current = realmLabels(m, borders.year, () => bordersOnRef.current)
     // Start the credits folded into the (i) button so they never sit under the bottom controls.
     m.once('load', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
     m.on('load', () => {
+      m.addSource('history-territories', { type: 'geojson', data: latestGis.current.historicalTerritories })
+      m.addLayer({ id: 'history-fills', type: 'fill', source: 'history-territories', paint: {
+        'fill-color': ['match', ['get', 'name'], 'Egypt', '#d3a65c', 'Assyria', '#a45d45', 'Babylonia', '#91699e', 'Achaemenid Empire', '#ab7050', 'Kingdom of David and Solomon', '#c59a35', 'Seleucid Kingdom', '#58889f', 'Ptolemaic Kingdom', '#4d8c83', 'Nabatean Kingdom', '#b1814d', 'Roman Republic', '#b45161', 'Roman Empire', '#a84457', '#718a73'], 'fill-opacity': .32,
+      } }, 'coast')
+      m.addLayer({ id: 'history-lines', type: 'line', source: 'history-territories', paint: { 'line-color': ['match', ['get', 'name'], 'Egypt', '#936923', 'Assyria', '#853b2b', 'Babylonia', '#674676', 'Achaemenid Empire', '#854327', 'Kingdom of David and Solomon', '#886913', 'Seleucid Kingdom', '#2e627b', 'Ptolemaic Kingdom', '#2d665e', 'Nabatean Kingdom', '#76532b', 'Roman Republic', '#7f2d3b', 'Roman Empire', '#87283d', '#47614a'], 'line-width': 1.4, 'line-dasharray': [4, 3], 'line-opacity': .75 } }, 'coast')
+      m.addSource('history-routes', { type: 'geojson', data: latestGis.current.historicalRoutes })
+      m.addLayer({ id: 'history-route-lines', type: 'line', source: 'history-routes', paint: {
+        'line-color': ['match', ['get', 'routeGroup'], 'jesus', '#a80c31', '#287681'],
+        'line-width': 3.2, 'line-dasharray': [2, 1.4], 'line-opacity': .9,
+      } }, 'coast')
+      m.addLayer({ id: 'history-route-hit', type: 'line', source: 'history-routes', paint: { 'line-color': '#000', 'line-width': 18, 'line-opacity': 0 } }, 'coast')
+      m.addSource('history-route-stops', { type: 'geojson', data: routeStopsToGeoJSON(latestGis.current.historicalRoutes) })
+      m.addLayer({ id: 'history-route-stops', type: 'circle', source: 'history-route-stops', paint: {
+        'circle-radius': 4, 'circle-color': ['match', ['get', 'routeGroup'], 'jesus', '#a80c31', '#287681'],
+        'circle-stroke-color': '#fff', 'circle-stroke-width': 1.4,
+      } }, 'coast')
+      m.on('click', 'history-route-hit', (e: MapLayerMouseEvent) => {
+        if (m.queryRenderedFeatures(e.point, { layers: ['history-event-hit', 'pin-hit'].filter(id => !!m.getLayer(id)) }).length) return
+        e.preventDefault()
+        onRoute(e.features?.[0]?.properties?.id as string)
+      })
+      m.on('mouseenter', 'history-route-hit', () => (m.getCanvas().style.cursor = 'pointer'))
+      m.on('mouseleave', 'history-route-hit', () => (m.getCanvas().style.cursor = ''))
+      m.addSource('history-events', { type: 'geojson', data: eventData(latestGis.current.historicalEvents) })
+      m.addLayer({ id: 'history-event-pins', type: 'circle', source: 'history-events', paint: { 'circle-radius': 8, 'circle-color': '#a80c31', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } })
+      m.addLayer({ id: 'history-event-hit', type: 'circle', source: 'history-events', paint: { 'circle-radius': 22, 'circle-color': '#000', 'circle-opacity': 0 } })
+      m.on('click', 'history-event-hit', (e: MapLayerMouseEvent) => { e.preventDefault(); onEvent(e.features?.[0]?.properties?.id as string) })
+      m.on('click', 'history-fills', (e: MapLayerMouseEvent) => {
+        if (m.queryRenderedFeatures(e.point, { layers: ['history-event-hit', 'pin-hit'].filter(id => !!m.getLayer(id)) }).length) return
+        const p = e.features?.[0]?.properties
+        if (!p) return
+        e.preventDefault()
+        new Popup().setLngLat(e.lngLat).setText(`${p.name} — approximate reconstruction around ${formatAstronomicalYear(Number(p.snapshotYear))}.`).addTo(m)
+      })
+      updateGis(m)
       m.addSource('places', { type: 'geojson', data: toGeoJSON(latest.current.places, latest.current.selectedId) })
       // Pin look (brand.md): 12 px earth dot; uncertain = hollow; selected = 16 px crimson, white ring.
       m.addLayer({
@@ -218,7 +267,11 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
         id: 'pin-hit', type: 'circle', source: 'places',
         paint: { 'circle-radius': 22, 'circle-color': '#000', 'circle-opacity': 0 },
       })
+      m.moveLayer('history-event-pins')
+      m.moveLayer('history-event-hit')
       m.on('click', 'pin-hit', (e: MapLayerMouseEvent) => {
+        const eventHit = m.queryRenderedFeatures(e.point, { layers: ['history-event-hit'] })[0]
+        if (eventHit) { e.preventDefault(); onEvent(eventHit.properties?.id as string); return }
         e.preventDefault()
         onSelect(e.features?.[0]?.properties?.id as string)
       })
@@ -239,62 +292,90 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     ;(m.getSource('places') as GeoJSONSource | undefined)?.setData(toGeoJSON(places, selectedId))
   }, [places, selectedId])
 
-  // Swap the border set when the timeline crosses into another border year: wait for the handle
-  // to settle, fade out, swap the (already loaded) data and names, fade back in.
-  useEffect(() => {
-    const m = map.current
-    if (!m || !borders?.length) return
-    // Keep the years either side of the one on screen loaded ahead, so the next swap is quick (most
-    // of all on phones). Only around the settled year: a fast drag doesn't fetch every year it crosses.
-    const i = borders.indexOf((shown ?? wanted)!)
-    for (const j of [i - 1, i + 1]) if (i >= 0 && borders[j]) loadBorders(borders[j].year).catch(() => {})
-    if (wanted === shown) return
-    let cancelled = false
-    const realmPaint: [string, string, number][] = [
-      ['realms', 'fill-opacity', 0.45], ['realm-selected', 'fill-opacity', 0.38], ['realm-lines', 'line-opacity', LINE_OPACITY as unknown as number],
-    ]
-    const fade = (on: boolean) => {
-      for (const [id, prop, v] of realmPaint) if (m.getLayer(id)) m.setPaintProperty(id, prop as 'fill-opacity', on ? v : 0)
-      m.getContainer().classList.toggle('borders-fading', !on)
-    }
-    const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
-    const t = window.setTimeout(async () => {
-      if (!wanted) { setShown(undefined); return }  // outside every range: the visibility effect hides them
-      let data: BorderSet
-      try { data = await loadBorders(wanted.year) } catch { return }
-      if (cancelled) return
-      if (!ready.current) await new Promise(r => m.once('load', r))
-      const seq = ++swapSeq.current
-      if (shown) { fade(false); await wait(FADE_MS) } else fade(false)
-      if (cancelled) { fade(true); return }
-      ;(m.getSource('realms') as GeoJSONSource | undefined)?.setData(data.realms)
-      ;(m.getSource('realmLines') as GeoJSONSource | undefined)?.setData(data.lines)
-      labelsCtl.current?.set(data.labels)
-      setShown(wanted)
-      // Fade back in once the new set has drawn (or after a moment, if the map isn't drawing).
-      let done = false
-      const show = () => { if (!done && seq === swapSeq.current) { done = true; fade(true) } }
-      m.once('idle', show)
-      setTimeout(show, 300)
-    }, shown ? SETTLE_MS : 0)
-    return () => { cancelled = true; clearTimeout(t) }
-  }, [borders, wanted, shown])
+  useEffect(() => { if (map.current && ready.current) updateGis(map.current) }, [historicalTerritories, historicalEvents, historicalRoutes, layers])
 
-  // The credits (the (i) button) name the border year on screen.
+  useEffect(() => {
+    if (!viewKey || !view || !map.current) return
+    map.current.flyTo({ center: [view.lng, view.lat], zoom: view.zoom, duration: 1000, essential: true })
+  }, [viewKey, view])
+
+  // During playback, keep the historical theater in view and fly to each dated event once.
+  // Paused timeline scrubbing does not move the camera; an explicitly selected event does.
   useEffect(() => {
     const m = map.current
-    if (!m || !borders?.length) return
-    const open = m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.contains('maplibregl-compact-show')
-    if (attrib.current) m.removeControl(attrib.current)
-    attrib.current = new AttributionControl({ compact: true, customAttribution: shown?.note ? [shown.note] : [] })
-    m.addControl(attrib.current, 'top-right')
-    m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.toggle('maplibregl-compact-show', !!open)
-  }, [borders, shown])
+    if (!m || !ready.current) return
+    const camera = playbackCamera.current
+    const flyToEvent = (event: HistoricalEvent) => {
+      const regional = /region|battlefield/i.test(event.precision)
+      m.flyTo({
+        center: event.coordinates,
+        zoom: regional ? 5.1 : 6.2,
+        duration: 1400,
+        essential: true,
+        curve: 1.35,
+      })
+      camera.focusedEventId = event.id
+      camera.focusedRouteKey = ''
+    }
+    const fitRoutes = (routes: FeatureCollection<LineString, TravelRouteProperties>) => {
+      const positions = routes.features.flatMap(route => route.geometry.coordinates)
+      if (!positions.length) return
+      const lngs = positions.map(position => position[0]), lats = positions.map(position => position[1])
+      const phone = !window.matchMedia('(min-width: 768px)').matches
+      m.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], {
+        padding: phone ? { top: 90, bottom: 210, left: 36, right: 36 } : { top: 80, bottom: 210, left: 64, right: 384 },
+        maxZoom: 6.2,
+        duration: 1400,
+      })
+      camera.focusedRouteKey = routes.features.map(route => route.properties.id).sort().join('|')
+      camera.focusedEventId = ''
+    }
+
+    if (focusEventId) {
+      const selectedEvent = focusEvents.find(event => event.id === focusEventId)
+      if (selectedEvent && camera.focusedEventId !== selectedEvent.id) flyToEvent(selectedEvent)
+    }
+    if (selectedRouteId) {
+      const selectedRoute = historicalRoutes.features.filter(route => route.properties.id === selectedRouteId)
+      const routeKey = selectedRoute.map(route => route.properties.id).join('|')
+      if (selectedRoute.length && camera.focusedRouteKey !== routeKey) fitRoutes({ ...historicalRoutes, features: selectedRoute })
+    }
+
+    if (!playing) {
+      camera.wasPlaying = false
+      if (!focusEventId) camera.focusedEventId = ''
+      if (!selectedRouteId) camera.focusedRouteKey = ''
+      return
+    }
+
+    const eventAtYear = focusEvents.find(event => year !== undefined && year >= event.startYear && year <= event.endYear)
+    const routeKey = historicalRoutes.features.map(route => route.properties.id).sort().join('|')
+    if (!camera.wasPlaying) {
+      camera.wasPlaying = true
+      if (eventAtYear) {
+        if (camera.focusedEventId !== eventAtYear.id) flyToEvent(eventAtYear)
+      } else if (historicalRoutes.features.length) {
+        if (camera.focusedRouteKey !== routeKey) fitRoutes(historicalRoutes)
+      } else {
+        m.flyTo({ center: [38, 34], zoom: 4.1, duration: 1400, essential: true, curve: 1.35 })
+        camera.focusedEventId = ''
+        camera.focusedRouteKey = ''
+      }
+      return
+    }
+
+    if (eventAtYear && camera.focusedEventId !== eventAtYear.id) flyToEvent(eventAtYear)
+    else if (!eventAtYear && historicalRoutes.features.length && camera.focusedRouteKey !== routeKey) fitRoutes(historicalRoutes)
+    else if (!eventAtYear && !historicalRoutes.features.length) {
+      camera.focusedEventId = ''
+      camera.focusedRouteKey = ''
+    }
+  }, [playing, year, focusEvents, focusEventId, historicalRoutes, selectedRouteId])
 
   // Gold realm under the selected pin.
   useEffect(() => {
     const m = map.current
-    if (!m || !borders?.length) return
+    if (!m || !borders) return
     const p = places.find(x => x.id === selectedId)
     const apply = () => {
       if (!m.getLayer('realm-selected')) return
@@ -305,21 +386,44 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
       }
       m.setFilter('realm-selected', ['==', ['get', 'name'], name ?? '\u0000'])
     }
-    // Again once a just-swapped border set has rendered.
-    if (m.isStyleLoaded()) apply()
-    m.once('idle', apply)
-  }, [places, selectedId, borders, shown])
+    if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
+  }, [places, selectedId, borders, bordersOn])
 
+  // Fade old boundaries away before replacing their geometry, then draw the new snapshot in.
+  // A short debounce avoids loading every snapshot when a user drags quickly.
   useEffect(() => {
     const m = map.current
-    if (!m || !borders?.length) return
-    const apply = () => {
-      for (const id of ['realms', 'realm-selected', 'realm-lines'])
-        if (m.getLayer(id)) m.setLayoutProperty(id, 'visibility', bordersOn ? 'visible' : 'none')
-      labelsCtl.current?.place()
-    }
-    if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
-  }, [borders, bordersOn])
+    if (!m || !borders) return
+    let cancelled = false
+    let swap: number | undefined
+    const start = window.setTimeout(() => {
+      const apply = () => {
+        if (cancelled || !m.getLayer('realms')) return
+        m.setPaintProperty('realms', 'fill-opacity-transition', { duration: 300 })
+        m.setPaintProperty('realm-lines', 'line-opacity-transition', { duration: 300 })
+        m.setPaintProperty('realms', 'fill-opacity', 0)
+        m.setPaintProperty('realm-selected', 'fill-opacity', 0)
+        m.setPaintProperty('realm-lines', 'line-opacity', 0)
+        // The only prebuilt realm labels belong to the 100 AD dataset.
+        bordersOnRef.current = false
+        placeLabels.current()
+        swap = window.setTimeout(() => {
+          if (cancelled || !period) return
+          const prefix = `${BASE}/basemap/borders/${period.file}`
+          ;(m.getSource('realms') as GeoJSONSource).setData(`${prefix}-realms.geojson`)
+          ;(m.getSource('realmLines') as GeoJSONSource).setData(`${prefix}-lines.geojson`)
+          m.setFilter('realm-selected', ['==', ['get', 'name'], '\u0000'])
+          m.setPaintProperty('realms', 'fill-opacity', 0.45)
+          m.setPaintProperty('realm-selected', 'fill-opacity', 0.38)
+          m.setPaintProperty('realm-lines', 'line-opacity', ['interpolate', ['linear'], ['zoom'], 2, 0.15, 5, 0.5])
+          bordersOnRef.current = period.year === 100
+          placeLabels.current()
+        }, 320)
+      }
+      if (m.isStyleLoaded()) apply(); else m.once('idle', apply)
+    }, 150)
+    return () => { cancelled = true; clearTimeout(start); if (swap) clearTimeout(swap) }
+  }, [borders, period])
 
   // Each time Show is pressed, fit the map to the results (open space only: not under the panels).
   useEffect(() => {
@@ -337,7 +441,7 @@ export default function MapView({ places, selectedId, start, borders, year, fitT
     const lngs = trim(pts.map(p => p[0])), lats = trim(pts.map(p => p[1]))
     const phone = !window.matchMedia('(min-width: 768px)').matches
     m.fitBounds([[Math.min(...lngs), Math.min(...lats)], [Math.max(...lngs), Math.max(...lats)]], {
-      padding: phone ? { top: 48, bottom: 200, left: 32, right: 32 } : { top: 64, bottom: 200, left: 64, right: 64 },
+      padding: phone ? { top: 48, bottom: 200, left: 32, right: 32 } : { top: 64, bottom: 200, left: 64, right: 384 },
       maxZoom: 7, duration: 600,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps

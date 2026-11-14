@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "test": "node --test src/*.test.ts",
     "preview": "vite preview",
-    "copy-worker": "mkdir -p public/maplibre && cp node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs public/maplibre/",
+    "copy-worker": "node scripts/copy-worker.mjs",
     "predev": "npm run copy-worker",
     "prebuild": "npm run copy-worker"
   },

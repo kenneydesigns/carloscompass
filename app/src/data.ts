@@ -1,4 +1,6 @@
 import { parse } from 'yaml'
+import type { BorderPeriod } from './borderPeriods'
+import type { HistoricalPeriod } from './history'
 
 // Everything the UI shows comes from the pack's files. No sample content lives in the code
 // (CLAUDE.md "no mock data"): an empty field renders as the placeholder below.
@@ -28,38 +30,12 @@ export interface Pack {
   name?: string
   certainty?: Partial<Record<Certainty, { label?: string; explain?: string }>>
   suggest_edit?: { label?: string; phone?: string }
-  links?: { involved?: string }
+  links?: { donate?: string }
   explore_filters?: { key: string; label?: string }[]
   pin_colors?: Record<string, string>   // collection (tag value) -> brand color role
   start_view?: { lng: number; lat: number; zoom: number }
-  borders?: BorderYear[]
-}
-/** One border year the map can show, for timeline years from <= year < until (pack.yaml `borders`). */
-export interface BorderYear { year: number; from?: number; until?: number; note?: string; start?: boolean }
-
-/** The pack's border year for a timeline year (from <= year < until), if any; with no year yet,
- *  the pack's `start` one. */
-export function borderYearFor(list: BorderYear[] | undefined, year: number | undefined) {
-  if (!list?.length) return undefined
-  if (year === undefined) return list.find(b => b.start)
-  return list.find(b => (b.from ?? -Infinity) <= year && year < (b.until ?? Infinity))
-}
-
-/** "Borders c. 1250–1350" for the timeline: the stretch of timeline years that show this border
- *  set, ending at "today" when it runs past the present. */
-export function borderSpanLabel(b: BorderYear): string {
-  const y = (n: number) => (n < 0 ? `${-n} BC` : `${n}`)
-  const now = new Date().getFullYear()
-  const from = b.from ?? b.year
-  const u = b.until
-  // Say AD on the end year only when the range starts in BC ("c. 700 BC–250 AD").
-  const end = u === undefined || u > now ? 'today' : u >= 0 && from < 0 ? `${u} AD` : y(u)
-  return `Borders c. ${y(from)}–${end}`
-}
-
-/** Years between two timeline years; there is no year 0, so 1 BC to 1 AD is one year. */
-export function yearSpan(a: number, b: number): number {
-  return b - a - (a < 0 && b > 0 ? 1 : 0)
+  borders?: { year: number; until?: number; note?: string; periods?: BorderPeriod[] }
+  city_view?: { name: string; place_id: string; lng: number; lat: number; zoom: number; periods: HistoricalPeriod[] }
 }
 
 const packFiles = import.meta.glob('../../packs/bible-catholic/pack.yaml', {
@@ -75,18 +51,6 @@ const placeFiles = import.meta.glob('../../packs/bible-catholic/places/*.yaml', 
 export const pack: Pack = parse(Object.values(packFiles)[0] ?? '') ?? {}
 /** The pack's About page text (Markdown-ish, written by a person), or '' when the pack has none. */
 export const aboutText: string = Object.values(aboutFiles)[0] ?? ''
-const involvedFiles = import.meta.glob('../../packs/bible-catholic/involved.md', {
-  query: '?raw', import: 'default', eager: true,
-}) as Record<string, string>
-/** The pack's "Get involved" page text (same format as about.md), or '' when the pack has none. */
-export const involvedText: string = Object.values(involvedFiles)[0] ?? ''
-// Pictures for the About page live in the pack's about/ folder; about.md names them as "about/<file>".
-const aboutImageFiles = import.meta.glob('../../packs/bible-catholic/about/*.{jpg,jpeg,png,webp}', {
-  query: '?url', import: 'default', eager: true,
-}) as Record<string, string>
-/** URL for a picture named in about.md (e.g. "about/church.jpg"), or undefined if the pack has no such file. */
-export const aboutImage = (name: string): string | undefined =>
-  Object.entries(aboutImageFiles).find(([path]) => path.endsWith('/' + name))?.[1]
 
 // Drafts show too, everywhere, but each card says plainly that it is not reviewed yet
 // (Joseph, 2026-11-13, for the hackathon demo; see vision.md "Drafts on the live site").
@@ -115,6 +79,7 @@ export function firstYear(p: Place): number | undefined {
 
 export function formatYear(y: number | undefined, approx = false): string {
   if (y === undefined) return MISSING
+  if (y === 0) return 'BC / AD'
   const label = y < 0 ? `${-y} BC` : `${y} AD`
   return approx ? `c. ${label}` : label
 }
