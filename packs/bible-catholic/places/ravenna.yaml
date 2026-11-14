@@ -1,0 +1,24 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: ravenna
+name: Ravenna
+category: world-event
+location:
+  lat: 44.4184
+  lng: 12.2035
+  certainty: confirmed
+events:
+  - title: Fall of the Western Roman Empire
+    date: { from: 476 }
+    summary: >-
+      In 476 the Germanic commander Odoacer deposed Romulus Augustulus, the last emperor in the
+      West, at Ravenna, then the western capital. Historians often use this date to mark the end
+      of the Western Roman Empire, while the Eastern Empire went on from Constantinople.
+    sources:
+      - kind: encyclopedia
+        title: Fall of the Western Roman Empire (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire
+      - kind: encyclopedia
+        title: Romulus Augustulus (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Romulus_Augustulus
+tags:
+  history: [World history]

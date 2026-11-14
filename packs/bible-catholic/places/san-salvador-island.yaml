@@ -1,0 +1,24 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: san-salvador-island
+name: San Salvador Island, Bahamas
+category: world-event
+location:
+  lat: 24.05
+  lng: -74.50
+  certainty: probable   # Columbus's landfall island (Guanahani) is debated; this is the usual candidate
+events:
+  - title: Columbus reaches the Americas
+    date: { from: 1492 }
+    summary: >-
+      On 12 October 1492 Christopher Columbus, sailing for Spain, made landfall on an island in the
+      Bahamas that its people called Guanahani. Most historians identify it with San Salvador
+      Island, though other islands have been proposed.
+    sources:
+      - kind: encyclopedia
+        title: Voyages of Christopher Columbus (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus
+      - kind: encyclopedia
+        title: Guanahani (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Guanahani
+tags:
+  history: [World history]

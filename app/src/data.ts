@@ -96,12 +96,13 @@ export function matches(p: Place, query: string, chosen: Record<string, string[]
     const hay = [p.name, ...(p.events ?? []).map(e => e.title)].filter(Boolean).join(' ').toLowerCase()
     if (!hay.includes(q)) return false
   }
-  // "or" within a group, "and" across groups
-  for (const [key, wanted] of Object.entries(chosen)) {
-    if (!wanted.length) continue
+  // "or" everywhere: every Explore heading is a collection of pins, so ticking boxes under two
+  // headings shows both (Joseph, 2026-11-13, when "Historical events" joined "Collections").
+  const picks = Object.entries(chosen).filter(([, wanted]) => wanted.length)
+  if (!picks.length) return true
+  return picks.some(([key, wanted]) => {
     const raw = p.tags?.[key]
     const have = Array.isArray(raw) ? raw : raw ? [raw] : []
-    if (!wanted.some(w => have.includes(w))) return false
-  }
-  return true
+    return wanted.some(w => have.includes(w))
+  })
 }

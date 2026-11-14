@@ -1,0 +1,21 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: messina
+name: Messina
+category: world-event
+location:
+  lat: 38.1938
+  lng: 15.5540
+  certainty: confirmed
+events:
+  - title: The Black Death reaches Europe
+    date: { from: 1347 }
+    summary: >-
+      In October 1347 Genoese ships arrived at Messina in Sicily carrying the plague. Over the next
+      few years the Black Death spread across Europe and killed a large share of its people,
+      often estimated at a third or more.
+    sources:
+      - kind: encyclopedia
+        title: Black Death (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Black_Death
+tags:
+  history: [World history]

@@ -1,0 +1,24 @@
+# Draft by Claude, 2026-11-13. Not yet reviewed by a person: it shows only on the local dev server.
+id: wittenberg
+name: Wittenberg
+category: world-event
+location:
+  lat: 51.8664     # All Saints' (Castle) Church
+  lng: 12.6431
+  certainty: confirmed
+events:
+  - title: Luther's Ninety-five Theses
+    date: { from: 1517 }
+    summary: >-
+      On 31 October 1517 Martin Luther, a monk and professor at Wittenberg, sent his Ninety-five
+      Theses against the sale of indulgences to the Archbishop of Mainz. Tradition holds he also
+      posted them on the door of the Castle Church. The dispute began the Protestant Reformation.
+    sources:
+      - kind: encyclopedia
+        title: Ninety-five Theses (Wikipedia)
+        url: https://en.wikipedia.org/wiki/Ninety-five_Theses
+      - kind: encyclopedia
+        title: All Saints' Church, Wittenberg (Wikipedia)
+        url: https://en.wikipedia.org/wiki/All_Saints%27_Church,_Wittenberg
+tags:
+  history: [World history]

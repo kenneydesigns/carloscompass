@@ -246,6 +246,12 @@ Joseph: the site must never show made-up example content.
 - **Explore shows only the main collections** (Joseph, 2026-11-13): "Eucharistic miracles" and
   "Life of Jesus", no country or region checkboxes. The pack lists which groups Explore offers
   (`explore_filters` in pack.yaml); country and region stay in the data.
+- **"Historical events" heading with "World history"** (Joseph, 2026-11-13): context for the
+  timeline (what else was happening then). First five draft pins: Fall of the Western Roman
+  Empire (Ravenna, 476), Great Schism (Hagia Sophia, 1054), Black Death reaches Europe (Messina,
+  1347), Columbus's landfall (San Salvador Island, 1492, probable), Luther's Ninety-five Theses
+  (Wittenberg, 1517). Emperors and more may join later. Ticking boxes under different headings
+  now shows both ("or"), since every heading is a collection of pins.
 ### First dataset: Eucharistic miracles (decision 2026-11-13)
 Joseph: start the data with the Eucharistic miracles, not Bible places, because it is simpler.
 - Why it's simpler: one category, no journeys to draw, and most sites are churches that still

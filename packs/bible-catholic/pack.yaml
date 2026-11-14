@@ -20,6 +20,8 @@ suggest_edit:
 explore_filters:
   - key: collection
     label: Collections
+  - key: history
+    label: Historical events   # context for the timeline; emperors etc. may join later
 links:
   story: "#story"
   donate: "#donate"
